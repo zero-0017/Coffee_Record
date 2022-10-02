@@ -10,6 +10,41 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header class="mb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000;">
+	    <div class="container">
+	      <% if user_signed_in? %>
+	       <a class="navbar-brand" href="/about"><%= image_tag 'Coffee_Record.png', :size => '100x50' %></a>
+	      <% else %>
+         <a class="navbar-brand" href="/"><%= image_tag 'Coffee_Record.png', :size => '100x50' %></a>
+        <% end %>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+          </button>
+           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+             <ul class="navbar-nav ml-auto">
+               <% if user_signed_in? %>
+
+	               <li class="nav-item">
+                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+	               </li>
+
+	            <% else %>
+	               <li class="nav-item">
+	                 <%= link_to "新規登録",  new_user_registration_path, class: 'nav-link text-light' %>
+        	       </li>
+
+	               <li class="nav-item">
+	                 <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %>
+	               </li>
+	           <% end %>
+	         </ul>
+	       </div>
+	     </div>
+	   </nav>
+  </header>
+
   <body>
     <%= yield %>
   </body>
