@@ -1,0 +1,2 @@
+class PostCoffee < ApplicationRecord
+end
