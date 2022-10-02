@@ -1,0 +1,14 @@
+<div class="container">
+  <h4><strong>会員編集</strong></h4>
+    <div class="row no-gutters">
+      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
+         <%= form_with model: @user do |f| %>
+       　   <h4>名前</h4><br>
+             <%= f.text_field :name, autofocus: true %><br>
+       　   <h4>画像</h4><br>
+             <%= f.file_field :profile_image, accept: "image/*" ,class: "mb-4" %><br>
+             <%= f.submit "変更内容保存", class: "btn btn-secondary" %>
+         <% end %>
+      </div>
+    </div>
+</div>
