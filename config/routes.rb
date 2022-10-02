@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'homes/top'
+  end
   namespace :public do
     get 'homes/top'
     get 'homes/about'
@@ -17,6 +20,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 scope module: :public do
   root to: 'homes#top'
   get '/about' => 'homes#about'
+end
+
+namespace :admin do
+  get '' => 'homes#top'
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

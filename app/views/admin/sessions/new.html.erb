@@ -2,7 +2,7 @@
   <div class="row">
     <div class="mx-auto">
       <div class="mb-4">
-        <h2>Log in</h2>
+        <h2>管理者Log in</h2>
       </div>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -22,7 +22,7 @@
              <%= f.label :remember_me %>
            </div>
           <% end %>
-          
+
           <div class="actions">
             <%= f.submit "Log in" %>
           </div>
