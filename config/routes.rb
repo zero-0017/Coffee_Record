@@ -14,7 +14,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 scope module: :public do
   root to: 'homes#top'
   get '/about' => 'homes#about'
-  resources :post_coffees, only: [:new, :create, :index, :show, :edit, :destroy, :update]
+  resources :post_coffees, only: [:new, :create, :index, :show, :edit, :destroy, :update] do
+    resource :favorites, only: [:create, :destroy]
+  end
+
   resources :users, only: [:show, :edit, :update]
 end
 
