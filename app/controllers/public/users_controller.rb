@@ -1,6 +1,8 @@
 class Public::UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
+    @post_coffees = @user.post_coffees
   end
 
   def edit

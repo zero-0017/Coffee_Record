@@ -1,0 +1,30 @@
+<div class="container">
+  <h4><strong>投稿詳細</strong></h4>
+    <div class="row no-gutters">
+      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
+         <!--投稿画像-->
+         <%= image_tag @post_coffee.get_image, class: "card-img" %>
+
+         <!--投稿名-->
+         <%= @post_coffee.coffee_name %>
+
+         <!--投稿説明-->
+　       <%= @post_coffee.coffee_explanation %>
+
+　       <!--会員画像-->
+         <%= image_tag @post_coffee.user.get_profile_image(100,100) %>
+
+         <!--会員名-->
+         会員名：<%= @post_coffee.user.name %><br>
+
+         <!--投稿日時-->
+         投稿日時：<%= @post_coffee.created_at.strftime('%Y/%m/%d') %><br>
+
+         <!--投稿した会員のみ編集＆削除可能-->
+       <% if @post_coffee.user == current_user %>
+         <%= link_to "編集", edit_post_coffee_path(@post_coffee) %>
+         <%= link_to "削除", post_coffee_path(@post_coffee), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+       <% end %>
+      </div>
+    </div>
+</div>
