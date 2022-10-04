@@ -1,0 +1,12 @@
+<div class="container">
+  <h4><strong>コメント一覧:[コメント数<%= @coffee_comments.count %>]</strong></h4>
+    <div class="row no-gutters">
+      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
+        <% @coffee_comments.each do |coffee_comment| %>
+          <p>コメント内容</p>
+          <p><%= coffee_comment.comment %></p>
+          <%= link_to "削除", admin_coffee_comment_path(coffee_comment.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+        <% end %>
+      </div>
+    </div>
+</div>
