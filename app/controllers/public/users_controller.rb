@@ -23,6 +23,12 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    favorites= Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
+    @favorite_post_coffees = PostCoffee.find(favorites)
+  end
+
   private
 
   def user_params
