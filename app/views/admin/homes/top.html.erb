@@ -1,2 +1,40 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class="container">
+  <h4><strong>会員一覧</strong></h4>
+    <div class="row no-gutters">
+      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
+
+        <table>
+          <thead>
+            <tr>
+              <th>会員ID</th>
+              <th>会員画像</th>
+              <th>会員名</th>
+              <th></th>
+            </tr>
+          </thead>
+        <% @users.each do |user| %>
+          <tbody>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= image_tag user.get_profile_image(100, 100) %></td>
+
+              <td>
+                <%= link_to admin_user_path(user.id) do %>
+                  <%= user.name %>
+                <% end %>
+              </td>
+              <td><%= user.email %></td>
+
+            <!--退会機能実装後、表示-->
+              <!--% if user.is_deleted == true %>-->
+                <!--  <td class="text-secondary font-weight-bold">退会</td>-->
+                <!--% else %>-->
+                <!--  <td class="text-success font-weight-bold">有効</td>-->
+              <!--% end %>-->
+            </tr>
+          </tbody>
+        <% end %>
+        </table>
+      </div>
+    </div>
+</div>
