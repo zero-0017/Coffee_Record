@@ -21,16 +21,16 @@
 
           <tr>
             <th>会員ステータス</th>
-              <!--% if @user.is_deleted == true %>-->
-              <!--  <td class="text-secondary font-weight-bold">退会</td>-->
-              <!--% else %>-->
-              <!--  <td class="text-success font-weight-bold">有効</td>-->
-              <!--% end %>-->
+              <% if @user.is_deleted == true %>
+                <td class="text-secondary font-weight-bold">退会</td>
+              <% else %>
+                <td class="text-success font-weight-bold">有効</td>
+              <% end %>
           </tr>
         </table>
 
         <p class="text-center">
-          <%= link_to "編集する", edit_admin_user_path(@user.id), class: 'btn btn-success m-3' %>
+          <%= link_to "編集する", edit_admin_user_path(@user.id), class: 'btn btn-success' %>
         </p>
       </div>
     </div>

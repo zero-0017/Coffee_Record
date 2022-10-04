@@ -13,6 +13,11 @@
 
              <!--変更内容保存ボタン-->
              <%= f.submit "変更内容保存", class: "btn btn-secondary" %>
+
+             <!--退会ボタン-->
+             <%= link_to unsubscribe_users_path do %>
+               <button type="button" class="btn btn-danger">退会する</button>
+             <% end %>
          <% end %>
       </div>
     </div>

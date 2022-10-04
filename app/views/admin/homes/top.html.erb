@@ -25,12 +25,11 @@
               </td>
               <td><%= user.email %></td>
 
-            <!--退会機能実装後、表示-->
-              <!--% if user.is_deleted == true %>-->
-                <!--  <td class="text-secondary font-weight-bold">退会</td>-->
-                <!--% else %>-->
-                <!--  <td class="text-success font-weight-bold">有効</td>-->
-              <!--% end %>-->
+              <% if user.is_deleted == true %>
+                  <td class="text-secondary font-weight-bold">退会</td>
+                <% else %>
+                  <td class="text-success font-weight-bold">有効</td>
+              <% end %>
             </tr>
           </tbody>
         <% end %>

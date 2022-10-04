@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-  end
-  namespace :admin do
-    get 'tags/index'
-    get 'tags/edit'
-  end
 # 会員用
 devise_for :user,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -29,8 +20,14 @@ scope module: :public do
   end
 
   resources :users, only: [:show, :edit, :update] do
-        member do
-    get :favorites
+
+    collection do
+      get 'unsubscribe'
+      patch 'withdrawal'
+    end
+
+    member do
+      get :favorites
     end
   end
 end

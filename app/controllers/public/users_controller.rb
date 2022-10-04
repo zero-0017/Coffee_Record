@@ -23,6 +23,17 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def unsubscribe
+  end
+
+  def withdrawal
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用をお待ちしております"
+    redirect_to root_path
+  end
+
   def favorites
     @user = User.find(params[:id])
     favorites= Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
