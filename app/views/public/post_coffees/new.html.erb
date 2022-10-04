@@ -6,12 +6,16 @@
 
           <!--エラーメッセージ表示-->
           <%= render 'layouts/error_messages', model: f.object %>
+
             <h5>投稿画像</h5>
               <%= f.file_field :image, accept: "image/*" %><br>
             <h5>投稿名</h5>
               <%= f.text_field :coffee_name %><br>
             <h5>投稿説明</h5>
               <%= f.text_area :coffee_explanation %><br>
+
+            <h5>タグ</h5>
+              <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :prompt => "選択して下さい" %>
            <%= f.submit "投稿" %>
         <% end %>
       </div>

@@ -1,7 +1,6 @@
 class PostCoffee < ApplicationRecord
   belongs_to :user
-  # タグをまだ作成していないので、新規投稿時にエラーが発生するためコメントアウト
-  # belongs_to :tag
+  belongs_to :tag
   has_many :coffee_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 

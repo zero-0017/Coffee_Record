@@ -11,6 +11,9 @@
           <h5>投稿説明</h5>
            <%= f.text_area :coffee_explanation %><br>
 
+          <h5>タグ</h5>
+           <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :prompt => "選択して下さい" %>
+
            <!--変更内容保存ボタン-->
          <%= f.submit '変更内容保存' %>
         <% end %>
