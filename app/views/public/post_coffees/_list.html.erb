@@ -17,6 +17,21 @@
 
              <!--投稿説明-->
              <%= post_coffee.coffee_explanation %>
+
+             <!--コメント数-->
+             コメント数：<%= post_coffee.coffee_comments.count %>
+
+             <!--いいね機能-->
+             <% if post_coffee.favorited_by?(current_user) %>
+               <%= link_to post_coffee_favorites_path(post_coffee), class: "text-danger", method: :delete do %>
+                 <i class="fas fa-coffee unlike-btn"></i><%= post_coffee.favorites.count %>
+               <% end %>
+             <% else %>
+               <%= link_to post_coffee_favorites_path(post_coffee), method: :post do %>
+                 <i class="fas fa-coffee unlike-btn"></i><%= post_coffee.favorites.count %>
+               <% end %>
+             <% end %>
+
          <% end %>
       </div>
     </div>

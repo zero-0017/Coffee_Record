@@ -20,6 +20,7 @@ class Public::PostCoffeesController < ApplicationController
 
   def show
     @post_coffee = PostCoffee.find(params[:id])
+    @coffee_comment = CoffeeComment.new
   end
 
   def edit
