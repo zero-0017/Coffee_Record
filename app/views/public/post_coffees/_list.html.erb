@@ -19,12 +19,14 @@
              <%= post_coffee.coffee_explanation %>
 
              <!--コメント数-->
-             コメント数：<%= post_coffee.coffee_comments.count %>
+             <div class="comment_count">
+               コメント数：<%= post_coffee.coffee_comments.count %>
+             </div>
 
              <!--いいね機能　[非同期通信化]-->
-             <span class="favorite_buttons_<%= post_coffee.id %>">
+             <div class="favorite_buttons_<%= post_coffee.id %>">
                <%= render "public/favorites/favorite", post_coffee: post_coffee %>
-             </span>
+             </div>
 
          <% end %>
       </div>

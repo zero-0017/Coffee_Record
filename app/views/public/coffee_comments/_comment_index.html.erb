@@ -1,0 +1,9 @@
+<!--コメント表示　[非同期通信化]-->
+<% post_coffee.coffee_comments.each do |coffee_comment| %>
+  <%= image_tag coffee_comment.user.get_profile_image(100,100) %>
+  <%= coffee_comment.user.name %>
+  <%= coffee_comment.created_at.strftime('%Y/%m/%d') %><%= coffee_comment.comment %>
+    <% if coffee_comment.user == current_user %>
+      <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, remote: true %>
+    <% end %>
+<% end %>

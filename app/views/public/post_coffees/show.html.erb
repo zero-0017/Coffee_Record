@@ -18,7 +18,9 @@
          会員名：<%= @post_coffee.user.name %><br>
 
          <!--コメント数-->
-         コメント数：<%= @post_coffee.coffee_comments.count %>
+         <div class="comment_count">
+           コメント数：<%= @post_coffee.coffee_comments.count %>
+         </div>
 
          <!--投稿日時-->
          投稿日時：<%= @post_coffee.created_at.strftime('%Y/%m/%d') %><br>
@@ -30,28 +32,18 @@
        <% end %>
 
         <!--いいね機能　[非同期通信化]-->
-        <span class="favorite_buttons_<%= @post_coffee.id %>">
+        <div class="favorite_buttons_<%= @post_coffee.id %>">
             <%= render "public/favorites/favorite", post_coffee: @post_coffee %>
-        </span>
-
-       <!--コメント表示-->
-       <div>
-          <% @post_coffee.coffee_comments.each do |coffee_comment| %>
-            <%= image_tag coffee_comment.user.get_profile_image(100,100) %>
-            <%= coffee_comment.user.name %>
-            <%= coffee_comment.created_at.strftime('%Y/%m/%d') %><%= coffee_comment.comment %>
-              <% if coffee_comment.user == current_user %>
-                <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete %>
-              <% end %>
-          <% end %>
         </div>
 
-        <!--コメント送信-->
-        <div>
-          <%= form_with model: [@post_coffee, @coffee_comment] do |f| %>
-            <%= f.text_area :comment, placeholder: "コメントを記入して下さい" %>
-            <%= f.submit "送信" %>
-          <% end %>
+       <!--コメント表示　[非同期通信化]-->
+        <div  class="comment_area">
+          <%= render 'public/coffee_comments/comment_index', post_coffee: @post_coffee %>
+        </div>
+
+        <!--コメント送信　[非同期通信化]-->
+        <div class="new_comment">
+          <%= render 'public/coffee_comments/comment_form', post_coffee: @post_coffee, coffee_comment: @cofee_comment %>
         </div>
 
       </div>
