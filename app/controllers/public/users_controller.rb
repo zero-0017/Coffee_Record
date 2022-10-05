@@ -41,6 +41,7 @@ before_action :ensure_guest_user, only: [:edit]
     @user = User.find(params[:id])
     favorites= Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
     @favorite_post_coffees = PostCoffee.find(favorites)
+    @tags = Tag.all
   end
 
   private
