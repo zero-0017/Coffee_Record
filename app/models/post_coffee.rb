@@ -17,4 +17,19 @@ class PostCoffee < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+
+# 投稿名の検索
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post_coffee = PostCoffee.where("coffee_name LIKE?","#{word}")
+    elsif search == "forward_match"
+      @post_coffee = PostCoffee.where("coffee_name LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @post_coffee = PostCoffee.where("coffee_name LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @post_coffee = PostCoffee.where("coffee_name LIKE?","%#{word}%")
+    else
+      @post_coffee = PostCoffee.all
+    end
+  end
 end

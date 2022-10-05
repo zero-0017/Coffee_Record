@@ -21,7 +21,7 @@
         <% end %>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
           </button>
            <div class="collapse navbar-collapse" id="navbarNavDropdown">
              <ul class="navbar-nav ml-auto">
@@ -80,6 +80,12 @@
 
   <body>
     <% if user_signed_in? %>
+      <div class='row' style="background-color: #333333;">
+        <div class='ml-auto my-2 mr-5'>
+          <%= render 'public/searchs/search' %>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-3" >
           <%= render "public/post_coffees/sidebar", tags: @tags %>

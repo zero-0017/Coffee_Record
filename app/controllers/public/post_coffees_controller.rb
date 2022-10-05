@@ -8,6 +8,7 @@ class Public::PostCoffeesController < ApplicationController
   def create
     @post_coffee = PostCoffee.new(post_coffee_params)
     @post_coffee.user_id = current_user.id
+    @tags = Tag.all
     if @post_coffee.save
       redirect_to post_coffees_path
     else

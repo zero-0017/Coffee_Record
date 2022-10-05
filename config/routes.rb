@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+# ゲストログイン
 devise_scope :user do
   post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
 end
@@ -35,6 +36,7 @@ scope module: :public do
   end
 
   resources :tags, only: [:show]
+  get "search" => "searchs#search"
 end
 
 namespace :admin do
