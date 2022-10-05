@@ -24,7 +24,6 @@ scope module: :public do
   end
 
   resources :users, only: [:show, :edit, :update] do
-
     collection do
       get 'unsubscribe'
       patch 'withdrawal'
@@ -34,6 +33,8 @@ scope module: :public do
       get :favorites
     end
   end
+
+  resources :tags, only: [:show]
 end
 
 namespace :admin do

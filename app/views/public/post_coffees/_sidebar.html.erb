@@ -1,0 +1,17 @@
+<table class="table shadow-lg">
+  <thead>
+    <tr>
+      <th class="text-center">タグ検索</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% tags.each do |tag| %>
+      <tr>
+        <td>
+          <%= link_to tag.tag_name, tag_path(tag.id), class:"text-dark"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

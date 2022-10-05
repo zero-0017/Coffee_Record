@@ -4,10 +4,12 @@ before_action :ensure_guest_user, only: [:edit]
   def show
     @user = User.find(params[:id])
     @post_coffees = @user.post_coffees
+    @tags = Tag.all
   end
 
   def edit
     @user = User.find(params[:id])
+    @tags = Tag.all
     if @user == current_user
       render :edit
     else

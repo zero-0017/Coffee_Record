@@ -2,6 +2,7 @@ class Public::PostCoffeesController < ApplicationController
 
   def new
     @post_coffee = PostCoffee.new
+    @tags = Tag.all
   end
 
   def create
@@ -16,15 +17,18 @@ class Public::PostCoffeesController < ApplicationController
 
   def index
     @post_coffees = PostCoffee.all
+    @tags = Tag.all
   end
 
   def show
     @post_coffee = PostCoffee.find(params[:id])
     @coffee_comment = CoffeeComment.new
+    @tags = Tag.all
   end
 
   def edit
     @post_coffee = PostCoffee.find(params[:id])
+    @tags = Tag.all
   end
 
   def update
