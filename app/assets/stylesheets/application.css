@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+.sidebar {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar-main {
+  overflow: hidden;
+  flex: 1;
+  background: #AAAAAA;
+}
+
+/*サイドバーのスクロール*/
+.sidebar-main:hover {
+  overflow: auto;
+}
+
+.main {
+  overflow: auto;
+  flex: 2;
+}

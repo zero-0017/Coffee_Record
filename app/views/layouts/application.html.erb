@@ -86,13 +86,16 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-3" >
-          <%= render "public/post_coffees/sidebar", tags: @tags %>
-        </div>
-      <div class="col-8">
-        <%= yield %>
+      <div class="sidebar">
+          <div class="col-2 sidebar-main" >
+            <%= render "public/post_coffees/sidebar", tags: @tags %>
+          </div>
+
+          <div class="main">
+            <%= yield %>
+          </div>
       </div>
+
     <% else %>
         <%= yield %>
     <% end %>
