@@ -14,6 +14,9 @@
 　       <!--タグ-->
 　       <%= @post_coffee.tag.tag_name %>
 
+　       <!--カテゴリー-->
+　       <%= @post_coffee.category.category_name %>
+
 　       <!--会員画像-->
          <%= image_tag @post_coffee.user.get_profile_image(100,100) %>
 

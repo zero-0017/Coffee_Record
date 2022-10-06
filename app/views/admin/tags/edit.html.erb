@@ -1,12 +1,12 @@
 <div class="container">
-  <h4><strong>ジャンル編集</strong></h4>
+  <h4><strong>タグ編集</strong></h4>
     <div class="row no-gutters">
       <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
         <%= form_with model:@tag, url: admin_tag_path, local:true do |f| %>
           タグ名
             <%= f.text_field :tag_name, class: "mx-2" %>
             <%= f.submit '変更を保存', class: "btn btn-success mx-2" %>
-            <%= link_to "削除する", admin_tag_path(tag.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
+            <%= link_to "削除する", admin_tag_path(@tag.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
         <% end %>
       </div>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_02_075126) do
+ActiveRecord::Schema.define(version: 2022_10_06_102210) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 2022_10_02_075126) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "coffee_comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_coffee_id", null: false
@@ -69,10 +75,11 @@ ActiveRecord::Schema.define(version: 2022_10_02_075126) do
 
   create_table "post_coffees", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "tag_id"
+    t.integer "tag_id", null: false
+    t.integer "category_id", null: false
     t.string "coffee_name", null: false
     t.text "coffee_explanation", null: false
-    t.string "status"
+    t.string "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
