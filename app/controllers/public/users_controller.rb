@@ -5,11 +5,13 @@ before_action :ensure_guest_user, only: [:edit]
     @user = User.find(params[:id])
     @post_coffees = @user.post_coffees
     @tags = Tag.all
+    @categorys = Category.all
   end
 
   def edit
     @user = User.find(params[:id])
     @tags = Tag.all
+    @categorys = Category.all
     if @user == current_user
       render :edit
     else
@@ -42,6 +44,7 @@ before_action :ensure_guest_user, only: [:edit]
     favorites= Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
     @favorite_post_coffees = PostCoffee.find(favorites)
     @tags = Tag.all
+    @categorys = Category.all
   end
 
   private

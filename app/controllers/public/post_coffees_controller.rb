@@ -3,12 +3,14 @@ class Public::PostCoffeesController < ApplicationController
   def new
     @post_coffee = PostCoffee.new
     @tags = Tag.all
+    @categorys = Category.all
   end
 
   def create
     @post_coffee = PostCoffee.new(post_coffee_params)
     @post_coffee.user_id = current_user.id
     @tags = Tag.all
+    @categorys = Category.all
     if @post_coffee.save
       redirect_to post_coffees_path
     else
@@ -19,17 +21,20 @@ class Public::PostCoffeesController < ApplicationController
   def index
     @post_coffees = PostCoffee.all
     @tags = Tag.all
+    @categorys = Category.all
   end
 
   def show
     @post_coffee = PostCoffee.find(params[:id])
     @coffee_comment = CoffeeComment.new
     @tags = Tag.all
+    @categorys = Category.all
   end
 
   def edit
     @post_coffee = PostCoffee.find(params[:id])
     @tags = Tag.all
+    @categorys = Category.all
   end
 
   def update

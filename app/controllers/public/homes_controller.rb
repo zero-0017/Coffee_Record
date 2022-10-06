@@ -4,5 +4,6 @@ class Public::HomesController < ApplicationController
 
   def about
     @tags = Tag.all
+    @categorys = Category.all
   end
 end
