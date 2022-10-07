@@ -45,6 +45,7 @@ namespace :admin do
   resources :users, only: [:show, :edit, :update]
   resources :tags, only: [:index, :create, :edit, :destroy, :update]
   resources :categorys, only: [:index, :create, :edit, :destroy, :update]
+  resources :genres, only: [:index, :create, :edit, :destroy, :update]
   resources :coffee_comments, only: [:index, :destroy]
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

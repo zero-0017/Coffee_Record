@@ -4,6 +4,9 @@ class PostCoffee < ApplicationRecord
   belongs_to :category
   has_many :coffee_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :coffee_genres, dependent: :destroy
+  has_many :genres, through: :coffee_genres
+
 
   has_one_attached :image
 

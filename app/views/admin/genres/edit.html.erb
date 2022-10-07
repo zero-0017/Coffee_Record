@@ -1,0 +1,13 @@
+<div class="container">
+  <h4><strong>編集</strong></h4>
+    <div class="row no-gutters">
+      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
+        <%= form_with model:@genre, url: admin_genre_path, local:true do |f| %>
+        　ジャンル名
+            <%= f.text_field :genre_name, class: "mx-2" %>
+            <%= f.submit '変更を保存', class: "btn btn-success mx-2" %>
+            <%= link_to "削除する", admin_genre_path(@genre.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+</div>

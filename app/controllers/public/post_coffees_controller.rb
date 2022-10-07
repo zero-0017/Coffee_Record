@@ -2,6 +2,7 @@ class Public::PostCoffeesController < ApplicationController
 
   def new
     @post_coffee = PostCoffee.new
+    @post_coffee.coffee_genres.build
     @tags = Tag.all
     @categorys = Category.all
   end
@@ -55,6 +56,6 @@ class Public::PostCoffeesController < ApplicationController
   private
 
   def post_coffee_params
-    params.require(:post_coffee).permit(:coffee_name, :coffee_explanation, :image, :status, :tag_id, :category_id)
+    params.require(:post_coffee).permit(:coffee_name, :coffee_explanation, :image, :status, :tag_id, :category_id, { genre_ids: [] })
   end
 end

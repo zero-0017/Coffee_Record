@@ -9,6 +9,13 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+　　<script type="text/javascript">
+    　$(document).ready(function() {
+    　$('.js-example-basic-multiple').select2();
+    　});
+　　</script>
   </head>
 
   <header>
@@ -57,6 +64,10 @@
 
         	       <li class="nav-item">
 	                 <%= link_to "カテゴリー一覧", admin_categorys_path, class: 'nav-link text-light' %>
+        	       </li>
+
+        	       <li class="nav-item">
+	                 <%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-light' %>
         	       </li>
 
 	               <li class="nav-item">
