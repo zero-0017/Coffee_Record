@@ -5,6 +5,7 @@ class Public::PostCoffeesController < ApplicationController
     @post_coffee.coffee_genres.build
     @tags = Tag.all
     @categorys = Category.all
+    @genres_list = Genre.all
   end
 
   def create
@@ -12,6 +13,7 @@ class Public::PostCoffeesController < ApplicationController
     @post_coffee.user_id = current_user.id
     @tags = Tag.all
     @categorys = Category.all
+    @genres_list = Genre.all
     if @post_coffee.save
       redirect_to post_coffees_path
     else
@@ -21,6 +23,7 @@ class Public::PostCoffeesController < ApplicationController
 
   def index
     @post_coffees = PostCoffee.all
+    @genres_list = Genre.all
     @tags = Tag.all
     @categorys = Category.all
   end
@@ -28,14 +31,17 @@ class Public::PostCoffeesController < ApplicationController
   def show
     @post_coffee = PostCoffee.find(params[:id])
     @coffee_comment = CoffeeComment.new
+    @coffee_genres = @post_coffee.genres
     @tags = Tag.all
     @categorys = Category.all
+    @genres_list = Genre.all
   end
 
   def edit
     @post_coffee = PostCoffee.find(params[:id])
     @tags = Tag.all
     @categorys = Category.all
+    @genres_list = Genre.all
   end
 
   def update

@@ -17,6 +17,13 @@
 　       <!--カテゴリー-->
 　       <%= @post_coffee.category.category_name %>
 
+　       <!--ジャンル-->
+　       <!--% @coffee_genres.each do |genre|%>-->
+　       <!--  %= genre.genre_name %>-->
+　       <!--% end %>-->
+　       <%= @post_coffee.genres.map(&:genre_name).join('・') %>
+
+
 　       <!--会員画像-->
          <%= image_tag @post_coffee.user.get_profile_image(100,100) %>
 

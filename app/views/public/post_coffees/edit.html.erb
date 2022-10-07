@@ -17,6 +17,9 @@
           <h5>カテゴリー</h5>
            <%= f.collection_select :category_id, Category.all, :id, :category_name, :prompt => "選択して下さい" %>
 
+          <h5>ジャンル</h5>
+            <%= f.collection_select(:genre_ids, Genre.all, :id, :genre_name, {}, {class:"form-control js-example-basic-multiple",multiple: true, include_hidden: false}) %>
+
           <h5>公開・非公開</h5>
             <%= f.label :status, "表示状態" %><br>
             <%= f.select :status,[["公開", "公開"],["非公開", "非公開"]], include_blank: "選択してください" %><br>
@@ -27,3 +30,9 @@
       </div>
     </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+  $('.js-example-basic-multiple').select2();
+  });
+</script>

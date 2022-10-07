@@ -37,6 +37,7 @@ scope module: :public do
 
   resources :tags, only: [:show]
   resources :categorys, only: [:show]
+  resources :genres, only: [:show]
   get "search" => "searchs#search"
 end
 
