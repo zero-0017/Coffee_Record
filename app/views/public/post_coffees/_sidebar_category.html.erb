@@ -1,7 +1,7 @@
-<table class="table">
+<table class="table table-bordered table-hover table-secondary">
   <thead>
     <tr>
-      <th class="text-center">カテゴリー検索</th>
+      <th class="text-center table-dark">珈琲の種類</th>
     </tr>
   </thead>
 
@@ -9,7 +9,7 @@
     <% categorys.each do |category| %>
       <tr>
         <td>
-          <%= link_to category.category_name, category_path(category.id), class:"text-dark"%>
+          ・<%= link_to category.category_name, category_path(category.id), class:"text-dark"%>
         </td>
       </tr>
     <% end %>

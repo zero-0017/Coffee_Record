@@ -1,14 +1,25 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// aboutの画像設定
 .about-image{
-  background-image: image-url('about.jpg');
-  height: 720px;
-  width: 1175px ;
+  background-image: image-url('about.png');
+  height: 796px;
+  width: 1400px ;
   background-size: cover;
   background-position:center;
 }
 
+// aboutの文字設定
 .about-text{
-  font-size: 50px;
+  font-size: 43px;
+  color: #fff;
+  text-align: center;
+  margin-left: 465px;
+  padding: 20px;
+  margin-bottom: 100px;
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
 }

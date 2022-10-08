@@ -20,7 +20,6 @@
 　       <!--ジャンル-->
 　       <%= @post_coffee.genres.map(&:genre_name).join('・') %>
 
-
 　       <!--会員画像-->
          <%= image_tag @post_coffee.user.get_profile_image(100,100) %>
 

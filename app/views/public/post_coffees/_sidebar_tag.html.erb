@@ -1,7 +1,7 @@
-<table class="table">
+<table class="table table-bordered table-hover table-secondary">
   <thead>
     <tr>
-      <th class="text-center">タグ検索</th>
+      <th class="text-center table-dark">珈琲の淹れ方</th>
     </tr>
   </thead>
 
@@ -9,7 +9,7 @@
     <% tags.each do |tag| %>
       <tr>
         <td>
-          <%= link_to tag.tag_name, tag_path(tag.id), class:"text-dark"%>
+          ・<%= link_to tag.tag_name, tag_path(tag.id), class:"text-dark"%>
         </td>
       </tr>
     <% end %>

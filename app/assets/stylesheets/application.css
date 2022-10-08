@@ -17,13 +17,18 @@
 /*各コンテンツ別でのスクロールの設定*/
 .sidebar {
   display: flex;
-  height: 100vh;
+  height: 82vh;
+}
+
+.sidebar-main,
+.main {
+  height: 82vh;
 }
 
 .sidebar-main {
   overflow: hidden;
   flex: 1;
-  background: #AAAAAA;
+  background: #556b2f;
 }
 
 /*サイドバーのスクロール*/
@@ -60,4 +65,18 @@
   color: #FFF;
   background-color: #000;
   border-radius: 15px;
+}
+
+
+/*全体の文字の書体*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+a,
+div{
+  font-family:  serif,'arial black';
 }
