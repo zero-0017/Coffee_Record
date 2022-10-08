@@ -1,11 +1,11 @@
 <div class="container">
-  <h4><strong><%= @genre.genre_name %>一覧</strong><span class="font">(全<%= @genres.count %>件)</strong></h4>
+  <h4><strong><%= @genre.genre_name %>一覧</strong><span class="font">(全<%= @genre_post_coffee.count %>件)</strong></h4>
     <div class="row no-gutters">
       <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
 
         <!--公開の投稿内容-->
         <div class="release">
-          <% @genres.each do |post_coffee| %>
+          <% @genre_post_coffee.each do |post_coffee| %>
            <% if post_coffee.status == "公開" %>
              <!--投稿画像-->
              <%= link_to post_coffee_path(post_coffee.id) do %>
@@ -45,7 +45,7 @@
 
         <!--非公開の投稿内容-->
         <div class="unrelease">
-          <% @genres.each do |post_coffee| %>
+          <% @genre_post_coffee.each do |post_coffee| %>
             <% if post_coffee.status == "非公開" %>
               <!--投稿画像-->
               <%= link_to post_coffee_path(post_coffee.id) do %>

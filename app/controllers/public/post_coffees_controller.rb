@@ -22,7 +22,7 @@ class Public::PostCoffeesController < ApplicationController
   end
 
   def index
-    @post_coffees = PostCoffee.all
+    @post_coffees = PostCoffee.page(params[:page])
     @genres_list = Genre.all
     @tags = Tag.all
     @categorys = Category.all

@@ -14,6 +14,7 @@
  *= require_self
  */
 
+/*各コンテンツ別でのスクロールの設定*/
 .sidebar {
   display: flex;
   height: 100vh;
@@ -33,4 +34,30 @@
 .main {
   overflow: auto;
   flex: 2;
+}
+
+
+/*ページネーションのレイアウト*/
+
+/*ページネーション初期の設定*/
+.pagination>li>a {
+  border: none;
+  color: #000;
+}
+
+/*ページネーション全体*/
+.pagination {
+  justify-content: center;
+}
+
+/*ページネーションにカーソルを載せた時の設定*/
+.pagination>.active>a,
+.page-item.active .page-link,
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover{
+  color: #FFF;
+  background-color: #000;
+  border-radius: 15px;
 }

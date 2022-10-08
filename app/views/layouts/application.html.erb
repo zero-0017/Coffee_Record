@@ -88,7 +88,7 @@
   </header>
 
   <body>
-  <% unless current_page?(root_path) %>
+   <% unless current_page?(root_path) %><!--検索機能をログイン済みのみに表示するため-->
     <% if user_signed_in? %>
       <div class='row' style="background-color: #333333;">
         <div class='ml-auto my-2 mr-5'>
@@ -102,12 +102,12 @@
             <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
             <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
           </div>
+   <% end %>
 
           <div class="main">
             <%= yield %>
           </div>
       </div>
-  <% end %>
 
     <% else %>
         <%= yield %>

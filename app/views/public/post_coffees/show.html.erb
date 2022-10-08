@@ -18,9 +18,6 @@
 　       <%= @post_coffee.category.category_name %>
 
 　       <!--ジャンル-->
-　       <!--% @coffee_genres.each do |genre|%>-->
-　       <!--  %= genre.genre_name %>-->
-　       <!--% end %>-->
 　       <%= @post_coffee.genres.map(&:genre_name).join('・') %>
 
 
