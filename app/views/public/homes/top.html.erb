@@ -1,15 +1,29 @@
-<div class="container">
+<div class='py-2' style="background-color: #333333;">
+</div>
+
+<div class="main-top">
+ <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <div class="mb-4">
-        <h1>Coffee_Record</h1>
-      </div>
-       <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %><br>
-       <%= link_to "新規登録", new_user_registration_path %><br>
-       <%= link_to "ログイン", new_user_session_path %><br>
+      <div class="top-image"></div>
 
-       <!--実装時のみ-->
-        <%= link_to "管理者ログイン", new_admin_session_path %>
+        <div class="col-7 mx-auto">
+          <div class="row">
+            <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-light btn-block mb-5" %>
+          </div>
+
+          <div class="row">
+            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary btn-block mb-5" %>
+          </div>
+
+          <div class="row">
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-dark btn-block" %>
+          </div>
+        </div>
+
+        <!--実装時のみ-->
+        <%= link_to "管理者ログイン", new_admin_session_path, class: "btn btn-light" %>
     </div>
   </div>
+ </div>
 </div>

@@ -14,32 +14,7 @@
  *= require_self
  */
 
-/*各コンテンツ別でのスクロールの設定*/
-.sidebar {
-  display: flex;
-  height: 82vh;
-}
 
-.sidebar-main,
-.main {
-  height: 82vh;
-}
-
-.sidebar-main {
-  overflow: hidden;
-  flex: 1;
-  background: #556b2f;
-}
-
-/*サイドバーのスクロール*/
-.sidebar-main:hover {
-  overflow: auto;
-}
-
-.main {
-  overflow: auto;
-  flex: 2;
-}
 
 
 /*ページネーションのレイアウト*/

@@ -35,3 +35,33 @@ a {
   color:#333;
   text-decoration: none;
 }
+
+
+
+/*各コンテンツ別でのスクロールの設定*/
+.sidebar {
+  display: flex;
+  height: 82vh;
+}
+
+.sidebar-main,
+.main {
+  min-height: 82vh;
+}
+
+.sidebar-main {
+  overflow: hidden;
+  flex: 1;
+  background: #556b2f;
+}
+
+/*サイドバーのスクロール*/
+.sidebar-main:hover {
+  overflow: auto;
+}
+
+.main {
+  margin: 0px;
+  overflow: auto;
+  flex: 2;
+}

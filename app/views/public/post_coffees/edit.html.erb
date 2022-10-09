@@ -3,6 +3,10 @@
     <div class="row no-gutters">
       <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
         <%= form_with model:@post_coffee,local:true do |f| %>
+
+          <h5>投稿画像</h5>
+            <%= f.file_field :image, accept: "image/*" %><br>
+
           <!--投稿名-->
         　<h5>投稿名</h5>
            <%= f.text_field :coffee_name %><br>

@@ -23,3 +23,17 @@
   bottom: 0;
   background: rgba(0,0,0,0.5);
 }
+
+// 会員側のトップ画像の設定
+.top-image {
+  background-image: image-url('top.jpg');
+  height: 280px;
+  width: 990px ;
+  margin: 100px 0;
+}
+
+/*会員側トップ画面の設定*/
+.main-top {
+  height: 86vh;
+  background-color: #6b8e23;
+}

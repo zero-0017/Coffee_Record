@@ -1,41 +1,46 @@
-<div class="container">
+<div class='py-2' style="background-color: #333333;">
+</div>
+
+<div class="main-sign">
+ <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <div class="mb-4">
-        <h2>Sign up</h2>
+      <div class="mb-4 mt-5 text-light">
+        <h2>新規登録</h2>
       </div>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
-          <div class="field">
-            <%= f.label :name %><br />
-            <%= f.text_field :name %>
+          <div class="field text-light">
+            <%= f.label :"名前" %><br>
+            <%= f.text_field :name, size: 30 %>
           </div>
 
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field mt-4 text-light">
+            <%= f.label :"メールアドレス" %><br>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 30 %>
           </div>
 
-          <div class="field">
-            <%= f.label :password %>
+          <div class="field mt-4 text-light">
+            <%= f.label :"パスワード" %>
             <% if @minimum_password_length %>
-             (<%= @minimum_password_length %> characters minimum)
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+             (<%= @minimum_password_length %>文字以上)
+            <% end %><br>
+            <%= f.password_field :password, autocomplete: "new-password", size: 30 %>
           </div>
 
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <div class="field mt-4 text-light">
+            <%= f.label :"パスワード(確認)" %><br>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 30 %>
           </div>
 
           <div class="actions">
-            <%= f.submit "Sign up" %>
+            <%= f.submit "新規登録", class: "btn btn-secondary" %>
           </div>
         <% end %>
       <%= render "public/shared/links" %>
     </div>
   </div>
+ </div>
 </div>
