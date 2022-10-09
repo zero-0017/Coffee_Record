@@ -1,14 +1,14 @@
 <div class="container">
-  <h4><strong>会員編集</strong></h4>
+  <h4 class="col-2 py-2 mt-2 text-center text-light" style="background-color:#000;"><strong>会員情報編集</strong></h4>
     <div class="row no-gutters">
-      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
+      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5" style="background-color: #fff;">
          <%= form_with model: @user do |f| %>
            <!--会員名-->
-       　   <h4>名前</h4><br>
-             <%= f.text_field :name, autofocus: true %><br>
+       　   <h4>名前</h4>
+             <%= f.text_field :name, autofocus: true ,class: "mb-4" %>
 
            <!--会員画像-->
-       　   <h4>画像</h4><br>
+       　   <h4>画像</h4>
              <%= f.file_field :profile_image, accept: "image/*" ,class: "mb-4" %><br>
 
              <!--変更内容保存ボタン-->

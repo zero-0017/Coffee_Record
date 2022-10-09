@@ -34,7 +34,7 @@
 
                  <li class="nav-item mr-5">
 	                 <%= link_to new_post_coffee_path, class: 'nav-link text-light' do %>
-	                   <i class="fa fa-comment"></i>新規投稿
+	                   <i class="fa fa-plus-square"></i>新規投稿
 	                 <% end %>
                  </li>
 
@@ -102,8 +102,8 @@
         </div>
       </div>
 
-      <div class="sidebar">
-          <div class="col-2 sidebar-main" >
+      <div class="sidebar-main">
+          <div class="col-2 sidebar" >
             <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
             <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
             <%= render "public/post_coffees/sidebar_genre", genres: @genres %>

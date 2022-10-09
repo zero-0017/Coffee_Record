@@ -1,30 +1,82 @@
 <div class="container">
-  <div class="row mt-3">
+  <h4 class="col-2 py-2 mt-2 text-center text-light" style="background-color:#000;"><strong>全投稿一覧</strong></h4>
+    <div class="row mt-2">
 
-    <% @post_coffees.each do |post_coffee| %>
-      <div class="col-md-3 mt-3">
-        <div class="card shadow-sm">
-            <!--投稿画像-->
-            <%= link_to post_coffee_path(post_coffee.id) do %>
-               <%= image_tag post_coffee.get_image, class: "card-img" %>
-             <% end %>
+      <!--公開の投稿内容-->
+      <% @post_coffees.each do |post_coffee| %>
+        <% if post_coffee.status == "公開" %>
+          <div class="col-md-3 mt-3 card">
+            <div class="shadow">
+              <div class="release">
 
-            <!--投稿名-->
-            <div class="text-center">
-              <h4><%= post_coffee.coffee_name %></h4>
+                <!--投稿画像-->
+                <%= link_to post_coffee_path(post_coffee.id) do %>
+                  <%= image_tag post_coffee.get_image, class: "card-img" %>
+                <% end %>
+
+                <!--投稿名-->
+                <div class="text-center">
+                  <h4><%= post_coffee.coffee_name %></h4>
+                </div>
+
+                <div class="row justify-content-end">
+                  <!--コメント数-->
+                  <div class="mr-4">
+                    <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
+                  </div>
+
+                  <!--いいね数・いいね機能-->
+                  <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
+                    <%= render "public/favorites/favorite", post_coffee: post_coffee %>
+                  </div>
+                </div>
+
+              </div>
             </div>
+          </div>
+        <% end %>
+      <% end %>
 
-            <!--いいね機能　[非同期通信化]-->
-            <div class="favorite_buttons_<%= post_coffee.id %>">
-              <%= render "public/favorites/favorite", post_coffee: post_coffee %>
+
+      <!--非公開の投稿内容-->
+      <% @post_coffees.each do |post_coffee| %>
+        <% if post_coffee.status == "非公開" %>
+          <div class="col-md-3 mt-3">
+            <div class="shadow">
+              <div class="unrelease">
+
+                <!--投稿画像-->
+                <%= link_to post_coffee_path(post_coffee.id) do %>
+                  <%= image_tag post_coffee.get_image, class: "card-img" %>
+                <% end %>
+
+                <!--投稿名-->
+                <div class="text-center">
+                  <h4><%= post_coffee.coffee_name %></h4>
+                </div>
+
+                <div class="row justify-content-end">
+                  <!--コメント数-->
+                  <div class="mr-4">
+                    <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
+                  </div>
+
+                  <!--いいね数・いいね機能-->
+                  <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
+                    <%= render "public/favorites/favorite", post_coffee: post_coffee %>
+                  </div>
+                </div>
+
+              </div>
             </div>
-        </div>
-      </div>
-    <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
   </div>
 </div>
 
 <!--ページネーション-->
-<div class="mt-5">
+<div class="mt-4">
   <%= paginate @post_coffees %>
 </div>

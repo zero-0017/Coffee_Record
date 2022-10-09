@@ -1,35 +1,32 @@
 <div class="container">
-  <h4><strong>投稿編集</strong></h4>
+  <h4 class="col-2 py-2 mt-2 text-center text-light" style="background-color:#000;"><strong>新規投稿</strong></h4>
     <div class="row no-gutters">
-      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
-        <%= form_with model:@post_coffee,local:true do |f| %>
+      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-4 px-5" style="background-color: #fff;">
+        <%= form_with model: @post_coffee do |f| %>
 
-          <h5>投稿画像</h5>
-            <%= f.file_field :image, accept: "image/*" %><br>
+          <!--エラーメッセージ表示-->
+          <%= render 'layouts/error_messages', model: f.object %>
 
-          <!--投稿名-->
-        　<h5>投稿名</h5>
-           <%= f.text_field :coffee_name %><br>
+            <h5>投稿画像</h5>
+              <%= f.file_field :image, accept: "image/*" %>
 
-          <!--投稿説明-->
-          <h5>投稿説明</h5>
-           <%= f.text_area :coffee_explanation %><br>
+            <h5 class="mt-4">投稿名</h5>
+              <%= f.text_field :coffee_name %>
+            <h5 class="mt-4">投稿説明</h5>
+              <%= f.text_area :coffee_explanation %>
 
-          <h5>タグ</h5>
-           <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :prompt => "選択して下さい" %>
+            <h5 class="mt-4">珈琲の淹れ方</h5>
+              <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :prompt => "選択して下さい" %>
 
-          <h5>カテゴリー</h5>
-           <%= f.collection_select :category_id, Category.all, :id, :category_name, :prompt => "選択して下さい" %>
+            <h5 class="mt-4">珈琲の種類</h5>
+              <%= f.collection_select :category_id, Category.all, :id, :category_name, :prompt => "選択して下さい" %>
 
-          <h5>ジャンル</h5>
-            <%= f.collection_select(:genre_ids, Genre.all, :id, :genre_name, {}, {class:"form-control js-example-basic-multiple",multiple: true, include_hidden: false}) %>
+            <h5 class="mt-4">珈琲豆の種類</h5>
+              <%= f.collection_select :genre_ids, Genre.all, :id, :genre_name, {}, {class:"form-control js-example-basic-multiple",multiple: true, include_hidden: false} %>
 
-          <h5>公開・非公開</h5>
-            <%= f.label :status, "表示状態" %><br>
+            <h5 class="mt-4">表示状態</h5>
             <%= f.select :status,[["公開", "公開"],["非公開", "非公開"]], include_blank: "選択してください" %><br>
-
-           <!--変更内容保存ボタン-->
-         <%= f.submit '変更内容保存' %>
+           <%= f.submit "投稿", class: "btn btn-dark mt-3" %>
         <% end %>
       </div>
     </div>
