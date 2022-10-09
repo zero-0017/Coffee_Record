@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2022_10_07_000420) do
     t.integer "category_id", null: false
     t.string "coffee_name", null: false
     t.text "coffee_explanation", null: false
-    t.string "status", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

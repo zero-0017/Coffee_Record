@@ -22,6 +22,9 @@ class PostCoffee < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+# 下書き機能
+  enum status: { published: 0, draft: 1 }
+
 # 投稿名の検索
   def self.looks(search, word)
     if search == "perfect_match"

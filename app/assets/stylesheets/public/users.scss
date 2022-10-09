@@ -1,3 +1,51 @@
 // Place all the styles related to the public/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 会員編集ボタン
+.user-edit {
+  background-color: #BBBBBB;
+  border-color: #222222;
+  border-width: 3px;
+}
+
+.user-edit:hover {
+  background-color: #222222;
+  color: #fff;
+}
+
+// お気に入り一覧ボタン
+.user-favorite {
+  background-color: #FFC0CB;
+  border-color: #DC143C;
+  border-width: 3px;
+}
+
+.user-favorite:hover {
+  background-color: #DC143C;
+  color: #fff;
+}
+
+// 投稿一覧ボタン
+.user-post_list {
+  background-color: #D9E5FF;
+  border-color: #005FFF;
+  border-width: 3px;
+}
+
+.user-post_list:hover {
+  background-color: #005FFF;
+  color: #fff;
+}
+
+// 下書き一覧ボタン
+.user-confirm {
+  background-color: #CEF9DC;
+  border-color: #228B22;
+  border-width: 3px;
+}
+
+.user-confirm:hover {
+  background-color: #228B22;
+  color: #fff;
+}

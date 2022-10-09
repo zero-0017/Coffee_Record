@@ -23,6 +23,8 @@ class Public::PostCoffeesController < ApplicationController
 
   def index
     @post_coffees = PostCoffee.page(params[:page])
+    @post_coffees = PostCoffee.published.page(params[:page]).reverse_order
+    @post_coffees = @post_coffees.where('location LIKE ?', "%#{params[:search]}%") if params[:search].present?
     @genres_list = Genre.all
     @tags = Tag.all
     @categorys = Category.all
@@ -39,6 +41,13 @@ class Public::PostCoffeesController < ApplicationController
 
   def edit
     @post_coffee = PostCoffee.find(params[:id])
+    @tags = Tag.all
+    @categorys = Category.all
+    @genres_list = Genre.all
+  end
+
+  def confirm
+    @post_coffees = current_user.post_coffees.draft.page(params[:page]).reverse_order
     @tags = Tag.all
     @categorys = Category.all
     @genres_list = Genre.all

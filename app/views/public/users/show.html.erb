@@ -1,10 +1,10 @@
 <div class="container">
-    <div class="row mt-2 justify-content-center">
-      <div class="col-md-3 mt-3 px-5 py-5 shadow" style="background-color: #fff;">
-        <div class="shadow" style="background-color: #fff;">
+  <div class="row mt-2 justify-content-center">
+    <div class="col-md-3 mt-3 shadow" style="background-color: #fff;">
+      <div class="shadow" style="background-color: #fff;">
 
         <!--会員画像-->
-        <%= image_tag @user.get_profile_image(100,100), class: "card-img" %>
+        <%= image_tag @user.get_profile_image(500,500), class: "card-img" %>
 
         <!--会員名-->
         <h4 class="text-center"><%= @user.name %></h4>
@@ -13,135 +13,63 @@
           <!--編集ボタン-->
           <% if @user.name != "guestuser" %>
             <% if @user == current_user %><br>
-              <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-dark mb-3" %>
+              <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn user-edit mb-3" %>
             <% end %>
           <% end %>
 
-          <!--いいねした投稿一覧-->
-          <%= link_to "いいねした投稿", favorites_user_path(@user), class: "btn btn-outline-danger mb-3" %>
         </div>
-      </div>
+
       </div>
     </div>
+  </div>
 </div>
+
+
 
 <!--会員の投稿一覧-->
 <div class="container">
-  <h4 class="col-3 py-2 mt-2 text-center text-light mx-auto" style="background-color:#000;"><strong>投稿一覧</strong></h4>
+    <div class="row justify-content-center mt-5">
+     <%= link_to "お気に入り投稿", favorites_user_path(@user), class: "btn user-favorite mb-3" %>
+     <%= link_to "投稿一覧", post_list_users_path, class: "btn user-post_list mb-3 mx-4" %>
+     <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-confirm mb-3" %>
+   </div>
+  <h4 class="col-2 py-2 mt-2 text-center text-light" style="background-color:#000;"><strong>新着投稿</strong></h4>
     <div class="row mt-2">
 
-        <!--公開・非公開の投稿を選択-->
-        <!--<div class="wrapper">-->
-          <ul class="tab mx-auto">
-            <li><a href="#a">公開</a></li>
-            <li><a href="#b">非公開</a></li>
-          </ul>
+      <% @post_coffees.last(6).each do |post_coffee| %>
+        <div class="col-md-2 mt-2 card">
+          <div class="shadow">
 
-            <!--公開の投稿内容-->
-     <div id="a" class="area">
-      <% @post_coffees.each do |post_coffee| %>
-        <% if post_coffee.status == "公開" %>
-          <div class="col-md-2 mt-3 card">
-            <div class="shadow">
+            <!--投稿画像-->
+            <%= link_to post_coffee_path(post_coffee.id) do %>
+              <%= image_tag post_coffee.get_image, class: "card-img" %>
+            <% end %>
 
-                <!--投稿画像-->
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image, class: "card-img" %>
-                <% end %>
-
-                <!--投稿名-->
-                <div class="text-center">
-                  <h4><%= post_coffee.coffee_name %></h4>
-                </div>
-
-                <div class="row justify-content-end">
-                  <!--コメント数-->
-                  <div class="mr-4">
-                    <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
-                  </div>
-
-                  <!--いいね数・いいね機能-->
-                  <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
-                    <%= render "public/favorites/favorite", post_coffee: post_coffee %>
-                  </div>
-                </div>
-
+            <!--投稿名-->
+            <div class="text-center">
+              <h4><%= post_coffee.coffee_name %></h4>
             </div>
-          </div>
-        <% end %>
-      <% end %>
-  </div>
 
-              <!--非公開の投稿内容-->
-    <div id="b" class="area">
-     <% @post_coffees.each do |post_coffee| %>
-        <% if post_coffee.status == "非公開" %>
-          <div class="col-md-2 mt-3 card">
-            <div class="shadow">
+            <div class="row justify-content-end">
+              <!--コメント数-->
+              <div class="mr-4">
+                <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
+              </div>
 
-                <!--投稿画像-->
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image, class: "card-img" %>
-                <% end %>
-
-                <!--投稿名-->
-                <div class="text-center">
-                  <h4><%= post_coffee.coffee_name %></h4>
-                </div>
-
-                <div class="row justify-content-end">
-                  <!--コメント数-->
-                  <div class="mr-4">
-                    <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
-                  </div>
-
-                  <!--いいね数・いいね機能-->
-                  <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
-                    <%= render "public/favorites/favorite", post_coffee: post_coffee %>
-                  </div>
-                </div>
-
+              <!--いいね数・いいね機能-->
+              <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
+                <%= render "public/favorites/favorite", post_coffee: post_coffee %>
               </div>
             </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+
+        　</div>
+        </div>
+      <% end %>
+
+  　</div>
 </div>
 
-
-
-<script>
-//投稿の公開と非公開の設定
-document.addEventListener("turbolinks:load", function() {
-  function GethashID (hashIDName){
-    if(hashIDName){
-      $('.tab li').find('a').each(function() {//全ての投稿の公開と非公開を取得
-        var idName = $(this).attr('href');
-        if(idName == hashIDName){
-          var parentElm = $(this).parent();
-          $('.tab li').removeClass("active");
-          $(parentElm).addClass("active");
-          $(".area").removeClass("is-active");
-          $(hashIDName).addClass("is-active");
-        }
-      });
-    }
-  }
-
-// タブをクリックしたら
-  $('.tab a').on('click', function() {
-    var idName = $(this).attr('href');//タブ内の投稿を取得
-    GethashID (idName);//指定のタグを読み込む
-    return false;//aタグを無効
-  });
-
-// 読み込まれたら
-  $(window).on('load', function () {
-      $('.tab li:first-of-type').addClass("active");
-      $('.area:first-of-type').addClass("is-active");
-    var hashName = location.hash;//指定されたhashタグを取得する
-    GethashID (hashName);//指定のタブを読み込む
-  });
-})
-</script>
+<!--ページネーション-->
+<div class="mt-4">
+  <!--%= paginate @post_coffees %>-->
+</div>
