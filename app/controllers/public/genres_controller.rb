@@ -4,6 +4,6 @@ class Public::GenresController < ApplicationController
     @tags = Tag.all
     @genres_list = Genre.all
     @genre = Genre.find(params[:id])
-    @genre_post_coffee = @genre.post_coffees.all
+    @genre_post_coffees = @genre.post_coffees.published.page(params[:page])
   end
 end

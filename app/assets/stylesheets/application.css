@@ -23,7 +23,7 @@
 .pagination>li>a {
   border: none;
   color: #000;
-  background-color: #DDDDDD;
+  background-color:rgba(0,0,0,0);
 }
 
 /*ページネーション全体*/

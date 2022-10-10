@@ -1,41 +1,48 @@
 <div class="container">
-  <h4 class="col-4 py-2 mt-2 text-center text-light" style="background-color:#000;"><strong><%= @genre.genre_name %>一覧</strong></h4>
+  <h4 class="col-4 py-1 mt-2 text-center text-light" style="background-color:#000;"><strong><%= @genre.genre_name %>一覧</strong></h4>
     <div class="row">
 
-      <% @genre_post_coffee.each do |post_coffee| %>
-        <div class="col-md-3 card">
-          <div class="shadow">
+      <% if @genre_post_coffees.present? %>
+        <% @genre_post_coffees.each do |post_coffee| %>
+          <div class="col-md-3 card">
+            <div class="shadow">
 
-            <!--投稿画像-->
-            <%= link_to post_coffee_path(post_coffee.id) do %>
-              <%= image_tag post_coffee.get_image, class: "card-img" %>
-            <% end %>
+              <!--投稿画像-->
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img" %>
+              <% end %>
 
-            <!--投稿名-->
-            <div class="text-center">
-              <h4><%= post_coffee.coffee_name %></h4>
-            </div>
-
-            <div class="row justify-content-end">
-              <!--コメント数-->
-              <div class="mr-4">
-                <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
+              <!--投稿名-->
+              <div class="text-center">
+                <h4><%= post_coffee.coffee_name %></h4>
               </div>
 
-              <!--いいね数・いいね機能-->
-              <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
-                <%= render "public/favorites/favorite", post_coffee: post_coffee %>
-              </div>
-            </div>
+              <div class="row justify-content-end">
+                <!--コメント数-->
+                <div class="mr-4">
+                  <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
+                </div>
 
-        　</div>
+                <!--いいね数・いいね機能-->
+                <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
+                  <%= render "public/favorites/favorite", post_coffee: post_coffee %>
+                </div>
+              </div>
+
+        　   </div>
+          </div>
+        <% end %>
+
+      <% else %>
+        <div class="mx-auto mt-5">
+          <h3><strong><%= @genre.genre_name %></strong>の投稿はありません</h3>
         </div>
       <% end %>
 
-      <!--ページネーション-->
-     <div class="mt-3 mx-auto">
-       <!--%= paginate @post_coffees %>-->
-     </div>
-
   　</div>
+</div>
+
+<!--ページネーション-->
+<div class="mx-auto">
+  <%= paginate @genre_post_coffees %>
 </div>

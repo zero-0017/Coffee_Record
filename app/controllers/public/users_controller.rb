@@ -3,8 +3,7 @@ before_action :ensure_guest_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
-    @post_coffees = PostCoffee.published.page(params[:page]).reverse_order
-    @post_coffees = @post_coffees.where('location LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    @post_coffees = PostCoffee.published.page(params[:page])
     @tags = Tag.all
     @categorys = Category.all
     @genres_list = Genre.all
@@ -46,14 +45,14 @@ before_action :ensure_guest_user, only: [:edit]
     @user = User.find(params[:id])
     favorites= Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
     @favorite_post_coffees = PostCoffee.find(favorites)
+    @favorite_post_coffees = Kaminari.paginate_array(@favorite_post_coffees).page(params[:page])
     @tags = Tag.all
     @categorys = Category.all
     @genres_list = Genre.all
   end
 
   def post_list
-    @post_coffees = PostCoffee.published.page(params[:page]).reverse_order
-    @post_coffees = @post_coffees.where('location LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    @post_coffees = PostCoffee.published.page(params[:page])
     @genres_list = Genre.all
     @tags = Tag.all
     @categorys = Category.all
