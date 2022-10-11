@@ -1,7 +1,9 @@
-<div class="container">
-  <h4 class="col-2 py-1 mt-2 text-center text-light" style="background-color:#000;"><strong>新規投稿</strong></h4>
-    <div class="row no-gutters">
-      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-4 px-5" style="background-color: #fff;">
+ <div class="container">
+    <h4 class="col-2 py-1 mt-2 text-center text-light" style="background-color:#000;"><strong>新規投稿</strong></h4>
+      <div class="row pb-5">
+        <div class="mx-auto px-5 py-3 shadow-lg" style="background-color: #fff;">
+
+
         <%= form_with model: @post_coffee do |f| %>
 
           <!--エラーメッセージ表示-->
@@ -11,9 +13,7 @@
               <%= f.file_field :image, accept: "image/*" %>
 
             <h5 class="mt-4">投稿名</h5>
-              <%= f.text_field :coffee_name %>
-            <h5 class="mt-4">投稿説明</h5>
-              <%= f.text_area :coffee_explanation %>
+              <%= f.text_field :coffee_name, size: "40" %>
 
             <h5 class="mt-4">珈琲の淹れ方</h5>
               <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :prompt => "選択して下さい" %>
@@ -24,12 +24,19 @@
             <h5 class="mt-4">珈琲豆の種類</h5>
               <%= f.collection_select :genre_ids, Genre.all, :id, :genre_name, {}, {class:"form-control js-example-basic-multiple",multiple: true, include_hidden: false} %>
 
+           <h5 class="mt-4">投稿説明</h5>
+              <%= f.text_area :coffee_explanation, size: "40x4" %>
+
             <h5 class="mt-4">表示状態</h5>
-            <%= f.select :status, PostCoffee.statuses.keys.map { |k| [t("enums.post_coffee.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %><br>
-           <%= f.submit "投稿", class: "btn btn-dark mt-3" %>
+            <%= f.select :status, PostCoffee.statuses.keys.map { |k| [t("enums.post_coffee.status.#{k}"),k]}, {}, {class: "custom-select"} %><br>
+
+
+            <div class="row justify-content-center">
+           <%= f.submit "投稿", class: "btn btn-dark mt-3 btn-lg" %>
+           </div>
         <% end %>
-      </div>
     </div>
+</div>
 </div>
 
 <script>
@@ -37,3 +44,7 @@
   $('.js-example-basic-multiple').select2();
   });
 </script>
+
+<style>
+.main {height: auto;}
+</style>

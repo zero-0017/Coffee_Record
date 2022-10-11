@@ -1,5 +1,5 @@
 <!--コメント送信　[非同期通信化]-->
 <%= form_with model: [@post_coffee, @coffee_comment], local: false do |f| %>
-  <%= f.text_area :comment, placeholder: "コメントを記入して下さい" %>
-  <%= f.submit "送信" %>
+  <%= f.text_area :comment, placeholder: "コメントを記入して下さい", size: "125x6" %>
+  <%= f.submit "送信", class: "btn btn-dark mt-3 btn-lg" %>
 <% end %>
