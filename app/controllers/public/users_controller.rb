@@ -3,7 +3,7 @@ before_action :ensure_guest_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
-    @post_coffees = PostCoffee.published.page(params[:page])
+    @post_coffees = @user.post_coffees.published
     @tags = Tag.all
     @categorys = Category.all
     @genres_list = Genre.all
@@ -31,6 +31,9 @@ before_action :ensure_guest_user, only: [:edit]
   end
 
   def unsubscribe
+    @genres_list = Genre.all
+    @tags = Tag.all
+    @categorys = Category.all
   end
 
   def withdrawal
@@ -52,7 +55,8 @@ before_action :ensure_guest_user, only: [:edit]
   end
 
   def post_list
-    @post_coffees = PostCoffee.published.page(params[:page])
+    @user = User.find(params[:id])
+    @post_coffees = @user.post_coffees.published.page(params[:page])
     @genres_list = Genre.all
     @tags = Tag.all
     @categorys = Category.all

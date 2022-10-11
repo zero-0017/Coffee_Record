@@ -29,13 +29,13 @@ scope module: :public do
 
   resources :users, only: [:show, :edit, :update] do
     collection do
-      get "post_list"
       get 'unsubscribe'
       patch 'withdrawal'
     end
 
     member do
       get :favorites
+      get :post_list
     end
   end
 

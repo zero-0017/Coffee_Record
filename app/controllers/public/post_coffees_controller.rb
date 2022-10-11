@@ -30,7 +30,6 @@ class Public::PostCoffeesController < ApplicationController
   def show
     @post_coffee = PostCoffee.find(params[:id])
     @coffee_comment = CoffeeComment.new
-    @coffee_genres = @post_coffee.genres
     @tags = Tag.all
     @categorys = Category.all
     @genres_list = Genre.all

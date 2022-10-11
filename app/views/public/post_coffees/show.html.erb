@@ -1,8 +1,8 @@
 <div class="container pb-5">
   <h4 class="col-3 py-1 mt-2 text-center text-light" style="background-color:#000;"><strong>投稿詳細</strong></h4>
-    <div class="row shadow-lg">
+    <div class="row shadow">
 
-      <div class="col-md-6 pb-2" style="background-color:#fff;">
+      <div class="col-5 pb-2" style="background-color:#fff;">
         <!--投稿画像-->
         <%= image_tag @post_coffee.get_image, class: "card-img" %>
 
@@ -14,7 +14,7 @@
 
         <!--投稿日時-->
         <div class="justify-content-start mr-4 mt-4">
-         投稿日時：<%= @post_coffee.created_at.strftime('%Y/%m/%d') %>
+         投稿日時：<%= l @post_coffee.created_at %>
         </div>
 
         <div class="row justify-content-end">
@@ -33,7 +33,7 @@
       </div>
 
 
-      <div class="col-md-6" style="background-color:#C0C0C0;">
+      <div class="col-7" style="background-color:#C0C0C0;">
 
         <h5 class="mt-5 ml-5">投稿名:
           <%= @post_coffee.coffee_name %>
@@ -68,11 +68,7 @@
         <% end %>
         </div>
     </div>
- </div>
-
-<div class="container pb-5">
-    <div class="row">
-
+ 
       <!--コメント表示　[非同期通信化]-->
       <div  class="comment_area">
         <%= render 'public/coffee_comments/comment_index', post_coffee: @post_coffee %>
@@ -82,7 +78,6 @@
       <div class="new_comment">
         <%= render 'public/coffee_comments/comment_form', post_coffee: @post_coffee, coffee_comment: @cofee_comment %>
       </div>
-    </div>
 </div>
 
 
