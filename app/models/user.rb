@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :coffee_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+# 会員の画像の設定
   has_one_attached :profile_image
 
   def get_profile_image(width, height)
@@ -18,6 +19,7 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+# ゲストログインのアカウント
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guestuser@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

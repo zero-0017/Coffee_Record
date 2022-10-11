@@ -7,12 +7,15 @@ class PostCoffee < ApplicationRecord
   has_many :coffee_genres, dependent: :destroy
   has_many :genres, through: :coffee_genres
 
+  validates :coffee_name, presence:true
+  validates :coffee_explanation, presence:true, length: { maximum: 200 }
+  validates :genre_ids, presence:true
 
   has_one_attached :image
 
   def get_image
     unless image.attached?
-      file_path = Rails.root.join('app/assets/images/profile_image.jpg')
+      file_path = Rails.root.join('app/assets/images/post_coffee.png')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     image

@@ -1,6 +1,7 @@
 <% if model.errors.any? %>
   <div class="alert alert-danger">
     <ul>
+      <h5><%= model.errors.count %>件のエラーが発生しました。</h5>
       <%= alert %><button type="button" class="close" data-dismiss="alert">&times;</button>
       <% model.errors.full_messages.each do |message| %>
         <li><%= message %></li>

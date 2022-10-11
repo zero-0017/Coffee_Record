@@ -16,3 +16,13 @@
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+
+  activerecord:
+    attributes:
+      post_coffee:
+        coffee_name: 投稿名
+        coffee_explanation: 投稿説明
+        category: 珈琲の種類
+        tag: 珈琲の淹れ方
+        genre_ids: 珈琲豆の種類
+

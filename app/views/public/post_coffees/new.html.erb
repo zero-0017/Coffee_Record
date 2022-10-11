@@ -13,7 +13,7 @@
               <%= f.file_field :image, accept: "image/*" %>
 
             <h5 class="mt-4">投稿名</h5>
-              <%= f.text_field :coffee_name, size: "40" %>
+              <%= f.text_field :coffee_name, size: "40", placeholder: "投稿名を記入して下さい" %>
 
             <h5 class="mt-4">珈琲の淹れ方</h5>
               <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :prompt => "選択して下さい" %>
@@ -25,7 +25,7 @@
               <%= f.collection_select :genre_ids, Genre.all, :id, :genre_name, {}, {class:"form-control js-example-basic-multiple",multiple: true, include_hidden: false} %>
 
            <h5 class="mt-4">投稿説明</h5>
-              <%= f.text_area :coffee_explanation, size: "40x4" %>
+              <%= f.text_area :coffee_explanation, size: "40x4", placeholder: "投稿説明を記入して下さい　※200文字以内" %>
 
             <h5 class="mt-4">表示状態</h5>
             <%= f.select :status, PostCoffee.statuses.keys.map { |k| [t("enums.post_coffee.status.#{k}"),k]}, {}, {class: "custom-select"} %><br>

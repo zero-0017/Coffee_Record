@@ -1,4 +1,5 @@
 class Public::PostCoffeesController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @post_coffee = PostCoffee.new
@@ -51,6 +52,9 @@ class Public::PostCoffeesController < ApplicationController
 
   def update
     @post_coffee = PostCoffee.find(params[:id])
+    @tags = Tag.all
+    @categorys = Category.all
+    @genres_list = Genre.all
     if @post_coffee.update(post_coffee_params)
       redirect_to post_coffee_path(@post_coffee)
     else
