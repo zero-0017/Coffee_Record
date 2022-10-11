@@ -16,6 +16,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000;">
 	      <% if user_signed_in? %>
 	       <a class="navbar-brand ml-5" href="/about"><%= image_tag 'Coffee_Record.png', :size => '100x50' %></a>
+	      <% elsif admin_signed_in? %>
+	       <a class="navbar-brand ml-5" href="/admin"><%= image_tag 'Coffee_Record.png', :size => '100x50' %></a>
 	      <% else %>
          <a class="navbar-brand ml-5" href="/"><%= image_tag 'Coffee_Record.png', :size => '100x50' %></a>
         <% end %>
@@ -60,15 +62,15 @@
         	       </li>
 
 	               <li class="nav-item mr-5">
-	                 <%= link_to "タグ一覧", admin_tags_path, class: 'nav-link text-light' %>
+	                 <%= link_to "珈琲の淹れ方一覧", admin_tags_path, class: 'nav-link text-light' %>
         	       </li>
 
         	       <li class="nav-item mr-5">
-	                 <%= link_to "カテゴリー一覧", admin_categorys_path, class: 'nav-link text-light' %>
+	                 <%= link_to "珈琲の種類一覧", admin_categorys_path, class: 'nav-link text-light' %>
         	       </li>
 
         	       <li class="nav-item mr-5">
-	                 <%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-light' %>
+	                 <%= link_to "珈琲豆の種類一覧", admin_genres_path, class: 'nav-link text-light' %>
         	       </li>
 
 	               <li class="nav-item mr-5">
@@ -116,9 +118,8 @@
       </div>
 
     <% else %>
-      <div class="main">
         <%= yield %>
-      </div>
+      <!--</div>-->
     <% end %>
     <footer style="height:50px;">
     	<p class="text-center text-white" style="line-height: 50px; background-color: #000;">Coffee_Record</p>

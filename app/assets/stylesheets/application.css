@@ -23,7 +23,7 @@
 .pagination>li>a {
   border: none;
   color: #000;
-  background-color:rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0);
 }
 
 /*ページネーション全体*/
@@ -39,7 +39,7 @@
 .pagination > li > span:focus,
 .pagination > li > span:hover{
   color: #FFF;
-  background-color: #000;
+  background: rgba(0,0,0,0.5);
   border-radius: 15px;
 }
 

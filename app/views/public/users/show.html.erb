@@ -1,6 +1,6 @@
 <div class="container">
   <h4 class="col-3 py-1 mt-2 mx-auto text-center text-light" style="background-color:#000;">会員の詳細<strong></strong></h4>
-    <div class="row mt-3 justify-content-center">
+    <div class="row mt-2 justify-content-center">
       <div class="col-md-3 shadow" style="background-color: #fff;">
         <div class="shadow" style="background-color: #fff;">
 
@@ -8,7 +8,7 @@
           <%= image_tag @user.get_profile_image(500,500), class: "card-img" %>
 
           <!--会員名-->
-          <h4 class="text-center"><%= @user.name %></h4>
+          <h5 class="text-center"><%= @user.name %></h5>
 
           <div class="row justify-content-center">
             <!--編集ボタン-->
@@ -29,13 +29,13 @@
 
 <!--会員の投稿一覧-->
 <div class="container">
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-4">
      <%= link_to "お気に入り投稿", favorites_user_path(@user), class: "btn user-favorite mb-3" %>
      <%= link_to "会員の投稿一覧", post_list_users_path, class: "btn user-post_list mb-3 mx-4" %>
      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-confirm mb-3" %>
    </div>
-  <h4 class="col-2 py-1 mt-2 text-center text-light" style="background-color:#000;"><strong>新着投稿</strong></h4>
-    <div class="row mt-2">
+  <h4 class="col-2 py-1 text-center text-light" style="background-color:#000;"><strong>新着投稿</strong></h4>
+    <div class="row">
 
       <% if @post_coffees.present? %>
         <% @post_coffees.last(6).each do |post_coffee| %>

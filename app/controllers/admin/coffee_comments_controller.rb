@@ -1,6 +1,6 @@
 class Admin::CoffeeCommentsController < ApplicationController
   def index
-    @coffee_comments = CoffeeComment.all
+    @coffee_comments = CoffeeComment.page(params[:page]).per(11)
   end
 
   def destroy

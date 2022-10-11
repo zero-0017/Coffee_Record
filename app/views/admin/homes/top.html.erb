@@ -1,14 +1,15 @@
 <div class="container">
-  <h4><strong>会員一覧</strong></h4>
-    <div class="row no-gutters">
-      <div class="col-md-5 mx-sm-auto text-center shadow-lg py-5">
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <h4 class="col-3 py-1 mt-2 text-center text-light" style="background-color:#000;"><strong>会員一覧</strong></h4>
 
-        <table>
-          <thead>
+        <table class="table shadow-lg mt-4 table-hover" style="background-color: #fff;">
+          <thead class="table-active" style="background-color: #556b2f;">
             <tr>
-              <th>会員ID</th>
-              <th>会員画像</th>
-              <th>会員名</th>
+              <th class="text-light">会員ID</th>
+              <th class="text-light">会員画像</th>
+              <th class="text-light">会員名</th>
+              <th class="text-light">メールアドレス</th>
               <th></th>
             </tr>
           </thead>
@@ -16,7 +17,7 @@
           <tbody>
             <tr>
               <td><%= user.id %></td>
-              <td><%= image_tag user.get_profile_image(100, 100) %></td>
+              <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle"; %></td>
 
               <td>
                 <%= link_to admin_user_path(user.id) do %>
@@ -26,9 +27,9 @@
               <td><%= user.email %></td>
 
               <% if user.is_deleted == true %>
-                  <td class="text-secondary font-weight-bold">退会</td>
+                  <td class="text-primary font-weight-bold">退会</td>
                 <% else %>
-                  <td class="text-success font-weight-bold">有効</td>
+                  <td class="text-danger font-weight-bold">有効</td>
               <% end %>
             </tr>
           </tbody>
@@ -36,4 +37,9 @@
         </table>
       </div>
     </div>
+</div>
+
+<!--ページネーション-->
+<div class="mx-auto mt-4">
+  <%= paginate @users %>
 </div>

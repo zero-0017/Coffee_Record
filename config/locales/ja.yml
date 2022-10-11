@@ -5,7 +5,6 @@
         published: '投稿する'
         draft: '下書きする'
 
-ja:
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>
@@ -13,3 +12,7 @@ ja:
       previous: <i class="fas fa-angle-left"></i>
       next: <i class="fas fa-angle-right"></i>
       truncate: "..."
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
