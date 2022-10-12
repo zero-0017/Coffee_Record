@@ -6,14 +6,14 @@ before_action :ensure_guest_user, only: [:edit]
     @post_coffees = @user.post_coffees.published
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
   end
 
   def edit
     @user = User.find(params[:id])
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
     if @user == current_user
       render :edit
     else
@@ -25,7 +25,7 @@ before_action :ensure_guest_user, only: [:edit]
     @user = User.find(params[:id])
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "会員情報の変更内容を保存しました"
     else
@@ -34,7 +34,7 @@ before_action :ensure_guest_user, only: [:edit]
   end
 
   def unsubscribe
-    @genres_list = Genre.all
+    @genres = Genre.all
     @tags = Tag.all
     @categorys = Category.all
   end
@@ -49,17 +49,17 @@ before_action :ensure_guest_user, only: [:edit]
   def favorites
     @user = User.find(params[:id])
     favorites= Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
-    @favorite_post_coffees = PostCoffee.find(favorites)
-    @favorite_post_coffees = Kaminari.paginate_array(@favorite_post_coffees).page(params[:page])
+    @post_coffees = PostCoffee.find(favorites)
+    @post_coffees = Kaminari.paginate_array(@post_coffees).page(params[:page])
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
   end
 
   def post_list
     @user = User.find(params[:id])
     @post_coffees = @user.post_coffees.published.page(params[:page])
-    @genres_list = Genre.all
+    @genres = Genre.all
     @tags = Tag.all
     @categorys = Category.all
   end

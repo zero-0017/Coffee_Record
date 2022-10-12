@@ -5,7 +5,7 @@ class Public::PostCoffeesController < ApplicationController
     @post_coffee = PostCoffee.new
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
   end
 
   def create
@@ -13,7 +13,7 @@ class Public::PostCoffeesController < ApplicationController
     @post_coffee.user_id = current_user.id
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
     if @post_coffee.save
       redirect_to post_coffees_path, notice: "投稿しました"
     else
@@ -23,7 +23,7 @@ class Public::PostCoffeesController < ApplicationController
 
   def index
     @post_coffees = PostCoffee.published.page(params[:page])
-    @genres_list = Genre.all
+    @genres = Genre.all
     @tags = Tag.all
     @categorys = Category.all
   end
@@ -33,28 +33,28 @@ class Public::PostCoffeesController < ApplicationController
     @coffee_comment = CoffeeComment.new
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
   end
 
   def edit
     @post_coffee = PostCoffee.find(params[:id])
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
   end
 
   def confirm
     @post_coffees = current_user.post_coffees.draft.page(params[:page])
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
   end
 
   def update
     @post_coffee = PostCoffee.find(params[:id])
     @tags = Tag.all
     @categorys = Category.all
-    @genres_list = Genre.all
+    @genres = Genre.all
     if @post_coffee.update(post_coffee_params)
       redirect_to post_coffee_path(@post_coffee), notice: "投稿の変更内容を保存しました"
     else
