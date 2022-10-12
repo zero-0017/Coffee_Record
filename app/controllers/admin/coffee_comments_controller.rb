@@ -6,6 +6,6 @@ class Admin::CoffeeCommentsController < ApplicationController
   def destroy
     @cofee_comment = CoffeeComment.find(params[:id])
     @cofee_comment.destroy
-    redirect_to request.referer
+    redirect_to request.referer, notice: "コメントを削除しました"
   end
 end

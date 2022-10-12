@@ -16,7 +16,7 @@
     <%= render 'layouts/header' %>
      <% unless current_page?(root_path) %><!--検索機能をログイン済みのみに表示するため-->
       <% if user_signed_in? %>
-        <div class='pl-5' style="background-color: #333333;">
+        <div style="background-color: #333333;">
           <div class='ml-auto py-2 r-5 col-3'>
             <%= render 'public/searchs/search' %>
           </div>

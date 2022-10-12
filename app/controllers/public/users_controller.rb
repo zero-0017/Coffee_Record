@@ -27,7 +27,7 @@ before_action :ensure_guest_user, only: [:edit]
     @categorys = Category.all
     @genres_list = Genre.all
     if @user.update(user_params)
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id), notice: "会員情報の変更内容を保存しました"
     else
       render :edit
     end
@@ -43,8 +43,7 @@ before_action :ensure_guest_user, only: [:edit]
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "ありがとうございました。またのご利用をお待ちしております"
-    redirect_to root_path
+    redirect_to root_path, notice: "ありがとうございました。またのご利用をお待ちしております"
   end
 
   def favorites

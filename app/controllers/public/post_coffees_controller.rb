@@ -15,7 +15,7 @@ class Public::PostCoffeesController < ApplicationController
     @categorys = Category.all
     @genres_list = Genre.all
     if @post_coffee.save
-      redirect_to post_coffees_path
+      redirect_to post_coffees_path, notice: "投稿しました"
     else
       render :new
     end
@@ -56,7 +56,7 @@ class Public::PostCoffeesController < ApplicationController
     @categorys = Category.all
     @genres_list = Genre.all
     if @post_coffee.update(post_coffee_params)
-      redirect_to post_coffee_path(@post_coffee)
+      redirect_to post_coffee_path(@post_coffee), notice: "投稿の変更内容を保存しました"
     else
       render :edit
     end
@@ -65,7 +65,7 @@ class Public::PostCoffeesController < ApplicationController
   def destroy
     @post_coffee = PostCoffee.find(params[:id])
     @post_coffee.destroy
-    redirect_to post_coffees_path
+    redirect_to post_coffees_path, notice: "投稿を削除しました"
   end
 
   private

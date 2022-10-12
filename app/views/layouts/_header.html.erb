@@ -16,64 +16,82 @@
             <% if user_signed_in? %>
               <li class="nav-item mr-5">
 	              <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
-	                <i class="fa fa-user-circle"></i>マイページ
+	                <i class="fa fa-user-circle fa-lg mr-2"></i>マイページ
 	              <% end %>
               </li>
 
               <li class="nav-item mr-5">
 	              <%= link_to new_post_coffee_path, class: 'nav-link text-light' do %>
-	                <i class="fa fa-plus-square"></i>新規投稿
+	                <i class="fa fa-plus-square fa-lg mr-2"></i>新規投稿
 	              <% end %>
               </li>
 
               <li class="nav-item mr-5">
 	              <%= link_to post_coffees_path, class: 'nav-link text-light' do %>
-	                <i class="fa fa-list"></i>投稿一覧
+	                <i class="fa fa-list fa-lg mr-2"></i>投稿一覧
 	              <% end %>
               </li>
 
 	            <li class="nav-item mr-5">
                 <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
-                  <i class="fa fa-sign-out-alt"></i>ログアウト
+                  <i class="fa fa-sign-out-alt fa-lg mr-2"></i>ログアウト
                 <% end %>
 	            </li>
 
 	          <% elsif admin_signed_in? %>
 	            <li class="nav-item mr-5">
-     	          <%= link_to "会員一覧",  admin_path, class: 'nav-link text-light' %>
+     	          <%= link_to admin_path, class: 'nav-link text-light' do %>
+     	            <i class="fa fa-address-book fa-lg mr-2"></i>会員一覧
+     	          <% end %>
 	            </li>
 
 	            <li class="nav-item mr-5">
-	              <%= link_to "コメント一覧", admin_coffee_comments_path, class: 'nav-link text-light' %>
+	              <%= link_to admin_coffee_comments_path, class: 'nav-link text-light' do %>
+	                <i class="fa fa-comment fa-lg mr-2"></i>コメント一覧
+	              <% end %>
         	    </li>
 
 	            <li class="nav-item mr-5">
-	              <%= link_to "珈琲の淹れ方一覧", admin_tags_path, class: 'nav-link text-light' %>
+	              <%= link_to admin_tags_path, class: 'nav-link text-light' do %>
+	                <i class="fas fa-coffee unlike-btn fa-lg mr-2"></i>珈琲の淹れ方一覧
+	              <% end %>
         	    </li>
 
         	    <li class="nav-item mr-5">
-	              <%= link_to "珈琲の種類一覧", admin_categorys_path, class: 'nav-link text-light' %>
+	              <%= link_to admin_categorys_path, class: 'nav-link text-light' do %>
+	                <i class="fas fa-coffee unlike-btn fa-lg mr-2"></i>珈琲の種類一覧
+	              <% end %>
         	    </li>
 
         	    <li class="nav-item mr-5">
-	              <%= link_to "珈琲豆の種類一覧", admin_genres_path, class: 'nav-link text-light' %>
+	              <%= link_to admin_genres_path, class: 'nav-link text-light' do %>
+	                <i class="fas fa-coffee unlike-btn fa-lg mr-2"></i>珈琲豆の種類一覧
+	              <% end %>
         	    </li>
 
 	            <li class="nav-item mr-5">
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
+                <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+                  <i class="fa fa-sign-out-alt fa-lg mr-2"></i>ログアウト
+                <% end %>
 	            </li>
 
 	           <% else %>
 	             <li class="nav-item mr-5">
-	               <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: 'nav-link text-light' %>
+	               <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link text-light' do %>
+	                 <i class="fa fa-user-secret fa-lg mr-2"></i>ゲストログイン（閲覧用）
+	               <% end %>
         	     </li>
 
 	             <li class="nav-item mr-5">
-	               <%= link_to "新規登録",  new_user_registration_path, class: 'nav-link text-light' %>
+	               <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+	                 <i class="fas fa-user-plus fa-lg mr-2"></i>新規登録
+	               <% end %>
         	     </li>
 
 	             <li class="nav-item mr-5">
-	               <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %>
+	               <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+	                 <i class="fas fa-sign-in-alt fa-lg mr-2"></i>ログイン
+	               <% end %>
 	             </li>
 	           <% end %>
 	         </ul>
