@@ -4,13 +4,19 @@ class Public::CoffeeCommentsController < ApplicationController
     @post_coffee = PostCoffee.find(params[:post_coffee_id])
     comment = current_user.coffee_comments.new(coffee_comment_params)
     comment.post_coffee_id = @post_coffee.id
-    flash.now[:success] = 'コメントしました'if comment.save
+    if comment.save
+      flash.now[:notice] = 'コメントしました'
+      render :create
+    else
+      render :error
+    end
   end
 
   def destroy
     @post_coffee = PostCoffee.find(params[:post_coffee_id])
     CoffeeComment.find(params[:id]).destroy
-    flash.now[:success] = 'コメントを削除しました'
+    flash.now[:notice] = 'コメントを削除しました'
+    render :destroy
   end
 
   private
