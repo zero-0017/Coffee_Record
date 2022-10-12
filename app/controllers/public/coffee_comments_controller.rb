@@ -2,9 +2,9 @@ class Public::CoffeeCommentsController < ApplicationController
 
   def create
     @post_coffee = PostCoffee.find(params[:post_coffee_id])
-    comment = current_user.coffee_comments.new(coffee_comment_params)
-    comment.post_coffee_id = @post_coffee.id
-    if comment.save
+    @coffee_comment = current_user.coffee_comments.new(coffee_comment_params)
+    @coffee_comment.post_coffee_id = @post_coffee.id
+    if @coffee_comment.save
       flash.now[:notice] = 'コメントしました'
       render :create
     else

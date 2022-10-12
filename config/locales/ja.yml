@@ -33,3 +33,5 @@
         genre_name: 珈琲豆名
       user:
         name: 会員名
+      coffee_comment:
+        comment: コメント
