@@ -56,3 +56,15 @@ a,
 div{
   font-family:  serif,'arial black';
 }
+
+/*全体の背景色を設定*/
+body {
+  background-color: #DDDDDD;
+}
+
+/*フッターの位置固定*/
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}

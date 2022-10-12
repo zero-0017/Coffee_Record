@@ -9,6 +9,7 @@ class Admin::CategorysController < ApplicationController
     if @category.save
       redirect_to admin_categorys_path
     else
+      @categorys = Category.page(params[:page]).per(9)
       render :index
     end
   end

@@ -1,8 +1,8 @@
 <!--コメント送信　[非同期通信化]-->
-<div class="comments_error">
+<div id="comments_error">
   <%= render 'layouts/error_messages', model: @coffee_comment %>
 </div>
 <%= form_with model: [@post_coffee, @coffee_comment], local: false do |f| %>
   <%= f.text_area :comment, placeholder: "コメントを記入して下さい　※100文字以内", size: "125x6" %>
-  <%= f.submit "送信", class: "btn btn-dark mt-1" %>
+  <%= f.submit "送信", class: "btn btn-dark mt-1 mb-4" %>
 <% end %>

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :coffee_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  validates :name, presence:true
+
 # 会員の画像の設定
   has_one_attached :profile_image
 

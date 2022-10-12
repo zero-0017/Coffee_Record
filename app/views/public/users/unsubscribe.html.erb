@@ -2,15 +2,15 @@
   <div class = "text-center mt-5 pt-5">
       <h2>本当に退会しますか？</h2>
 
-      <h4 class="mt-4">
-        退会すると、<strong>会員登録情報</strong>や<br>
-        これまでの<strong>投稿内容</strong>が閲覧できなくなります。
-      </h4>
-
-      <p class="mt-4 mb-4">
-        退会する場合は、<strong>「退会する」</strong>をクリックしてください。
+      <p class="mt-4 text-end">
+        退会すると、<strong class="text-end-strong">会員登録情報</strong>や<br>
+        これまでの<strong class="text-end-strong">投稿内容</strong>が閲覧できなくなります。
       </p>
-    <%= link_to "退会しない", user_path(current_user), class: 'btn btn-success mr-3' %>
-    <%= link_to "退会する", withdrawal_users_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class:"btn btn-danger" %>
+
+      <h5 class="mt-4 mb-4">
+        退会する場合は、<strong>「退会する」</strong>をクリックしてください。
+      </h5>
+    <%= link_to "退会しない", user_path(current_user), class: "btn btn-success mr-3" %>
+    <%= link_to "退会する", withdrawal_users_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger" %>
   </div>
 </div>

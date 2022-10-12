@@ -3,6 +3,10 @@
     <div class="row no-gutters">
       <div class="col-md-6 mx-sm-auto text-center shadow-lg mt-2 pt-3 text-light" style="background-color: #556b2f;">
         <%= form_with model:@category, url: admin_categorys_path, local:true do |f| %>
+
+        　<!--エラーメッセージ表示-->
+        　<%= render 'layouts/error_messages', model: f.object %>
+
           珈琲の種類名
             <%= f.text_field :category_name %>
             <%= f.submit '新規登録', class: "btn btn-secondary" %>
@@ -34,6 +38,6 @@
 </div>
 
 <!--ページネーション-->
-<div class="mx-auto mt-4">
+<div class="mx-auto mt-2">
   <%= paginate @categorys %>
 </div>

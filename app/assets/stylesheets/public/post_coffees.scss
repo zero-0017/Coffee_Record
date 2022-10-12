@@ -26,29 +26,19 @@ a {
   overflow: hidden;
 }
 
-// .sidebar,
-// .main {
-//   height: 82vh;
-// }
-
 .main {
   margin: 0px;
   overflow: auto;
   flex: 2;
-  background-color: #DDDDDD;
 }
 
 
 // 投稿の設定
 .card{
- border-width: 6px;
+border-width: 6px;
 }
 
 .card:hover{
   border-color: #556b2f;
   border-width: 4px;
 }
-
-// .footer {
-//   overflow: auto;
-// }

@@ -23,6 +23,9 @@ before_action :ensure_guest_user, only: [:edit]
 
   def update
     @user = User.find(params[:id])
+    @tags = Tag.all
+    @categorys = Category.all
+    @genres_list = Genre.all
     if @user.update(user_params)
       redirect_to user_path(@user.id)
     else

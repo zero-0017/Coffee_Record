@@ -9,6 +9,7 @@ class Admin::TagsController < ApplicationController
     if @tag.save
       redirect_to admin_tags_path
     else
+      @tags = Tag.page(params[:page]).per(9)
       render :index
     end
   end

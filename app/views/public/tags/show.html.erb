@@ -19,8 +19,9 @@
 
               <div class="row justify-content-end">
                 <!--コメント数-->
-                <div class="mr-4">
-                  <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
+                <i class="fa fa-comment m-1"></i>
+                <div class="comment_count mr-4">
+                  <%= post_coffee.coffee_comments.count %>
                 </div>
 
                 <!--いいね数・いいね機能-->

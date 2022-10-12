@@ -25,4 +25,11 @@
         category: 珈琲の種類
         tag: 珈琲の淹れ方
         genre_ids: 珈琲豆の種類
-
+      tag:
+        tag_name: 珈琲の淹れ方名
+      category:
+        category_name: 珈琲の種類名
+      genre:
+        genre_name: 珈琲豆名
+      user:
+        name: 会員名
