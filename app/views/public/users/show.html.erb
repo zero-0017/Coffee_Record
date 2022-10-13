@@ -1,8 +1,8 @@
 <%= render 'layouts/flash_message' %>
 <div class="container">
-  <h4 class="col-3 py-1 mt-2 mx-auto back-text">会員の詳細<strong></strong></h4>
+  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text">会員の詳細<strong></strong></h4>
     <div class="row mt-2 justify-content-center">
-      <div class="col-md-3 shadow back-background">
+      <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8 shadow back-background">
         <div class="shadow back-background">
 
           <!--会員画像-->
@@ -35,12 +35,12 @@
      <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-post_list mb-3 mx-4" %>
      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-confirm mb-3" %>
    </div>
-  <h4 class="col-2 py-1 back-text"><strong>新着投稿</strong></h4>
+  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 back-text"><strong>新着投稿</strong></h4>
     <div class="row">
 
       <% if @post_coffees.present? %>
         <% @post_coffees.last(6).each do |post_coffee| %>
-          <div class="col-md-2 mt-2 card">
+          <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 mt-2 card">
             <div class="shadow">
 
               <!--投稿画像-->
