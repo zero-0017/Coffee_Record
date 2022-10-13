@@ -1,7 +1,7 @@
 <div class="container">
-  <h4 class="col-3 py-1 mt-2 text-center text-light" style="background-color:#000;"><strong>珈琲豆の種類編集</strong></h4>
+  <h4 class="col-3 py-1 mt-2 back-text"><strong>珈琲豆の種類編集</strong></h4>
     <div class="row no-gutters">
-      <div class="col-md-7 mx-sm-auto text-center shadow-lg px-3 py-3 mt-2 text-light" style="background-color: #556b2f;">
+      <div class="col-md-7 mx-sm-auto text-center shadow-lg px-3 py-3 mt-2 back-admin">
         <%= form_with model:@genre, url: admin_genre_path, local:true do |f| %>
         　珈琲豆の種類名
             <%= f.text_field :genre_name, class: "mx-2" %>

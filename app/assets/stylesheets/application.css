@@ -64,7 +64,39 @@ body {
 
 /*フッターの位置固定*/
 footer {
+  background-color: #000;
+  text-align: center;
   position: absolute;
+  color: #fff;
+  height:50px;
   width: 100%;
+  line-height: 50px;
   bottom: 0;
+}
+
+/*見出しの設定*/
+.back-text {
+  background-color:#000;
+  text-align: center;
+  color: #fff;
+}
+
+/*部分的な背景の設定*/
+.back-background {
+  background-color: #fff;
+}
+
+/*管理者側の部分的な背景の設定*/
+.back-admin {
+  background-color: #556b2f;
+  color: #fff;
+}
+
+/*検索の背景の設定*/
+.search-back {
+  background-color: #333333;
+}
+
+.back-logo {
+  background-color:#000;
 }
