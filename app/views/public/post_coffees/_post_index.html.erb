@@ -4,7 +4,7 @@
 
       <!--投稿画像-->
       <%= link_to post_coffee_path(post_coffee.id) do %>
-        <%= image_tag post_coffee.get_image, class: "card-img" %>
+        <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
       <% end %>
 
       <!--投稿名-->

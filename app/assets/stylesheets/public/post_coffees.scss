@@ -9,20 +9,20 @@ a {
 
 
 /*各コンテンツ別でのスクロールの設定*/
-.sidebar-main {
+.sidebar {
   display: flex;
   height: 82vh;
 }
 
 /*画面全体の設定*/
-.sidebar {
+.sidebar-main {
   overflow: auto;
   flex: 1;
   background: #556b2f;
 }
 
 /*サイドバーの画面設定*/
-.sidebar-main {
+.sidebar {
   overflow: hidden;
 }
 

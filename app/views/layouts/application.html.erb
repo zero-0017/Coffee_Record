@@ -10,6 +10,8 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://jillix.github.io/jQuery-sidebar/js/handlers.js"></script>
   </head>
 
   <body>
@@ -22,18 +24,20 @@
           </div>
         </div>
 
-        <div class="sidebar-main">
-          <div class="col-2 sidebar" >
+        <div class="sidebar">
+          <div class="col-2 sidebar-main d-none d-md-block" >
             <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
             <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
             <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
           </div>
+
       <% end %>
 
           <div class="main">
             <%= yield %>
           </div>
         </div>
+
 
       <% else %>
         <%= yield %>
