@@ -1,7 +1,7 @@
 <div class="container">
-  <h4 class="col-4 py-1 mt-2 back-text"><strong><%= @user.name %>さんの会員情報編集</strong></h4>
+  <h4 class="col-md-6 col-lg-4 col-xl-4 py-1 mt-2 back-text"><strong><%= @user.name %>さんの会員情報編集</strong></h4>
     <div class="row justify-content-center">
-      <div class="col-md-10">
+      <div class="col-sm-12 col-md-12 col-lg-11">
 
 　      <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
           <table class="table shadow-lg mt-2 table-hover back-background">

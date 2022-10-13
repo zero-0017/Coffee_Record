@@ -1,8 +1,8 @@
 <%= render 'layouts/flash_message' %>
 <div class="container">
-  <h4 class="col-4 py-1 mt-2 back-text"><strong>珈琲の種類一覧・追加</strong></h4>
+  <h4 class="col-md-6 col-lg-5 col-xl-4 py-1 mt-2 back-text"><strong>珈琲の種類一覧・追加</strong></h4>
     <div class="row no-gutters">
-      <div class="col-md-6 mx-sm-auto text-center shadow-lg mt-2 pt-3 back-admin">
+      <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 mx-sm-auto text-center shadow-lg mt-2 pt-3 back-admin">
         <%= form_with model:@category, url: admin_categorys_path, local:true do |f| %>
 
         　<!--エラーメッセージ表示-->

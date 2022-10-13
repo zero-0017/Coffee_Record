@@ -1,7 +1,7 @@
 <div class="container">
-  <h4 class="col-3 py-1 mt-2 back-text"><strong>珈琲の種類編集</strong></h4>
+  <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>珈琲の種類編集</strong></h4>
     <div class="row no-gutters">
-      <div class="col-md-7 mx-sm-auto text-center shadow-lg px-3 py-3 mt-2 back-admin">
+      <div class="col-sm-11 col-md-11 col-lg-8 col-xl-7 mx-sm-auto text-center shadow-lg px-3 py-3 mt-2 back-admin">
         <%= form_with model:@category, url: admin_category_path, local:true do |f| %>
         　珈琲の種類名
             <%= f.text_field :category_name, class: "mx-2" %>
