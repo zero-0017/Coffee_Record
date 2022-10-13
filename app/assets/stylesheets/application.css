@@ -76,7 +76,7 @@ footer {
 
 /*見出しの設定*/
 .back-text {
-  background-color:#000;
+  background-color: #000;
   text-align: center;
   color: #fff;
 }
@@ -97,6 +97,17 @@ footer {
   background-color: #333333;
 }
 
+/*ヘッダーの背景色*/
 .back-logo {
-  background-color:#000;
+  background-color: #000;
+}
+
+/*投稿詳細の編集・削除ボタンの背景色の設定*/
+.back-show {
+  background-color: #444444;
+}
+
+/*投稿詳細の背景色の設定*/
+.back-show-list {
+  background-color:#C0C0C0;
 }

@@ -3,7 +3,7 @@
   <h4 class="col-3 py-1 mt-2 mx-auto back-text">会員の詳細<strong></strong></h4>
     <div class="row mt-2 justify-content-center">
       <div class="col-md-3 shadow back-background">
-        <div class="shadow" style="background-color: #fff;">
+        <div class="shadow back-background">
 
           <!--会員画像-->
           <%= image_tag @user.get_profile_image(500,500), class: "card-img" %>
@@ -35,7 +35,7 @@
      <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-post_list mb-3 mx-4" %>
      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-confirm mb-3" %>
    </div>
-  <h4 class="col-2 py-1 text-center text-light" style="background-color:#000;"><strong>新着投稿</strong></h4>
+  <h4 class="col-2 py-1 back-text"><strong>新着投稿</strong></h4>
     <div class="row">
 
       <% if @post_coffees.present? %>
