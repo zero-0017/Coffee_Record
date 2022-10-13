@@ -13,12 +13,12 @@
 
 // aboutの文字設定
 .about-text{
-  font-size: 43px;
+  font-size: 38px;
   color: #fff;
   text-align: center;
-  margin-left: 465px;
+  margin-left: 569px;
   padding: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 110px;
   position: absolute;
   bottom: 0;
   background: rgba(0,0,0,0.5);
@@ -36,4 +36,14 @@
 .main-top {
   height: 87vh;
   background-color: #556b2f;
+}
+
+
+// レスポンシブの調整
+@media screen and (max-width:1300px){
+
+.about-text{
+  font-size: 30px;
+}
+
 }
