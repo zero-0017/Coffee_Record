@@ -24,18 +24,25 @@
   background: rgba(0,0,0,0.5);
 }
 
-// 会員側のトップ画像の設定
-.top-image {
-  background-image: image-url('top.png');
-  height: 280px;
-  width: 990px ;
-  margin: 100px 0;
-}
-
 /*会員側トップ画面の設定*/
 .main-top {
   height: 87vh;
   background-color: #556b2f;
+}
+
+// 会員側トップの文字の設定
+.top-text-top {
+  font-size: 85px;
+  margin-top: 62px;
+  margin-bottom: 11px;
+  text-align: center;
+}
+
+// 会員側トップの文字の設定
+.top-text {
+  font-size: 57px;
+  margin-bottom: 85px;
+  text-align: center;
 }
 
 
