@@ -40,7 +40,7 @@
 
 	          <% elsif admin_signed_in? %>
 	            <li class="nav-item mr-5">
-     	          <%= link_to admin_path, class: 'nav-link text-light' do %>
+     	          <%= link_to admin_users_path, class: 'nav-link text-light' do %>
      	            <i class="fa fa-address-book fa-lg mr-2"></i>会員一覧
      	          <% end %>
 	            </li>
@@ -54,24 +54,6 @@
 	            <li class="nav-item mr-5">
 	              <%= link_to admin_coffee_comments_path, class: 'nav-link text-light' do %>
 	                <i class="fa fa-comment fa-lg mr-2"></i>コメント一覧
-	              <% end %>
-        	    </li>
-
-	            <li class="nav-item mr-5">
-	              <%= link_to admin_tags_path, class: 'nav-link text-light' do %>
-	                <i class="fas fa-coffee unlike-btn fa-lg mr-2"></i>珈琲の淹れ方一覧
-	              <% end %>
-        	    </li>
-
-        	    <li class="nav-item mr-5">
-	              <%= link_to admin_categorys_path, class: 'nav-link text-light' do %>
-	                <i class="fas fa-coffee unlike-btn fa-lg mr-2"></i>珈琲の種類一覧
-	              <% end %>
-        	    </li>
-
-        	    <li class="nav-item mr-5">
-	              <%= link_to admin_genres_path, class: 'nav-link text-light' do %>
-	                <i class="fas fa-coffee unlike-btn fa-lg mr-2"></i>珈琲豆の種類一覧
 	              <% end %>
         	    </li>
 

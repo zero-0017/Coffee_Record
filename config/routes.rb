@@ -51,7 +51,7 @@ end
 
 namespace :admin do
   get '' => 'homes#top'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :post_coffees, only: [:index, :show, :destroy]
   resources :tags, only: [:index, :create, :edit, :destroy, :update]
   resources :categorys, only: [:index, :create, :edit, :destroy, :update]

@@ -136,3 +136,9 @@ footer {
 .admin-main {
   height: 87vh;
 }
+
+.admin-top-button {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
