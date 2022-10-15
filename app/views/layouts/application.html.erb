@@ -22,6 +22,7 @@
           </div>
         </div>
 
+        <!--パソコン画面用の設定-->
         <div class="sidebar">
           <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-none d-md-block" >
             <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
@@ -31,10 +32,20 @@
 
       <% end %>
 
-          <div class="main">
+        <div class="main">
             <%= yield %>
+
+        <!--スマホ画面用の設定-->
+        <% if user_signed_in? %>
+          <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-block d-md-none" >
+            <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
+            <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
+            <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
           </div>
-        </div>
+        <% end %>
+       </div>
+
+
 
 
       <% else %>

@@ -111,3 +111,28 @@ footer {
 .back-show-list {
   background-color:#C0C0C0;
 }
+
+.main-log{
+  height: 87vh;
+  background-color: #556b2f;
+}
+
+
+.main {
+  height: auto;
+}
+
+/*新規登録・ログイン画面の設定*/
+.text-user-top {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.text-user-top:hover {
+  color: #000;
+}
+
+/*管理者側の画面の設定*/
+.admin-main {
+  height: 87vh;
+}

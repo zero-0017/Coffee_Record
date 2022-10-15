@@ -1,18 +1,16 @@
-<%= render 'layouts/flash_message' %>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="text-center">
-       <div class="about-image"></div>
-         <div class="about-text-main">
-        <p class="about-text"><strong>Coffee_Record</strong>は、珈琲が好きな人が<br>
-          好みのコーヒーを投稿（記録）し、<br>
-          他の人と共有し合うことができるサイトです。
-        </p>
+<div class="main-about">
+  <%= render 'layouts/flash_message' %>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="text-center">
+          <div class="about-image"></div>
+            <div class="about-text-main">
+              <p class="about-text"><strong>Coffee_Record</strong>は、珈琲が好きな人が<br>
+                好みのコーヒーを投稿（記録）し、<br>
+                他の人と共有し合うことができるサイトです。
+              </p>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
 </div>
-
-<script>
-$.notify($('#flash-notice').text().trim());
-</script>
