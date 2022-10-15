@@ -1,0 +1,50 @@
+<div class="admin-main">
+  <div class="container pb-5">
+    <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>投稿詳細</strong></h4>
+      <div class="row shadow back-show">
+
+        <div class="col-xl-5 col-lg-4 col-md-5 pb-2 back-background">
+          <!--投稿画像-->
+          <%= image_tag @post_coffee.get_image, class: "card-img shadow" %>
+
+　        <!--会員画像-->
+          <%= image_tag @post_coffee.user.get_profile_image(100,100), class: "mt-3 rounded-circle";  %>
+
+          <!--会員名-->
+          会員名：<%= @post_coffee.user.name %>
+
+          <!--投稿日時-->
+          <div class="justify-content-start mr-4 mt-4">
+          投稿日時：<%= l @post_coffee.created_at %>
+          </div>
+        </div>
+
+        <div class="col-xl-7 col-lg-8 col-md-7 back-show-list">
+          <h5 class="mt-3 ml-3">投稿名<br>
+            <%= @post_coffee.coffee_name %>
+          </h5>
+
+　        <h5 class="mt-3 ml-3">珈琲の淹れ方<br>
+　          <%= @post_coffee.tag.tag_name %>
+　        </h5>
+
+　        <h5 class="mt-3 ml-3">珈琲の種類<br>
+　          <%= @post_coffee.category.category_name %>
+　        </h5>
+
+　        <h5 class="mt-4 ml-3">珈琲豆の種類<br>
+　          <%= @post_coffee.genres.map(&:genre_name).join('・') %>
+　        </h5>
+
+          <h5 class="mt-5 ml-3">投稿説明<br>
+　          <%= @post_coffee.coffee_explanation %>
+　        </h5>
+        </div>
+
+        <div class="row mx-auto py-2">
+          <%= link_to "削除", admin_post_coffee_path(@post_coffee), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
+        </div>
+      </div>
+
+  </div>
+</div>

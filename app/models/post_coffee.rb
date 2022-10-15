@@ -7,7 +7,7 @@ class PostCoffee < ApplicationRecord
   has_many :coffee_genres, dependent: :destroy
   has_many :genres, through: :coffee_genres
 
-  validates :coffee_name, presence:true
+  validates :coffee_name, presence:true, length: { maximum: 10 }
   validates :coffee_explanation, presence:true, length: { maximum: 200 }
   validates :genre_ids, presence:true
 

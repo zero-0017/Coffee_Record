@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'post_coffees/index'
+    get 'post_coffees/show'
+  end
 # ゲストログイン
 devise_scope :user do
   post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
@@ -48,6 +52,7 @@ end
 namespace :admin do
   get '' => 'homes#top'
   resources :users, only: [:show, :edit, :update]
+  resources :post_coffees, only: [:index, :show, :destroy]
   resources :tags, only: [:index, :create, :edit, :destroy, :update]
   resources :categorys, only: [:index, :create, :edit, :destroy, :update]
   resources :genres, only: [:index, :create, :edit, :destroy, :update]
