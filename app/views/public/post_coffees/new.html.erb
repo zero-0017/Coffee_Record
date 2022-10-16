@@ -13,7 +13,7 @@
               <%= f.file_field :image, accept: "image/*" %>
 
             <h5 class="mt-4">投稿名</h5>
-              <%= f.text_field :coffee_name, size: "40", placeholder: "投稿名を記入して下さい" %>
+              <%= f.text_field :coffee_name, size: "40", placeholder: "投稿名を記入して下さい　※10文字以内" %>
 
             <h5 class="mt-4">珈琲の淹れ方</h5>
               <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :prompt => "選択して下さい" %>
