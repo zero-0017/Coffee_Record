@@ -14,7 +14,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to admin_user_path(@user.id), notice: "会員情報の変更内容を保存しました"
+    redirect_to admin_users_path, notice: "会員情報の変更内容を保存しました"
   end
 
   private

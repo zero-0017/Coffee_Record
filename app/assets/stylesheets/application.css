@@ -60,6 +60,7 @@ div{
 /*全体の背景色を設定*/
 body {
   background-color: #DDDDDD;
+  position: relative;
 }
 
 /*フッターの位置固定*/
@@ -112,11 +113,12 @@ footer {
   background-color:#C0C0C0;
 }
 
+/*ログイン・新規登録画面の設定*/
 .main-log{
-  height: 87vh;
+  height: 93vh;
+  box-sizing: border-box;
   background-color: #556b2f;
 }
-
 
 .main {
   height: auto;
@@ -134,7 +136,7 @@ footer {
 
 /*管理者側の画面の設定*/
 .admin-main {
-  height: 87vh;
+  height: 93vh;
 }
 
 .admin-top-button {

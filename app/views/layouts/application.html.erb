@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <!--<div class="container">-->
     <%= render 'layouts/header' %>
      <% unless current_page?(root_path) %><!--検索機能をログイン済みのみに表示するため-->
       <% if user_signed_in? %>
@@ -24,7 +25,7 @@
 
         <!--パソコン画面用の設定-->
         <div class="sidebar">
-          <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-none d-md-block" >
+          <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-none d-md-block pb-5" >
             <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
             <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
             <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
@@ -37,13 +38,15 @@
 
         <!--スマホ画面用の設定-->
         <% if user_signed_in? %>
-          <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-block d-md-none" >
+          <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-block d-md-none pb-5" >
             <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
             <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
             <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
           </div>
         <% end %>
+
        </div>
+      </div>
 
 
 
@@ -51,6 +54,10 @@
       <% else %>
         <%= yield %>
       <% end %>
+
+
+
     <%= render 'layouts/footer' %>
+  <!--</div>-->
   </body>
 </html>
