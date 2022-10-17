@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
 before_action :ensure_guest_user, only: [:edit]
+before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])

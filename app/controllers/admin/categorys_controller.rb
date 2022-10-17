@@ -1,4 +1,6 @@
 class Admin::CategorysController < ApplicationController
+before_action :authenticate_admin!
+
   def index
     @category = Category.new
     @categorys = Category.page(params[:page]).per(9)

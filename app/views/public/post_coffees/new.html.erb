@@ -1,7 +1,7 @@
  <%= render 'layouts/flash_message' %>
  <div class="container">
     <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>新規投稿</strong></h4>
-      <div class="row pb-3">
+      <div class="row post-post">
         <div class="mx-auto px-5 py-2 shadow-lg back-background">
 
         <%= form_with model: @post_coffee do |f| %>
@@ -32,7 +32,7 @@
 
 
             <div class="row justify-content-center">
-           <%= f.submit "投稿", class: "btn btn-dark mt-2" %>
+           <%= f.submit "投稿", class: "btn btn-dark mt-2 shadow" %>
            </div>
         <% end %>
     </div>

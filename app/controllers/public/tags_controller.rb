@@ -1,4 +1,6 @@
 class Public::TagsController < ApplicationController
+before_action :authenticate_user!
+
   def show
     @tags = Tag.all
     @categorys = Category.all

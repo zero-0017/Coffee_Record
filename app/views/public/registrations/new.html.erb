@@ -13,12 +13,12 @@
 
             <div class="field text-light shadow pt-1 px-2">
               <%= f.label :"名前" %><br>
-              <%= f.text_field :name, size: 30 %>
+              <%= f.text_field :name, size: 30, placeholder: "(例)珈琲太郎　※10文字以内" %>
             </div>
 
             <div class="field mt-4 text-light shadow pt-1 px-2">
               <%= f.label :"メールアドレス" %><br>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 30 %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 30, placeholder: "(例)Coffee.11@post.com" %>
             </div>
 
             <div class="field mt-4 text-light shadow pt-1 px-2">
@@ -26,19 +26,19 @@
               <% if @minimum_password_length %>
                (<%= @minimum_password_length %>文字以上)
               <% end %><br>
-              <%= f.password_field :password, autocomplete: "new-password", size: 30 %>
+              <%= f.password_field :password, autocomplete: "new-password", size: 30, placeholder: "パスワードを入力して下さい" %>
             </div>
 
             <div class="field mt-4 text-light shadow pt-1 px-2">
               <%= f.label :"パスワード(確認)" %><br>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 30 %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 30, placeholder: "再度パスワードを入力して下さい" %>
             </div>
 
             <div class="actions">
               <%= f.submit "新規登録", class: "btn btn-secondary shadow" %>
             </div>
           <% end %>
-        <p class=" mt-3 text-light">既に登録済みの方は、<br>
+        <p class=" mt-3 text-light pb-5">既に登録済みの方は、<br>
         <%= link_to "こちら", new_user_session_path, class: "text-user-top" %>からログインしてください。</p>
       </div>
     </div>

@@ -13,7 +13,6 @@
   </head>
 
   <body>
-    <!--<div class="container">-->
     <%= render 'layouts/header' %>
      <% unless current_page?(root_path) %><!--検索機能をログイン済みのみに表示するため-->
       <% if user_signed_in? %>
@@ -34,7 +33,7 @@
       <% end %>
 
         <div class="main">
-            <%= yield %>
+          <%= yield %>
 
         <!--スマホ画面用の設定-->
         <% if user_signed_in? %>
@@ -48,16 +47,10 @@
        </div>
       </div>
 
-
-
-
       <% else %>
         <%= yield %>
       <% end %>
 
-
-
     <%= render 'layouts/footer' %>
-  <!--</div>-->
   </body>
 </html>
