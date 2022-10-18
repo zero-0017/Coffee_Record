@@ -8,11 +8,13 @@ class User < ApplicationRecord
   has_many :coffee_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+# バリデーションの設定
   validates :name, presence:true, length: { maximum: 10 }
 
-# 会員の画像の設定
+# 会員画像の設定
   has_one_attached :profile_image
 
+# 会員画像の設定
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/profile_image.jpg')

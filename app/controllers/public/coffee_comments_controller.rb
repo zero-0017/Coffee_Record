@@ -15,7 +15,7 @@ class Public::CoffeeCommentsController < ApplicationController
   def destroy
     @post_coffee = PostCoffee.find(params[:post_coffee_id])
     CoffeeComment.find(params[:id]).destroy
-    flash.now[:notice] = 'コメントを削除しました'
+    flash.now[:alert] = 'コメントを削除しました'
     render :destroy
   end
 

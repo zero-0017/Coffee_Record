@@ -1,11 +1,14 @@
 
 <% flash.each do |message_type, message| %>
-<div class="alert alert-primary text-center">
   <% if flash[:notice] %>
-    <p><%= notice %><button type="button" class="close" data-dismiss="alert">&times;</button></p>
+    <div class="alert alert-primary text-center">
+      <p><%= notice %><button type="button" class="close" data-dismiss="alert">&times;</button></p>
+    </div>
   <% end %>
+
   <% if flash[:alert] %>
-    <p><%= alert %><button type="button" class="close" data-dismiss="alert">&times;</button></p>
+    <div class="alert alert-danger text-center">
+      <p><%= alert %><button type="button" class="close" data-dismiss="alert">&times;</button></p>
+    </div>
   <% end %>
-</div>
 <% end %>
