@@ -58,14 +58,14 @@ div{
 /*全体の背景色を設定*/
 body {
   background-color: #DDDDDD;
-  position: relative;
+  position: relative;/*相対位置の基準：本来その要素が表示される位置を基準にする*/
 }
 
 /*フッターの位置固定*/
 footer {
   background-color: #000;
   text-align: center;
-  position: absolute;
+  position: absolute;/*親要素を基準に絶対的な位置を決める*/
   z-index: 5;/*重なり順を指定(ページネーションのz-index: 4;)*/
   color: #fff;
   height:50px;

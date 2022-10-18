@@ -1,0 +1,9 @@
+<% visiter = notification.visiter %>
+<% post_coffee = notification.post_coffee %>
+
+<ul>
+  <li><%= link_to user_path(visiter) do %><strong><%=visiter.name %><% end %></strong>さんが
+  <strong><%= link_to post_coffee_path(notification.post_coffee_id) do %><%= post_coffee.coffee_name.truncate(20)%><% end %></strong>にコメントしました。
+  <%= " (#{time_ago_in_words(notification.created_at)} 前)" %></li>
+
+</ul>

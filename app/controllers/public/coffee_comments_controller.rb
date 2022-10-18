@@ -5,6 +5,7 @@ class Public::CoffeeCommentsController < ApplicationController
     @coffee_comment = current_user.coffee_comments.new(coffee_comment_params)
     @coffee_comment.post_coffee_id = @post_coffee.id
     if @coffee_comment.save
+      @post_coffee.create_notification_by(current_user)
       flash.now[:notice] = 'コメントしました'
       render :create
     else

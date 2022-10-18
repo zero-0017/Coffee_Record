@@ -6,6 +6,7 @@ class PostCoffee < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :coffee_genres, dependent: :destroy
   has_many :genres, through: :coffee_genres
+  has_many :notifications, dependent: :destroy
 
   validates :coffee_name, presence:true, length: { maximum: 10 }
   validates :coffee_explanation, presence:true, length: { maximum: 200 }
@@ -41,5 +42,16 @@ class PostCoffee < ApplicationRecord
     else
       @post_coffee = PostCoffee.all
     end
+  end
+
+
+  # コメント通知
+  def create_notification_by(current_user)
+    notification = current_user.active_notifications.new(post_coffee_id: id,visited_id: user_id,action: 'coffee_comment')
+  if notification.visiter_id == notification.visited_id
+      notification.checked = true
+  end
+
+    notification.save if notification.valid?
   end
 end

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'notifications/index'
+  end
   namespace :admin do
     get 'post_coffees/index'
     get 'post_coffees/show'
@@ -21,6 +24,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 scope module: :public do
+  resources :notifications, only:[:index, :destroy]
+
   root to: 'homes#top'
   get '/about' => 'homes#about'
   resources :post_coffees, only: [:new, :create, :index, :show, :edit, :post_list, :destroy, :update] do

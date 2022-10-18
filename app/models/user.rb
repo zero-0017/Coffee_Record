@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :post_coffees, dependent: :destroy
   has_many :coffee_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
 # バリデーションの設定
   validates :name, presence:true, length: { maximum: 10 }
