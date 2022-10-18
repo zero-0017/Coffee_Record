@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(version: 2022_10_18_005518) do
   create_table "notifications", force: :cascade do |t|
     t.integer "visiter_id", null: false
     t.integer "visited_id", null: false
-    t.integer "post_coffee_id"
-    t.string "action"
+    t.integer "post_coffee_id", null: false
+    t.string "action", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

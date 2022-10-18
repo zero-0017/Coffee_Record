@@ -36,16 +36,16 @@
      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-confirm mb-3" %>
    </div>
   <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 back-text"><strong>新着投稿</strong></h4>
-    <div class="row">
+    <div class="row pb-5">
 
       <% if @post_coffees.present? %>
-        <% @post_coffees.last(6).each do |post_coffee| %>
-          <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 mt-2 card">
+        <% @post_coffees.last(4).each do |post_coffee| %>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-2 card">
             <div class="shadow">
 
               <!--投稿画像-->
               <%= link_to post_coffee_path(post_coffee.id) do %>
-                <%= image_tag post_coffee.get_image, class: "card-img", :size => '180' %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
               <% end %>
 
               <!--投稿名-->

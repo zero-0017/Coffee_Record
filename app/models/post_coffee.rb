@@ -46,12 +46,20 @@ class PostCoffee < ApplicationRecord
 
 
   # コメント通知
-  def create_notification_by(current_user)
+  def create_notification_coffee_comment(current_user)
     notification = current_user.active_notifications.new(post_coffee_id: id,visited_id: user_id,action: 'coffee_comment')
   if notification.visiter_id == notification.visited_id
       notification.checked = true
   end
+    notification.save if notification.valid?# 自分には通知がこないようにする
+  end
 
-    notification.save if notification.valid?
+  # お気に入り通知
+  def create_notification_favorite(current_user)
+    notification = current_user.active_notifications.new(post_coffee_id: id,visited_id: user_id,action: 'favorite')
+  if notification.visiter_id == notification.visited_id
+      notification.checked = true
+  end
+    notification.save if notification.valid?# 自分には通知がこないようにする
   end
 end

@@ -1,9 +1,16 @@
 <% visiter = notification.visiter %>
 <% post_coffee = notification.post_coffee %>
+<% action = notification.action %>
 
 <ul>
-  <li><%= link_to user_path(visiter) do %><strong><%=visiter.name %><% end %></strong>さんが
-  <strong><%= link_to post_coffee_path(notification.post_coffee_id) do %><%= post_coffee.coffee_name.truncate(20)%><% end %></strong>にコメントしました。
-  <%= " (#{time_ago_in_words(notification.created_at)} 前)" %></li>
+ <% if action == "coffee_comment" %>
+   <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたの
+   <strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>にコメントしました。
+   <%= " (#{time_ago_in_words(notification.created_at)} 前)" %></li>
 
+ <% elsif action == "favorite" %>
+   <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたの
+   <strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。
+   <%= " (#{time_ago_in_words(notification.created_at)} 前)" %></li>
+ <% end %>
 </ul>
