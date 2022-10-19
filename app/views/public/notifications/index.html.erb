@@ -1,13 +1,11 @@
 <div class="container">
-  <div class='row justify-content-center'>
-    <div class="mx-auto">
-      <h4 class="text-center"><i class="fas fa-bell"></i>通知</h4>
-        <p class="text-right"><%= link_to "全削除", notification_path(@notifications), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-light" %></p>
-          <% if @notifications.exists? %>
-            <%= render @notifications %>
-          <% else %>
-            <p>通知はありません</p>
-          <% end %>
-    </div>
-  </div>
+  <h4 class="col-sm-4 col-md-4 col-lg-3 col-xl-2 py-1 mt-2 mx-auto back-text"><strong><i class="fas fa-bell"></i>通知</strong></h4>
+    <div class="mt-2 mb-4 text-center"><%= link_to "全削除", notification_path(@notifications), method: :delete, data: {confirm: "本当に全て削除しますか？"}, class: "btn btn-light" %></div>
+      <div class='row justify-content-center'>
+        <% if @notifications.exists? %>
+          <h5><%= render @notifications %></h5>
+        <% else %>
+          <h5 class="mt-4"><strong>通知はありません</strong></h5>
+        <% end %>
+      </div>
 </div>

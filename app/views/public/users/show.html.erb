@@ -1,6 +1,6 @@
 <%= render 'layouts/flash_message' %>
 <div class="container">
-  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text">会員の詳細<strong></strong></h4>
+  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text"><strong>会員の詳細</strong></h4>
     <div class="row mt-2 justify-content-center">
       <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8 shadow back-background">
         <div class="shadow back-background">
@@ -55,12 +55,12 @@
 
               <div class="row justify-content-end">
                 <!--コメント数-->
-                <div class="mr-4 mt-3">
+                <div class="mr-4">
                   <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
                 </div>
 
                 <!--いいね数・いいね機能-->
-                <div class="mr-4 mt-3 favorite_buttons_<%= post_coffee.id %>">
+                <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
                   <%= render "public/favorites/favorite", post_coffee: post_coffee %>
                 </div>
               </div>
