@@ -22,11 +22,11 @@
 
               <li class="nav-item mr-5">
                 <% if unchecked_notifications.any? %>
-                  <%= link_to notifications_path, class: "nav-link text-light", style: "color:red;" do %>
+                  <%= link_to notifications_path, class: "nav-link text-danger", style: "color:red;" do %>
                     <i class="fas fa-bell fa-lg mr-2"></i>通知
                   <% end %>
                 <% else %>
-                  <%= link_to notifications_path, class: "nav-link text-light" do %>
+                  <%= link_to notifications_path, class: "nav-link" do %>
                     <i class="fas fa-bell fa-lg mr-2"></i>通知
                   <% end %>
                 <% end %>
