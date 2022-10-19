@@ -17,6 +17,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 scope module: :public do
+
   resources :notifications, only:[:index, :destroy]
 
   root to: 'homes#top'
@@ -38,6 +39,12 @@ scope module: :public do
     member do
       get :favorites
       get :post_list
+    end
+  end
+
+  resources :inquiries, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      collection do
+        get 'thank'
     end
   end
 

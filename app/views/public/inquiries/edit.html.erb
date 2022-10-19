@@ -1,0 +1,24 @@
+<div class="container">
+    <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>お問合せ編集</strong></h4>
+      <div class="row post-post">
+        <div class="mx-auto px-5 py-4 shadow-lg back-background">
+          <%= form_with model: @inquirie do |f| %>
+
+          <!--エラーメッセージ表示-->
+          <%= render 'layouts/error_messages', model: f.object %>
+
+          <h5>題名</h5>
+          <%= f.text_field :title, size: "50", placeholder: "お問合せ題名を記入して下さい　※10文字以内" %>
+　        <h5 class="mt-4">お問合せ件名</h5>
+          <%= f.select :inquirie_type, Inquirie.inquirie_types.keys.map { |k| [t("enums.inquiry.inquirie_type.#{k}"),k]}, {}, {class: "custom-select"} %><br>
+
+          <h5 class="mt-4">内容</h5>
+          <%= f.text_area :body, size: "50x6", placeholder: "お問合せ内容を記入して下さい　※200文字以内" %>
+
+           <div class="row justify-content-center">
+           <%= f.submit "変更内容保存", class: "btn btn-dark mt-2 shadow" %>
+           </div>
+        <% end %>
+      </div>
+    </div>
+</div>

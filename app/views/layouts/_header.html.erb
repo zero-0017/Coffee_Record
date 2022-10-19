@@ -27,6 +27,12 @@
               </li>
 
               <li class="nav-item mr-5">
+	              <%= link_to inquiries_path, class: 'nav-link text-light' do %>
+	                <i class="fa fa-envelope-square fa-lg mr-2"></i>お問合せ
+	              <% end %>
+              </li>
+
+              <li class="nav-item mr-5">
 	              <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
 	                <i class="fa fa-user-circle fa-lg mr-2"></i>マイページ
 	              <% end %>
