@@ -10,7 +10,7 @@
 　        <h5>お問合せ件名</h5>
           <%= f.select :contact_type, Contact.contact_types.keys.map { |k| [t("enums.contact.icontact_type.#{k}"),k]}, {}, {class: "custom-select"} %>
 
-          <h5 class="mt-4">内容</h5>
+          <h5 class="mt-4">お問合せ内容</h5>
           <%= f.text_area :content, size: "50x6", placeholder: "お問合せ内容を記入して下さい　※200文字以内" %>
 
            <div class="row justify-content-center">

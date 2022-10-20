@@ -13,6 +13,6 @@ before_action :authenticate_user!
 
   def destroy
     @notifications = current_user.passive_notifications.destroy_all
-    redirect_to notifications_path
+    redirect_to notifications_path, alert: "通知を全て削除しました"
   end
 end

@@ -1,3 +1,4 @@
+<%= render 'layouts/flash_message' %>
 <div class="container">
   <h4 class="col-sm-4 col-md-4 col-lg-3 col-xl-2 py-1 mt-2 mx-auto back-text"><strong><i class="fas fa-bell"></i>通知</strong></h4>
     <div class="mt-2 mb-4 text-center"><%= link_to "全削除", notification_path(@notifications), method: :delete, data: {confirm: "本当に全て削除しますか？"}, class: "btn btn-light" %></div>

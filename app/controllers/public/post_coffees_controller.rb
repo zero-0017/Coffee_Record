@@ -1,6 +1,6 @@
 class Public::PostCoffeesController < ApplicationController
   before_action :authenticate_user!
-  before_action :sidebar_list, except: [:destroy, :update, :create]
+  before_action :sidebar_list, except: [:destroy]
   before_action :set_post_coffee, except: [:new, :create, :index, :confirm]
 
   def new
@@ -42,7 +42,7 @@ class Public::PostCoffeesController < ApplicationController
 
   def destroy
     @post_coffee.destroy
-    redirect_to post_coffees_path, notice: "投稿を削除しました"
+    redirect_to post_coffees_path, alert: "投稿を削除しました"
   end
 
   private

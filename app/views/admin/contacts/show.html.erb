@@ -8,7 +8,7 @@
         <thead class="table-active back-admin">
           <tr>
             <th class="text-light">お問合せ件名</th>
-            <th class="text-light">内容</th>
+            <th class="text-light">お問合せ内容</th>
             <th class="text-light">お問合せ日時</th>
             <th class="text-light">対応状況</th>
           </tr>
@@ -20,7 +20,7 @@
             <td><%= @contact.content %></td>
             <td><%= l @contact.created_at %></td>
             <td>
-              <%= form_with model: @contact, url: admin_contact_path, local: true do |f| %>
+              <%= form_with model: @contact, url: admin_contact_path do |f| %>
                 <%= f.select :status, Contact.statuses.keys.map { |k| [t("enums.contact.status.#{k}"),k]}, {}, {class: "custom-select"} %>
             </td>
           </tr>

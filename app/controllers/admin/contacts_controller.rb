@@ -6,15 +6,15 @@ before_action :authenticate_admin!
   end
 
   def index
-    @contacts = Contact.all
+    @contacts = Contact.page(params[:page]).per(12)
   end
 
   def update
     @contact = Contact.find(params[:id])
     if @contact.update(contact_params)
-      redirect_to admin_contacts_path, notice: "お問合せの変更内容を保存しました"
+      redirect_to admin_contacts_path, notice: "対応状況の変更内容を保存しました"
     else
-      render :show, alert: "お問合せの変更に失敗しました"
+      render :show
     end
   end
 

@@ -1,6 +1,6 @@
 class Public::ContactsController < ApplicationController
   before_action :authenticate_user!
-  before_action :sidebar_list, except: [:destroy, :update, :create]
+  before_action :sidebar_list, except: [:destroy]
   before_action :set_contact, except: [:new, :index, :create, :thank]
 
   def new
@@ -14,7 +14,7 @@ class Public::ContactsController < ApplicationController
   end
 
   def index
-    @contacts = Contact.where(user_id: current_user.id)
+    @contacts = Contact.where(user_id: current_user.id).page(params[:page]).per(10)
   end
 
   def create
@@ -23,7 +23,7 @@ class Public::ContactsController < ApplicationController
     if @contact.save
       redirect_to thank_contacts_path, notice: "お問合せが完了しました"
     else
-      render :new, alert: "お問合せに失敗しました"
+      render :new
     end
   end
 
@@ -31,13 +31,13 @@ class Public::ContactsController < ApplicationController
     if @contact.update(contact_params)
       redirect_to contact_path(@contact), notice: "お問合せの変更内容を保存しました"
     else
-      render :edit, alert: "お問合せの変更に失敗しました"
+      render :edit
     end
   end
 
   def destroy
     @contact.destroy
-    redirect_to contacts_path, notice: "お問合せを削除しました"
+    redirect_to contacts_path, alert: "お問合せを削除しました"
   end
 
   def thank
@@ -46,7 +46,7 @@ class Public::ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:content, :inquirie_type)
+    params.require(:contact).permit(:content, :contact_type)
   end
 
   def sidebar_list

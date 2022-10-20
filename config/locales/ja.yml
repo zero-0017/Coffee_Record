@@ -35,6 +35,5 @@
         name: 会員名
       coffee_comment:
         comment: コメント
-      inquirie:
-        title: 題名
-        body: お問合せ内容
+      contact:
+        content: お問合せ内容
