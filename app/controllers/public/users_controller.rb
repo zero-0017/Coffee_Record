@@ -1,20 +1,14 @@
 class Public::UsersController < ApplicationController
-before_action :ensure_guest_user, only: [:edit]
-before_action :authenticate_user!
+  before_action :authenticate_user!
+  before_action :ensure_guest_user, only: [:edit]
+  before_action :sidebar_list, except: [:create, :update, :withdrawal]
+  before_action :set_user, except: [:unsubscribe, :withdrawal]
 
   def show
-    @user = User.find(params[:id])
     @post_coffees = @user.post_coffees.published
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
   end
 
   def edit
-    @user = User.find(params[:id])
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
     if @user == current_user
       render :edit
     else
@@ -23,10 +17,6 @@ before_action :authenticate_user!
   end
 
   def update
-    @user = User.find(params[:id])
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "会員情報の変更内容を保存しました"
     else
@@ -35,9 +25,6 @@ before_action :authenticate_user!
   end
 
   def unsubscribe
-    @genres = Genre.all
-    @tags = Tag.all
-    @categorys = Category.all
   end
 
   def withdrawal
@@ -48,21 +35,13 @@ before_action :authenticate_user!
   end
 
   def favorites
-    @user = User.find(params[:id])
     favorites= Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
     @post_coffees = PostCoffee.find(favorites)
     @post_coffees = Kaminari.paginate_array(@post_coffees).page(params[:page])
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
   end
 
   def post_list
-    @user = User.find(params[:id])
     @post_coffees = @user.post_coffees.published.page(params[:page])
-    @genres = Genre.all
-    @tags = Tag.all
-    @categorys = Category.all
   end
 
   private
@@ -76,5 +55,15 @@ before_action :authenticate_user!
     if @user.name == "ゲストユーザー"
       redirect_to user_path(current_user)
     end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def sidebar_list
+    @tags = Tag.all
+    @categorys = Category.all
+    @genres = Genre.all
   end
 end
