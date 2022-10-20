@@ -1,4 +1,4 @@
-<%= render 'layouts/flash_message' %>
+<div class="admin-main">
 <div class="container">
   <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>お問合せ詳細</strong></h4>
   <div class="row">
@@ -7,26 +7,30 @@
       <table class="table shadow-lg mt-4 table-hover back-background">
         <thead class="table-active back-admin">
           <tr>
-            <th class="text-light">題名</th>
             <th class="text-light">お問合せ件名</th>
             <th class="text-light">内容</th>
+            <th class="text-light">お問合せ日時</th>
             <th class="text-light">対応状況</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td><%= @inquirie.title %></td>
-            <td><%= @inquirie.inquirie_type %></td>
-            <td><%= @inquirie.body %></td>
-            <td><%= @inquirie.status %></td>
+            <td><%= @contact.contact_type %></td>
+            <td><%= @contact.content %></td>
+            <td><%= l @contact.created_at %></td>
+            <td>
+              <%= form_with model: @contact, url: admin_contact_path, local: true do |f| %>
+                <%= f.select :status, Contact.statuses.keys.map { |k| [t("enums.contact.status.#{k}"),k]}, {}, {class: "custom-select"} %>
+            </td>
           </tr>
         </tbody>
      </table>
       <div class="actions text-center">
-        <%= link_to "編集する", edit_inquiry_path(@inquirie.id), class: 'btn btn-success' %>
-        <%= link_to "削除", inquiry_path(@inquirie.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
+        <%= f.submit "変更内容保存", class: "btn btn-dark mt-2 shadow" %>
+      <% end %>
       </div>
     </div>
   </div>
+</div>
 </div>

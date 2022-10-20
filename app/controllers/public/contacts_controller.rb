@@ -1,63 +1,63 @@
-class Public::InquiriesController < ApplicationController
+class Public::ContactsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @inquirie = Inquirie.new
+    @contact = Contact.new
     @tags = Tag.all
     @categorys = Category.all
     @genres = Genre.all
   end
 
   def show
-    @inquirie = Inquirie.find(params[:id])
+    @contact = Contact.find(params[:id])
     @tags = Tag.all
     @categorys = Category.all
     @genres = Genre.all
   end
 
   def edit
-    @inquirie = Inquirie.find(params[:id])
+    @contact = Contact.find(params[:id])
     @tags = Tag.all
     @categorys = Category.all
     @genres = Genre.all
   end
 
   def index
-    @inquiries = Inquirie.where(user_id: current_user.id)
+    @contacts = Contact.where(user_id: current_user.id)
     @tags = Tag.all
     @categorys = Category.all
     @genres = Genre.all
   end
 
   def create
-    @inquirie = Inquirie.new(inquirie_params)
-    @inquirie.user_id = current_user.id
+    @contact = Contact.new(contact_params)
+    @contact.user_id = current_user.id
     @tags = Tag.all
     @categorys = Category.all
     @genres = Genre.all
-    if @inquirie.save
-      redirect_to thank_inquiries_path, notice: "お問合せが完了しました"
+    if @contact.save
+      redirect_to thank_contacts_path, notice: "お問合せが完了しました"
     else
       render :new, alert: "お問合せに失敗しました"
     end
   end
 
   def update
-    @inquirie = Inquirie.find(params[:id])
+    @contact = Contact.find(params[:id])
     @tags = Tag.all
     @categorys = Category.all
     @genres = Genre.all
-    if @inquirie.update(inquirie_params)
-      redirect_to inquiry_path(@inquirie), notice: "お問合せの変更内容を保存しました"
+    if @contact.update(contact_params)
+      redirect_to contact_path(@contact), notice: "お問合せの変更内容を保存しました"
     else
       render :edit, alert: "お問合せの変更に失敗しました"
     end
   end
 
   def destroy
-    @inquirie = Inquirie.find(params[:id])
-    @inquirie.destroy
-    redirect_to inquiries_path, notice: "お問合せを削除しました"
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    redirect_to contacts_path, notice: "お問合せを削除しました"
   end
 
   def thank
@@ -68,7 +68,7 @@ class Public::InquiriesController < ApplicationController
 
   private
 
-  def inquirie_params
-    params.require(:inquirie).permit(:title, :body, :inquirie_type)
+  def contact_params
+    params.require(:contact).permit(:content, :inquirie_type)
   end
 end

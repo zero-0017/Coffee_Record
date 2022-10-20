@@ -27,7 +27,7 @@
               </li>
 
               <li class="nav-item mr-5">
-	              <%= link_to inquiries_path, class: 'nav-link text-light' do %>
+	              <%= link_to contacts_path, class: 'nav-link text-light' do %>
 	                <i class="fa fa-envelope-square fa-lg mr-2"></i>お問合せ
 	              <% end %>
               </li>
@@ -57,6 +57,12 @@
 	            </li>
 
 	          <% elsif admin_signed_in? %>
+              <li class="nav-item mr-5">
+	              <%= link_to admin_contacts_path, class: 'nav-link text-light' do %>
+	                <i class="fa fa-envelope-square fa-lg mr-2"></i>お問合せ一覧
+	              <% end %>
+              </li>
+
 	            <li class="nav-item mr-5">
      	          <%= link_to admin_users_path, class: 'nav-link text-light' do %>
      	            <i class="fa fa-address-book fa-lg mr-2"></i>会員一覧

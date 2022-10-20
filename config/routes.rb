@@ -42,7 +42,7 @@ scope module: :public do
     end
   end
 
-  resources :inquiries, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+  resources :contacts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
       collection do
         get 'thank'
     end
@@ -62,6 +62,7 @@ namespace :admin do
   resources :categorys, only: [:index, :create, :edit, :destroy, :update]
   resources :genres, only: [:index, :create, :edit, :destroy, :update]
   resources :coffee_comments, only: [:index, :destroy]
+  resources :contacts, only: [:index, :show, :update]
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
