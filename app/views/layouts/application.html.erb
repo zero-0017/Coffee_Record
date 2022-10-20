@@ -17,7 +17,7 @@
      <% unless current_page?(root_path) %><!--検索機能をログイン済みのみに表示するため-->
       <% if user_signed_in? %>
         <div class="search-back">
-          <div class='ml-auto py-2 r-5 col-xl-4 col-lg-5 col-md-7 col-sm-8'>
+          <div class='py-2 ml-auto col-xl-4 col-lg-5 col-md-7 col-sm-8'>
             <%= render 'public/searchs/search' %>
           </div>
         </div>

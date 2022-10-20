@@ -4,37 +4,49 @@
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto">
       <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text">
-          <strong><div class="comment_count">コメント一覧 : コメント数<%= @coffee_comments.count %></div></strong>
+          <strong><div class="comment_count">コメント一覧 : コメント数 <%= @coffee_comments.count %></div></strong>
       </h4>
 
-        <table class="table shadow-lg mt-4 table-hover back-background">
+       <table class="table shadow mx-auto back-background col-xl-12 col-lg-13 col-md-12 comment-table">
+         <% if @coffee_comments.present? %>
           <thead class="table-active back-admin">
             <tr>
               <th class="text-light">会員名</th>
-              <th class="text-light">コメント日時</th>
-              <th class="text-light">コメント内容</th>
+              <th class="text-light" style="width: 70%">コメント内容</th>
               <th></th>
             </tr>
           </thead>
+          <% @coffee_comments.each do |coffee_comment| %>
 
-        <% @coffee_comments.each do |coffee_comment| %>
-          <tbody>
-            <tr>
-              <td><%= coffee_comment.user.name %></td>
-              <td><%= l coffee_comment.created_at %></td>
-              <td><%= coffee_comment.comment %></td>
-              <td><%= link_to "削除", admin_coffee_comment_path(coffee_comment.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %></td>
-            </tr>
-          </tbody>
+            <tbody>
+              <tr>
+                <td>会員名：<%= coffee_comment.user.name %></td>
+　　　　　      <td><%= coffee_comment.comment %></td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <td class="mb-5"><%= l coffee_comment.created_at %></td>
+                <td>
+                  <div class="row justify-content-end mr-5">
+                    <%= link_to "削除", admin_coffee_comment_path(coffee_comment.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
+        <% else %>
+          <h3 class="text-center mt-5"><strong>コメントはまだありません</strong></h3>
         <% end %>
-        </table>
+      </table>
 
-      </div>
     </div>
+  </div>
 </div>
 
 <!--ページネーション-->
-<div class="mx-auto mt-4 pb-1">
+<div class="mx-auto mt-3 pb-5">
   <%= paginate @coffee_comments %>
 </div>
 </div>

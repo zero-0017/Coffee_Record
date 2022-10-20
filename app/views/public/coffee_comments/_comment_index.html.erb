@@ -1,6 +1,6 @@
 <!--コメント表示　[非同期通信化]-->
 <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-5 back-text"><strong>コメント一覧</strong></h4>
-  <table class="table shadow mb-5 mx-auto back-background col-xl-12 col-lg-13 col-md-12">
+  <table class="table shadow mb-5 mx-auto back-background col-xl-12 col-lg-13 col-md-12 comment-table">
     <% if post_coffee.coffee_comments.present? %>
       <% post_coffee.coffee_comments.each do |coffee_comment| %>
         <tbody>
@@ -8,12 +8,18 @@
             <td><%= image_tag coffee_comment.user.get_profile_image(100,100), class: "rounded-circle";  %><br>
               会員名：<%= coffee_comment.user.name %></td>
 
-　　　　　  <td><%= coffee_comment.comment %></td>
-
-            <td><%= l coffee_comment.created_at %></td>
-
+　　　　　  <td style="width: 70%"><%= coffee_comment.comment %></td>
+          </tr>
+        </tbody>
+        <tbody>
+        <tr>
+        <td class="mb-5"><%= l coffee_comment.created_at %></td>
             <% if coffee_comment.user == current_user %>
-              <td><%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, remote: true, class: "btn btn-danger" %></td>
+              <td>
+                <div class="row justify-content-end mr-5">
+                  <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, remote: true, class: "btn btn-danger" %>
+                </div>
+              </td>
             <% end %>
           </tr>
         </tbody>

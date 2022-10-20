@@ -18,7 +18,8 @@
 /*ページネーションのレイアウト*/
 
 /*ページネーション初期の設定*/
-.pagination>li>a {
+.pagination>li>a,
+.page-item.disabled .page-link {
   border: none;
   color: #000;
   background-color: rgba(0,0,0,0);
