@@ -1,5 +1,5 @@
 class Admin::GenresController < ApplicationController
-before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @genre = Genre.new
@@ -23,7 +23,7 @@ before_action :authenticate_admin!
   def destroy
     @genre = Genre.find(params[:id])
     @genre.destroy
-      redirect_to admin_genres_path, notice: "珈琲豆の種類名を削除しました"
+      redirect_to admin_genres_path, alert: "珈琲豆の種類名を削除しました"
   end
 
   def update

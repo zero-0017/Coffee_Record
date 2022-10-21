@@ -1,5 +1,5 @@
 class Admin::CategorysController < ApplicationController
-before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @category = Category.new
@@ -23,7 +23,7 @@ before_action :authenticate_admin!
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-      redirect_to admin_categorys_path, notice: "珈琲の種類名を削除しました"
+      redirect_to admin_categorys_path, alert: "珈琲の種類名を削除しました"
   end
 
   def update

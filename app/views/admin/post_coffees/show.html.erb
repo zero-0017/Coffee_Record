@@ -17,6 +17,15 @@
           <div class="justify-content-start mr-4 mt-4">
           投稿日時：<%= l @post_coffee.created_at %>
           </div>
+
+          <div class="row justify-content-end">
+
+            <!--コメント数-->
+            <i class="fa fa-comment m-1"></i>
+            <div class="comment_count mr-4">
+              <%= @post_coffee.coffee_comments.count %>
+            </div>
+          </div>
         </div>
 
         <div class="col-xl-7 col-lg-8 col-md-7 back-show-list">
@@ -46,5 +55,25 @@
         </div>
       </div>
 
+      <!--コメント表示-->
+      <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-5 back-text"><strong>コメント一覧</strong></h4>
+        <table class="table shadow mb-5 mx-auto back-background col-xl-12 col-lg-13 col-md-12 comment-table">
+          <% if @post_coffee.coffee_comments.present? %>
+            <% @post_coffee.coffee_comments.each do |coffee_comment| %>
+              <tbody>
+                <tr>
+                  <td><%= image_tag coffee_comment.user.get_profile_image(100,100), class: "rounded-circle"; %><br>
+                    会員名：<%= coffee_comment.user.name %><br>
+                    <div class="mt-5"><%= l coffee_comment.created_at %></div>
+                  </td>
+
+　　　　　        <td style="width: 60%"><%= coffee_comment.comment %></td>
+                </tr>
+              </tbody>
+            <% end %>
+          <% else %>
+            <h3 class="text-center mt-5"><strong>まだコメントはありません</strong></h3>
+          <% end %>
+        </table>
   </div>
 </div>

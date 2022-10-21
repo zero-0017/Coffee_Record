@@ -1,5 +1,5 @@
 class Admin::TagsController < ApplicationController
-before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @tag = Tag.new
@@ -23,7 +23,7 @@ before_action :authenticate_admin!
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
-      redirect_to admin_tags_path, notice: "珈琲の淹れ方名を削除しました"
+      redirect_to admin_tags_path, alert: "珈琲の淹れ方名を削除しました"
   end
 
   def update
