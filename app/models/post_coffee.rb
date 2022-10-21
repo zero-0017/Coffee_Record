@@ -44,6 +44,9 @@ class PostCoffee < ApplicationRecord
     end
   end
 
+  #新しい順・古い順
+  scope :latest, -> {order(created_at: :desc)}#　投稿新しい
+  scope :old, -> {order(created_at: :asc)}#　投稿古い
 
   # コメント通知
   def create_notification_coffee_comment(current_user)

@@ -18,7 +18,13 @@ class Public::PostCoffeesController < ApplicationController
   end
 
   def index
-    @post_coffees = PostCoffee.published.page(params[:page])
+    if params[:latest]
+      @post_coffees = PostCoffee.latest.published.page(params[:page])
+    elsif params[:old]
+      @post_coffees = PostCoffee.old.published.page(params[:page])
+    else
+      @post_coffees = PostCoffee.published.page(params[:page])
+    end
   end
 
   def show
