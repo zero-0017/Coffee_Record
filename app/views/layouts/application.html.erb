@@ -18,7 +18,7 @@
       <% if user_signed_in? %>
         <div class="search-back">
           <div class='py-2 ml-auto col-xl-4 col-lg-5 col-md-7 col-sm-8'>
-            <%= render 'public/searchs/search' %>
+            <%= render 'public/searches/search' %>
           </div>
         </div>
 
@@ -30,6 +30,14 @@
             <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
           </div>
 
+      <% end %>
+
+      <% if admin_signed_in? %>
+        <div class="search-back">
+          <div class='py-2 ml-auto col-xl-4 col-lg-5 col-md-7 col-sm-8'>
+            <%= render 'admin/searches/search' %>
+          </div>
+        </div>
       <% end %>
 
         <div class="main">

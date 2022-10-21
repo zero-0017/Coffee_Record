@@ -42,7 +42,7 @@ scope module: :public do
     end
   end
 
-  resources :contacts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+  resources :contacts, only: [:index, :new, :create, :show, :destroy] do
       collection do
         get 'thank'
     end
@@ -51,7 +51,7 @@ scope module: :public do
   resources :tags, only: [:show]
   resources :categorys, only: [:show]
   resources :genres, only: [:show]
-  get "search" => "searchs#search"
+  get "search" => "searches#search"
 end
 
 namespace :admin do
@@ -63,6 +63,7 @@ namespace :admin do
   resources :genres, only: [:index, :create, :edit, :destroy, :update]
   resources :coffee_comments, only: [:index, :destroy]
   resources :contacts, only: [:index, :show, :update]
+  get "search" => "searches#search"
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

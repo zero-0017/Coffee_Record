@@ -1,8 +1,8 @@
 class Admin::PostCoffeesController < ApplicationController
-before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
-    @post_coffees = PostCoffee.published.page(params[:page]).per(5)
+    @post_coffees = PostCoffee.published.page(params[:page]).per(4)
   end
 
   def show

@@ -1,12 +1,12 @@
 class Admin::ContactsController < ApplicationController
-before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def show
     @contact = Contact.find(params[:id])
   end
 
   def index
-    @contacts = Contact.page(params[:page]).per(12)
+    @contacts = Contact.page(params[:page]).per(11)
   end
 
   def update

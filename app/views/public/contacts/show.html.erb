@@ -8,7 +8,7 @@
         <thead class="table-active back-admin">
           <tr>
             <th class="text-light">お問合せ件名</th>
-            <th class="text-light">内容</th>
+            <th class="text-light" style="width: 60%">内容</th>
             <th class="text-light">対応状況</th>
           </tr>
         </thead>
@@ -22,7 +22,6 @@
         </tbody>
      </table>
       <div class="actions text-center">
-        <%= link_to "編集", edit_contact_path(@contact.id), class: 'btn btn-success' %>
         <%= link_to "削除", contact_path(@contact.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
       </div>
     </div>

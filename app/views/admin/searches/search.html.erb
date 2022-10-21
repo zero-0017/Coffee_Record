@@ -1,0 +1,133 @@
+<div class="admin-main">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto">
+
+        <!--会員名の検索一覧-->
+        <% if @range == "User" %>
+          <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>会員名 『<%= params[:word] %>』</strong></h4>
+            <% if @users.present? %>
+              <table class="table shadow-lg mt-4 table-hover back-background">
+                <thead class="table-active back-admin">
+                  <tr>
+                    <th class="text-light">会員ID</th>
+                    <th class="text-light">会員画像</th>
+                    <th class="text-light">会員名</th>
+                    <th class="text-light">メールアドレス</th>
+                    <th></th>
+                  </tr>
+                </thead>
+              <% @users.each do |user| %>
+                <tbody>
+                  <tr>
+                    <td><%= user.id %></td>
+                    <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle"; %></td>
+
+                    <td>
+                      <%= link_to admin_user_path(user.id) do %>
+                        <%= user.name %>
+                      <% end %>
+                    </td>
+                    <td><%= user.email %></td>
+
+                    <% if user.is_deleted == true %>
+                      <td class="text-primary font-weight-bold">退会</td>
+                    <% else %>
+                      <td class="text-danger font-weight-bold">有効</td>
+                    <% end %>
+                  </tr>
+                </tbody>
+              <% end %>
+              </table>
+            <% else %>
+              <h3 class="text-center mt-5"><strong>一致する会員名は検出できませんでした</strong></h3>
+            <% end %>
+
+        <!--投稿名の検索一覧-->
+        <% elsif @range == "PostCoffee" %>
+          <h4 class="col-4 py-1 mt-2 back-text"><strong>投稿名 『<%= params[:word] %>』</strong></h4>
+            <% if @post_coffees.present? %>
+              <table class="table shadow-lg mt-4 table-hover back-background">
+                <thead class="table-active back-admin">
+                  <tr>
+                    <th class="text-light">投稿ID</th>
+                    <th class="text-light">投稿画像</th>
+                    <th class="text-light" style="width: 40%">投稿名</th>
+                    <th class="text-light">会員名</th>
+                  </tr>
+                </thead>
+              <% @post_coffees.each do |post_coffee| %>
+                <tbody>
+                  <tr>
+                    <td><%= post_coffee.id %></td>
+                    <td><%= image_tag post_coffee.get_image, class: "rounded", :size => '100' %></td>
+
+                    <td>
+                      <%= link_to admin_post_coffee_path(post_coffee.id) do %>
+                        <%= post_coffee.coffee_name %>
+                      <% end %>
+                    </td>
+                    <td><%= post_coffee.user.name %></td>
+                  </tr>
+                </tbody>
+              <% end %>
+              </table>
+            <% else %>
+              <h3 class="text-center mt-5"><strong>一致する投稿名は検出できませんでした</strong></h3>
+            <% end %>
+
+        <!--コメント内容の検索一覧-->
+        <% else %>
+          <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text"><strong><div class="comment_count">コメント内容 『<%= params[:word] %>』</div></strong></h4>
+            <% if @coffee_comments.present? %>
+              <table class="table shadow mx-auto back-background col-xl-12 col-lg-13 col-md-12 comment-table">
+                <thead class="table-active back-admin">
+                  <tr>
+                    <th class="text-light">会員名・コメント日時</th>
+                    <th class="text-light" style="width: 60%">コメント内容</th>
+                    <th></th>
+                  </tr>
+                </thead>
+              <% @coffee_comments.each do |coffee_comment| %>
+                <tbody>
+                  <tr>
+                    <td><%= coffee_comment.user.name %><br>
+                      <div class="mt-5"><%= l coffee_comment.created_at %></div>
+                    </td>
+
+　　　　　          <td><%= coffee_comment.comment %></td>
+
+　　　　　          <td>
+                      <div class="row justify-content-end mr-5">
+                        <%= link_to "削除", admin_coffee_comment_path(coffee_comment.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              <% end %>
+              </table>
+            <% else %>
+              <h3 class="text-center mt-5"><strong>一致するコメント内容は検出できませんでした</strong></h3>
+            <% end %>
+        <% end %>
+  　   </div>
+    </div>
+  </div>
+
+<!--会員検索一覧ページネーション-->
+<% if @range == "User" %>
+  <div class="mx-auto mt-3 pb-5">
+    <%= paginate @users %>
+  </div>
+<!--投稿検索一覧ページネーション-->
+<% elsif @range == "PostCoffee" %>
+  <div class="mx-auto mt-3 pb-5">
+    <%= paginate @post_coffees %>
+  </div>
+<!--コメント検索一覧ページネーション-->
+<% else %>
+  <div class="mx-auto mt-3 pb-5">
+    <%= paginate @coffee_comments %>
+  </div>
+<% end %>
+</div>

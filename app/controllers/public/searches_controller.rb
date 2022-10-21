@@ -1,4 +1,4 @@
-class Public::SearchsController < ApplicationController
+class Public::SearchesController < ApplicationController
 before_action :authenticate_user!
 
   def search
