@@ -14,12 +14,12 @@ class PostCoffee < ApplicationRecord
 
   has_one_attached :image
 
-  def get_image
+  def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/post_coffee.png')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    image
+    image.variant(resize_to_limit: [width, height]).processed
   end
 
   def favorited_by?(user)
@@ -52,17 +52,17 @@ class PostCoffee < ApplicationRecord
   def create_notification_coffee_comment(current_user)
     notification = current_user.active_notifications.new(post_coffee_id: id,visited_id: user_id,action: 'coffee_comment')
   if notification.visiter_id == notification.visited_id
-      notification.checked = true
+      notification.checked = true# 自分には通知がこないようにする
   end
-    notification.save if notification.valid?# 自分には通知がこないようにする
+    notification.save if notification.valid?
   end
 
   # お気に入り通知
   def create_notification_favorite(current_user)
     notification = current_user.active_notifications.new(post_coffee_id: id,visited_id: user_id,action: 'favorite')
   if notification.visiter_id == notification.visited_id
-      notification.checked = true
+      notification.checked = true# 自分には通知がこないようにする
   end
-    notification.save if notification.valid?# 自分には通知がこないようにする
+    notification.save if notification.valid?
   end
 end

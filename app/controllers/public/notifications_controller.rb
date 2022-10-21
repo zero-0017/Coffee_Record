@@ -5,7 +5,7 @@ before_action :authenticate_user!
     @tags = Tag.all
     @categorys = Category.all
     @genres = Genre.all
-    @notifications = current_user.passive_notifications
+    @notifications = current_user.passive_notifications.page(params[:page]).per(15)
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end

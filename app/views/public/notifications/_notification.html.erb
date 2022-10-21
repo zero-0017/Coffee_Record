@@ -10,7 +10,7 @@
       <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたの<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>にコメントしました。
       <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
     <% else %>
-      <li><%= link_to user_path(visiter) do %><strong>あなた<% end %></strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>にコメントしました。
+      <li><strong>自分</strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>にコメントしました。
       <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
     <% end %>
 
@@ -20,7 +20,7 @@
       <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたの<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。
       <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
     <% else %>
-      <li><strong>あなた</strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。
+      <li><strong>自分</strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。
       <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
     <% end %>
   <% end %>

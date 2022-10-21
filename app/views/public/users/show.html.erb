@@ -8,13 +8,12 @@
           <!--会員画像-->
           <%= image_tag @user.get_profile_image(500,500), class: "card-img" %>
 
-          <!--会員名-->
-          <h5 class="text-center"><%= @user.name %></h5>
 
-          <div class="row justify-content-center">
+
+          <div class="row justify-content-center mt-3">
             <!--編集ボタン-->
             <% if @user.name != "ゲストユーザー" %>
-              <% if @user == current_user %><br>
+              <% if @user == current_user %>
                 <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn user-edit mb-3" %>
               <% end %>
             <% end %>
@@ -23,6 +22,10 @@
 
         </div>
       </div>
+      <div class="col-xl-7 col-lg-8 col-md-7 back-show-list">
+                  <!--会員名-->
+          <h5 class="text-center mt-4"><%= @user.name %></h5>
+       </div>
     </div>
 </div>
 
@@ -33,19 +36,21 @@
     <div class="row justify-content-center mt-4">
      <%= link_to "お気に入り投稿一覧", favorites_user_path(@user), class: "btn user-favorite mb-3" %>
      <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-post_list mb-3 mx-4" %>
-     <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-confirm mb-3" %>
+     <% if @user == current_user %>
+      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-confirm mb-3" %>
+     <% end %>
    </div>
   <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 back-text"><strong>新着投稿</strong></h4>
     <div class="row pb-5">
 
       <% if @post_coffees.present? %>
-        <% @post_coffees.last(4).each do |post_coffee| %>
-          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-2 card">
+        <% @post_coffees.last(6).each do |post_coffee| %>
+          <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 mt-2 card">
             <div class="shadow">
 
               <!--投稿画像-->
               <%= link_to post_coffee_path(post_coffee.id) do %>
-                <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
+                <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '148' %>
               <% end %>
 
               <!--投稿名-->

@@ -18,7 +18,7 @@
           <tbody>
             <tr>
               <td><%= post_coffee.id %></td>
-              <td><%= image_tag post_coffee.get_image, class: "rounded", :size => '100' %></td>
+              <td><%= image_tag post_coffee.get_image(500,500), class: "rounded", :size => '100' %></td>
 
               <td>
                 <%= link_to admin_post_coffee_path(post_coffee.id) do %>
