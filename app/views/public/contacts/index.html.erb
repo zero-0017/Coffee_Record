@@ -23,12 +23,7 @@
                   <tr>
                     <td><%= contact.contact_type %></td>
 
-                    <td>
-                      <%= link_to contact_path(contact.id) do %>
-                        <%= contact.content.truncate(25) %>
-                      <% end %>
-                    </td>
-
+                    <td><%= contact.content.truncate(25) %></td>
                     <td><%= l contact.created_at %></td>
                     <td><%= contact.status %></td>
                     <td><%= link_to "詳細", contact_path(contact.id), class: "btn btn-sm show-btn" %></td>

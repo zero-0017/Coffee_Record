@@ -10,9 +10,9 @@
 .about-image{
   background-image: image-url('about.png');
   height: 796px;
-  width: 1400px ;
-  background-size: cover;
-  background-position:center;
+  width: 1400px;
+  position: relative;
+  background-size: 100% 100%;
 }
 
 // aboutの文字設定
@@ -20,10 +20,9 @@
   font-size: 38px;
   color: #fff;
   text-align: center;
-  // margin-left: 569px;
   margin-left: 503px;
   padding: 53px;
-  margin-bottom: 110px;
+  margin-bottom: 70px;
   position: absolute;
   bottom: 0;
   background: rgba(0,0,0,0.5);
@@ -41,7 +40,7 @@
   margin-top: 62px;
   margin-bottom: 11px;
   text-align: center;
-  text-shadow: 0 13.36px 8.896px #556b2f,0 -2px 1px #fff;
+	text-shadow: -2px 2px 9px #fff;
 }
 
 // 会員側トップの文字の設定
@@ -49,15 +48,74 @@
   font-size: 57px;
   margin-bottom: 85px;
   text-align: center;
-  text-shadow: 0 13.36px 8.896px #556b2f,0 -2px 1px #fff;
+  text-shadow: -2px 2px 9px #fff;
 }
 
 
 // レスポンシブの調整
-@media screen and (max-width:1300px){
+@media screen and (max-width:1500px){
+
+.about-image{
+  width: 1250px;
+}
+
+.about-text{
+  font-size: 34px;
+  margin-left: 436px;
+}
+
+}
+
+
+@media screen and (max-width:1325px){
+
+.about-image{
+  width: 1103px;
+}
 
 .about-text{
   font-size: 30px;
+  margin-left: 372px;
+}
+
+}
+
+@media screen and (max-width:1199px){
+
+.about-image{
+  width: 899px;
+}
+
+.about-text{
+  font-size: 26px;
+  margin-left: 251px;
+}
+
+}
+
+@media screen and (max-width:1012px){
+
+.about-image{
+  width: 759px;
+}
+
+.about-text{
+  font-size: 24px;
+  margin-left: 153px;
+}
+
+}
+
+
+@media screen and (max-width:935px){
+
+.about-image{
+  width: 624px;
+}
+
+.about-text{
+  font-size: 22px;
+  margin-left: 60px;
 }
 
 }
@@ -73,11 +131,31 @@
   font-size: 43px;
 }
 
+.about-image{
+  width: 767px;
+}
+
 .about-text{
-  font-size: 18px;
+  font-size: 20px;
+  margin-left: 244px;
 }
 
 }
+
+@media screen and (max-width:638px){
+
+.about-image{
+  width: 767px;
+}
+
+.about-text{
+  font-size: 18px;
+  margin-left: 244px;
+}
+
+}
+
+
 
 @media screen and (max-width:576px){
 .top-text-top {
