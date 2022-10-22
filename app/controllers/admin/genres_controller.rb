@@ -3,15 +3,15 @@ class Admin::GenresController < ApplicationController
 
   def index
     @genre = Genre.new
-    @genres = Genre.page(params[:page]).per(9)
+    @genres = Genre.page(params[:page]).per(7)
   end
 
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to admin_genres_path, notice: "珈琲豆の種類名を作成しました"
+      redirect_to admin_genres_path, notice: "珈琲豆の種類を作成しました"
     else
-      @genres = Genre.page(params[:page]).per(9)
+      @genres = Genre.page(params[:page]).per(7)
       render :index
     end
   end
@@ -23,13 +23,13 @@ class Admin::GenresController < ApplicationController
   def destroy
     @genre = Genre.find(params[:id])
     @genre.destroy
-      redirect_to admin_genres_path, alert: "珈琲豆の種類名を削除しました"
+      redirect_to admin_genres_path, alert: "珈琲豆の種類を削除しました"
   end
 
   def update
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
-      redirect_to admin_genres_path, notice: "珈琲豆の種類名の変更内容を保存しました"
+      redirect_to admin_genres_path, notice: "珈琲豆の種類の変更内容を保存しました"
     else
       render :edit
     end

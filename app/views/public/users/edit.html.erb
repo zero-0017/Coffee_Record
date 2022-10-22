@@ -16,11 +16,11 @@
              <%= f.file_field :profile_image, accept: "image/*" ,class: "mb-4" %><br>
 
              <!--変更内容保存ボタン-->
-             <%= f.submit "変更内容保存", class: "btn btn-secondary" %>
+             <%= f.submit "変更内容保存", class: "btn update-btn" %>
 
              <!--退会ボタン-->
              <%= link_to unsubscribe_users_path do %>
-               <button type="button" class="btn btn-danger">退会する</button>
+               <button type="button" class="btn unsubscribe-btn">退会する</button>
              <% end %>
          <% end %>
       </div>

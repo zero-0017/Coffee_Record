@@ -38,7 +38,7 @@
 .pagination > li > span:focus,
 .pagination > li > span:hover{
   color: #FFF;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   border-radius: 30px;
 }
 
@@ -81,6 +81,7 @@ footer {
   text-align: center;
   color: #fff;
   border-radius: 30px;
+  border: 5px outset #808080;
 }
 
 /*部分的な背景の設定*/
@@ -150,5 +151,172 @@ footer {
  /*新着・投稿順の設定*/
 .list-old {
   margin-left: 71px;
-  font-size: 17px;
+  font-size: 15px;
+}
+
+
+/*ボタンの設定*/
+
+/*新規登録*/
+.user-sign-btn {
+  background-color: #888888;
+  border: 6px outset #888888;
+}
+
+.user-sign-btn:hover {
+  color: #fff;
+  background-color: #666666;
+  border: 6px inset #666666;
+}
+
+
+/*ゲストログイン*/
+.gest-user-btn {
+  background-color: #fff;
+  border: 6px outset #fff;
+}
+
+.gest-user-btn:hover {
+  color: #fff;
+  background-color: #AAAAAA;
+  border: 6px inset #AAAAAA;
+}
+
+
+/*ログイン*/
+.log-btn {
+  color: #fff;
+  background-color: #555555;
+  border: 6px outset #555555;
+}
+
+.log-btn:hover {
+  color: #fff;
+  background-color: #333333;
+  border: 6px inset #333333;
+}
+
+
+
+/*削除*/
+.destroy-btn {
+  color: #fff;
+  background-color: #BB0000;
+  border: 6px outset #BB0000;
+}
+
+.destroy-btn:hover {
+  color: #fff;
+  background-color: #990000;
+  border: 6px inset #990000;
+}
+
+
+/*投稿*/
+.post-btn {
+  color: #fff;
+  background-color: #6b8a23;
+  border: 6px outset #6b8a23;
+}
+
+.post-btn:hover {
+  color: #fff;
+  background-color: #336600;
+  border: 6px inset #336600;
+}
+
+
+/*変更保存*/
+.update-btn {
+  color: #fff;
+  background-color: #0000DD;
+  border: 6px outset #0000DD;
+}
+
+.update-btn:hover {
+  color: #fff;
+  background-color: #000099;
+  border: 6px inset #000099;
+}
+
+/*詳細*/
+.show-btn {
+  color: #fff;
+  background-color: #FF9872;
+  border: 6px outset #FF9872;
+}
+
+.show-btn:hover {
+  color: #fff;
+  background-color: #FF6928;
+  border: 6px inset #FF6928;
+}
+
+
+
+/*編集*/
+.edit-btn {
+  color: #fff;
+  background-color: #009900;
+  border: 6px outset #009900;
+}
+
+.edit-btn:hover {
+  color: #fff;
+  background-color: #007700;
+  border: 6px inset #007700;
+}
+
+
+/*退会*/
+.unsubscribe-btn {
+  background-color: #D0B0FF;
+  border: 6px outset #D0B0FF;
+}
+
+.unsubscribe-btn:hover {
+  color: #fff;
+  background-color: #7B3CFF;
+  border: 6px inset #7B3CFF;
+}
+
+
+/*退会しない*/
+.unsubscribe-no-btn {
+  background-color: #FFABCE;
+  border: 6px outset #FFABCE;
+}
+
+.unsubscribe-no-btn:hover {
+  color: #fff;
+  background-color: #FF367F;
+  border: 6px inset #FF367F;
+}
+
+
+/*管理者トップボタン*/
+.admin-btn {
+  color: #fff;
+  background-color: #333333;
+  border: 6px outset #333333;
+}
+
+.admin-btn:hover {
+  color: #fff;
+  background-color: #111111;
+  border: 6px inset #111111;
+}
+
+
+/*会員詳細　ボタン*/
+.user-show-btn {
+  color: #fff;
+  background-color: #333333;
+  border: 6px outset #333333;
+}
+
+.user-show-btn:hover {
+  color: #fff;
+  background-color: #111111;
+  border: 6px inset #111111;
 }

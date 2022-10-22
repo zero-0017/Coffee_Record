@@ -1,12 +1,12 @@
 <div class="container">
-  <h4 class="col-4 py-1 mt-2 back-text"><strong>投稿名『<%= params[:word] %>』</strong></h4>
+  <h4 class="col-4 py-1 mt-2 back-text"><strong>投稿名『<%= params[:keyword] %>』</strong></h4>
     <div class="row">
 
       <% if @post_coffees.present? %>
         <%= render 'public/post_coffees/post_index' %>
       <% else %>
         <div class="mx-auto mt-5">
-          <h3><strong><%= params[:word] %></strong>の投稿はありません</h3>
+          <h3><strong>一致する投稿名は検出できませんでした</strong></h3>
         </div>
       <% end %>
 

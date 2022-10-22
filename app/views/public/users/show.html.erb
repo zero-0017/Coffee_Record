@@ -1,3 +1,4 @@
+<!--フラッシュメッセージ-->
 <%= render 'layouts/flash_message' %>
 <div class="container">
   <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text"><strong>会員の詳細</strong></h4>
@@ -6,15 +7,13 @@
         <div class="shadow back-background">
 
           <!--会員画像-->
-          <%= image_tag @user.get_profile_image(500,500), class: "card-img" %>
-
-
+          <%= image_tag @user.get_profile_image(500,500), class: "card-img rounded-circle", :size => '250' %>
 
           <div class="row justify-content-center mt-3">
             <!--編集ボタン-->
             <% if @user.name != "ゲストユーザー" %>
               <% if @user == current_user %>
-                <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn user-edit mb-3" %>
+                <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn mb-3" %>
               <% end %>
             <% end %>
 
@@ -23,7 +22,7 @@
         </div>
       </div>
       <div class="col-xl-7 col-lg-8 col-md-7 back-show-list">
-                  <!--会員名-->
+          <!--会員名-->
           <h5 class="text-center mt-4"><%= @user.name %></h5>
        </div>
     </div>
@@ -34,10 +33,11 @@
 <!--会員の投稿一覧-->
 <div class="container">
     <div class="row justify-content-center mt-4">
-     <%= link_to "お気に入り投稿一覧", favorites_user_path(@user), class: "btn user-favorite mb-3" %>
-     <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-post_list mb-3 mx-4" %>
+     <%= link_to "お気に入り投稿一覧", favorites_user_path(@user), class: "btn user-show-btn mb-3" %>
+     <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-show-btn mb-3 mx-4" %>
      <% if @user == current_user %>
-      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-confirm mb-3" %>
+      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-show-btn mb-3 mr-4" %>
+      <%= link_to "お問い合せ一覧", confirm_post_coffees_path, class: "btn user-show-btn mb-3" %>
      <% end %>
    </div>
   <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 back-text"><strong>新着投稿</strong></h4>

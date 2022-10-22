@@ -1,0 +1,29 @@
+<table class="table shadow-lg mt-4 table-hover back-background">
+  <thead class="table-active back-admin">
+    <tr>
+      <th class="text-light">会員ID</th>
+      <th class="text-light">会員画像</th>
+      <th class="text-light" style="width: 30%">会員名</th>
+      <th class="text-light">メールアドレス</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+<% @users.each do |user| %>
+  <tbody>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle", :size => '100' %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+
+      <% if user.is_deleted == true %>
+        <td class="text-primary font-weight-bold">退会</td>
+      <% else %>
+        <td class="text-danger font-weight-bold">有効</td>
+      <% end %>
+
+      <td><%= link_to "詳細", admin_user_path(user.id), class: "btn btn-sm show-btn" %></td>
+    </tr>
+  </tbody>
+<% end %>
+</table>

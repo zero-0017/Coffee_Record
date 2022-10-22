@@ -1,46 +1,42 @@
 <div class="admin-main">
-<%= render 'layouts/flash_message' %>
-<div class="container">
-  <h4 class="col-md-6 col-lg-5 col-xl-4 py-1 mt-2 back-text"><strong>珈琲の種類一覧・追加</strong></h4>
-    <div class="row no-gutters">
-      <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 mx-sm-auto text-center shadow-lg mt-2 pt-3 back-admin">
-        <%= form_with model:@category, url: admin_categorys_path, local:true do |f| %>
+  <!--フラッシュメッセージ-->
+  <%= render 'layouts/flash_message' %>
+    <div class="container">
+      <h4 class="col-md-6 col-lg-5 col-xl-4 py-1 mt-2 back-text"><strong>珈琲の種類一覧・追加</strong></h4>
+        <!--エラーメッセージ表示-->
+        <%= render 'layouts/error_messages', model: @category %>
 
-        　<!--エラーメッセージ表示-->
-        　<%= render 'layouts/error_messages', model: f.object %>
+          <div class="row no-gutters">
+            <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 mx-sm-auto text-center shadow-lg mt-2 pt-3 back-admin">
+              <%= form_with model: @category, url: admin_categorys_path, local:true do |f| %>
 
-          珈琲の種類名
-            <%= f.text_field :category_name %>
-            <%= f.submit '新規登録', class: "btn btn-secondary" %>
-        <% end %>
+                珈琲の種類<br>
+                <%= f.text_field :tag_name %><br>
+                <%= f.submit '新規登録', class: "btn post-btn" %>
+              <% end %>
 
-          <table class="table table-hover mt-3 back-background">
-            <thead class="table-dark">
-              <tr>
-                <th>珈琲の種類</th>
-                <th></th>
-              </tr>
-            </thead>
-          <tbody>
-            <% @categorys.each do |category| %>
-              <tr>
-                <td>
-                  <%= category.category_name %>
-                </td>
-
-                <td>
-                  <%= link_to "編集する", edit_admin_category_path(category.id), class: "btn btn-dark" %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+              <table class="table table-hover mt-3 back-background">
+                <thead class="table-dark">
+                  <tr>
+                    <th style="width: 60%">珈琲の種類</th>
+                    <th></th>
+                  </tr>
+                </thead>
+              <% @categorys.each do |category| %>
+                <tbody>
+                  <tr>
+                    <td><%= category.category_name %></td>
+                    <td><%= link_to "編集する", edit_admin_category_path(category.id), class: "btn btn-sm update-btn" %></td>
+                  </tr>
+                </tbody>
+              <% end %>
+              </table>
+            </div>
+          </div>
     </div>
-</div>
 
-<!--ページネーション-->
-<div class="mx-auto mt-3 pb-5">
-  <%= paginate @categorys %>
-</div>
+  <!--ページネーション-->
+  <div class="mx-auto mt-3 pb-5">
+    <%= paginate @categorys %>
+  </div>
 </div>

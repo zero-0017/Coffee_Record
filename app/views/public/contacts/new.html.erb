@@ -1,5 +1,5 @@
 <div class="container">
-    <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>新規お問合せ</strong></h4>
+    <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>新規お問い合わせ</strong></h4>
       <div class="row post-post">
         <div class="mx-auto px-5 py-4 shadow-lg back-background">
           <%= form_with model: @contact do |f| %>
@@ -7,14 +7,14 @@
           <!--エラーメッセージ表示-->
           <%= render 'layouts/error_messages', model: f.object %>
 
-　        <h5>お問合せ件名</h5>
+　        <h5>お問い合わせ件名</h5>
           <%= f.select :contact_type, Contact.contact_types.keys.map { |k| [t("enums.contact.icontact_type.#{k}"),k]}, {}, {class: "custom-select"} %>
 
-          <h5 class="mt-4">お問合せ内容</h5>
-          <%= f.text_area :content, size: "50x6", placeholder: "お問合せ内容を記入して下さい　※200文字以内" %>
+          <h5 class="mt-4">お問い合わせ内容</h5>
+          <%= f.text_area :content, size: "50x6", placeholder: "お問い合わせ内容を記入して下さい　※200文字以内" %>
 
            <div class="row justify-content-center">
-           <%= f.submit "変更内容保存", class: "btn btn-dark mt-2 shadow" %>
+           <%= f.submit "送信", class: "btn post-btn mt-2 shadow" %>
            </div>
         <% end %>
       </div>
