@@ -1,29 +1,37 @@
 <!--フラッシュメッセージ-->
 <%= render 'layouts/flash_message' %>
 <div class="container">
-  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text"><strong>会員の詳細</strong></h4>
-    <div class="row mt-2 justify-content-center">
-      <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8 shadow back-background">
-        <div class="shadow back-background">
+  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text"><strong>マイページ</strong></h4>
+    <div class="row justify-content-center">
+      <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8 back-background">
+        <div class="mr-4">
 
           <!--会員画像-->
-          <%= image_tag @user.get_profile_image(500,500), class: "card-img rounded-circle", :size => '250' %>
+          <%= image_tag @user.get_profile_image(500,500), class: "rounded-circle mt-3", :size => '250' %>
 
           <div class="row justify-content-center mt-3">
+
+          <!--会員名-->
+            <h5><%= @user.name %></h5>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xl-7 col-lg-8 col-md-7 back-background">
+
+          <div style="height: 70%">
+          </div>
+
+        <div class="row justify-content-end mr-3">
+
             <!--編集ボタン-->
             <% if @user.name != "ゲストユーザー" %>
               <% if @user == current_user %>
                 <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn mb-3" %>
               <% end %>
             <% end %>
-
           </div>
-
-        </div>
-      </div>
-      <div class="col-xl-7 col-lg-8 col-md-7 back-show-list">
-          <!--会員名-->
-          <h5 class="text-center mt-4"><%= @user.name %></h5>
        </div>
     </div>
 </div>

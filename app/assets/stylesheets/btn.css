@@ -1,0 +1,200 @@
+/*ボタンの設定*/
+
+/*新規登録*/
+.user-sign-btn {
+  background-color: #888;
+  border: 6px outset #777;
+}
+
+.user-sign-btn:hover {
+  color: #fff;
+  background-color: #666;
+  border: 6px inset #777;
+}
+
+
+/*ゲストログイン*/
+.gest-user-btn {
+  background-color: #eee;
+  border: 6px outset #ccc;
+}
+
+.gest-user-btn:hover {
+  color: #fff;
+  background-color: #aaa;
+  border: 6px inset #bbb;
+}
+
+
+/*ログイン*/
+.log-btn {
+  color: #fff;
+  background-color: #555;
+  border: 6px outset #444;
+}
+
+.log-btn:hover {
+  color: #fff;
+  background-color: #333;
+  border: 6px inset #444;
+}
+
+
+
+/*削除*/
+.destroy-btn {
+  color: #fff;
+  background-color: #bb0000;
+  border: 6px outset #aa0000;
+}
+
+.destroy-btn:hover {
+  color: #fff;
+  background-color: #880000;
+  border: 6px inset #990000;
+}
+
+
+/*投稿*/
+.post-btn {
+  color: #fff;
+  background-color: #6b8a23;
+  border: 6px outset #669933;
+}
+
+.post-btn:hover {
+  color: #fff;
+  background-color: #336600;
+  border: 6px inset #006600;
+}
+
+
+/*変更保存*/
+.update-btn {
+  color: #fff;
+  background-color: #0000cc;
+  border: 6px outset #0000dd;
+}
+
+.update-btn:hover {
+  color: #fff;
+  background-color: #000099;
+  border: 6px inset #0000aa;
+}
+
+/*詳細*/
+.show-btn {
+  color: #fff;
+  background-color: #ff9872;
+  border: 6px outset #ff8856;
+}
+
+.show-btn:hover {
+  color: #fff;
+  background-color: #ff6928;
+  border: 6px inset #ff773e;
+}
+
+
+
+/*編集*/
+.edit-btn {
+  color: #fff;
+  background-color: #009900;
+  border: 6px outset #008800;
+}
+
+.edit-btn:hover {
+  color: #fff;
+  background-color: #006600;
+  border: 6px inset #007700;
+}
+
+
+/*退会*/
+.unsubscribe-btn {
+  background-color: #c299ff;
+  border: 6px outset #b384ff;
+}
+
+.unsubscribe-btn:hover {
+  color: #fff;
+  background-color: #a16eff;
+  border: 6px inset #9057ff;
+}
+
+
+/*退会しない*/
+.unsubscribe-no-btn {
+  background-color: #ff97c2;
+  border: 6px outset #ff82b2;
+}
+
+.unsubscribe-no-btn:hover {
+  color: #fff;
+  background-color: #ff5192;
+  border: 6px inset #ff69a3;
+}
+
+
+/*管理者トップボタン*/
+.admin-btn {
+  color: #fff;
+  background-color: #333;
+  border: 6px outset #333;
+}
+
+.admin-btn:hover {
+  color: #fff;
+  background-color: #111;
+  border: 6px inset #111;
+}
+
+
+/*会員詳細　ボタン*/
+.user-show-btn {
+  color: #fff;
+  background-color: #333;
+  border: 6px outset #333;
+}
+
+.user-show-btn:hover {
+  color: #fff;
+  background-color: #111;
+  border: 6px inset #111;
+}
+
+
+/*新着順*/
+.latest-btn {
+  background-color: #eee;
+  border: 6px groove #eee;
+}
+
+.latest-btn:hover {
+  color: #000;
+  background-color: #bbb;
+  border: 6px ridge #bbb;
+}
+
+
+/*投稿順*/
+.old-btn {
+  background-color: #eee;
+  border: 6px groove #eee;
+}
+
+.old-btn:hover {
+  color: #000;
+  background-color: #bbb;
+  border: 6px ridge #bbb;
+}
+
+
+.user-search-btn {
+  border: 6px outset #555;
+}
+
+.user-search-btn:hover {
+  border: 6px inset #555;
+}
