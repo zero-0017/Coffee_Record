@@ -138,7 +138,7 @@ footer {
 
 /*管理者側の画面の設定*/
 .admin-main {
-  height: 87vh;
+  height: 86vh;
 }
 
 
@@ -180,4 +180,15 @@ footer {
 /*新規登録・ログインのフォームの設定*/
 .log-form-all {
   border: 8px ridge #556b2f;
+}
+
+
+/*投稿の見出しの設定*/
+.post-top-text {
+  color: #556b2f;
+}
+
+
+.seach-top {
+  padding-left: 30px;
 }

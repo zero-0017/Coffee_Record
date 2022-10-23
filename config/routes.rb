@@ -30,7 +30,7 @@ scope module: :public do
     end
   end
 
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:index, :show, :edit, :update] do
     collection do
       get 'unsubscribe'
       patch 'withdrawal'

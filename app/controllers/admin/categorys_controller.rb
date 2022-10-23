@@ -3,7 +3,7 @@ class Admin::CategorysController < ApplicationController
 
   def index
     @category = Category.new
-    @categorys = Category.page(params[:page]).per(7)
+    @categorys = Category.page(params[:page]).per(6)
   end
 
   def create
@@ -11,7 +11,7 @@ class Admin::CategorysController < ApplicationController
     if @category.save
       redirect_to admin_categorys_path, notice: "珈琲の種類を作成しました"
     else
-      @categorys = Category.page(params[:page]).per(7)
+      @categorys = Category.page(params[:page]).per(6)
       render :index
     end
   end

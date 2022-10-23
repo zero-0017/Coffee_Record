@@ -2,7 +2,11 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_guest_user, only: [:edit]
   before_action :sidebar_list, except: [:create, :update, :withdrawal]
-  before_action :set_user, except: [:unsubscribe, :withdrawal]
+  before_action :set_user, except: [:index, :unsubscribe, :withdrawal]
+
+  def index
+    @users = User.page(params[:page]).per(4)
+  end
 
   def show
     @post_coffees = @user.post_coffees.published

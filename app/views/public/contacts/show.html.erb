@@ -15,7 +15,10 @@
 
         <tbody>
           <tr>
-            <td><%= @contact.contact_type %></td>
+            <td><%= @contact.contact_type %>
+              <div class="mt-5"><%= l @contact.created_at %></div>
+            </td>
+
             <td><%= @contact.content %></td>
             <td><%= @contact.status %></td>
           </tr>

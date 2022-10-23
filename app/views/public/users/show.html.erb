@@ -41,12 +41,14 @@
 <!--会員の投稿一覧-->
 <div class="container">
     <div class="row justify-content-center mt-4">
-     <%= link_to "お気に入り投稿一覧", favorites_user_path(@user), class: "btn user-show-btn mb-3" %>
-     <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-show-btn mb-3 mx-4" %>
+      <div class="col-4">
+     <%= link_to "お気に入り投稿一覧", favorites_user_path(@user), class: "btn user-show-btn btn-block" %>
+     <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-show-btn btn-block" %>
      <% if @user == current_user %>
-      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-show-btn mb-3 mr-4" %>
-      <%= link_to "お問い合せ一覧", contacts_path, class: "btn user-show-btn mb-3" %>
+      <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-show-btn btn-block" %>
+      <%= link_to "お問い合せ一覧", contacts_path, class: "btn user-show-btn btn-block" %>
      <% end %>
+     </div>
    </div>
   <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 back-text"><strong>新着投稿</strong></h4>
     <div class="row pb-5">
@@ -57,33 +59,13 @@
             <div class="shadow">
 
               <!--投稿画像-->
-              <div class="d-none d-xl-block">
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '148' %>
-                <% end %>
-              </div>
-
-              <div class="d-none d-lg-block d-xl-none">
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '250' %>
-                <% end %>
-              </div>
-
-              <div class="d-none d-md-block d-lg-none">
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '250' %>
-                <% end %>
-              </div>
-
-              <div class="d-sm-block d-md-none">
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '498' %>
-                <% end %>
-              </div>
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '148×148' %>
+              <% end %>
 
               <!--投稿名-->
               <div class="text-center">
-                <h5><%= post_coffee.coffee_name %></h5>
+                <h5><%= post_coffee.coffee_name.truncate(8) %></h5>
               </div>
 
               <div class="row justify-content-end">

@@ -17,8 +17,38 @@
      <% unless current_page?(root_path) %><!--検索機能をログイン済みのみに表示するため-->
       <% if user_signed_in? %>
         <div class="search-back">
-          <div class='py-2 ml-auto col-xl-4 col-lg-5 col-md-5 col-sm-7'>
-            <%= render 'public/searches/search' %>
+          <div class='py-2 container'>
+            <div class="row">
+
+              <!--パソコン画面用の設定-->
+              <div class="d-none d-md-block mr-auto">
+                <% if unchecked_notifications.any? %>
+                  <%= link_to notifications_path, class: "nav-link text-danger" do %>
+                    <i class="fas fa-bell fa-lg mr-2"></i>通知
+                  <% end %>
+                <% else %>
+                  <%= link_to notifications_path, class: "nav-link text-secondary" do %>
+                    <i class="fas fa-bell fa-lg mr-2"></i>通知
+                  <% end %>
+                <% end %>
+              </div>
+
+              <!--スマホ画面用の設定-->
+              <div class="d-block d-md-none mr-auto">
+                <% if unchecked_notifications.any? %>
+                  <%= link_to notifications_path, class: "nav-link text-danger" do %>
+                    <i class="fas fa-bell fa-lg mr-2"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to notifications_path, class: "nav-link text-secondary" do %>
+                    <i class="fas fa-bell fa-lg mr-2"></i>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <%= render 'public/searches/search' %>
+
+            </div>
           </div>
         </div>
 

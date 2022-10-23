@@ -3,7 +3,7 @@ class Admin::TagsController < ApplicationController
 
   def index
     @tag = Tag.new
-    @tags = Tag.page(params[:page]).per(7)
+    @tags = Tag.page(params[:page]).per(6)
   end
 
   def create
@@ -11,7 +11,7 @@ class Admin::TagsController < ApplicationController
     if @tag.save
       redirect_to admin_tags_path, notice: "珈琲の淹れ方を作成しました"
     else
-      @tags = Tag.page(params[:page]).per(7)
+      @tags = Tag.page(params[:page]).per(6)
       render :index
     end
   end
