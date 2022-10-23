@@ -150,6 +150,34 @@ footer {
 
 
 /*会員側の検索フォーム設定*/
-.user-search-form {
+.search-form {
   border: 10px ridge #333;
+}
+
+
+/*入力フォームの設定*/
+.form-all {
+  border: 8px ridge #eee;
+}
+
+/*枠の設定*/
+.border-all {
+  border: 8px ridge #ddd;
+}
+
+
+.form-text {
+  border: 6px groove #eees;
+}
+
+
+/*管理者の入力フォームの設定*/
+.admin-form-all {
+  border: 8px ridge #556b2f;
+}
+
+
+/*新規登録・ログインのフォームの設定*/
+.log-form-all {
+  border: 8px ridge #556b2f;
 }

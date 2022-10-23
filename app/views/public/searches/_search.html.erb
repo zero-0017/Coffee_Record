@@ -1,8 +1,8 @@
 <% unless current_page?(root_path) %>
   <%= form_with url: search_path, method: :get do |f| %>
     <div class="input-group pr-5">
-      <%= f.text_field :keyword, required: true, placeholder: "Search", class: "user-search-form" %>
-      <div class="input-group-append"><button class="btn bg-transparent user-search-btn" type="submit"><i class="fa fa-search text-light"></i></button></div>
+      <%= f.text_field :keyword, required: true, placeholder: "Search", class: "search-form" %>
+      <div class="input-group-append"><button class="btn bg-transparent search-btn" type="submit"><i class="fa fa-search text-light"></i></button></div>
     </div>
   <% end %>
 <% end %>

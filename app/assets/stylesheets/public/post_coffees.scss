@@ -11,7 +11,7 @@ a {
 /*各コンテンツ別でのスクロールの設定*/
 .sidebar {
   display: flex;
-  height: 87vh;
+  height: 86vh;
 }
 
 /*画面全体の設定*/
@@ -35,8 +35,8 @@ a {
 
 // 投稿の設定
 .card{
-border-width: 4px;
-border-radius: 20px;
+  border-width: 4px;
+  border-radius: 20px;
 }
 
 .card:hover{

@@ -9,12 +9,12 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field text-light shadow pt-1 px-2">
               <%= f.label :"メールアドレス" %><br>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 30, placeholder: "(例)Coffee.11@post.com" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "log-form-all", size: 30, placeholder: "(例)Coffee.11@post.com" %>
             </div>
 
             <div class="field mt-4 text-light shadow pt-1 px-2">
               <%= f.label :"パスワード" %><br>
-              <%= f.password_field :password, autocomplete: "current-password", size: 30, placeholder: "パスワードを入力して下さい" %>
+              <%= f.password_field :password, autocomplete: "current-password", class: "log-form-all", size: 30, placeholder: "パスワードを入力して下さい" %>
             </div>
 
             <% if devise_mapping.rememberable? %>

@@ -191,10 +191,11 @@
 }
 
 
-.user-search-btn {
+/*検索のボタン*/
+.search-btn {
   border: 6px outset #555;
 }
 
-.user-search-btn:hover {
+.search-btn:hover {
   border: 6px inset #555;
 }
