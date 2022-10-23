@@ -199,3 +199,29 @@
 .search-btn:hover {
   border: 6px inset #555;
 }
+
+
+/*フォロー*/
+.follower-btn {
+  background-color: #eee;
+  border: 6px groove #eee;
+}
+
+.follower-btn:hover {
+  color: #000;
+  background-color: #bbb;
+  border: 6px ridge #bbb;
+}
+
+
+/*フォロワー*/
+.followed-btn {
+  background-color: #eee;
+  border: 6px groove #eee;
+}
+
+.followed-btn:hover {
+  color: #000;
+  background-color: #bbb;
+  border: 6px ridge #bbb;
+}
