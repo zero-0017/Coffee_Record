@@ -35,9 +35,6 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
-  def is_followed_by?(user)
-    reverse_of_relationships.find_by(follower_id: user.id).present?
-  end
 
 # 管理者側の検索
   def self.looks(search, word)
@@ -59,7 +56,28 @@ class User < ApplicationRecord
     find_or_create_by!(name: 'ゲストユーザー' ,email: 'guestuse07r@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲストユーザー"
-      user.introduction = "お試しでご利用下さい。s"
+      user.introduction = "お試しでご利用下さい。"
     end
+  end
+
+
+  #フォローした時
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+  #フォローを外した時
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+  #フォロー判定
+  def following?(user)
+    followings.include?(user)
+  end
+
+
+# フォローの通知機能
+  def create_notification_follow(current_user)
+    notification = current_user.active_notifications.new(visited_id: id, action: 'follow')
+    notification.save if notification.valid?
   end
 end

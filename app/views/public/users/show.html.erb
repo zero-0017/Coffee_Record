@@ -11,8 +11,8 @@
           <div class="row justify-content-center my-2">
 
             <% if @user.name != "ゲストユーザー" %>
-              <%= link_to "フォロー#{@user.followings.count}", followings_user_path(@user) %> |
-              <%= link_to "フォロワー#{@user.followers.count}", followers_user_path(@user) %>
+              フォロー数:<%= link_to @user.followings.count, followings_user_path(@user) %> |
+              フォロワー数:<%= link_to @user.followers.count, followers_user_path(@user), class: "follow_count" %>
             <% end %>
 
           </div>
@@ -23,16 +23,9 @@
               <% if @user == current_user %>
                 <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn mb-3 pt-2" %>
               <% else %>
-                <!--フォロー・フォロワーボタン-->
-                <% if @user.is_followed_by?(current_user) %>
-                  <%= link_to user_relationships_path(@user), method: :delete, class: 'btn follower-btn' do %>
-                    フォロー外す
-                  <% end %>
-                 <% else %>
-                  <%= link_to user_relationships_path(@user), method: :post, class: 'btn followed-btn' do %>
-                    フォローする
-                  <% end %>
-                <% end %>
+                <div id="follow_buttons_<%= @user.id %>">
+                 <%= render 'public/relationships/follow', user: @user %>
+                </div>
 
               <% end %>
             <% end %>
