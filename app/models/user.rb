@@ -27,6 +27,18 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  #フォローするユーザー
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followings, through: :relationships, source: :followed
+
+  #フォローされるユーザー
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+
+  def is_followed_by?(user)
+    reverse_of_relationships.find_by(follower_id: user.id).present?
+  end
+
 # 管理者側の検索
   def self.looks(search, word)
     if search == "perfect_match"
@@ -47,6 +59,7 @@ class User < ApplicationRecord
     find_or_create_by!(name: 'ゲストユーザー' ,email: 'guestuse07r@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲストユーザー"
+      user.introduction = "お試しでご利用下さい。s"
     end
   end
 end

@@ -31,12 +31,16 @@ scope module: :public do
   end
 
   resources :users, only: [:index, :show, :edit, :update] do
+    resource :relationships, only: [:create, :destroy]
+
     collection do
       get 'unsubscribe'
       patch 'withdrawal'
     end
 
     member do
+      get :followings
+      get :followers
       get :favorites
       get :post_list
     end

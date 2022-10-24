@@ -6,6 +6,7 @@ class Public::UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page]).per(4)
+    @users = User.where.not(id: current_user.id).page(params[:page]).per(4)
   end
 
   def show
@@ -48,6 +49,14 @@ class Public::UsersController < ApplicationController
     @post_coffees = @user.post_coffees.published.page(params[:page])
   end
 
+  def followings
+    @users = @user.followings.page(params[:page]).per(4)
+  end
+
+  def followers
+    @users = @user.followers.page(params[:page]).per(4)
+  end
+
   private
 
   def user_params
@@ -57,7 +66,7 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.name == "ゲストユーザー"
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
 
