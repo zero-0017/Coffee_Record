@@ -9,7 +9,13 @@
             <% if @post_coffees.present? %>
               <%= render 'admin/post_coffees/post_list' %>
             <% else %>
-              <h3 class="text-center mt-5"><strong>まだ投稿はありません</strong></h3>
+
+              <!--テレビ、デスクトップPCの表示-->
+              <h3 class="text-center mt-5 d-none d-lg-block"><strong>まだ投稿はありません</strong></h3>
+
+              <!--ノートパソコン、タブレット、スマホの表示-->
+              <h4 class="text-center mt-5 d-block d-lg-none"><strong>まだ投稿はありません</strong></h4>
+
             <% end %>
         </div>
       </div>

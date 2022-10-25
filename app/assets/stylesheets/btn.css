@@ -140,13 +140,13 @@
 /*管理者トップボタン*/
 .admin-btn {
   color: #fff;
-  background-color: #333;
+  background-color: #444;
   border: 6px outset #333;
 }
 
 .admin-btn:hover {
   color: #fff;
-  background-color: #111;
+  background-color: #222;
   border: 6px inset #111;
 }
 
@@ -154,13 +154,13 @@
 /*会員詳細　ボタン*/
 .user-show-btn {
   color: #fff;
-  background-color: #333;
+  background-color: #444;
   border: 6px outset #333;
 }
 
 .user-show-btn:hover {
   color: #fff;
-  background-color: #111;
+  background-color: #222;
   border: 6px inset #111;
 }
 

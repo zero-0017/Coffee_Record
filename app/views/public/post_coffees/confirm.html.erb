@@ -1,13 +1,21 @@
 <div class="container">
-  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>下書き一覧</strong></h4>
+  <h4 class="col-md-5 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>下書き一覧</strong></h4>
     <div class="row">
 
       <% if @post_coffees.present? %>
         <%= render 'public/post_coffees/post_index' %>
       <% else %>
-        <div class="mx-auto mt-5">
+
+        <!--テレビ、デスクトップPCの表示-->
+        <div class="mx-auto mt-5 d-none d-lg-block">
           <h3><strong>下書きした投稿はありません</strong></h3>
         </div>
+
+        <!--ノートパソコン、タブレット、スマホの表示-->
+        <div class="mx-auto mt-5 d-block d-lg-none">
+          <h4><strong>下書きした投稿はありません</strong></h4>
+        </div>
+
       <% end %>
 
   　</div>

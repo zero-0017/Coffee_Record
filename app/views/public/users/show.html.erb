@@ -80,24 +80,29 @@
             <div class="shadow">
 
               <!--投稿画像-->
+
+              <!--テレビ、デスクトップPCの表示-->
               <div class="d-none d-xl-block">
                 <%= link_to post_coffee_path(post_coffee.id) do %>
                   <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '148' %>
                 <% end %>
               </div>
 
+              <!--ノートパソコンの表示-->
               <div class="d-none d-lg-block d-xl-none">
                 <%= link_to post_coffee_path(post_coffee.id) do %>
                   <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '250' %>
                 <% end %>
               </div>
 
+              <!--タブレットの表示-->
               <div class="d-none d-md-block d-lg-none">
                 <%= link_to post_coffee_path(post_coffee.id) do %>
                   <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '250' %>
                 <% end %>
               </div>
 
+              <!--スマホの表示-->
               <div class="d-sm-block d-md-none">
                 <%= link_to post_coffee_path(post_coffee.id) do %>
                   <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '498' %>
@@ -126,9 +131,17 @@
         <% end %>
 
       <% else %>
-        <div class="mx-auto mt-3">
+
+        <!--テレビ、デスクトップPCの表示-->
+        <div class="mx-auto mt-3 d-none d-lg-block">
           <h3><strong>新着の投稿はありません</strong></h3>
         </div>
+
+        <!--ノートパソコン、タブレット、スマホの表示-->
+        <div class="mx-auto mt-3 d-block d-lg-none">
+          <h4><strong>新着の投稿はありません</strong></h4>
+        </div>
+
       <% end %>
 
   　</div>
