@@ -1,2 +1,2 @@
 $('#follow_buttons_<%= @user.id %>').html("<%= j(render 'public/relationships/follow', user: @user) %>");
-$(".follow_count").html("<%= @user.followers.count %>");
+$("#followers_<%= @user.id %>").html('フォロワー数：<%= @user.followers.count %>');

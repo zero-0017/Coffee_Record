@@ -6,13 +6,26 @@
       <div class="col-xl-3 col-lg-4 col-md-9 col-sm-10 back-background">
 
           <!--会員画像-->
-          <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '250' %>
+
+          <!--テレビ、デスクトップPC、ノートパソコンの表示-->
+          <div class="d-none d-lg-block">
+            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '250' %>
+          </div>
+
+          <!--タブレットの表示-->
+          <div class="d-none d-md-block d-lg-none">
+            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '460' %>
+          </div>
+
+          <!--スマホの表示-->
+          <div class="d-sm-block d-md-none">
+            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '420' %>
+          </div>
 
           <div class="row justify-content-center my-2">
 
             <% if @user.name != "ゲストユーザー" %>
-              フォロー数:<%= link_to @user.followings.count, followings_user_path(@user) %> |
-              フォロワー数:<%= link_to @user.followers.count, followers_user_path(@user), class: "follow_count" %>
+              フォロー数：<%= link_to @user.followings.count, followings_user_path(@user) %>|フォロワー数：<%= link_to @user.followers.count, followers_user_path(@user), class: "follow_count" %>
             <% end %>
 
           </div>

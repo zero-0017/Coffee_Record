@@ -15,13 +15,9 @@
         <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle", :size => '100' %></td>
         <td><%= user.name %></td>
 
-        <td>
-          フォロー数:<%= link_to user.followings.count, followings_user_path(user) %>
-        </td>
+        <td>フォロー数：<%= user.followings.count %></td>
 
-        <td>
-          フォロワー数:<%= link_to user.followers.count, followers_user_path(user), class: "follow_count" %>
-        </td>
+        <td><div id="followers_<%= user.id %>">フォロワー数：<%= user.followers.count %></div></td>
 
         <!--フォロー・フォロワーボタン-->
         <td id="follow_buttons_<%= user.id %>">
