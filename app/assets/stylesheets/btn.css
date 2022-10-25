@@ -203,27 +203,27 @@
 }
 
 
-/*フォロー*/
+/*フォロー外す*/
 .follower-btn {
-  background-color: #eee;
-  border: 6px groove #eee;
+  background-color: #BAD3FF;
+  border: 6px groove #0000CC;
 }
 
 .follower-btn:hover {
-  color: #000;
-  background-color: #bbb;
-  border: 6px ridge #bbb;
+  color: #fff;
+  background-color: #000080;
+  border: 6px ridge #005FFF;
 }
 
 
-/*フォロワー*/
+/*フォローする*/
 .followed-btn {
-  background-color: #eee;
-  border: 6px groove #eee;
+  background-color: #FFBEDA;
+  border: 6px groove #CC0000;
 }
 
 .followed-btn:hover {
-  color: #000;
-  background-color: #bbb;
-  border: 6px ridge #bbb;
+  color: #fff;
+  background-color: #800000;
+  border: 6px ridge #FF0461;
 }

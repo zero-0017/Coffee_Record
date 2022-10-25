@@ -118,7 +118,6 @@ footer {
 /*ログイン・新規登録画面の設定*/
 .main-log{
   height: 93vh;
-  box-sizing: border-box;
   background-color: #556b2f;
 }
 
