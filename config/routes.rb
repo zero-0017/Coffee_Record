@@ -6,7 +6,7 @@ devise_scope :user do
 end
 
 # 会員用
-devise_for :user,skip: [:passwords], controllers: {
+devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -68,6 +68,8 @@ namespace :admin do
   resources :coffee_comments, only: [:index, :destroy]
   resources :contacts, only: [:index, :show, :update]
   get "search" => "searches#search"
+  get '*path', to: 'homes#top'# 強制的にリダイレクトさせる　※一番下
 end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
