@@ -64,8 +64,12 @@
 
       <% if admin_signed_in? %>
         <div class="search-back">
-          <div class='py-2 ml-auto col-xl-4 col-lg-5 col-md-7 col-sm-8'>
-            <%= render 'admin/searches/search' %>
+          <div class='py-2 container'>
+            <div class="row">
+              <div class="ml-auto">
+              <%= render 'admin/searches/search' %>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>

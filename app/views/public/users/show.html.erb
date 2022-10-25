@@ -3,10 +3,10 @@
 <div class="container">
   <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text"><strong>マイページ</strong></h4>
     <div class="row justify-content-center">
-      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-10 pr-3 back-background">
+      <div class="col-xl-3 col-lg-4 col-md-9 col-sm-10 back-background">
 
           <!--会員画像-->
-          <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '250×250' %>
+          <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '250' %>
 
           <div class="row justify-content-center my-2">
 
@@ -21,7 +21,7 @@
             <!--編集ボタン-->
             <% if @user.name != "ゲストユーザー" %>
               <% if @user == current_user %>
-                <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn mb-3 pt-2" %>
+                <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn" %>
               <% else %>
                 <div id="follow_buttons_<%= @user.id %>">
                  <%= render 'public/relationships/follow', user: @user %>
@@ -33,7 +33,7 @@
 
         </div>
 
-      <div class="col-xl-5 col-lg-6 col-md-6 col-sm-10 back-background">
+      <div class="col-xl-5 col-lg-6 col-md-9 col-sm-10 back-background">
 
          <!--会員名-->
           <h5 class="mt-4 mb-5">会員名：<%= @user.name %></h5>
@@ -48,15 +48,19 @@
     </div>
 
     <div class="row mt-2 justify-content-center">
-      <div class="col-3">
+      <div class="col-xl-3 col-lg-4 col-md-5">
         <%= link_to "お気に入り投稿一覧", favorites_user_path(@user), class: "btn user-show-btn btn-block" %>
-        <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-show-btn btn-block" %>
+
+        <% if @user == current_user %>
+          <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-show-btn btn-block mb-2" %>
+        <% end %>
       </div>
 
-      <div class="col-3">
+      <div class="col-xl-3 col-lg-4 col-md-5">
+        <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-show-btn btn-block" %>
+
         <% if @user == current_user %>
-          <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-show-btn btn-block" %>
-          <%= link_to "お問い合せ", contacts_path, class: "btn user-show-btn btn-block" %>
+          <%= link_to "お問い合せ", contacts_path, class: "btn user-show-btn btn-block mb-2" %>
         <% end %>
       </div>
     </div>
@@ -76,9 +80,29 @@
             <div class="shadow">
 
               <!--投稿画像-->
-              <%= link_to post_coffee_path(post_coffee.id) do %>
-                <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '148×148' %>
-              <% end %>
+              <div class="d-none d-xl-block">
+                <%= link_to post_coffee_path(post_coffee.id) do %>
+                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '148' %>
+                <% end %>
+              </div>
+
+              <div class="d-none d-lg-block d-xl-none">
+                <%= link_to post_coffee_path(post_coffee.id) do %>
+                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '250' %>
+                <% end %>
+              </div>
+
+              <div class="d-none d-md-block d-lg-none">
+                <%= link_to post_coffee_path(post_coffee.id) do %>
+                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '250' %>
+                <% end %>
+              </div>
+
+              <div class="d-sm-block d-md-none">
+                <%= link_to post_coffee_path(post_coffee.id) do %>
+                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '498' %>
+                <% end %>
+              </div>
 
               <!--投稿名-->
               <div class="text-center">

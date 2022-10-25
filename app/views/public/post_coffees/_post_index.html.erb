@@ -3,9 +3,17 @@
     <div class="shadow">
 
       <!--投稿画像-->
-      <%= link_to post_coffee_path(post_coffee.id) do %>
-        <%= image_tag post_coffee.get_image(700,700), class: "card-img", :size => '250×250' %>
-      <% end %>
+      <div class="d-none d-md-block">
+        <%= link_to post_coffee_path(post_coffee.id) do %>
+          <%= image_tag post_coffee.get_image(700,700), class: "card-img", :size => '250' %>
+        <% end %>
+      </div>
+
+      <div class="d-block d-md-none">
+        <%= link_to post_coffee_path(post_coffee.id) do %>
+          <%= image_tag post_coffee.get_image(700,700), class: "card-img", :size => '498' %>
+        <% end %>
+      </div>
 
       <!--投稿名-->
       <div class="text-center">

@@ -193,10 +193,12 @@
 
 /*検索のボタン*/
 .search-btn {
+  background-color: #333;
   border: 6px outset #555;
 }
 
 .search-btn:hover {
+  background-color: #222;
   border: 6px inset #555;
 }
 

@@ -3,41 +3,34 @@
     <tr>
       <th class="text-light">会員画像</th>
       <th class="text-light" style="width: 30%">会員名</th>
-      <th colspan="5"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
+
+
 <% @users.each do |user| %>
-  <tbody>
-    <tr>
-      <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle", :size => '100' %></td>
-      <td><%= user.name %></td>
-
-
+  <% if user.name != "ゲストユーザー" %>
+    <tbody>
+      <tr>
+        <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle", :size => '100' %></td>
+        <td><%= user.name %></td>
 
         <td>
-          <% if user.name != "ゲストユーザー" %>
           フォロー数:<%= link_to user.followings.count, followings_user_path(user) %>
-           <% end %>
         </td>
 
         <td>
-          <% if user.name != "ゲストユーザー" %>
           フォロワー数:<%= link_to user.followers.count, followers_user_path(user), class: "follow_count" %>
-          <% end %>
         </td>
 
-
-      <td>
         <!--フォロー・フォロワーボタン-->
-        <% if user.name != "ゲストユーザー" %>
-          <td id="follow_buttons_<%= user.id %>">
-            <%= render 'public/relationships/follow', user: user %>
-          </td>
-        <% end %>
-      </td>
+        <td id="follow_buttons_<%= user.id %>">
+          <%= render 'public/relationships/follow', user: user %>
+        </td>
 
-      <td><%= link_to "詳細", user_path(user.id), class: "btn btn-sm show-btn" %></td>
-    </tr>
-  </tbody>
+        <td><%= link_to "詳細", user_path(user.id), class: "btn btn-sm show-btn" %></td>
+      </tr>
+    </tbody>
+  <% end %>
 <% end %>
 </table>

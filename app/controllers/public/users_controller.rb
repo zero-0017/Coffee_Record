@@ -1,7 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_guest_user, only: [:edit]
-  before_action :sidebar_list, except: [:create, :update, :withdrawal]
+  before_action :sidebar_list, except: [:create, :withdrawal]
   before_action :set_user, except: [:index, :unsubscribe, :withdrawal]
 
   def index

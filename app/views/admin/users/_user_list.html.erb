@@ -9,21 +9,23 @@
     </tr>
   </thead>
 <% @users.each do |user| %>
-  <tbody>
-    <tr>
-      <td><%= user.id %></td>
-      <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle", :size => '100' %></td>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
+  <% if user.name != "ゲストユーザー" %>
+    <tbody>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle", :size => '100' %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
 
-      <% if user.is_deleted == true %>
-        <td class="text-primary font-weight-bold">退会</td>
-      <% else %>
-        <td class="text-danger font-weight-bold">有効</td>
-      <% end %>
+        <% if user.is_deleted == true %>
+          <td class="text-primary font-weight-bold">退会</td>
+        <% else %>
+          <td class="text-danger font-weight-bold">有効</td>
+        <% end %>
 
-      <td><%= link_to "詳細", admin_user_path(user.id), class: "btn btn-sm show-btn" %></td>
-    </tr>
-  </tbody>
+        <td><%= link_to "詳細", admin_user_path(user.id), class: "btn btn-sm show-btn" %></td>
+      </tr>
+    </tbody>
+  <% end %>
 <% end %>
 </table>

@@ -2,7 +2,7 @@
   <%= form_with url: search_path, method: :get do |f| %>
     <div class="input-group seach-top">
       <%= f.text_field :keyword, required: true, placeholder: "Search", class: "search-form" %>
-      <div class="input-group-append"><button class="btn bg-transparent search-btn" type="submit"><i class="fa fa-search text-light"></i></button></div>
+      <div class="input-group-append"><button class="btn search-btn" type="submit"><i class="fa fa-search text-light"></i></button></div>
     </div>
   <% end %>
 <% end %>
