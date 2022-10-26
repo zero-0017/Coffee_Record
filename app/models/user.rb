@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
 # バリデーションの設定
   validates :name, presence:true, length: { maximum: 10 }
-  validates :introduction, length: { maximum: 100 }
+  validates :introduction, presence: false, length: { maximum: 100 }
 
 # 会員画像の設定
   has_one_attached :profile_image
@@ -56,7 +56,6 @@ class User < ApplicationRecord
     find_or_create_by!(name: 'ゲストユーザー' ,email: 'guestuse07r@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲストユーザー"
-      user.introduction = "ゲストユーザーです。"
     end
   end
 
