@@ -34,6 +34,7 @@
             <!--編集ボタン-->
             <% if @user.name != "ゲストユーザー" %>
               <% if @user == current_user %>
+
                 <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn" %>
               <% else %>
                 <div id="follow_buttons_<%= @user.id %>">

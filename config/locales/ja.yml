@@ -33,6 +33,7 @@
         genre_name: 珈琲豆の種類
       user:
         name: 会員名
+        introduction: 自己紹介文
       coffee_comment:
         comment: コメント
       contact:
