@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
 # バリデーションの設定
-  validates :name, presence:true, length: { maximum: 10 }
+  validates :name, presence: true, length: { maximum: 10 }
   validates :introduction, presence: false, length: { maximum: 100 }
 
 # 会員画像の設定

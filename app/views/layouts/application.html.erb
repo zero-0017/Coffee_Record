@@ -46,6 +46,10 @@
                 <% end %>
               </div>
 
+            <% if user_signed_in? %>
+              <p class = 'mr-auto mt-2 text-light'>会員名：<%= current_user.name %></p>
+            <% end %>
+
               <%= render 'public/searches/search' %>
 
             </div>
