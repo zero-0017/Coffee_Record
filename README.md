@@ -50,11 +50,31 @@
 
 ## Gem
 
-* device
+* gem 'devise'
 
-* kaminari
+* gem 'jquery-rails'
 
-* ransack
+* gem 'kaminari', '~> 1.2', '>= 1.2.1'
+
+* gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+
+* gem 'enum_help'
+
+* gem 'dotenv-rails'
+
+* gem 'mysql2'
+
+* gem 'net-smtp'
+
+* gem 'net-pop'
+
+* gem 'net-imap'
 
 
 ## 使用素材
+
+* [ロゴ画像](https://www.canva.com/ja_jp/create/logos/)
+
+* [投稿画像,会員画像](https://www.shopify.com/jp/tools/logo-maker)
+
+* [アバウト画像](https://pixabay.com/ja/)
