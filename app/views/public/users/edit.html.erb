@@ -1,7 +1,7 @@
 <div class="container">
-  <h4 class="col-md-5 col-lg-4 col-xl-3 py-2 mt-2 back-text"><strong>会員情報編集</strong></h4>
+  <h4 class="col-md-5 col-lg-4 col-xl-3 py-2 mt-2 back-text shadow"><strong>会員情報編集</strong></h4>
     <div class="row no-gutters pb-5">
-      <div class="col-xl-5 col-lg-8 col-md-10 mx-auto shadow-lg py-2 px-4 back-background border-all">
+      <div class="col-xl-5 col-lg-8 col-md-10 mx-auto shadow py-2 px-4 back-background border-all">
          <%= form_with model: @user do |f| %>
 
           <!--エラーメッセージ表示-->
@@ -25,11 +25,11 @@
 
             <div class="row justify-content-center">
               <!--変更内容保存ボタン-->
-               <%= f.submit "変更内容保存", class: "btn update-btn mr-3" %>
+               <%= f.submit "変更内容保存", class: "btn update-btn mr-3 shadow" %>
 
                <!--退会ボタン-->
                <%= link_to unsubscribe_users_path do %>
-                 <button type="button" class="btn unsubscribe-btn">退会する</button>
+                 <button type="button" class="btn unsubscribe-btn shadow">退会する</button>
                <% end %>
             </div>
 

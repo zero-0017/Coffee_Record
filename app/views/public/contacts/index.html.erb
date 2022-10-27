@@ -1,13 +1,13 @@
 <!--フラッシュメッセージ-->
 <%= render 'layouts/flash_message' %>
   <div class="container">
-    <h4 class="col-md-5 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text"><strong>お問い合わせ</strong></h4>
-      <div class="mt-4 text-center"><%= link_to "新規お問い合わせ", new_contact_path, class: "btn post-btn" %></div>
+    <h4 class="col-md-5 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text shadow"><strong>お問い合わせ</strong></h4>
+      <div class="mt-4 text-center"><%= link_to "新規お問い合わせ", new_contact_path, class: "btn post-btn shadow" %></div>
         <div class="row">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto">
 
             <% if @contacts.present? %>
-              <table class="table shadow-lg mt-4 table-hover back-background">
+              <table class="table mt-4 table-hover back-background shadow">
                 <thead class="table-active back-admin">
                   <tr>
                     <th class="text-light" style="width: 20%">お問い合わせ件名</th>
@@ -26,7 +26,7 @@
                     <td><%= contact.content.truncate(25) %></td>
                     <td><%= l contact.created_at %></td>
                     <td><%= contact.status %></td>
-                    <td><%= link_to "詳細", contact_path(contact.id), class: "btn btn-sm show-btn" %></td>
+                    <td><%= link_to "詳細", contact_path(contact.id), class: "btn btn-sm show-btn shadow" %></td>
                   </tr>
                 </tbody>
               <% end %>

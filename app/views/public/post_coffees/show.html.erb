@@ -1,7 +1,7 @@
 <!--フラッシュメッセージ-->
 <%= render 'layouts/flash_message' %>
 <div class="container pb-5">
-  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>投稿詳細</strong></h4>
+  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>投稿詳細</strong></h4>
     <div class="row shadow back-show mx-2">
 
       <div class="col-xl-5 col-lg-6 col-md-12 pb-2 back-background">
@@ -61,8 +61,8 @@
          <div class="row mx-auto py-2">
         <!--投稿した会員のみ編集＆削除可能-->
         <% if @post_coffee.user == current_user %>
-          <%= link_to "編集", edit_post_coffee_path(@post_coffee), class: "btn edit-btn mr-3" %>
-          <%= link_to "削除", post_coffee_path(@post_coffee), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn" %>
+          <%= link_to "編集", edit_post_coffee_path(@post_coffee), class: "btn edit-btn mr-3 shadow" %>
+          <%= link_to "削除", post_coffee_path(@post_coffee), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn shadow" %>
         <% end %>
         </div>
     </div>

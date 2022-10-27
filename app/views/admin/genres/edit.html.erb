@@ -1,6 +1,6 @@
 <div class="admin-main">
   <div class="container">
-    <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>珈琲豆の種類編集</strong></h4>
+    <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>珈琲豆の種類編集</strong></h4>
       <!--エラーメッセージ表示-->
       <%= render 'layouts/error_messages', model: @genre %>
         <div class="row no-gutters">
@@ -9,8 +9,8 @@
 
               珈琲豆の種類<br>
               <%= f.text_field :genre_name, class: "mx-2 admin-form-all" %><br>
-              <%= f.submit '変更を保存', class: "btn update-btn mx-2 mt-2" %>
-              <%= link_to "削除する", admin_genre_path(@genre.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn mt-2" %>
+              <%= f.submit '変更を保存', class: "btn update-btn mx-2 mt-2 shadow" %>
+              <%= link_to "削除する", admin_genre_path(@genre.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn mt-2 shadow" %>
             <% end %>
           </div>
         </div>

@@ -5,7 +5,7 @@
 
         <!--会員名の検索一覧-->
         <% if @range == "User" %>
-          <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>会員名 『<%= params[:word] %>』</strong></h4>
+          <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>会員名 『<%= params[:word] %>』</strong></h4>
             <% if @users.present? %>
               <%= render 'admin/users/user_list' %>
             <% else %>
@@ -19,7 +19,7 @@
 
         <!--投稿名の検索一覧-->
         <% elsif @range == "PostCoffee" %>
-          <h4 class="col-4 py-1 mt-2 back-text"><strong>投稿名 『<%= params[:word] %>』</strong></h4>
+          <h4 class="col-4 py-1 mt-2 back-text shadow"><strong>投稿名 『<%= params[:word] %>』</strong></h4>
             <% if @post_coffees.present? %>
               <%= render 'admin/post_coffees/post_list' %>
             <% else %>
@@ -32,7 +32,7 @@
 
         <!--コメント内容の検索一覧-->
         <% else %>
-          <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text"><strong><div class="comment_count">コメント内容 『<%= params[:word] %>』</div></strong></h4>
+          <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text shadow"><strong>コメント内容 『<%= params[:word] %>』</strong></h4>
             <% if @coffee_comments.present? %>
               <%= render 'admin/coffee_comments/comment_list' %>
             <% else %>
