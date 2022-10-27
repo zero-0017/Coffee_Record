@@ -1,36 +1,38 @@
 <div class="admin-main">
-<div class="container">
-  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>お問い合わせ詳細</strong></h4>
-  <div class="row">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto">
+  <div class="container">
+    <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text"><strong>お問い合わせ詳細</strong></h4>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto">
 
-      <table class="table shadow-lg mt-4 table-hover back-background">
-        <thead class="table-active back-admin">
-          <tr>
-            <th class="text-light">お問い合わせ件名・日時</th>
-            <th class="text-light" style="width: 60%">お問い合わせ内容</th>
-            <th class="text-light">対応状況</th>
-          </tr>
-        </thead>
+          <%= form_with model: @contact, url: admin_contact_path do |f| %>
+            <table class="table shadow-lg mt-4 table-hover back-background">
+              <thead class="table-active back-admin">
+                <tr>
+                  <th class="text-light">お問い合わせ件名・日時</th>
+                  <th class="text-light" style="width: 60%">お問い合わせ内容</th>
+                  <th class="text-light">対応状況</th>
+                </tr>
+              </thead>
 
-        <tbody>
-          <tr>
-            <td><%= @contact.contact_type %>
-              <div class="mt-5"><%= l @contact.created_at %></div>
-            <td><%= @contact.content %></td>
+              <tbody>
+                <tr>
+                  <td><%= @contact.contact_type %>
+                    <div class="mt-5"><%= l @contact.created_at %></div>
+                  <td><%= @contact.content %></td>
 
-            <td>
-              <%= form_with model: @contact, url: admin_contact_path do |f| %>
-                <%= f.select :status, Contact.statuses.keys.map { |k| [t("enums.contact.status.#{k}"),k]}, {}, {class: "custom-select"} %>
-            </td>
-          </tr>
-        </tbody>
-     </table>
-      <div class="actions text-center">
-        <%= f.submit "変更内容保存", class: "btn edit-btn mt-2 shadow" %>
-      <% end %>
+                  <td>
+                    <%= f.select :status, Contact.statuses.keys.map { |k| [t("enums.contact.status.#{k}"),k]}, {}, {class: "custom-select"} %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="text-center">
+              <%= f.submit "変更内容保存", class: "btn edit-btn mt-2 shadow" %>
+            </div>
+          <% end %>
+
+        </div>
       </div>
-    </div>
   </div>
-</div>
 </div>
