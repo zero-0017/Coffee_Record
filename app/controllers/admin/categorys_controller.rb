@@ -1,5 +1,6 @@
 class Admin::CategorysController < ApplicationController
   before_action :authenticate_admin!
+  before_action :set_category, except: [:index, :create]
 
   def index
     @category = Category.new
@@ -17,17 +18,14 @@ class Admin::CategorysController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
-      redirect_to admin_categorys_path, alert: "珈琲の種類を削除しました"
+    redirect_to admin_categorys_path, alert: "珈琲の種類を削除しました"
   end
 
   def update
-    @category = Category.find(params[:id])
     if @category.update(category_params)
       redirect_to admin_categorys_path, notice: "珈琲の種類の変更内容を保存しました"
     else
@@ -39,5 +37,9 @@ class Admin::CategorysController < ApplicationController
 
   def category_params
     params.require(:category).permit(:category_name)
+  end
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 end

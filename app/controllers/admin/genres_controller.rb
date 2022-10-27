@@ -1,5 +1,6 @@
 class Admin::GenresController < ApplicationController
   before_action :authenticate_admin!
+  before_action :set_genre, except: [:index, :create]
 
   def index
     @genre = Genre.new
@@ -17,17 +18,14 @@ class Admin::GenresController < ApplicationController
   end
 
   def edit
-    @genre = Genre.find(params[:id])
   end
 
   def destroy
-    @genre = Genre.find(params[:id])
     @genre.destroy
-      redirect_to admin_genres_path, alert: "珈琲豆の種類を削除しました"
+    redirect_to admin_genres_path, alert: "珈琲豆の種類を削除しました"
   end
 
   def update
-    @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
       redirect_to admin_genres_path, notice: "珈琲豆の種類の変更内容を保存しました"
     else
@@ -39,5 +37,9 @@ class Admin::GenresController < ApplicationController
 
   def genre_params
     params.require(:genre).permit(:genre_name)
+  end
+
+  def set_genre
+    @genre = Genre.find(params[:id])
   end
 end
