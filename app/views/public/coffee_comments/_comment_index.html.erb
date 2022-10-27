@@ -5,7 +5,7 @@
       <% post_coffee.coffee_comments.each do |coffee_comment| %>
         <tbody>
           <tr>
-            <td><%= image_tag coffee_comment.user.get_profile_image(100,100), class: "rounded-circle", :size => '100'  %><br>
+            <td><%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100'  %><br>
               会員名：<%= coffee_comment.user.name %><br>
               <div class="mt-5"><%= l coffee_comment.created_at %></div>
             </td>
@@ -15,7 +15,7 @@
 　　　　　  <td>
 　　　　　    <% if coffee_comment.user == current_user %>
                 <div class="row justify-content-end mr-5">
-                  <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, remote: true, class: "btn destroy-btn" %>
+                  <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, remote: true, class: "btn destroy-btn" %>
                 </div>
               <% end %>
             </td>
