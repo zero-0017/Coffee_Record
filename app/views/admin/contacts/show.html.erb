@@ -16,10 +16,17 @@
 
               <tbody>
                 <tr>
+
+                  <!--お問い合わせ件名-->
                   <td><%= @contact.contact_type %>
+
+                    <!--お問い合わせ日時-->
                     <div class="mt-5"><%= l @contact.created_at %></div>
+
+                  <!--お問い合わせ内容-->
                   <td><%= @contact.content %></td>
 
+                  <!--対応状況-->
                   <td>
                     <%= f.select :status, Contact.statuses.keys.map { |k| [t("enums.contact.status.#{k}"),k]}, {}, {class: "custom-select"} %>
                   </td>

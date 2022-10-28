@@ -32,8 +32,8 @@
 
           <div class="row justify-content-center my-2">
             <!--編集ボタン-->
-            <% if @user.name != "ゲストユーザー" %>
-              <% if @user == current_user %>
+            <% if @user.name != "ゲストユーザー" %><!--ゲストユーザーは非表示-->
+              <% if @user == current_user %><!--ログインしている会員のみ表示、以外ならフォローボタン表示-->
 
                 <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn shadow" %>
               <% else %>
@@ -52,15 +52,15 @@
          <!--会員名-->
           <h5 class="mt-4 mb-5">会員名：<%= @user.name %></h5>
 
-          <div>
-            <h5>自己紹介文<br>
-              <%= @user.introduction %></h5>
-          </div>
+          <h5>自己紹介文<br>
+            <%= @user.introduction %>
+          </h5>
 
        </div>
 
     </div>
 
+    <!--会員ボタンリスト-->
     <div class="row mt-2 justify-content-center">
       <div class="col-xl-3 col-lg-4 col-md-5">
         <%= link_to "お気に入り投稿一覧", favorites_user_path(@user), class: "btn user-show-btn btn-block shadow" %>
@@ -85,7 +85,7 @@
 
 <!--会員の投稿一覧-->
 <div class="container">
-  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 back-text shadow"><strong>新着投稿</strong></h4>
+  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 back-text shadow mt-2"><strong>新着投稿</strong></h4>
     <div class="row pb-5">
 
       <% if @post_coffees.present? %>
@@ -98,28 +98,28 @@
               <!--テレビ、デスクトップPCの表示-->
               <div class="d-none d-xl-block">
                 <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '148' %>
+                  <%= image_tag post_coffee.get_image, class: "card-img", :size => '148' %>
                 <% end %>
               </div>
 
               <!--ノートパソコンの表示-->
               <div class="d-none d-lg-block d-xl-none">
                 <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '250' %>
+                  <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
                 <% end %>
               </div>
 
               <!--タブレットの表示-->
               <div class="d-none d-md-block d-lg-none">
                 <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '250' %>
+                  <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
                 <% end %>
               </div>
 
               <!--スマホの表示-->
               <div class="d-sm-block d-md-none">
                 <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image(500,500), class: "card-img", :size => '498' %>
+                  <%= image_tag post_coffee.get_image, class: "card-img", :size => '498' %>
                 <% end %>
               </div>
 

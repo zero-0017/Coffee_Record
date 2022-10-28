@@ -122,6 +122,7 @@ footer {
   background-color: #556b2f;
 }
 
+/*エラーメッセージ時に文字がフッターと重なるため*/
 .main {
   height: auto;
 }
@@ -166,11 +167,6 @@ footer {
 }
 
 
-.form-text {
-  border: 6px groove #eees;
-}
-
-
 /*管理者の入力フォームの設定*/
 .admin-form-all {
   border: 8px ridge #556b2f;
@@ -189,11 +185,13 @@ footer {
 }
 
 
+/*会員側の検索位置の設定*/
 .seach-top {
   padding-left: 30px;
 }
 
 
+/*マイページの会員画像の設定*/
 .user-image {
   border-radius: 30px;
 }

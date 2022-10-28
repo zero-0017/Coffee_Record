@@ -7,12 +7,15 @@
     </tr>
   </thead>
 
-
 <% @users.each do |user| %>
-  <% if user.name != "ゲストユーザー" %>
+  <% if user.name != "ゲストユーザー" %><!--ゲストユーザーは非表示-->
     <tbody>
       <tr>
+
+        <!--会員画像-->
         <td><%= image_tag user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %></td>
+
+        <!--会員名-->
         <td><%= user.name %></td>
 
         <td>フォロー数：<%= link_to user.followings.count, followings_user_path(user) %></td>

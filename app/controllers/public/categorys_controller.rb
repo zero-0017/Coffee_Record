@@ -1,5 +1,5 @@
 class Public::CategorysController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def show
     @categorys = Category.all

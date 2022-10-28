@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+
   def create
     @post_coffee = PostCoffee.find(params[:post_coffee_id])
     favorite = current_user.favorites.new(post_coffee_id: @post_coffee.id)

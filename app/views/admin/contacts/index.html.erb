@@ -21,9 +21,17 @@
               <% @contacts.each do |contact| %>
                 <tbody>
                   <tr>
+
+                    <!--お問い合わせ件名-->
                     <td><%= contact.contact_type %></td>
+
+                    <!--お問い合わせ会員名-->
                     <td><%= contact.user.name %></td>
+
+                    <!--お問い合わせ日時-->
                     <td><%= l contact.created_at %></td>
+
+                    <!--対応状況-->
                     <td><%= contact.status %></td>
                     <td><%= link_to "詳細", admin_contact_path(contact.id), class: "btn btn-sm show-btn shadow" %></td>
                   </tr>

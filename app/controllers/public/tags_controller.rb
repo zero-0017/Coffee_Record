@@ -1,5 +1,5 @@
 class Public::TagsController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def show
     @tags = Tag.all

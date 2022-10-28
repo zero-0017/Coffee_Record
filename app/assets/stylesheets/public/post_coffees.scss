@@ -4,28 +4,30 @@
 
 a {
   color:#333;
-  text-decoration: none;
+  text-decoration: none;//線を消す
 }
 
 
-/*各コンテンツ別でのスクロールの設定*/
+//各コンテンツ別でのスクロールの設定
 .sidebar {
   display: flex;
   height: 86vh;
 }
 
-/*画面全体の設定*/
+//画面全体の設定
 .sidebar-main {
   overflow: auto;
   flex: 1;
   background: #556b2f;
 }
 
-/*サイドバーの画面設定*/
+//サイドバーの画面設定
 .sidebar {
   overflow: hidden;
 }
 
+
+// メインの画面設定
 .main {
   margin: 0px;
   overflow: auto;

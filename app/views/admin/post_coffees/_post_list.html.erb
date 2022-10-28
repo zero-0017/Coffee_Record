@@ -12,7 +12,7 @@
   <tbody>
     <tr>
       <td><%= post_coffee.id %></td>
-      <td><%= image_tag post_coffee.get_image(500,500), class: "rounded", :size => '100' %></td>
+      <td><%= image_tag post_coffee.get_image, class: "rounded", :size => '100' %></td>
       <td><%= post_coffee.coffee_name %></td>
       <td><%= post_coffee.user.name %></td>
       <td><%= link_to "詳細", admin_post_coffee_path(post_coffee.id), class: "btn btn-sm show-btn shadow" %></td>
