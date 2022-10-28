@@ -1,8 +1,7 @@
- <%= render 'layouts/flash_message' %>
- <div class="container">
-    <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>新規投稿</strong></h4>
-      <div class="row post-post">
-        <div class="mx-auto px-5 py-2 shadow back-background border-all">
+<div class="container">
+  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>新規投稿</strong></h4>
+    <div class="row post-post">
+      <div class="mx-auto px-5 py-2 shadow back-background border-all">
 
         <%= form_with model: @post_coffee do |f| %>
 
@@ -32,13 +31,15 @@
 
 
             <div class="row justify-content-center">
-           <%= f.submit "投稿", class: "btn post-btn mt-2 shadow" %>
-           </div>
+              <%= f.submit "投稿", class: "btn post-btn mt-2 shadow" %>
+            </div>
         <% end %>
-        </div>
+
       </div>
+    </div>
 </div>
 
+<!--珈琲豆の種類の複数選択できるようにする為-->
 <script>
   $(document).ready(function() {
   $('.js-example-basic-multiple').select2();

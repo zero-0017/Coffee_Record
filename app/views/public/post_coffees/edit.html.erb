@@ -23,7 +23,7 @@
             <h5 class="mt-4">珈琲豆の種類</h5>
               <%= f.collection_select :genre_ids, Genre.all, :id, :genre_name, {}, {class:"form-control js-example-basic-multiple",multiple: true, include_hidden: false} %>
 
-           <h5 class="mt-4">投稿説明</h5>
+            <h5 class="mt-4">投稿説明</h5>
               <%= f.text_area :coffee_explanation, class: "form-all", size: "40x4", placeholder: "投稿説明を記入して下さい　※200文字以内" %>
 
             <h5 class="mt-4">表示状態</h5>
@@ -31,13 +31,15 @@
 
 
             <div class="row justify-content-center">
-           <%= f.submit "変更内容保存", class: "btn update-btn mt-2 shadow" %>
-           </div>
+              <%= f.submit "変更内容保存", class: "btn update-btn mt-2 shadow" %>
+            </div>
         <% end %>
+
+      </div>
     </div>
 </div>
-</div>
 
+<!--珈琲豆の種類の複数選択できるようにする為-->
 <script>
   $(document).ready(function() {
   $('.js-example-basic-multiple').select2();

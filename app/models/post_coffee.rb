@@ -14,6 +14,7 @@ class PostCoffee < ApplicationRecord
 
   has_one_attached :image
 
+  # 投稿画像の設定
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/post_coffee.jpg')
@@ -26,10 +27,10 @@ class PostCoffee < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
-# 下書き機能
+  # 下書き機能
   enum status: { published: 0, draft: 1 }
 
-# 投稿名の検索
+  # 投稿名の検索
   def self.looks(search, word)
     if search == "perfect_match"
       @post_coffee = PostCoffee.where("coffee_name LIKE?","#{word}")
