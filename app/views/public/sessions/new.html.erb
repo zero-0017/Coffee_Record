@@ -3,8 +3,8 @@
 <%= render 'layouts/flash_message' %>
 
   <div class="container">
-    <div class="row">
-      <div class="mx-auto">
+    <div class="row pb-5">
+      <div class="mx-auto pb-5">
         <div class="mb-4 mt-5 pt-2 pb-1 text-light shadow text-center">
           <h2>ログイン</h2>
         </div>
@@ -31,7 +31,7 @@
               <%= f.submit "ログイン", class: "btn log-btn shadow" %>
             </div>
           <% end %>
-        <p class=" mt-3 text-light">まだ登録されていない方は、<br>
+        <p class=" mt-3 text-light pb-5">まだ登録されていない方は、<br>
         <%= link_to "こちら", new_user_registration_path, class: "text-user-top" %>から新規登録してください。</p>
       </div>
     </div>
