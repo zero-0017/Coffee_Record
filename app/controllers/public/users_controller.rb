@@ -36,7 +36,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    redirect_to root_path, notice: "ありがとうございました。またのご利用をお待ちしております"
+    redirect_to root_path, notice: "ありがとうございました。またのご利用をお待ちしております。"
   end
 
   def favorites
