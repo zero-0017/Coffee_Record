@@ -14,7 +14,7 @@
 
   <body>
     <%= render 'layouts/header' %>
-      <% unless  %w[root new_admin_session admin_session].any? {|name| current_page?(send("#{name}_path"))} %><!--検索機能をログイン済みのみに表示するため-->
+      <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %><!--検索機能をログイン済みのみに表示するため-->
       <% if user_signed_in? %>
         <div class="search-back">
           <div class='py-2 container'>
@@ -71,31 +71,32 @@
 
         <!--パソコン画面用の設定-->
       <% elsif  user_signed_in? %>
-
-       <% unless  %w[new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
+        <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
           <div class="sidebar">
             <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-none d-md-block pb-5" >
-              <%= render "public/post_coffees/sidebar_tag", tags: Tag.all %>
-              <%= render "public/post_coffees/sidebar_category", categorys: Category.all %>
-              <%= render "public/post_coffees/sidebar_genre", genres: Genre.all %>
+              <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
+              <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
+              <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
             </div>
-        <%end%>
-      <%end%>
+        <% end %>
+      <% end %>
 
 
         <div class="main">
           <%= yield %>
 
-　　　<!--スマホ画面用の設定-->
-       <% if user_signed_in? %>
-          <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-block d-md-none pb-5" >
-            <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
-            <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
-            <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
-          </div>
-        <% end %>
+　　　    <!--スマホ画面用の設定-->
+            <% if user_signed_in? %>
+              <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
+                <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-block d-md-none pb-5" >
+                  <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
+                  <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
+                  <%= render "public/post_coffees/sidebar_genre", genres: @genres %>
+                </div>
+              <% end %>
+            <% end %>
 
-       </div>
+        </div>
       </div>
 
       <% else %>
