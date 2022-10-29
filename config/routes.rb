@@ -56,6 +56,7 @@ scope module: :public do
   resources :categorys, only: [:show]
   resources :genres, only: [:show]
   get "search" => "searches#search"
+  get '*path', to: 'homes#about'# 強制的にリダイレクトさせる
 end
 
 namespace :admin do
