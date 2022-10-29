@@ -24,9 +24,9 @@
 
 ## 設計書
 
-* ### ER図
+* ### [ER図](https://user-images.githubusercontent.com/108636180/198833199-9c3b5241-528f-4415-bb6c-9244054ee073.png)
 
-* ### テーブル定義書
+* ### [テーブル定義書](https://docs.google.com/spreadsheets/d/1HgHYSwYrOHEXSg3zsc3QAhnfIDWnsQ1O2WPpUd8uE3Y/edit?usp=sharing)
 
 * ### 詳細設計書
 
