@@ -31,6 +31,9 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   def guest_sign_in
+    if admin_signed_in?
+      sign_out current_admin
+    end
     user = User.guest
     sign_in user
     redirect_to about_path, notice: 'ゲストユーザーでログインしました。'

@@ -10,9 +10,14 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+
+# 管理者側でログインしていて、会員側にログインしたい場合
+  def create
+    if admin_signed_in?
+      sign_out current_admin
+    end
+    super
+  end
 
   # GET /resource/edit
   # def edit
