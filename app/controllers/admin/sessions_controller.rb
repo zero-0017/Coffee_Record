@@ -9,9 +9,14 @@ class Admin::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+
+# 会員側でログインしていて、管理者側にログインしたい場合
+   def create
+     if user_signed_in?
+       sign_out current_user
+     end
+     super
+   end
 
   # DELETE /resource/sign_out
   # def destroy
