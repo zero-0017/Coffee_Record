@@ -55,16 +55,18 @@
         </div>
       <% end %>
 
-     <% if admin_signed_in? %>
-        <div class="search-back">
-          <div class='py-2 container'>
-            <div class="row">
-              <div class="ml-auto">
-              <%= render 'admin/searches/search' %>
+      <% if admin_signed_in? %>
+        <% unless  %w[root new_user_session new_user_registration].any? {|name| current_page?(send("#{name}_path"))} %>
+          <div class="search-back">
+            <div class='py-2 container'>
+              <div class="row">
+                <div class="ml-auto">
+                  <%= render 'admin/searches/search' %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
         <!--パソコン画面用の設定-->
