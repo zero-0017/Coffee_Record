@@ -18,9 +18,9 @@
         <!--会員名-->
         <td><%= user.name %></td>
 
-        <td>フォロー数：<%= link_to user.followings.count, followings_user_path(user) %></td>
+        <td><%= link_to "フォロー数：#{user.followings.count}", followings_user_path(user) %></td>
 
-        <td><div id="followers_<%= user.id %>">フォロワー数：<%= link_to user.followers.count, followers_user_path(user) %></div></td>
+        <td><div id="followers_<%= user.id %>"><%= link_to "フォロワー数：#{user.followers.count}", followers_user_path(user) %></div></td>
 
         <!--フォロー・フォロワーボタン-->
         <td id="follow_buttons_<%= user.id %>">

@@ -25,7 +25,7 @@
           <div class="row justify-content-center my-2">
 
             <% if @user.name != "ゲストユーザー" %>
-              フォロー数：<%= link_to @user.followings.count, followings_user_path(@user) %> | <div id="followers_<%= @user.id %>">フォロワー数：<%= link_to @user.followers.count, followers_user_path(@user) %></div>
+              <%= link_to "フォロー数：#{@user.followings.count}", followings_user_path(@user) %> | <div id="followers_<%= @user.id %>"><%= link_to "フォロワー数：#{@user.followers.count}", followers_user_path(@user) %></div>
             <% end %>
 
           </div>
