@@ -115,12 +115,21 @@ footer {
   background-color:#C0C0C0;
 }
 
-/*ログイン・新規登録画面の設定*/
+/*会員ログイン・新規登録画面の設定*/
 .main-log{
-  min-height: 93vh;
-  max-height: 129vh;
+  min-height: 90vh;
+  max-height: 161vh;
   background-color: #556b2f;
 }
+
+
+/*管理者ログイン画面の設定*/
+.admin-log{
+  min-height: 93vh;
+  max-height: 161vh;
+  background-color: #556b2f;
+}
+
 
 /*エラーメッセージ時に文字がフッターと重なるため*/
 .main {

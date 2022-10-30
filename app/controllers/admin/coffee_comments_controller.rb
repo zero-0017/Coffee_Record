@@ -2,7 +2,7 @@ class Admin::CoffeeCommentsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @coffee_comments = CoffeeComment.page(params[:page]).per(4)
+    @coffee_comments = CoffeeComment.page(params[:page]).per(3)
   end
 
   def destroy

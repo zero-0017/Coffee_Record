@@ -2,8 +2,7 @@
   <thead class="table-active back-admin">
     <tr>
       <th class="text-light">会員名・コメント日時</th>
-      <th class="text-light" style="width: 60%">コメント内容</th>
-      <th></th>
+      <th class="text-light" style="width: 70%">コメント内容</th>
     </tr>
   </thead>
 <% @coffee_comments.each do |coffee_comment| %>
@@ -16,14 +15,21 @@
       </td>
 
       <!--コメント内容-->
-　　　<td><%= coffee_comment.comment %></td>
+　　　<td style="word-break: break-all"><%= coffee_comment.comment %></td>
+    </tr>
+  </tbody>
 
-　　　<td>
+  <!--削除ボタン-->
+  <tbody>
+    <tr>
+      <td></td>
+      <td>
         <div class="row justify-content-end mr-5">
-          <%= link_to "削除", admin_coffee_comment_path(coffee_comment.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm destroy-btn shadow" %>
+          <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, remote: true, class: "btn destroy-btn" %>
         </div>
       </td>
     </tr>
   </tbody>
+
 <% end %>
 </table>
