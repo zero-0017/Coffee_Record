@@ -10,11 +10,11 @@
               <table class="table shadow mt-4 table-hover back-background">
                 <thead class="back-admin">
                   <tr>
-                    <th class="text-light" style="width: 30%">お問い合わせ件名</th>
-                    <th class="text-light">お問い合わせ会員名</th>
-                    <th class="text-light">お問い合わせ日時</th>
-                    <th class="text-light">対応状況</th>
-                    <th></th>
+                    <th class="text-light" style="width: 25%">お問い合わせ件名</th>
+                    <th class="text-light" style="width: 25%">お問い合わせ会員名</th>
+                    <th class="text-light" style="width: 20%">お問い合わせ日時</th>
+                    <th class="text-light" style="width: 20%">対応状況</th>
+                    <th style="width: 10%"></th>
                   </tr>
                 </thead>
 
@@ -26,7 +26,11 @@
                     <td><%= contact.contact_type %></td>
 
                     <!--お問い合わせ会員名-->
-                    <td><%= contact.user.name %></td>
+                    <td>
+                      <%= link_to admin_user_path(contact.user.id) do %>
+                        <%= contact.user.name %>
+                      <% end %>
+                    </td>
 
                     <!--お問い合わせ日時-->
                     <td><%= l contact.created_at %></td>

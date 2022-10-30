@@ -12,7 +12,9 @@
           <%= image_tag @post_coffee.user.get_profile_image(300,300), class: "mt-3 rounded-circle", :size => '100' %>
 
           <!--会員名-->
-          会員名：<%= @post_coffee.user.name %>
+          <%= link_to admin_user_path(@post_coffee.user.id) do %>
+            会員名：<%= @post_coffee.user.name %>
+          <% end %>
 
           <!--投稿日時-->
           <div class="justify-content-start mr-4 mt-4">

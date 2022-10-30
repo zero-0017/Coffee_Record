@@ -1,14 +1,17 @@
 <table class="table shadow table-hover back-background col-xl-12 col-lg-13 col-md-12 comment-table">
   <thead class="back-admin">
     <tr>
-      <th class="text-light">会員名・コメント日時</th>
+      <th class="text-light" style="width: 30%">会員名・コメント日時</th>
       <th class="text-light" style="width: 70%">コメント内容</th>
     </tr>
   </thead>
 <% @coffee_comments.each do |coffee_comment| %>
   <tbody>
     <tr>
-      <td><%= coffee_comment.user.name %><br>
+      <td>
+        <%= link_to admin_user_path(coffee_comment.user.id) do %>
+          <%= coffee_comment.user.name %>
+        <% end %>
 
         <!--コメント日時-->
         <div class="mt-5"><%= l coffee_comment.created_at %></div>
@@ -20,9 +23,16 @@
   </tbody>
 
   <!--削除ボタン-->
-  <tbody>
+  <tbody class="table-back">
     <tr>
-      <td>投稿名：<%= coffee_comment.post_coffee.coffee_name %></td>
+      <td>
+        <div class="mt-2">
+        <%= link_to admin_post_coffee_path(coffee_comment.post_coffee.id) do %>
+          投稿名：<strong><%= coffee_comment.post_coffee.coffee_name %></strong>
+        <% end %>
+        </div>
+      </td>
+
       <td>
         <div class="row justify-content-end mr-5">
           <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, remote: true, class: "btn destroy-btn" %>
