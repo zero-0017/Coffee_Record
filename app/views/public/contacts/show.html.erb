@@ -7,9 +7,8 @@
       <table class="table shadow mt-4 table-hover back-background shadow">
         <thead class="table-active back-admin">
           <tr>
-            <th class="text-light">お問い合わせ件名</th>
+            <th class="text-light" style="width: 40%">お問い合わせ件名</th>
             <th class="text-light" style="width: 60%">お問い合わせ内容</th>
-            <th class="text-light">対応状況</th>
           </tr>
         </thead>
 
@@ -20,13 +19,26 @@
             </td>
 
             <td style="word-break: break-all"><%= @contact.content %></td>
-            <td><%= @contact.status %></td>
           </tr>
         </tbody>
-     </table>
-      <div class="actions text-center">
-        <%= link_to "削除", contact_path(@contact.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn shadow" %>
-      </div>
+
+        <tbody class="table-back">
+          <tr>
+            <td class="text-light">
+              <div class="mt-2 text-danger">
+                対応状況：<strong><%= @contact.status %></strong>
+              </div>
+            </td>
+
+        　　  <td>
+              <div class="row justify-content-end mr-5">
+                <%= link_to "削除", contact_path(@contact.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn shadow" %>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>

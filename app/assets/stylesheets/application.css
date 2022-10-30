@@ -214,3 +214,9 @@ footer {
 .notification-sm {
   font-size: 12px;
 }
+
+
+/*お問合せ・コメントの削除ボタンの背景の設定*/
+.table-back {
+  background-color: #A9A9A9;
+}

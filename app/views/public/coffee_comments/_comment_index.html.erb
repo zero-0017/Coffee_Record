@@ -7,10 +7,14 @@
           <tr>
             <td><%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100'  %><br>
               [ 会員名 ]<br>
-              <%= coffee_comment.user.name %><br>
+              <%= link_to user_path(coffee_comment.user.id) do %>
+                <%= coffee_comment.user.name %>
+              <% end %>
 
               <!--コメント日時-->
-              <div class="mt-5"><%= l coffee_comment.created_at %></div>
+              <div class="mt-5">
+                <%= l coffee_comment.created_at %>
+              </div>
             </td>
 
             <!--コメント内容-->
@@ -19,7 +23,7 @@
         </tbody>
 
         <% if coffee_comment.user == current_user %>
-          <tbody class="back-show">
+          <tbody class="table-back">
             <tr>
               <td></td>
         　　    <td>
