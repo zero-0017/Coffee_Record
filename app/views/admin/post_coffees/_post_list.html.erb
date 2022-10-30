@@ -1,7 +1,6 @@
 <table class="table shadow mt-4 table-hover back-background">
   <thead class="table-active back-admin">
     <tr>
-      <th class="text-light">投稿ID</th>
       <th class="text-light">投稿画像</th>
       <th class="text-light" style="width: 40%">投稿名</th>
       <th class="text-light">会員名</th>
@@ -11,9 +10,8 @@
 <% @post_coffees.each do |post_coffee| %>
   <tbody>
     <tr>
-      <td><%= post_coffee.id %></td>
       <td><%= image_tag post_coffee.get_image, class: "rounded", :size => '100' %></td>
-      <td><%= post_coffee.coffee_name %></td>
+      <td><%= post_coffee.coffee_name.truncate(10) %></td>
       <td><%= post_coffee.user.name %></td>
       <td><%= link_to "詳細", admin_post_coffee_path(post_coffee.id), class: "btn btn-sm show-btn shadow" %></td>
     </tr>
