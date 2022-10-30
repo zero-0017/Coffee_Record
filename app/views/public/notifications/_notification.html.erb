@@ -3,7 +3,8 @@
 <% post_coffee = notification.post_coffee %>
 <% action = notification.action %>
 
-<ul>
+<!--テレビ、デスクトップPC、ノートパソコンの表示-->
+<ul class="d-none d-lg-block">
 <!--フォローの通知-->
   <% if action == "follow" %>
     <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたを<strong>フォロー</strong>しました。
@@ -26,6 +27,68 @@
       <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
     <% else %>
       <li><strong>自分</strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+    <% end %>
+
+  <% end %>
+</ul>
+
+
+<!--タブレットの表示-->
+<ul class="d-none d-md-block d-lg-none notification-md">
+<!--フォローの通知-->
+  <% if action == "follow" %>
+    <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたを<strong>フォロー</strong>しました。<br>
+    <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+
+<!--コメントの通知-->
+  <% elsif action == "coffee_comment" %>
+    <% if visiter != visited %>
+      <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたの<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>にコメントしました。<br>
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+    <% else %>
+      <li><strong>自分</strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>にコメントしました。<br>
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+    <% end %>
+
+<!--お気に入りの通知-->
+  <% elsif action == "favorite" %>
+    <% if visiter != visited %>
+      <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたの<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。<br>
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+    <% else %>
+      <li><strong>自分</strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。<br>
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+    <% end %>
+
+  <% end %>
+</ul>
+
+
+<!--スマホの表示-->
+<ul class="d-sm-block d-md-none notification-sm">
+<!--フォローの通知-->
+  <% if action == "follow" %>
+    <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたを<strong>フォロー</strong>しました。<br>
+    <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+
+<!--コメントの通知-->
+  <% elsif action == "coffee_comment" %>
+    <% if visiter != visited %>
+      <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたの<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>にコメントしました。<br>
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+    <% else %>
+      <li><strong>自分</strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>にコメントしました。<br>
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+    <% end %>
+
+<!--お気に入りの通知-->
+  <% elsif action == "favorite" %>
+    <% if visiter != visited %>
+      <li><%= link_to user_path(visiter) do %><strong><%= visiter.name %><% end %></strong>さんがあなたの<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。<br>
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
+    <% else %>
+      <li><strong>自分</strong>の<strong><%= link_to post_coffee_path(notification.post_coffee_id) do %>投稿<% end %></strong>をお気に入りに登録しました。<br>
       <%= " (#{time_ago_in_words(notification.created_at)}前)" %></li>
     <% end %>
 

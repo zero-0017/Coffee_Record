@@ -1,6 +1,6 @@
 <%= render 'layouts/flash_message' %>
 <div class="container">
-  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>お問い合わせ詳細</strong></h4>
+  <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>お問い合わせ詳細</strong></h4>
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto">
 
@@ -19,7 +19,7 @@
               <div class="mt-5"><%= l @contact.created_at %></div>
             </td>
 
-            <td><%= @contact.content %></td>
+            <td style="word-break: break-all"><%= @contact.content %></td>
             <td><%= @contact.status %></td>
           </tr>
         </tbody>

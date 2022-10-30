@@ -3,7 +3,7 @@
     <tr>
       <th class="text-light">会員画像</th>
       <th class="text-light" style="width: 30%">会員名</th>
-      <th colspan="4"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,18 +16,23 @@
         <td><%= image_tag user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %></td>
 
         <!--会員名-->
-        <td><%= user.name %></td>
+        <td>
+          <%= link_to user_path(user.id) do %>
+            <%= user.name %>
+          <% end %>
+        </td>
 
-        <td><%= link_to "フォロー数：#{user.followings.count}", followings_user_path(user) %></td>
+        <td>
+        <div class="mb-5"><%= link_to "フォロー数：#{user.followings.count}", followings_user_path(user) %></div>
 
-        <td><div id="followers_<%= user.id %>"><%= link_to "フォロワー数：#{user.followers.count}", followers_user_path(user) %></div></td>
+        <div id="followers_<%= user.id %>"><%= link_to "フォロワー数：#{user.followers.count}", followers_user_path(user) %></div>
+        </td>
 
         <!--フォロー・フォロワーボタン-->
         <td id="follow_buttons_<%= user.id %>">
           <%= render 'public/relationships/follow', user: user %>
         </td>
 
-        <td><%= link_to "詳細", user_path(user.id), class: "btn btn-sm show-btn shadow" %></td>
       </tr>
     </tbody>
   <% end %>
