@@ -13,15 +13,15 @@
 
            <!--会員名-->
        　   <h5>会員名</h5>
-             <%= f.text_field :name, autofocus: true , class: "mb-4 form-all", size: "35" %>
+             <%= f.text_field :name, autofocus: true , class: "mb-4 form-all", size: "37", placeholder: "(例)珈琲太郎　※10文字以内" %>
 
            <!--自己紹介文-->
        　   <h5>自己紹介文</h5>
-             <%= f.text_area :introduction, autofocus: true , class: "mb-4 form-all", size: "35x4" %>
+             <%= f.text_area :introduction, autofocus: true , class: "mb-4 form-all", size: "37x4", placeholder: "自己紹介文を記入して下さい ※100文字以内" %>
 
            <!--メールアドレス-->
        　   <h5>メールアドレス</h5>
-             <%= f.text_field :email , class: "mb-4 form-all", size: "35" %>
+             <%= f.text_field :email , class: "mb-4 form-all", size: "37", placeholder: "(例)Coffee.11@post.com" %>
 
             <div class="row justify-content-center">
               <!--変更内容保存ボタン-->
