@@ -23,10 +23,10 @@
         </td>
 
         <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
-        <td class="d-none d-lg-block">
-          <div class="mb-5"><%= link_to "フォロー数：#{user.followings.count}", followings_user_path(user) %></div>
+        <td>
+          <div class="mb-5"><%= link_to "フォロー数：#{user.followings.count}", followings_user_path(user), class: "d-none d-lg-block" %></div>
 
-          <div id="followers_<%= user.id %>"><%= link_to "フォロワー数：#{user.followers.count}", followers_user_path(user) %></div>
+          <div id="followers_<%= user.id %>"><%= link_to "フォロワー数：#{user.followers.count}", followers_user_path(user), class: "d-none d-lg-block" %></div>
         </td>
 
         <!--フォロー・フォロワーボタン-->

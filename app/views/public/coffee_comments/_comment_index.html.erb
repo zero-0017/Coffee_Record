@@ -18,23 +18,17 @@
             </td>
 
             <!--コメント内容-->
-　　　　　  <td style="word-break: break-all"><%= coffee_comment.comment %></td>
-          </tr>
-        </tbody>
+　　　　　  <td style="word-break: break-all">
+　　　　　    <%= coffee_comment.comment %>
 
-        <% if coffee_comment.user == current_user %>
-          <tbody class="table-back">
-            <tr>
-              <td></td>
-        　　    <td>
-                <div class="row justify-content-end mr-5">
+              <% if coffee_comment.user == current_user %>
+                <div class="row justify-content-end mr-2 mt-5 pt-5">
                   <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, remote: true, class: "btn destroy-btn" %>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        <% end %>
-
+              <% end %>
+　　　　　  </td>
+          </tr>
+        </tbody>
 
       <% end %>
     <% else %>
