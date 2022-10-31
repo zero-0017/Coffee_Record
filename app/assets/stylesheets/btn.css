@@ -203,6 +203,7 @@
 }
 
 
+
 /*フォロー外す*/
 .follower-btn {
   background-color: #BAD3FF;
@@ -240,4 +241,17 @@
   color: #000;
   background-color: #bbb;
   border: 6px ridge #bbb;
+}
+
+
+
+/*管理者側の検索のボタン*/
+.admin-search-btn {
+  background-color: #4e454a;
+  border: 6px outset #594e52;
+}
+
+.admin-search-btn:hover {
+  background-color: #433d3c;
+  border: 6px inset #524748;
 }
