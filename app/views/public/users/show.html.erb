@@ -91,56 +91,54 @@
       <% if @post_coffees.present? %>
         <% @post_coffees.last(6).each do |post_coffee| %>
           <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 mt-2 card shadow">
-            <div class="shadow">
 
-              <!--投稿画像-->
+            <!--投稿画像-->
 
-              <!--テレビ、デスクトップPCの表示-->
-              <div class="d-none d-xl-block">
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image, class: "card-img", :size => '148' %>
-                <% end %>
+            <!--テレビ、デスクトップPCの表示-->
+            <div class="d-none d-xl-block">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '148' %>
+              <% end %>
+            </div>
+
+            <!--ノートパソコンの表示-->
+            <div class="d-none d-lg-block d-xl-none">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
+              <% end %>
+            </div>
+
+            <!--タブレットの表示-->
+            <div class="d-none d-md-block d-lg-none">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
+              <% end %>
+            </div>
+
+            <!--スマホの表示-->
+            <div class="d-sm-block d-md-none">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '498' %>
+              <% end %>
+            </div>
+
+            <!--投稿名-->
+            <div class="text-center">
+              <h5><%= post_coffee.coffee_name.truncate(8) %></h5>
+            </div>
+
+            <div class="row justify-content-end">
+              <!--コメント数-->
+              <div class="mr-4">
+                <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
               </div>
 
-              <!--ノートパソコンの表示-->
-              <div class="d-none d-lg-block d-xl-none">
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
-                <% end %>
+              <!--いいね数・いいね機能-->
+              <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
+                <%= render "public/favorites/favorite", post_coffee: post_coffee %>
               </div>
-
-              <!--タブレットの表示-->
-              <div class="d-none d-md-block d-lg-none">
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
-                <% end %>
-              </div>
-
-              <!--スマホの表示-->
-              <div class="d-sm-block d-md-none">
-                <%= link_to post_coffee_path(post_coffee.id) do %>
-                  <%= image_tag post_coffee.get_image, class: "card-img", :size => '498' %>
-                <% end %>
-              </div>
-
-              <!--投稿名-->
-              <div class="text-center">
-                <h5><%= post_coffee.coffee_name.truncate(8) %></h5>
-              </div>
-
-              <div class="row justify-content-end">
-                <!--コメント数-->
-                <div class="mr-4">
-                  <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
-                </div>
-
-                <!--いいね数・いいね機能-->
-                <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
-                  <%= render "public/favorites/favorite", post_coffee: post_coffee %>
-                </div>
-              </div>
-
         　   </div>
+
           </div>
         <% end %>
 
