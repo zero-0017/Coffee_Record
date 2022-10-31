@@ -12,7 +12,7 @@
 .about-image{
   background-image: image-url('about.jpg');
   height: 796px;
-  width: 1400px;
+  width: 100%;
   position: relative;
   background-size: 100% 100%;
 }
@@ -22,8 +22,7 @@
   font-size: 38px;
   color: #fff;
   text-align: center;
-  margin-left: 503px;
-  padding: 53px;
+  padding: 20px;
   margin-bottom: 70px;
   position: absolute;
   bottom: 0;
@@ -58,15 +57,9 @@
 // レスポンシブの調整
 @media screen and (max-width:1500px){
 
-// aboutの画像設定
-.about-image{
-  width: 1250px;
-}
-
 // aboutの文字設定
 .about-text{
   font-size: 34px;
-  margin-left: 436px;
 }
 
 }
@@ -74,45 +67,27 @@
 
 @media screen and (max-width:1325px){
 
-// aboutの画像設定
-.about-image{
-  width: 1103px;
-}
-
 // aboutの文字設定
 .about-text{
   font-size: 30px;
-  margin-left: 372px;
 }
 
 }
 
 @media screen and (max-width:1199px){
 
-// aboutの画像設定
-.about-image{
-  width: 899px;
-}
-
 // aboutの文字設定
 .about-text{
   font-size: 26px;
-  margin-left: 251px;
 }
 
 }
 
 @media screen and (max-width:1012px){
 
-// aboutの画像設定
-.about-image{
-  width: 759px;
-}
-
 // aboutの文字設定
 .about-text{
   font-size: 24px;
-  margin-left: 153px;
 }
 
 }
@@ -120,21 +95,20 @@
 
 @media screen and (max-width:935px){
 
-// aboutの画像設定
-.about-image{
-  width: 624px;
-}
-
 // aboutの文字設定
 .about-text{
   font-size: 22px;
-  margin-left: 60px;
 }
 
 }
 
 
 @media screen and (max-width:768px){
+
+// aboutの画像設定
+.about-image{
+  margin-bottom: -24px;
+}
 
 // 会員側トップの文字の設定
 .top-text-top {
@@ -146,30 +120,19 @@
   font-size: 43px;
 }
 
-// aboutの画像設定
-.about-image{
-  width: 767px;
-}
 
 // aboutの文字設定
 .about-text{
   font-size: 20px;
-  margin-left: 244px;
 }
 
 }
 
 @media screen and (max-width:638px){
 
-// aboutの画像設定
-.about-image{
-  width: 638px;
-}
-
 // aboutの文字設定
 .about-text{
   font-size: 18px;
-  margin-left: 158px;
 }
 
 }
@@ -193,32 +156,43 @@
 
 @media screen and (max-width:508px){
 
-// aboutの画像設定
-.about-image{
-  width: 508px;
-}
-
 // aboutの文字設定
 .about-text{
   font-size: 18px;
-  margin-left: 27px;
 }
 
 }
 
 
-@media screen and (max-width:388px){
+@media screen and (max-width:414px){
 
-// aboutの画像設定
-.about-image{
-  width: 388px;
-}
 
 // aboutの文字設定
 .about-text{
   font-size: 16px;
-  margin-left: 7px;
-  padding: 24px;
+  padding: 16px;
+}
+
+}
+
+
+@media screen and (max-width:365px){
+
+
+// aboutの文字設定
+.about-text{
+  font-size: 14px;
+}
+
+}
+
+
+@media screen and (max-width:324px){
+
+
+// aboutの文字設定
+.about-text{
+  font-size: 12px;
 }
 
 }
