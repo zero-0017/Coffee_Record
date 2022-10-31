@@ -11,7 +11,7 @@ class Public::ContactsController < ApplicationController
   end
 
   def index
-    @contacts = Contact.where(user_id: current_user.id).page(params[:page]).per(10)
+    @contacts = Contact.where(user_id: current_user.id).page(params[:page]).per(4)
   end
 
   def create

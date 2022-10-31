@@ -227,3 +227,17 @@
   background-color: #800000;
   border: 6px ridge #FF0461;
 }
+
+
+
+/*管理者側のお問い合わせの対応状況*/
+.status-btn {
+  background-color: #eee;
+  border: 6px groove #eee;
+}
+
+.status-btn:hover {
+  color: #000;
+  background-color: #bbb;
+  border: 6px ridge #bbb;
+}

@@ -2,17 +2,22 @@
   <!--フラッシュメッセージ-->
   <%= render 'layouts/flash_message' %>
     <div class="container">
-      <h4 class="col-sm-5 col-md-4 col-lg-3 col-xl-2 py-1 mt-2 mx-auto back-text shadow"><strong>お問い合わせ</strong></h4>
+      <h4 class="col-sm-6 col-md-5 col-lg-3 col-xl-3 py-1 mt-2 back-text shadow"><strong>お問い合わせ一覧</strong></h4>
         <div class="row">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto">
 
+            <!--対応状況絞り込みボタン-->
+            <% Contact.statuses.keys.each do |status| %>
+              <%= link_to status, admin_contacts_path(status: status), class: "btn status-btn mt-2" %>
+            <% end %>
+
             <% if @contacts.present? %>
-              <table class="table shadow mt-4 table-hover back-background">
+
+              <table class="table shadow mt-3 table-hover back-background">
                 <thead class="back-admin">
                   <tr>
-                    <th class="text-light" style="width: 25%">お問い合わせ件名</th>
-                    <th class="text-light" style="width: 25%">お問い合わせ会員名</th>
-                    <th class="text-light" style="width: 20%">お問い合わせ日時</th>
+                    <th class="text-light" style="width: 40%">お問い合わせ件名・日時</th>
+                    <th class="text-light" style="width: 30%">お問い合わせ会員名</th>
                     <th class="text-light" style="width: 20%">対応状況</th>
                     <th style="width: 10%"></th>
                   </tr>
@@ -23,7 +28,11 @@
                   <tr>
 
                     <!--お問い合わせ件名-->
-                    <td><%= contact.contact_type %></td>
+                    <td><%= contact.contact_type %>
+
+                      <!--お問い合わせ日時-->
+                      <div class="mt-5"><%= l contact.created_at %></div>
+                    </td>
 
                     <!--お問い合わせ会員名-->
                     <td>
@@ -31,9 +40,6 @@
                         <%= contact.user.name %>
                       <% end %>
                     </td>
-
-                    <!--お問い合わせ日時-->
-                    <td><%= l contact.created_at %></td>
 
                     <!--対応状況-->
                     <td><%= contact.status %></td>
