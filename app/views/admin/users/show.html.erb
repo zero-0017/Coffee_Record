@@ -1,6 +1,6 @@
 <div class="admin-main">
 <div class="container">
-  <h4 class="col-md-6 col-lg-4 col-xl-4 py-1 mt-2 back-text shadow"><strong><%= @user.name %>さんの会員情報編集</strong></h4>
+  <h4 class="col-md-8 col-lg-6 col-xl-6 py-1 mt-2 back-text shadow"><strong><%= @user.name %>さんの会員情報詳細</strong></h4>
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-12 col-lg-11">
 
@@ -8,11 +8,10 @@
           <table class="table shadow mt-2 table-hover back-background">
             <thead class="back-admin">
               <tr>
-                <th class="text-light">会員ID</th>
-                <th class="text-light">会員画像</th>
-                <th class="text-light">会員名</th>
-                <th class="text-light">メールアドレス</th>
-                <th class="text-light">会員ステータス</th>
+                <th class="text-light" style="width: 15%">会員ID</th>
+                <th class="text-light" style="width: 20%">会員画像</th>
+                <th class="text-light" style="width: 30%">会員名</th>
+                <th class="text-light" style="width: 35%">メールアドレス</th>
               </tr>
             </thead>
 
@@ -22,10 +21,23 @@
                 <td><%= image_tag @user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %></td>
                 <td><%= @user.name %></td>
                 <td><%= @user.email %></td>
-                <td><%= f.radio_button :is_deleted, false, checked: true %>有効
-                <%= f.radio_button :is_deleted, true%>退会</td>
               </tr>
             </tbody>
+
+            <tbody>
+              <tr>
+                <td></td>
+                <td>会員ステータス</td>
+
+                <td>
+                  <%= f.radio_button :is_deleted, false, checked: true %>有効
+                  <%= f.radio_button :is_deleted, true%>退会
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+
+
           </table>
 
           <div class="actions text-center">
