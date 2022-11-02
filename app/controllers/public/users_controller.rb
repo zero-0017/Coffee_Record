@@ -5,8 +5,8 @@ class Public::UsersController < ApplicationController
   before_action :set_user, except: [:index, :unsubscribe, :withdrawal]
 
   def index
-    @users = User.page(params[:page]).per(4)
-    @users = User.where.not(id: current_user.id).page(params[:page]).per(4)
+    @users = User.page(params[:page]).per(3)
+    @users = User.where.not(id: current_user.id).page(params[:page]).per(3)
   end
 
   def show
