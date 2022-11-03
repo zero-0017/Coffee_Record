@@ -2,9 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+// リンクの設定
 a {
-  color:#333;
+  color: #333;
   text-decoration: none;//線を消す
+}
+
+a:hover {
+  color: #556b2f;
 }
 
 
