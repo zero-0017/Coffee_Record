@@ -24,15 +24,11 @@
 
 ## 設計書
 
-* ### [ER図](https://user-images.githubusercontent.com/108636180/198833199-9c3b5241-528f-4415-bb6c-9244054ee073.png)
+* ### [ER図](https://user-images.githubusercontent.com/108636180/199973176-82c4d3d4-b161-4f32-994f-44c0f60c838c.png)
 
 * ### [テーブル定義書](https://docs.google.com/spreadsheets/d/1HgHYSwYrOHEXSg3zsc3QAhnfIDWnsQ1O2WPpUd8uE3Y/edit?usp=sharing)
 
 * ### [詳細設計書](https://docs.google.com/spreadsheets/d/1d5J1AhK0zb-jNA6F9Lsxc0k5jqCvYsQO-6RSciXMhPE/edit?usp=sharing)
-
-* ### 機能一覧
-
-* ### ワイヤーフレーム
 
 
 ## 開発環境
