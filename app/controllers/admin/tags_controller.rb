@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::TagsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_tag, except: [:index, :create]
@@ -34,12 +36,11 @@ class Admin::TagsController < ApplicationController
   end
 
   private
+    def tag_params
+      params.require(:tag).permit(:tag_name)
+    end
 
-  def tag_params
-    params.require(:tag).permit(:tag_name)
-  end
-
-  def set_tag
-    @tag = Tag.find(params[:id])
-  end
+    def set_tag
+      @tag = Tag.find(params[:id])
+    end
 end

@@ -11,7 +11,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
 
-# 管理者側でログインしていて、会員側にログインしたい場合
+  # 管理者側でログインしていて、会員側にログインしたい場合
   def create
     if admin_signed_in?
       sign_out current_admin

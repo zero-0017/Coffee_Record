@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::ContactsController < ApplicationController
   before_action :authenticate_admin!
 
@@ -30,8 +32,7 @@ class Admin::ContactsController < ApplicationController
   end
 
   private
-
-  def contact_params
-    params.require(:contact).permit(:status)
-  end
+    def contact_params
+      params.require(:contact).permit(:status)
+    end
 end

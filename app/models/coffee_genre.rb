@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CoffeeGenre < ApplicationRecord
   belongs_to :post_coffee
   belongs_to :genre

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::CategorysController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_category, except: [:index, :create]
@@ -34,12 +36,11 @@ class Admin::CategorysController < ApplicationController
   end
 
   private
+    def category_params
+      params.require(:category).permit(:category_name)
+    end
 
-  def category_params
-    params.require(:category).permit(:category_name)
-  end
-
-  def set_category
-    @category = Category.find(params[:id])
-  end
+    def set_category
+      @category = Category.find(params[:id])
+    end
 end

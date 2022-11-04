@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCoffeeComments < ActiveRecord::Migration[6.1]
   def change
     create_table :coffee_comments do |t|

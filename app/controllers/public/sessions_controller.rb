@@ -11,7 +11,7 @@ class Public::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
 
-# 管理者側でログインしていて、会員側にログインしたい場合
+  # 管理者側でログインしていて、会員側にログインしたい場合
   def create
     if admin_signed_in?
       sign_out current_admin
@@ -36,7 +36,7 @@ class Public::SessionsController < Devise::SessionsController
     end
     user = User.guest
     sign_in user
-    redirect_to about_path, notice: 'ゲストユーザーでログインしました。'
+    redirect_to about_path, notice: "ゲストユーザーでログインしました。"
   end
 
   def after_sign_in_path_for(resource)
@@ -44,15 +44,14 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   protected
-
-  def user_state
-    @user = User.find_by(email: params[:user][:email])
-    return if !@user
-    if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
-      flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
-      redirect_to new_user_registration_path
-    else
-      flash[:notice] = "項目を入力してください"
+    def user_state
+      @user = User.find_by(email: params[:user][:email])
+      return if !@user
+      if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
+        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+        redirect_to new_user_registration_path
+      else
+        flash[:notice] = "項目を入力してください"
+      end
     end
-  end
 end

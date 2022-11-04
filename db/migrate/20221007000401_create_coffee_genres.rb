@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCoffeeGenres < ActiveRecord::Migration[6.1]
   def change
     create_table :coffee_genres do |t|

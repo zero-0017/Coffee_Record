@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::GenresController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_genre, except: [:index, :create]
@@ -34,12 +36,11 @@ class Admin::GenresController < ApplicationController
   end
 
   private
+    def genre_params
+      params.require(:genre).permit(:genre_name)
+    end
 
-  def genre_params
-    params.require(:genre).permit(:genre_name)
-  end
-
-  def set_genre
-    @genre = Genre.find(params[:id])
-  end
+    def set_genre
+      @genre = Genre.find(params[:id])
+    end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::HomesController < ApplicationController
   before_action :authenticate_user!, only: [:about]
 

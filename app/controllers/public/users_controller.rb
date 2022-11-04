@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_guest_user, only: [:edit]
@@ -40,7 +42,7 @@ class Public::UsersController < ApplicationController
   end
 
   def favorites
-    favorites= Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_coffee_id)
     @post_coffees = PostCoffee.find(favorites)
     @post_coffees = Kaminari.paginate_array(@post_coffees).page(params[:page])
   end
@@ -58,25 +60,24 @@ class Public::UsersController < ApplicationController
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction, :is_deleted, :email)
-  end
-
-  def ensure_guest_user
-    @user = User.find(params[:id])
-    if @user.name == "ゲストユーザー"
-      redirect_to user_path(current_user), notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    def user_params
+      params.require(:user).permit(:name, :profile_image, :introduction, :is_deleted, :email)
     end
-  end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+    def ensure_guest_user
+      @user = User.find(params[:id])
+      if @user.name == "ゲストユーザー"
+        redirect_to user_path(current_user), notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+      end
+    end
 
-  def sidebar_list
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
-  end
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def sidebar_list
+      @tags = Tag.all
+      @categorys = Category.all
+      @genres = Genre.all
+    end
 end

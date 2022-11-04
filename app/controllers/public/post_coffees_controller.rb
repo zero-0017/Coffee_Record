@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::PostCoffeesController < ApplicationController
   before_action :authenticate_user!
   before_action :sidebar_list, except: [:destroy]
@@ -52,18 +54,17 @@ class Public::PostCoffeesController < ApplicationController
   end
 
   private
+    def post_coffee_params
+      params.require(:post_coffee).permit(:coffee_name, :coffee_explanation, :image, :status, :tag_id, :category_id, { genre_ids: [] })
+    end
 
-  def post_coffee_params
-    params.require(:post_coffee).permit(:coffee_name, :coffee_explanation, :image, :status, :tag_id, :category_id, { genre_ids: [] })
-  end
+    def sidebar_list
+      @tags = Tag.all
+      @categorys = Category.all
+      @genres = Genre.all
+    end
 
-  def sidebar_list
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
-  end
-
-  def set_post_coffee
-    @post_coffee = PostCoffee.find(params[:id])
-  end
+    def set_post_coffee
+      @post_coffee = PostCoffee.find(params[:id])
+    end
 end

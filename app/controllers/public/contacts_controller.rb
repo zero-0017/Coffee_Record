@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Public::ContactsController < ApplicationController
   before_action :authenticate_user!
   before_action :sidebar_list, except: [:destroy]
@@ -33,18 +35,17 @@ class Public::ContactsController < ApplicationController
   end
 
   private
+    def contact_params
+      params.require(:contact).permit(:content, :contact_type)
+    end
 
-  def contact_params
-    params.require(:contact).permit(:content, :contact_type)
-  end
+    def sidebar_list
+      @tags = Tag.all
+      @categorys = Category.all
+      @genres = Genre.all
+    end
 
-  def sidebar_list
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
-  end
-
-  def set_contact
-    @contact = Contact.find(params[:id])
-  end
+    def set_contact
+      @contact = Contact.find(params[:id])
+    end
 end
