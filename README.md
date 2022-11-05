@@ -1,6 +1,6 @@
 # Coffee_Record
 
-##サイトイメージ
+## サイトイメージ
 ![image](https://user-images.githubusercontent.com/108636180/200107599-efe5968b-1f3a-48d5-8a8b-1de6c94db13f.png)
 
 ## サイト概要
