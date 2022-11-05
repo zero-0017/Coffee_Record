@@ -5,6 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page]).per(4)
+    @users = User.where.not(name: "ゲストユーザー").page(params[:page]).per(4)
   end
 
   def show

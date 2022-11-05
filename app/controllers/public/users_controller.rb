@@ -8,7 +8,7 @@ class Public::UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page]).per(3)
-    @users = User.where.not(id: current_user.id).page(params[:page]).per(3)
+    @users = User.where.not(id: current_user.id).where.not(name: "ゲストユーザー").page(params[:page]).per(3)
   end
 
   def show

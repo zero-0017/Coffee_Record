@@ -3,44 +3,40 @@
     <tr>
       <th class="text-light" style="width: 45%">会員画像</th>
       <th class="text-light" style="width: 35%"><div class="d-none d-lg-block">自己紹介文</div></th>
-      <th style="width: 0%"></th>
       <th style="width: 20%"></th>
     </tr>
   </thead>
 
 <% @users.each do |user| %>
-  <% if user.name != "ゲストユーザー" %><!--ゲストユーザーは非表示-->
-    <tbody>
-      <tr>
+  <tbody>
+    <tr>
 
+      <td>
         <!--会員画像-->
-        <td><%= image_tag user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %>
+        <%= image_tag user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %>
 
-          <!--会員名-->
-          <div class="mt-2 ml-3">
-            <%= link_to user_path(user.id) do %>
-              <%= user.name.truncate(6) %>
-            <% end %>
-          </div>
-        </td>
+        <!--会員名-->
+        <div class="mt-2 ml-3">
+          <%= link_to user_path(user.id) do %>
+            <%= user.name.truncate(6) %>
+          <% end %>
+        </div>
+      </td>
 
-        <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
-        <!--自己紹介文-->
-        <td>
-          <div class="d-none d-lg-block" style="word-break: break-all">
-            <%= user.introduction %>
-          </div>
-        </td>
+      <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+      <!--自己紹介文-->
+      <td>
+        <div class="d-none d-lg-block" style="word-break: break-all">
+          <%= user.introduction %>
+        </div>
+      </td>
 
-        <td></td>
+      <!--フォロー・フォロワーボタン-->
+      <td id="follow_buttons_<%= user.id %>">
+        <%= render 'public/relationships/follow', user: user %>
+      </td>
 
-        <!--フォロー・フォロワーボタン-->
-        <td id="follow_buttons_<%= user.id %>">
-          <%= render 'public/relationships/follow', user: user %>
-        </td>
-
-      </tr>
-    </tbody>
-  <% end %>
+    </tr>
+  </tbody>
 <% end %>
 </table>
