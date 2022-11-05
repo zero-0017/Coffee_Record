@@ -2,9 +2,9 @@
 <%= render 'layouts/flash_message' %>
 <div class="container">
   <div class="row">
-    <h4 class="py-1 mt-2 back-text col-xl-3 col-lg-3 col-mb-4 col-sm-4 shadow"><strong>投稿一覧</strong></h4>
+    <h4 class="col-sm-4 col-mb-4 col-lg-3 col-xl-3 py-1 mt-2 back-text shadow"><strong>投稿一覧</strong></h4>
 
-      <div class="col-xl-3 col-lg-3 col-mb-4 col-sm-4 list-old mt-3">
+      <div class="col-sm-4 col-mb-4 col-lg-3 col-xl-3 list-old mt-3">
         <strong>
           <%= link_to '新着順', post_coffees_path(latest: "true"), class: "latest-btn" %><%= link_to '投稿順', post_coffees_path(old: "true"), class: "old-btn" %>
         </strong>
