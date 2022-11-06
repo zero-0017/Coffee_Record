@@ -3,6 +3,18 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 // お問合せ完了の文字
+
+// テレビ、デスクトップPC、ノートパソコンの表示
 .thank-text {
   font-size: 21px;
+}
+
+// タブレットの表示
+.thank-text-md {
+  font-size: 14px;
+}
+
+// スマホの表示
+.thank-text-sm {
+  font-size: 10px;
 }
