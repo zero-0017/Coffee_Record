@@ -40,9 +40,7 @@
               <%= f.submit "変更内容保存", class: "btn update-btn mr-3 shadow mb-3" %>
 
               <!--退会ボタン-->
-              <%= link_to unsubscribe_users_path do %>
-                <button type="button" class="btn unsubscribe-btn shadow mb-3">退会する</button>
-              <% end %>
+              <%= link_to "退会する", unsubscribe_users_path, class: "btn unsubscribe-btn shadow mb-3" %>
             </div>
 
          <% end %>
