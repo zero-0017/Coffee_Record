@@ -1,7 +1,7 @@
 <div class="container">
   <h4 class="col-md-5 col-lg-4 col-xl-3 py-2 mt-2 back-text shadow"><strong>会員情報編集</strong></h4>
     <div class="row no-gutters pb-5">
-      <div class="col-md-10 col-lg-8 col-xl-5 mx-auto shadow py-2 px-4 back-background border-all">
+      <div class="col-sm-8 col-md-10 col-lg-8 col-xl-5 mx-auto shadow py-2 px-4 back-background border-all">
          <%= form_with model: @user do |f| %>
 
           <!--エラーメッセージ表示-->
@@ -13,24 +13,36 @@
 
            <!--会員名-->
        　   <h5>会員名</h5>
-             <%= f.text_field :name, autofocus: true , class: "mb-4 form-all", size: "37", placeholder: "(例)珈琲太郎　※10文字以内" %>
+       　    <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
+            <%= f.text_field :name, autofocus: true , class: "mb-4 form-all d-none d-md-block", size: "37", placeholder: "(例)珈琲太郎　※10文字以内" %>
+
+            <!--スマホの表示-->
+            <%= f.text_field :name, autofocus: true , class: "mb-4 form-all d-sm-block d-md-none", size: "28", placeholder: "(例)珈琲太郎" %>
 
            <!--自己紹介文-->
        　   <h5>自己紹介文</h5>
-             <%= f.text_area :introduction, autofocus: true , class: "mb-4 form-all", size: "37x4", placeholder: "自己紹介文を記入して下さい ※100文字以内" %>
+       　    <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
+            <%= f.text_area :introduction, autofocus: true , class: "mb-4 form-all d-none d-md-block", size: "37x4", placeholder: "自己紹介文を記入して下さい ※100文字以内" %>
+
+            <!--スマホの表示-->
+            <%= f.text_area :introduction, autofocus: true , class: "mb-4 form-all d-sm-block d-md-none", size: "28x4", placeholder: "自己紹介文を記入して下さい" %>
 
            <!--メールアドレス-->
        　   <h5>メールアドレス</h5>
-             <%= f.text_field :email , class: "mb-4 form-all", size: "37", placeholder: "(例)Coffee.11@post.com" %>
+       　    <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
+            <%= f.text_field :email , class: "mb-4 form-all d-none d-md-block", size: "37", placeholder: "(例)Coffee.11@post.com" %>
+
+            <!--スマホの表示-->
+            <%= f.text_field :email , class: "mb-4 form-all d-sm-block d-md-none", size: "28", placeholder: "(例)Coffee.11@post.com" %>
 
             <div class="row justify-content-center">
               <!--変更内容保存ボタン-->
-               <%= f.submit "変更内容保存", class: "btn update-btn mr-3 shadow" %>
+              <%= f.submit "変更内容保存", class: "btn update-btn mr-3 shadow mb-3" %>
 
-               <!--退会ボタン-->
-               <%= link_to unsubscribe_users_path do %>
-                 <button type="button" class="btn unsubscribe-btn shadow">退会する</button>
-               <% end %>
+              <!--退会ボタン-->
+              <%= link_to unsubscribe_users_path do %>
+                <button type="button" class="btn unsubscribe-btn shadow mb-3">退会する</button>
+              <% end %>
             </div>
 
          <% end %>
