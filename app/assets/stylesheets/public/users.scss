@@ -4,12 +4,31 @@
 
 
 // 退会確認画面の文字の設定
-.text-end {
+.text-unsubscribe {
   font-size: 28px;
 }
 
+.text-unsubscribe-md {
+  font-size: 22px;
+}
+
+.text-unsubscribe-sm {
+  font-size: 14px;
+}
+
+
+// 退会確認画面のクリックの文字の設定
+.text-unsubscribe-end-md {
+  font-size: 18px;
+}
+
+.text-unsubscribe-end-sm {
+  font-size: 12px;
+}
+
+
 // 退会確認画面の文字の設定
-.text-end-strong {
+.text-unsubscribe-strong {
   text-decoration: underline;
   color: #BB0000;
 }

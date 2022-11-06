@@ -1,10 +1,11 @@
-<div class = "container">
+<!--テレビ、デスクトップPC、ノートパソコンの表示-->
+<div class = "container d-none d-lg-block">
   <div class = "text-center mt-5 pt-5">
     <h2>本当に退会しますか？</h2>
 
-      <p class="mt-4 text-end">
-        退会すると、<strong class="text-end-strong">会員登録情報</strong>や<br>
-        これまでの<strong class="text-end-strong">投稿内容</strong>が閲覧できなくなります。
+      <p class="mt-4 text-unsubscribe">
+        退会すると、<strong class="text-unsubscribe-strong">会員登録情報</strong>や<br>
+        これまでの<strong class="text-unsubscribe-strong">投稿内容</strong>が閲覧できなくなります。
       </p>
 
       <h5 class="mt-4 mb-4">
@@ -12,5 +13,41 @@
       </h5>
     <%= link_to "退会しない", user_path(current_user), class: "btn unsubscribe-no-btn mr-3 shadow" %>
     <%= link_to "退会する", withdrawal_users_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn unsubscribe-btn shadow" %>
+  </div>
+</div>
+
+<!--タブレットの表示-->
+<div class = "container d-none d-md-block d-lg-none">
+  <div class = "text-center mt-5 pt-5">
+    <h4>本当に退会しますか？</h4>
+
+      <p class="mt-4 text-unsubscribe-md">
+        退会すると、<strong class="text-unsubscribe-strong">会員登録情報</strong>や<br>
+        これまでの<strong class="text-unsubscribe-strong">投稿内容</strong>が閲覧できなくなります。
+      </p>
+
+      <h5 class="mt-4 mb-4 text-unsubscribe-end-md">
+        退会する場合は、<strong>「退会する」</strong>をクリックしてください。
+      </h5>
+    <%= link_to "退会しない", user_path(current_user), class: "btn unsubscribe-no-btn mr-3 shadow" %>
+    <%= link_to "退会する", withdrawal_users_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn unsubscribe-btn shadow" %>
+  </div>
+</div>
+
+<!--スマホの表示-->
+<div class = "container d-sm-block d-md-none">
+  <div class = "text-center mt-5 pt-5">
+    <h4>本当に退会しますか？</h4>
+
+      <p class="mt-4 text-unsubscribe-sm">
+        退会すると、<strong class="text-unsubscribe-strong">会員登録情報</strong>や<br>
+        これまでの<strong class="text-unsubscribe-strong">投稿内容</strong>が閲覧できなくなります。
+      </p>
+
+      <h5 class="mt-4 mb-4 text-unsubscribe-end-sm">
+        退会する場合は、<strong>「退会する」</strong>をクリックしてください。
+      </h5>
+    <%= link_to "退会しない", user_path(current_user), class: "btn-sm unsubscribe-no-btn mr-3 shadow" %>
+    <%= link_to "退会する", withdrawal_users_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn-sm unsubscribe-btn shadow" %>
   </div>
 </div>
