@@ -49,25 +49,43 @@
 
 ## Gem
 
-* gem 'devise'
+* gem "devise"
+* gem "jquery-rails"
+* gem "kaminari", "~> 1.2", ">= 1.2.1"
+* gem "bootstrap5-kaminari-views", "~> 0.0.1"
+* gem "enum_help"
+* gem "rails-i18n"
+* gem "dotenv-rails"
+* gem "mysql2"
 
-* gem 'jquery-rails'
 
-* gem 'kaminari', '~> 1.2', '>= 1.2.1'
+## 機能一覧
 
-* gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+### 会員側
+* ゲストログイン機能
+* 会員機能
+* 投稿機能
+* 投稿の公開or下書き設定機能
+* お気に入り機能（非同期通信化）
+* コメント機能（非同期通信化）
+* フォロー機能（非同期通信化）
+* お問い合わせ機能
+* 通知機能（お気に入り、コメント、フォロー）
+* キーワード検索機能（投稿名）
+* タグ検索機能（珈琲の淹れ方）
+* カテゴリ検索機能（珈琲の種類）
+* ジャンル検索機能（珈琲豆の種類）
 
-* gem 'enum_help'
-
-* gem 'dotenv-rails'
-
-* gem 'mysql2'
-
-* gem 'net-smtp'
-
-* gem 'net-pop'
-
-* gem 'net-imap'
+### 管理者側
+* 管理者ログイン機能
+* 会員管理機能
+* 投稿管理機能
+* コメント管理機能
+* お問い合わせ管理機能
+* タグ管理機能（珈琲の淹れ方）
+* カテゴリ管理機能（珈琲の種類）
+* ジャンル管理機能（珈琲豆の種類）
+* キーワード検索機能（会員名、投稿名、コメント内容）
 
 
 ## 使用素材
