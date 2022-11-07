@@ -31,7 +31,7 @@
 
 * ### [テーブル定義書](https://docs.google.com/spreadsheets/d/1HgHYSwYrOHEXSg3zsc3QAhnfIDWnsQ1O2WPpUd8uE3Y/edit?usp=sharing)
 
-* ### [詳細設計書](https://docs.google.com/spreadsheets/d/1d5J1AhK0zb-jNA6F9Lsxc0k5jqCvYsQO-6RSciXMhPE/edit?usp=sharing)
+* ### [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1d5J1AhK0zb-jNA6F9Lsxc0k5jqCvYsQO-6RSciXMhPE/edit?usp=sharing)
 
 
 ## 開発環境
