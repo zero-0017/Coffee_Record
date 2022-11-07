@@ -29,10 +29,10 @@
 
             <h5 class="mt-3">投稿説明</h5>
               <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
-              <%= f.text_area :coffee_explanation, class: "form-all d-none d-md-block", style: "width: 100%; padding-bottom: 8%;", placeholder: "投稿説明を記入して下さい　※200文字以内" %>
+              <%= f.text_area :coffee_explanation, class: "form-all d-none d-md-block", style: "width: 100%; padding-bottom: 6%;", placeholder: "投稿説明を記入して下さい　※200文字以内" %>
 
               <!--スマホの表示-->
-              <%= f.text_area :coffee_explanation, class: "form-all d-sm-block d-md-none", style: "width: 100%; padding-bottom: 8%;", placeholder: "投稿説明を記入して下さい" %>
+              <%= f.text_area :coffee_explanation, class: "form-all d-sm-block d-md-none", style: "width: 100%; padding-bottom: 6%;", placeholder: "投稿説明を記入して下さい" %>
 
             <h5 class="mt-3">表示状態</h5>
             <%= f.select :status, PostCoffee.statuses.keys.map { |k| [t("enums.post_coffee.status.#{k}"),k]}, {}, {class: "custom-select"} %><br>
