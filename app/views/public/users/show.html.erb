@@ -47,7 +47,7 @@
 
         </div>
 
-      <div class="col-sm-10 col-md-9 col-lg-6 col-xl-5 back-background shadow">
+      <div class="col-sm-10 col-md-9 col-lg-6 col-xl-5 pb-5 back-background shadow">
 
          <!--会員名-->
           <h5 class="mt-4 mb-5">会員名：<%= @user.name %></h5>
@@ -73,9 +73,11 @@
       <div class="col-xl-3 col-lg-4 col-md-5">
         <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-show-btn btn-block shadow" %>
 
+      <% if @user.name != "ゲストユーザー" %>
         <% if @user == current_user %>
           <%= link_to "お問い合わせ", contacts_path, class: "btn user-show-btn btn-block shadow" %>
         <% end %>
+      <% end %>
       </div>
     </div>
 

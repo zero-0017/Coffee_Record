@@ -11,7 +11,7 @@
                 <thead class="back-admin">
                   <tr>
                     <th class="text-light" style="width: 45%">お問い合わせ件名・日時</th>
-                    <th class="text-light" style="width: 35%">お問い合わせ内容</th>
+                    <th class="text-light" style="width: 35%"><div class="d-none d-lg-block">お問い合わせ内容</div></th>
                     <th class="text-light" style="width: 20%">対応状況</th>
                   </tr>
                 </thead>
@@ -30,9 +30,11 @@
 
                     <!--お問合せ内容-->
                     <td>
+                      <div class="d-none d-lg-block">
                       <%= link_to contact_path(contact.id) do %>
                         <%= contact.content.truncate(20) %>
                       <% end %>
+                      </div>
                     </td>
 
                     <!--対応状況-->

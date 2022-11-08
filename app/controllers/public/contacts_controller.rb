@@ -2,6 +2,7 @@
 
 class Public::ContactsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_guest_user, except: [:destroy]
   before_action :sidebar_list, except: [:destroy]
   before_action :set_contact, except: [:new, :index, :create, :thank]
 
@@ -37,6 +38,12 @@ class Public::ContactsController < ApplicationController
   private
     def contact_params
       params.require(:contact).permit(:content, :contact_type)
+    end
+
+    def ensure_guest_user
+      if current_user.name == "ゲストユーザー"
+        redirect_to user_path(current_user), notice: "ゲストユーザーはプロフィールお問い合わせ画面へ遷移できません"
+      end
     end
 
     def sidebar_list

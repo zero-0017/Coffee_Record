@@ -38,7 +38,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    redirect_to root_path, notice: "ありがとうございました。またのご利用をお待ちしております。"
+    redirect_to root_path, notice: "ありがとうございました。またのご利用をお待ちしております"
   end
 
   def favorites
@@ -67,7 +67,7 @@ class Public::UsersController < ApplicationController
     def ensure_guest_user
       @user = User.find(params[:id])
       if @user.name == "ゲストユーザー"
-        redirect_to user_path(current_user), notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+        redirect_to user_path(current_user), notice: "ゲストユーザーはプロフィール編集画面へ遷移できません"
       end
     end
 
