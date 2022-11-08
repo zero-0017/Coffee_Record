@@ -4,13 +4,13 @@ class Public::ContactsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_guest_user, except: [:destroy]
   before_action :sidebar_list, except: [:destroy]
-  before_action :set_contact, except: [:new, :index, :create, :thank]
 
   def new
     @contact = Contact.new
   end
 
   def show
+    @contact = Contact.find(params[:id])
   end
 
   def index
@@ -28,6 +28,7 @@ class Public::ContactsController < ApplicationController
   end
 
   def destroy
+    @contact = Contact.find(params[:id])
     @contact.destroy
     redirect_to contacts_path, alert: "お問合せを削除しました"
   end
@@ -50,9 +51,5 @@ class Public::ContactsController < ApplicationController
       @tags = Tag.all
       @categorys = Category.all
       @genres = Genre.all
-    end
-
-    def set_contact
-      @contact = Contact.find(params[:id])
     end
 end
