@@ -42,7 +42,7 @@ class Public::ContactsController < ApplicationController
 
     def ensure_guest_user
       if current_user.name == "ゲストユーザー"
-        redirect_to user_path(current_user), notice: "ゲストユーザーはプロフィールお問い合わせ画面へ遷移できません"
+        redirect_to user_path(current_user), notice: "ゲストユーザーはお問い合わせ画面へ遷移できません"
       end
     end
 
