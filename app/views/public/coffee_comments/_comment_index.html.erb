@@ -5,10 +5,19 @@
       <% post_coffee.coffee_comments.each do |coffee_comment| %>
         <tbody>
           <tr>
-            <td><%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100'  %><br>
+            <td style="width: 40%;">
+              <%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100' %><br>
               [ 会員名 ]<br>
               <%= link_to user_path(coffee_comment.user.id) do %>
-                <%= coffee_comment.user.name %>
+              　<!--テレビ、デスクトップPCの表示-->
+                <div class="d-none d-lg-block">
+                  <%= coffee_comment.user.name %>
+                </div>
+
+                <!--ノートパソコン、タブレット、スマホの表示-->
+                <div class="d-block d-lg-none">
+                  <%= coffee_comment.user.name.truncate(8) %>
+                </div>
               <% end %>
 
               <!--コメント日時-->
