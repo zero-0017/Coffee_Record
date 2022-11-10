@@ -3,7 +3,7 @@
 ## サイトイメージ
 ![image](https://user-images.githubusercontent.com/108636180/200107599-efe5968b-1f3a-48d5-8a8b-1de6c94db13f.png)
 
-URL:https://coffee-record-17.com/
+URL：https://coffee-record-17.com/
 
 ## サイト概要
 ご自身の好きな珈琲を共有できるコミュニティサイト
