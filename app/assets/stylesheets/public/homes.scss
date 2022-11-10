@@ -103,12 +103,7 @@
 // aboutの画像設定
 .about-image{
   background-image: image-url('about-sm.jpg');
-  margin-bottom: -24px;
-}
-
-// aboutの文字設定
-.about-text{
-  background-color: rgba( 255, 255, 255, 0.45 );
+  margin-bottom: -28px;
 }
 
 // 会員側トップの文字の設定
@@ -183,17 +178,6 @@
 // aboutの文字設定
 .about-text{
   font-size: 14px;
-}
-
-}
-
-
-@media screen and (max-width:324px){
-
-
-// aboutの文字設定
-.about-text{
-  font-size: 12px;
 }
 
 }
