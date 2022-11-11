@@ -7,8 +7,29 @@
       <table class="table shadow mt-4 table-hover back-background shadow">
         <thead class="back-admin">
           <tr>
-            <th class="text-light" style="width: 40%"><div class="d-none d-lg-block">お問い合わせ件名・日時</div><div class="d-block d-lg-none">件名・日時</div></th>
-            <th class="text-light" style="width: 60%"><div class="d-none d-lg-block">お問い合わせ内容</div><div class="d-block d-lg-none">内容</div></th>
+            <th class="text-light" style="width: 40%">
+              <!--テレビ、デスクトップPCの表示-->
+              <div class="d-none d-lg-block">
+                お問い合わせ件名・日時
+              </div>
+
+              <!--ノートパソコン、タブレット、スマホの表示-->
+              <div class="d-block d-lg-none">
+                件名・日時
+              </div>
+            </th>
+
+            <th class="text-light" style="width: 60%">
+              <!--テレビ、デスクトップPCの表示-->
+              <div class="d-none d-lg-block">
+                お問い合わせ内容
+              </div>
+
+              <!--ノートパソコン、タブレット、スマホの表示-->
+              <div class="d-block d-lg-none">
+                内容
+              </div>
+            </th>
           </tr>
         </thead>
 
@@ -25,10 +46,12 @@
         <tbody class="table-back">
           <tr>
             <td class="text-light">
+              <!--テレビ、デスクトップPCの表示-->
               <div class="mt-2 d-none d-lg-block">
                 対応状況：<strong><%= @contact.status %></strong>
               </div>
 
+              <!--ノートパソコン、タブレット、スマホの表示-->
               <div class="mt-2 d-block d-lg-none">
                 [ 対応状況 ]<br>
                 <strong class="ml-3"><%= @contact.status %></strong>
