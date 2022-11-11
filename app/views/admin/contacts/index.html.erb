@@ -16,10 +16,28 @@
               <table class="table shadow mt-3 table-hover back-background">
                 <thead class="back-admin">
                   <tr>
-                    <th class="text-light" style="width: 40%">お問い合わせ件名・日時</th>
-                    <th class="text-light" style="width: 30%"><div class="d-none d-lg-block">お問い合わせ会員名</div></th>
-                    <th class="text-light" style="width: 20%">対応状況</th>
-                    <th style="width: 10%"></th>
+                    <th class="text-light" style="width: 40%">
+                      <!--テレビ、デスクトップPCの表示-->
+                      <div class="d-none d-lg-block">
+                        お問い合わせ件名・日時
+                      </div>
+
+                      <!--ノートパソコン、タブレット、スマホの表示-->
+                      <div class="d-block d-lg-none">
+                        件名・日時
+                      </div>
+                    </th>
+
+                    <th class="text-light" style="width: 30%">
+                      <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+                      <div class="d-none d-lg-block">
+                        お問い合わせ会員名
+                      </div>
+                    </th>
+
+                    <th class="text-light" style="width: 30%">
+                      対応状況
+                    </th>
                   </tr>
                 </thead>
 
@@ -28,7 +46,10 @@
                   <tr>
 
                     <!--お問い合わせ件名-->
-                    <td><%= contact.contact_type %>
+                    <td>
+                      <%= link_to admin_contact_path(contact.id) do %>
+                        <%= contact.contact_type %>
+                      <% end %>
 
                       <!--お問い合わせ日時-->
                       <div class="mt-5"><%= l contact.created_at %></div>
@@ -36,6 +57,7 @@
 
                     <!--お問い合わせ会員名-->
                     <td>
+                      <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
                       <div class="d-none d-lg-block">
                         <%= link_to admin_user_path(contact.user.id) do %>
                           <%= contact.user.name %>
@@ -45,7 +67,6 @@
 
                     <!--対応状況-->
                     <td><%= contact.status %></td>
-                    <td><%= link_to "詳細", admin_contact_path(contact.id), class: "btn btn-sm show-btn shadow" %></td>
                   </tr>
                 </tbody>
               <% end %>
