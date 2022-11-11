@@ -1,7 +1,7 @@
 <table class="table shadow mt-4 table-hover back-background">
   <thead class="back-admin">
     <tr>
-      <th class="text-light">
+      <th class="text-light" style="width: 10%">
         <!--テレビ、デスクトップPCの表示-->
         <div class="d-none d-lg-block">
           会員ID
@@ -13,25 +13,36 @@
         </div>
       </th>
 
-      <th class="text-light">
+      <th class="text-light" style="width: 30%">
         <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
         <div class="d-none d-lg-block">
-          会員画像
+          会員画像・名前
+        </div>
+
+        <!--ノートパソコン、タブレット、スマホの表示-->
+        <div class="d-block d-lg-none">
+          画像・名前
         </div>
       </th>
 
       <th class="text-light" style="width: 30%">
-        会員名
-      </th>
-
-      <th class="text-light">
         <!--テレビ、デスクトップPC、ノートパソコン、タブレットの時のみ表示-->
         <div class="d-none d-sm-block">
           メールアドレス
         </div>
       </th>
 
-      <th></th>
+      <th style="width: 30%">
+        <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+        <div class="d-none d-lg-block">
+          会員状況
+        </div>
+
+        <!--ノートパソコン、タブレット、スマホの表示-->
+        <div class="d-block d-lg-none">
+          状況
+        </div>
+      </th>
     </tr>
   </thead>
 <% @users.each do |user| %>
@@ -49,16 +60,23 @@
         </div>
       </td>
 
-      <td><%= image_tag user.get_profile_image(300, 300), class: "rounded-circle d-none d-lg-block", :size => '100' %></td>
       <td>
-        <!--テレビ、デスクトップPCの表示-->
-        <div class="d-none d-lg-block">
-          <%= user.name %>
-        </div>
+        <!--会員画像-->
+        <%= image_tag user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %>
 
-        <!--ノートパソコン、タブレット、スマホの表示-->
-        <div class="d-block d-lg-none">
-          <%= user.name.truncate(6) %>
+        <!--会員名-->
+        <div class="mt-2">
+          <%= link_to admin_user_path(user.id) do %>
+          <!--テレビ、デスクトップPCの表示-->
+          <div class="d-none d-lg-block">
+            <%= user.name %>
+          </div>
+
+          <!--ノートパソコン、タブレット、スマホの表示-->
+          <div class="d-block d-lg-none">
+            <%= user.name.truncate(6) %>
+          </div>
+          <% end %>
         </div>
       </td>
 
@@ -70,12 +88,12 @@
       </td>
 
       <% if user.is_deleted == true %>
-        <td class="text-primary font-weight-bold">退会
-          <%= link_to "詳細", admin_user_path(user.id), class: "btn btn-sm show-btn shadow" %>
+        <td class="text-primary font-weight-bold">
+          退会
         </td>
       <% else %>
-        <td class="text-danger font-weight-bold">有効
-          <%= link_to "詳細", admin_user_path(user.id), class: "btn btn-sm show-btn shadow " %>
+        <td class="text-danger font-weight-bold">
+          有効
         </td>
       <% end %>
 

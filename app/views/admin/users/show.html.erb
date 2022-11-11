@@ -1,50 +1,52 @@
 <div class="admin-main">
-<div class="container">
-  <h4 class="col-md-8 col-lg-7 col-xl-6 py-1 mt-2 back-text shadow"><strong><%= @user.name %>さんの会員情報詳細</strong></h4>
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-12 col-lg-11">
+  <div class="container">
+    <h4 class="col-md-9 col-lg-7 col-xl-6 py-1 mt-2 back-text shadow"><strong><%= @user.name %>さんの会員情報詳細</strong></h4>
+      <div class="row justify-content-center pb-5 mt-4">
+        <div class="col-sm-10 col-md-9 col-lg-4 col-xl-3 back-background shadow">
 
-　      <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
-          <table class="table shadow mt-2 table-hover back-background">
-            <thead class="back-admin">
-              <tr>
-                <th class="text-light" style="width: 15%">会員ID</th>
-                <th class="text-light" style="width: 20%">会員画像</th>
-                <th class="text-light" style="width: 30%">会員名</th>
-                <th class="text-light" style="width: 35%">メールアドレス</th>
-              </tr>
-            </thead>
+　        <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+            <!--テレビ、デスクトップPC、ノートパソコンの表示-->
+            <div class="d-none d-lg-block">
+              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '250' %>
+            </div>
 
-            <tbody>
-              <tr>
-                <td><%= @user.id %></td>
-                <td><%= image_tag @user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %></td>
-                <td><%= @user.name %></td>
-                <td><%= @user.email %></td>
-              </tr>
-            </tbody>
+            <!--タブレットの表示-->
+            <div class="d-none d-md-block d-lg-none">
+              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '460' %>
+            </div>
 
-            <tbody>
-              <tr>
-                <td></td>
-                <td>会員ステータス</td>
+            <!--スマホの表示-->
+            <div class="d-sm-block d-md-none">
+              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '420' %>
+            </div>
 
-                <td>
-                  <%= f.radio_button :is_deleted, false, checked: true %>有効
-                  <%= f.radio_button :is_deleted, true%>退会
-                </td>
-                <td></td>
-              </tr>
-            </tbody>
+            <div class="row justify-content-center my-2">
+              <%= f.radio_button :is_deleted, false, checked: true %>有効
+              <%= f.radio_button :is_deleted, true %>退会
+            </div>
 
-
-          </table>
-
-          <div class="actions text-center">
-            <%= f.submit "変更を保存", class: "btn update-btn mt-2 shadow" %>
+            <div class="actions text-center mb-3">
+              <%= f.submit "変更を保存", class: "btn update-btn mt-2 shadow" %>
+            </div>
           </div>
+
+          <div class="col-sm-10 col-md-9 col-lg-6 col-xl-5 pb-5 back-background shadow">
+
+            <h5 class="mt-4 mb-5">会員名<br>
+              <%= @user.name %>
+            </h5>
+
+            <h5 style="word-break: break-all">自己紹介文<br>
+              <%= @user.introduction %>
+            </h5>
+
+            <h5 class="mt-5 mb-5">メールアドレス<br>
+              <%= @user.email %>
+            </h5>
+
+          </div>
+
+        </div>
         <% end %>
-      </div>
-　  </div>
-</div>
+  </div>
 </div>
