@@ -48,14 +48,14 @@
 
       <td>
         <%= link_to admin_user_path(post_coffee.user.id) do %>
-          <!--テレビ、デスクトップPCの表示-->
-          <div class="d-none d-lg-block">
+          <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
+          <div class="d-none d-sm-block">
             <%= post_coffee.user.name %>
           </div>
 
-          <!--ノートパソコン、タブレット、スマホの表示-->
-          <div class="d-block d-lg-none">
-            <%= post_coffee.user.name.truncate(8) %>
+          <!--スマホの表示-->
+          <div class="d-block d-sm-none">
+            <%= post_coffee.user.name.truncate(6) %>
           </div>
         <% end %>
       </td>

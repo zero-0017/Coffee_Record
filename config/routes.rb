@@ -61,7 +61,10 @@ Rails.application.routes.draw do
   namespace :admin do
     get "" => "homes#top"
     resources :users, only: [:index, :show, :edit, :update]
-    resources :post_coffees, only: [:index, :show, :destroy]
+    resources :post_coffees, only: [:index, :show, :destroy] do
+      resources :coffee_comments, only: [:index, :destroy]
+    end
+
     resources :tags, only: [:index, :create, :edit, :destroy, :update]
     resources :categorys, only: [:index, :create, :edit, :destroy, :update]
     resources :genres, only: [:index, :create, :edit, :destroy, :update]
