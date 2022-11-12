@@ -1,15 +1,11 @@
-/*投稿名の空白を入れる*/
-.coffee_name-text-indent {
-   text-indent: 1.5em;
-}
-
-/*投稿説明の空白を入れる*/
-.coffee_explanation-text-indent {
-   text-indent: 0.2em;
-}
-
 
 /*テーブルの空白を入れる*/
 .table-text-indent {
    text-indent: -1em;
+}
+
+
+/*投稿詳細の空白を入れる*/
+.post-show-text-indent {
+   text-indent: -1.3em;
 }

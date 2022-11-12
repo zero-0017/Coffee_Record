@@ -7,7 +7,7 @@
           <tr>
             <td style="width: 40%;">
               <%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100' %><br>
-              [ 会員名 ]<br>
+              [ 会員名 ]
               <%= link_to user_path(coffee_comment.user.id) do %>
               　<!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
                 <div class="d-none d-sm-block">
@@ -21,7 +21,7 @@
               <% end %>
 
               <!--コメント日時-->
-              <div class="mt-5">
+              <div class="mt-4">
                 <%= l coffee_comment.created_at %>
               </div>
             </td>
