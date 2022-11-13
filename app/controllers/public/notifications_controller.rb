@@ -7,7 +7,7 @@ class Public::NotificationsController < ApplicationController
     @tags = Tag.all
     @categorys = Category.all
     @genres = Genre.all
-    @notifications = current_user.passive_notifications.page(params[:page]).per(15)
+    @notifications = current_user.passive_notifications.page(params[:page]).per(13)
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end

@@ -2,6 +2,7 @@
 
 /*新規登録*/
 .user-sign-btn {
+  color: #fff;
   background-color: #888;
   border: 6px outset #777;
 }
@@ -72,27 +73,14 @@
 /*変更保存*/
 .update-btn {
   color: #fff;
-  background-color: #0000cc;
-  border: 6px outset #0000dd;
+  background-color: #888;
+  border: 6px outset #777;
 }
 
 .update-btn:hover {
   color: #fff;
-  background-color: #000099;
-  border: 6px inset #0000aa;
-}
-
-/*詳細*/
-.show-btn {
-  color: #fff;
-  background-color: #ff9872;
-  border: 6px outset #ff8856;
-}
-
-.show-btn:hover {
-  color: #fff;
-  background-color: #ff6928;
-  border: 6px inset #ff773e;
+  background-color: #666;
+  border: 6px inset #777;
 }
 
 
@@ -113,27 +101,28 @@
 
 /*退会*/
 .unsubscribe-btn {
-  background-color: #c299ff;
-  border: 6px outset #b384ff;
+  color: #fff;
+  background-color: #555;
+  border: 6px outset #444;
 }
 
 .unsubscribe-btn:hover {
   color: #fff;
-  background-color: #a16eff;
-  border: 6px inset #9057ff;
+  background-color: #333;
+  border: 6px inset #444;
 }
 
 
 /*退会しない*/
 .unsubscribe-no-btn {
-  background-color: #ff97c2;
-  border: 6px outset #ff82b2;
+  background-color: #eee;
+  border: 6px outset #ccc;
 }
 
 .unsubscribe-no-btn:hover {
   color: #fff;
-  background-color: #ff5192;
-  border: 6px inset #ff69a3;
+  background-color: #aaa;
+  border: 6px inset #bbb;
 }
 
 
