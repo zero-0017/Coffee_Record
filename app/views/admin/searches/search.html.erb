@@ -4,9 +4,9 @@
 
       <!--会員名の検索一覧-->
       <% if @range == "User" %>
-        <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow">
+        <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text shadow">
           <strong>
-            会員名 『<%= params[:word] %>』
+            会員名 『<%= params[:word].truncate(10) %>』
           </strong>
         </h4>
 
@@ -37,9 +37,9 @@
 
       <!--投稿名の検索一覧-->
       <% elsif @range == "PostCoffee" %>
-        <h4 class="col-4 py-1 mt-2 back-text shadow">
+        <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text shadow">
           <strong>
-            投稿名 『<%= params[:word] %>』
+            投稿名 『<%= params[:word].truncate(10) %>』
           </strong>
         </h4>
 
@@ -70,9 +70,9 @@
 
       <!--コメント内容の検索一覧-->
       <% else %>
-        <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text shadow">
+        <h4 class="col-md-8 col-lg-7 col-xl-5 py-1 mt-2 back-text shadow">
           <strong>
-            コメント内容 『<%= params[:word] %>』
+            コメント内容 『<%= params[:word].truncate(10) %>』
           </strong>
         </h4>
 

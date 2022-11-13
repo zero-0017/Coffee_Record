@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <h4 class="col-xl-5 col-lg-6 col-md-9 py-1 mt-2 back-text shadow">
+    <h4 class="col-md-9 col-lg-6 col-xl-5 py-1 mt-2 back-text shadow">
       <strong>
-        投稿名『<%= params[:keyword] %>』
+        投稿名『<%= params[:keyword].truncate(10) %>』
       </strong>
     </h4>
 
