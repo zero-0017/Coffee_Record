@@ -52,11 +52,11 @@ class Public::UsersController < ApplicationController
   end
 
   def followings
-    @users = @user.followings.page(params[:page]).per(4)
+    @users = @user.followings.page(params[:page]).per(3)
   end
 
   def followers
-    @users = @user.followers.page(params[:page]).per(4)
+    @users = @user.followers.page(params[:page]).per(3)
   end
 
   private

@@ -1,66 +1,123 @@
 <div class="admin-main">
   <div class="container">
     <div class="row">
-      <div class="col-12 mx-auto">
 
-        <!--会員名の検索一覧-->
-        <% if @range == "User" %>
-          <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>会員名 『<%= params[:word] %>』</strong></h4>
-            <% if @users.present? %>
-              <%= render 'admin/users/user_list' %>
-            <% else %>
+      <!--会員名の検索一覧-->
+      <% if @range == "User" %>
+        <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow">
+          <strong>
+            会員名 『<%= params[:word] %>』
+          </strong>
+        </h4>
 
-                <!--テレビ、デスクトップPCの表示-->
-                <h3 class="text-center mt-5 d-none d-lg-block"><strong>一致する会員名は検出できませんでした</strong></h3>
+        <div class="col-sm-5 col-lg-6 col-xl-5 list-old mt-3">
+          <%= page_entries_info(@users) %>
+        </div>
 
-                <!--ノートパソコン、タブレット、スマホの表示-->
-                <h4 class="text-center mt-5 d-block d-lg-none"><strong>一致する会員名は検出できませんでした</strong></h4>
-            <% end %>
+        <div class="col-12 mx-auto">
+          <% if @users.present? %>
+            <%= render 'admin/users/user_list' %>
+          <% else %>
 
-        <!--投稿名の検索一覧-->
-        <% elsif @range == "PostCoffee" %>
-          <h4 class="col-4 py-1 mt-2 back-text shadow"><strong>投稿名 『<%= params[:word] %>』</strong></h4>
-            <% if @post_coffees.present? %>
-              <%= render 'admin/post_coffees/post_list' %>
-            <% else %>
+            <!--テレビ、デスクトップPCの表示-->
+            <h3 class="text-center mt-5 d-none d-lg-block">
+              <strong>
+                一致する会員名は検出できませんでした
+              </strong>
+            </h3>
 
-                <!--テレビ、デスクトップPCの表示-->
-                <h3 class="text-center mt-5 d-none d-lg-block"><strong>一致する投稿名は検出できませんでした</strong></h3>
+            <!--ノートパソコン、タブレット、スマホの表示-->
+            <h4 class="text-center mt-5 d-block d-lg-none">
+              <strong>
+                一致する会員名は検出できませんでした
+              </strong>
+            </h4>
+          <% end %>
+        </div>
 
-                <h4 class="text-center mt-5 d-block d-lg-none"><strong>一致する投稿名は検出できませんでした</strong></h4>
-            <% end %>
+      <!--投稿名の検索一覧-->
+      <% elsif @range == "PostCoffee" %>
+        <h4 class="col-4 py-1 mt-2 back-text shadow">
+          <strong>
+            投稿名 『<%= params[:word] %>』
+          </strong>
+        </h4>
 
-        <!--コメント内容の検索一覧-->
-        <% else %>
-          <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text shadow"><strong>コメント内容 『<%= params[:word] %>』</strong></h4>
-            <% if @coffee_comments.present? %>
-              <%= render 'admin/coffee_comments/comment_list' %>
-            <% else %>
+        <div class="col-sm-5 col-lg-6 col-xl-5 list-old mt-3">
+          <%= page_entries_info(@post_coffees) %>
+        </div>
 
-                <!--テレビ、デスクトップPCの表示-->
-                <h3 class="text-center mt-5 d-none d-lg-block"><strong>一致するコメント内容は検出できませんでした</strong></h3>
+        <div class="col-12 mx-auto">
+          <% if @post_coffees.present? %>
+            <%= render 'admin/post_coffees/post_list' %>
+          <% else %>
 
-                <h4 class="text-center mt-5 d-block d-lg-none"><strong>一致するコメント内容は検出できませんでした</strong></h4>
-            <% end %>
-        <% end %>
-  　   </div>
+            <!--テレビ、デスクトップPCの表示-->
+            <h3 class="text-center mt-5 d-none d-lg-block">
+              <strong>
+                一致する投稿名は検出できませんでした
+              </strong>
+            </h3>
+
+            <!--ノートパソコン、タブレット、スマホの表示-->
+            <h4 class="text-center mt-5 d-block d-lg-none">
+              <strong>
+                一致する投稿名は検出できませんでした
+              </strong>
+            </h4>
+          <% end %>
+        </div>
+
+      <!--コメント内容の検索一覧-->
+      <% else %>
+        <h4 class="col-md-6 col-lg-5 col-xl-5 py-1 mt-2 back-text shadow">
+          <strong>
+            コメント内容 『<%= params[:word] %>』
+          </strong>
+        </h4>
+
+        <div class="col-sm-5 col-lg-6 col-xl-5 list-old mt-3">
+          <%= page_entries_info(@coffee_comments) %>
+        </div>
+
+        <div class="col-12 mx-auto">
+          <% if @coffee_comments.present? %>
+            <%= render 'admin/coffee_comments/comment_list' %>
+          <% else %>
+
+            <!--テレビ、デスクトップPCの表示-->
+            <h3 class="text-center mt-5 d-none d-lg-block">
+              <strong>
+                一致するコメント内容は検出できませんでした
+              </strong>
+            </h3>
+
+            <!--ノートパソコン、タブレット、スマホの表示-->
+            <h4 class="text-center mt-5 d-block d-lg-none">
+              <strong>
+                一致するコメント内容は検出できませんでした
+              </strong>
+            </h4>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
-<!--会員検索一覧ページネーション-->
-<% if @range == "User" %>
-  <div class="mx-auto mt-3 pb-5">
-    <%= paginate @users %>
-  </div>
-<!--投稿検索一覧ページネーション-->
-<% elsif @range == "PostCoffee" %>
-  <div class="mx-auto mt-3 pb-5">
-    <%= paginate @post_coffees %>
-  </div>
-<!--コメント検索一覧ページネーション-->
-<% else %>
-  <div class="mx-auto mt-2 pb-5">
-    <%= paginate @coffee_comments %>
-  </div>
-<% end %>
+  <!--会員検索一覧ページネーション-->
+  <% if @range == "User" %>
+    <div class="mx-auto mt-3 pb-5">
+      <%= paginate @users %>
+    </div>
+  <!--投稿検索一覧ページネーション-->
+  <% elsif @range == "PostCoffee" %>
+    <div class="mx-auto mt-3 pb-5">
+      <%= paginate @post_coffees %>
+    </div>
+  <!--コメント検索一覧ページネーション-->
+  <% else %>
+    <div class="mx-auto mt-2 pb-5">
+      <%= paginate @coffee_comments %>
+    </div>
+  <% end %>
 </div>

@@ -6,11 +6,11 @@ class Admin::SearchesController < ApplicationController
   def search
     @range = params[:range]
     if @range == "User"
-      @users = User.looks(params[:search], params[:word]).page(params[:page]).per(4)
+      @users = User.looks(params[:search], params[:word]).page(params[:page]).per(3)
     elsif @range == "PostCoffee"
-      @post_coffees = PostCoffee.published.looks(params[:search], params[:word]).page(params[:page]).per(4)
+      @post_coffees = PostCoffee.published.looks(params[:search], params[:word]).page(params[:page]).per(3)
     else
-      @coffee_comments = CoffeeComment.looks(params[:search], params[:word]).page(params[:page]).per(4)
+      @coffee_comments = CoffeeComment.looks(params[:search], params[:word]).page(params[:page]).per(2)
     end
   end
 end

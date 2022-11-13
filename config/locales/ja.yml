@@ -13,6 +13,16 @@
       next: <i class="fas fa-angle-right"></i>
       truncate: "..."
 
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: ""
+          one: "1-1 / 1件中"
+          other: "1-%{count} / %{count}件中"
+      more_pages:
+        display_entries: "%{first}-%{last} / %{total}件中"
+
   time:
     formats:
       default: "%Y/%m/%d %H:%M"

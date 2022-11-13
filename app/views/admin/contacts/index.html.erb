@@ -2,15 +2,25 @@
   <!--フラッシュメッセージ-->
   <%= render 'layouts/flash_message' %>
     <div class="container">
-      <h4 class="col-sm-6 col-md-5 col-lg-3 col-xl-3 py-1 mt-2 back-text shadow"><strong>お問い合わせ一覧</strong></h4>
-        <div class="row">
-          <div class="col-12 mx-auto pb-5">
+      <h4 class="col-sm-6 col-md-5 col-lg-3 col-xl-3 py-1 mt-2 back-text shadow">
+        <strong>
+          お問い合わせ一覧
+        </strong>
+      </h4>
 
-            <!--対応状況絞り込みボタン-->
+        <div class="row">
+          <!--対応状況絞り込みボタン-->
+          <div class="ml-4">
             <% Contact.statuses.keys.each do |status| %>
               <%= link_to status, admin_contacts_path(status: status), class: "btn status-btn mt-2" %>
             <% end %>
+          </div>
 
+          <div class="col-sm-5 col-lg-6 col-xl-5 list-old mt-3">
+            <%= page_entries_info(@contacts) %>
+          </div>
+
+          <div class="col-12 mx-auto pb-5">
             <% if @contacts.present? %>
 
               <table class="table shadow mt-3 table-hover back-background">
@@ -73,13 +83,19 @@
               </table>
 
             <% else %>
-
               <!--テレビ、デスクトップPCの表示-->
-              <h3 class="text-center mt-5 d-none d-lg-block"><strong>まだお問い合わせはありません</strong></h3>
+              <h3 class="text-center mt-5 d-none d-lg-block">
+                <strong>
+                  まだお問い合わせはありません
+                </strong>
+              </h3>
 
               <!--ノートパソコン、タブレット、スマホの表示-->
-              <h4 class="text-center mt-5 d-block d-lg-none"><strong>まだお問い合わせはありません</strong></h4>
-
+              <h4 class="text-center mt-5 d-block d-lg-none">
+                <strong>
+                  まだお問い合わせはありません
+                </strong>
+              </h4>
             <% end %>
 
           </div>

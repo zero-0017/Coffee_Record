@@ -2,9 +2,15 @@
 <%= render 'layouts/flash_message' %>
 <div class="container">
   <div class="row">
-    <h4 class="col-sm-4 col-mb-4 col-lg-3 col-xl-3 py-1 mt-2 back-text shadow"><strong>投稿一覧</strong></h4>
+    <h4 class="col-sm-4 col-mb-4 col-lg-3 col-xl-3 py-1 mt-2 back-text shadow">
+      <strong>
+        投稿一覧
+      </strong>
+    </h4>
 
-      <div class="col-sm-4 col-mb-4 col-lg-3 col-xl-3 list-old mt-3">
+      <div class="col-sm-8 col-mb-4 col-lg-6 col-xl-5 list-old mt-3">
+
+        <%= page_entries_info(@post_coffees) %>
         <strong>
           <%= link_to '新着順', post_coffees_path(latest: "true"), class: "latest-btn" %><%= link_to '投稿順', post_coffees_path(old: "true"), class: "old-btn" %>
         </strong>
@@ -19,12 +25,20 @@
 
         <!--テレビ、デスクトップPCの表示-->
         <div class="mx-auto mt-5 d-none d-lg-block">
-          <h3><strong>投稿はありません</strong></h3>
+          <h3>
+            <strong>
+              投稿はありません
+            </strong>
+          </h3>
         </div>
 
         <!--ノートパソコン、タブレット、スマホの表示-->
         <div class="mx-auto mt-5 d-block d-lg-none">
-          <h4><strong>投稿はありません</strong></h4>
+          <h4>
+            <strong>
+              投稿はありません
+            </strong>
+          </h4>
         </div>
 
       <% end %>
