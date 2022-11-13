@@ -1,9 +1,14 @@
 <div class="container">
-    <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>新規お問い合わせ</strong></h4>
-      <div class="row post-post pb-5">
-        <div class="col-sm-8 col-md-11 col-lg-8 col-xl-6 mx-auto px-2 py-3 shadow back-background border-all shadow">
+  <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow">
+    <strong>
+      新規お問い合わせ
+    </strong>
+  </h4>
 
-          <%= form_with model: @contact do |f| %>
+    <div class="row post-post pb-5">
+      <div class="col-sm-8 col-md-11 col-lg-8 col-xl-6 mx-auto px-2 py-3 shadow back-background border-all shadow">
+
+        <%= form_with model: @contact do |f| %>
 
           <!--エラーメッセージ表示-->
           <%= render 'layouts/error_messages', model: f.object %>
@@ -14,9 +19,9 @@
           <h5 class="mt-4">お問い合わせ内容 ※200文字以内</h5>
             <%= f.text_area :content, class: "form-all", style: "width: 100%; padding-bottom: 13%;", placeholder: "お問い合わせ内容を記入して下さい" %>
 
-           <div class="row justify-content-center">
-             <%= f.submit "送信", class: "btn post-btn mt-2 shadow" %>
-           </div>
+          <div class="row justify-content-center">
+            <%= f.submit "送信", class: "btn post-btn mt-2 shadow" %>
+          </div>
         <% end %>
       </div>
     </div>
