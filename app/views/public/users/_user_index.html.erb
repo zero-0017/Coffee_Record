@@ -36,13 +36,13 @@
         <div class="mt-2 ml-3">
           <%= link_to user_path(user.id) do %>
             <!--テレビ、デスクトップPCの表示-->
-            <div class="d-none d-lg-block">
+            <div class="table-text-indent d-none d-lg-block">
               <%= user.name %>
             </div>
 
             <!--ノートパソコン、タブレット、スマホの表示-->
-            <div class="d-block d-lg-none">
-              <%= user.name.truncate(6) %>
+            <div class="table-text-indent d-block d-lg-none">
+              <%= user.name.truncate(8) %>
             </div>
           <% end %>
         </div>
