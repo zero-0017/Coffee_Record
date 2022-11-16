@@ -103,8 +103,15 @@
 // aboutの画像設定
 .about-image{
   background-image: image-url('about-sm.jpg');
+  height: 490px;
   margin-bottom: -28px;
 }
+
+// aboutの文字設定
+.about-text{
+  margin-bottom: 170px;
+}
+
 
 // 会員側トップの文字の設定
 .top-text-top {
