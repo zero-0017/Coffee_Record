@@ -32,20 +32,6 @@ class PostCoffee < ApplicationRecord
   # 下書き機能
   enum status: { published: 0, draft: 1 }
 
-  # 投稿名の検索
-  def self.looks(search, word)
-    if search == "perfect_match"
-      @post_coffee = PostCoffee.where("coffee_name LIKE?", "#{word}")
-    elsif search == "forward_match"
-      @post_coffee = PostCoffee.where("coffee_name LIKE?", "#{word}%")
-    elsif search == "backward_match"
-      @post_coffee = PostCoffee.where("coffee_name LIKE?", "%#{word}")
-    elsif search == "partial_match"
-      @post_coffee = PostCoffee.where("coffee_name LIKE?", "%#{word}%")
-    else
-      @post_coffee = PostCoffee.all
-    end
-  end
 
   # 新しい順・古い順
   scope :latest, -> { order(created_at: :desc) } # 　投稿新しい
