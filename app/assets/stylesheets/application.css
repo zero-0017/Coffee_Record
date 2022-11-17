@@ -244,3 +244,9 @@ footer {
 .post-show-text-indent {
    text-indent: -1.3em;
 }
+
+
+/*半角英数字を入力しても、折り返す設定*/
+.text-word-break {
+  word-break: break-all;
+}
