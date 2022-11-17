@@ -1,6 +1,6 @@
-/*ボタンの設定*/
+// ボタンの設定
 
-/*新規登録*/
+// 新規登録
 .user-sign-btn {
   color: #fff;
   background-color: #888;
@@ -14,7 +14,7 @@
 }
 
 
-/*ゲストログイン*/
+// ゲストログイン
 .gest-user-btn {
   background-color: #eee;
   border: 6px outset #ccc;
@@ -27,7 +27,7 @@
 }
 
 
-/*ログイン*/
+// ログイン
 .log-btn {
   color: #fff;
   background-color: #555;
@@ -42,7 +42,7 @@
 
 
 
-/*削除*/
+// 削除
 .destroy-btn {
   color: #fff;
   background-color: #bb0000;
@@ -56,7 +56,7 @@
 }
 
 
-/*投稿*/
+// 投稿
 .post-btn {
   color: #fff;
   background-color: #6b8a23;
@@ -70,7 +70,7 @@
 }
 
 
-/*変更保存*/
+// 変更保存
 .update-btn {
   color: #fff;
   background-color: #888;
@@ -85,7 +85,7 @@
 
 
 
-/*編集*/
+// 編集
 .edit-btn {
   color: #fff;
   background-color: #009900;
@@ -99,7 +99,7 @@
 }
 
 
-/*退会*/
+// 退会
 .unsubscribe-btn {
   color: #fff;
   background-color: #555;
@@ -113,7 +113,7 @@
 }
 
 
-/*退会しない*/
+// 退会しない
 .unsubscribe-no-btn {
   background-color: #eee;
   border: 6px outset #ccc;
@@ -126,7 +126,7 @@
 }
 
 
-/*管理者トップボタン*/
+// 管理者トップボタン
 .admin-btn {
   color: #fff;
   background-color: #444;
@@ -140,7 +140,7 @@
 }
 
 
-/*会員詳細　ボタン*/
+// 会員詳細　ボタン
 .user-show-btn {
   color: #fff;
   background-color: #444;
@@ -154,7 +154,7 @@
 }
 
 
-/*新着順*/
+// 新着順
 .latest-btn {
   background-color: #eee;
   border: 6px groove #eee;
@@ -167,7 +167,7 @@
 }
 
 
-/*投稿順*/
+// 投稿順
 .old-btn {
   background-color: #eee;
   border: 6px groove #eee;
@@ -180,7 +180,7 @@
 }
 
 
-/*検索のボタン*/
+// 検索のボタン
 .search-btn {
   background-color: #333;
   border: 6px outset #555;
@@ -193,7 +193,7 @@
 
 
 
-/*フォロー外す*/
+// フォロー外す
 .follower-btn {
   background-color: #BAD3FF;
   border: 6px groove #0000CC;
@@ -206,7 +206,7 @@
 }
 
 
-/*フォローする*/
+// フォローする
 .followed-btn {
   background-color: #FFBEDA;
   border: 6px groove #CC0000;
@@ -220,7 +220,7 @@
 
 
 
-/*管理者側のお問い合わせの対応状況*/
+// 管理者側のお問い合わせの対応状況
 .status-btn {
   background-color: #eee;
   border: 6px groove #eee;
@@ -234,7 +234,7 @@
 
 
 
-/*管理者側の検索のボタン*/
+// 管理者側の検索のボタン
 .admin-search-btn {
   background-color: #4e454a;
   border: 6px outset #594e52;
