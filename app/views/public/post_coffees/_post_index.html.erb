@@ -23,12 +23,12 @@
       <div class="row justify-content-end">
         <!--コメント数-->
         <i class="fa fa-comment m-1"></i>
-        <div class="comment_count mr-4">
+        <div id="comment_count">
           <%= post_coffee.coffee_comments.count %>
         </div>
 
         <!--いいね数・いいね機能-->
-        <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
+        <div class="pl-4 mr-4 favorite_buttons_<%= post_coffee.id %>">
           <%= render "public/favorites/favorite", post_coffee: post_coffee %>
         </div>
       </div>

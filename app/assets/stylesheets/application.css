@@ -236,13 +236,13 @@ footer {
 
 /*テーブルの空白を入れる*/
 .table-text-indent {
-   text-indent: -1em;
+  text-indent: -1em;
 }
 
 
 /*投稿詳細の空白を入れる*/
 .post-show-text-indent {
-   text-indent: -1.3em;
+  text-indent: -1.3em;
 }
 
 

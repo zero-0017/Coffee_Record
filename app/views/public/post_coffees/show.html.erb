@@ -31,12 +31,12 @@
 
           <!--コメント数-->
           <i class="fa fa-comment m-1"></i>
-          <div class="comment_count mr-4">
+          <div id="comment_count">
             <%= @post_coffee.coffee_comments.count %>
           </div>
 
           <!--いいね数・いいね機能-->
-          <div class="mr-4 favorite_buttons_<%= @post_coffee.id %>">
+          <div class="pl-4 mr-4 favorite_buttons_<%= @post_coffee.id %>">
             <%= render "public/favorites/favorite", post_coffee: @post_coffee %>
           </div>
         </div>
@@ -84,12 +84,12 @@
     </div>
 
       <!--コメント表示　[非同期通信化]-->
-      <div  class="comment_area">
+      <div id="comment_area">
         <%= render 'public/coffee_comments/comment_index', post_coffee: @post_coffee %>
       </div>
 
       <!--コメント送信　[非同期通信化]-->
-      <div class="new_comment">
+      <div id="new_comment">
         <%= render 'public/coffee_comments/comment_form', post_coffee: @post_coffee, coffee_comment: @cofee_comment %>
       </div>
 </div>
