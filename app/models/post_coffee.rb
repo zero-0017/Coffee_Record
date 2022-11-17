@@ -25,6 +25,7 @@ class PostCoffee < ApplicationRecord
     image
   end
 
+  # お気に入りの設定
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
