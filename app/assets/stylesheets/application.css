@@ -250,3 +250,9 @@ footer {
 .text-word-break {
   word-break: break-all;
 }
+
+
+/*エラーメッセージの設定*/
+.error_message-top {
+  font-size: 1.10rem;
+}
