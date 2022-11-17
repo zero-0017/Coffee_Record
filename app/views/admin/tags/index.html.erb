@@ -2,16 +2,22 @@
   <!--フラッシュメッセージ-->
   <%= render 'layouts/flash_message' %>
     <div class="container">
-      <h4 class="col-md-6 col-lg-5 col-xl-4 py-1 mt-2 back-text shadow">
-        <strong>
-          珈琲の淹れ方一覧・追加
-        </strong>
-      </h4>
+      <div class="row">
+        <h4 class="col-md-6 col-lg-5 col-xl-4 py-1 mt-2 back-text shadow">
+          <strong>
+            珈琲の淹れ方一覧・追加
+          </strong>
+        </h4>
+
+        <div class="col-sm-8 col-mb-4 col-lg-6 col-xl-5 list-top-all mt-3">
+          <%= page_entries_info(@tags) %>
+        </div>
+      </div>
 
         <!--エラーメッセージ表示-->
         <%= render 'layouts/error_messages', model: @tag %>
 
-          <div class="row no-gutters">
+          <div class="row no-gutters mt-3">
             <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 mx-sm-auto text-center shadow pt-3 back-admin">
               <%= form_with model: @tag, url: admin_tags_path do |f| %>
 
