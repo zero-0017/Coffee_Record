@@ -3,15 +3,18 @@
     <div class="shadow">
 
       <!--投稿画像-->
+
+      <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
       <div class="d-none d-md-block">
         <%= link_to post_coffee_path(post_coffee.id) do %>
           <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
         <% end %>
       </div>
 
+      <!--スマホの表示-->
       <div class="d-block d-md-none">
         <%= link_to post_coffee_path(post_coffee.id) do %>
-          <%= image_tag post_coffee.get_image, class: "card-img", :size => '498' %>
+          <%= image_tag post_coffee.get_image, class: "card-img", :size => '400' %>
         <% end %>
       </div>
 

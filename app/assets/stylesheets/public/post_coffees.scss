@@ -20,12 +20,14 @@ a:hover {
   height: 86vh;
 }
 
+
 //画面全体の設定
 .sidebar-main {
   overflow: auto;
   flex: 1;
   background: #556b2f;
 }
+
 
 //サイドバーの画面設定
 .sidebar {
@@ -51,6 +53,7 @@ a:hover {
   border-color: #444;
   border-width: 5px;
 }
+
 
 // 新規お問い合わせ・投稿の新規・編集の下の余白
 .form-bottom {
