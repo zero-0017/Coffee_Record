@@ -16,7 +16,7 @@
               <%= form_with model: @genre, url: admin_genres_path do |f| %>
 
                 珈琲豆の種類<br>
-                <%= f.text_field :genre_name, class: "admin-form-all" %><br>
+                <%= f.text_field :genre_name, class: "admin-form-all", placeholder: "(例)珈琲豆" %><br>
                 <%= f.submit '新規登録', class: "btn post-btn shadow" %>
               <% end %>
 

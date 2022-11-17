@@ -16,7 +16,7 @@
               <%= form_with model: @tag, url: admin_tags_path do |f| %>
 
                 珈琲の淹れ方<br>
-                <%= f.text_field :tag_name, class: "admin-form-all" %><br>
+                <%= f.text_field :tag_name, class: "admin-form-all", placeholder: "(例)サイフォン" %><br>
                 <%= f.submit '新規登録', class: "btn post-btn shadow" %>
               <% end %>
 

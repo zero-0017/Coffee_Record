@@ -16,7 +16,7 @@
               <%= form_with model: @category, url: admin_categorys_path do |f| %>
 
                 珈琲の種類<br>
-                <%= f.text_field :category_name, class: "admin-form-all" %><br>
+                <%= f.text_field :category_name, class: "admin-form-all", placeholder: "(例)珈琲" %><br>
                 <%= f.submit '新規登録', class: "btn post-btn shadow" %>
               <% end %>
 
