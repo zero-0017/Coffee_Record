@@ -12,8 +12,8 @@
 
 
             <div class="field text-light shadow pt-1 px-2">
-              <%= f.label :"会員名" %><br>
-              <%= f.text_field :name, class: "log-form-all", size: 30, placeholder: "(例)珈琲太郎　※10文字以内" %>
+              <%= f.label :"会員名 ※10文字以内" %><br>
+              <%= f.text_field :name, class: "log-form-all", size: 30, placeholder: "(例)珈琲太郎" %>
             </div>
 
             <div class="field mt-4 text-light shadow pt-1 px-2">
@@ -24,14 +24,14 @@
             <div class="field mt-4 text-light shadow pt-1 px-2">
               <%= f.label :"パスワード" %>
               <% if @minimum_password_length %>
-               (<%= @minimum_password_length %>文字以上)
+               ※<%= @minimum_password_length %>文字以上
               <% end %><br>
-              <%= f.password_field :password, autocomplete: "new-password", class: "log-form-all", size: 30, placeholder: "パスワードを入力して下さい" %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "log-form-all", size: 30, placeholder: "入力して下さい" %>
             </div>
 
             <div class="field mt-4 text-light shadow pt-1 px-2">
-              <%= f.label :"パスワード(確認)" %><br>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "log-form-all", size: 30, placeholder: "再度パスワードを入力して下さい" %>
+              <%= f.label :"パスワード ※確認" %><br>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "log-form-all", size: 30, placeholder: "確認用です" %>
             </div>
 
             <div class="actions mt-3">
