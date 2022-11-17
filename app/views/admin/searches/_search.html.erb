@@ -1,6 +1,6 @@
 <%= form_with url: admin_search_path, method: :get do |f| %>
   <div class="input-group pr-5">
-    <%= f.text_field :word, required: true, placeholder: "Search", class: "admin-search-form", style: "width: 45%;" %>
+    <%= f.text_field :word, required: true, placeholder: "Search", class: "admin-search-form", style: "width: 40%;" %>
     <%= f.select :range, options_for_select([["会員名", "User"],["投稿名", "PostCoffee"],["コメント内容", "CoffeeComment"]]) %>
       <div class="input-group-append">
         <button class="btn admin-search-btn shadow" type="submit">
