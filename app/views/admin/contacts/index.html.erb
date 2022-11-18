@@ -29,19 +29,19 @@
                 <thead class="back-admin">
                   <tr>
                     <th class="text-light" style="width: 40%;">
-                      <!--テレビ、デスクトップPCの表示-->
+                      <!--パソコンの表示-->
                       <div class="d-none d-lg-block">
                         お問い合わせ件名・日時
                       </div>
 
-                      <!--ノートパソコン、タブレット、スマホの表示-->
+                      <!--タブレット、スマホの表示-->
                       <div class="d-block d-lg-none">
                         件名・日時
                       </div>
                     </th>
 
                     <th class="text-light" style="width: 30%;">
-                      <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+                      <!--パソコンの時のみ表示-->
                       <div class="d-none d-lg-block">
                         お問い合わせ会員名
                       </div>
@@ -69,7 +69,7 @@
 
                     <!--お問い合わせ会員名-->
                     <td>
-                      <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+                      <!--パソコンの時のみ表示-->
                       <div class="d-none d-lg-block">
                         <%= link_to admin_user_path(contact.user.id) do %>
                           <%= contact.user.name %>
@@ -88,14 +88,14 @@
               </table>
 
             <% else %>
-              <!--テレビ、デスクトップPCの表示-->
+              <!--パソコンの表示-->
               <h3 class="text-center mt-5 d-none d-lg-block">
                 <strong>
                   まだお問い合わせはありません
                 </strong>
               </h3>
 
-              <!--ノートパソコン、タブレット、スマホの表示-->
+              <!--タブレット、スマホの表示-->
               <h4 class="text-center mt-5 d-block d-lg-none">
                 <strong>
                   まだお問い合わせはありません

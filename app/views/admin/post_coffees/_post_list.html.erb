@@ -6,7 +6,7 @@
       </th>
 
       <th class="text-light" style="width: 20%;">
-        <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+        <!--パソコン、タブレットの時のみ表示-->
         <div class="d-none d-sm-block">
           投稿日時
         </div>
@@ -29,12 +29,12 @@
         <div class="mt-2 ml-3">
           <%= link_to admin_post_coffee_path(post_coffee.id) do %>
 
-            <!--テレビ、デスクトップPCの表示-->
+            <!--パソコンの表示-->
             <div class="d-none d-lg-block table-text-indent">
               <%= post_coffee.coffee_name.truncate(10) %>
             </div>
 
-            <!--ノートパソコン、タブレット、スマホの表示-->
+            <!--タブレット、スマホの表示-->
             <div class="d-block d-lg-none table-text-indent">
               <%= post_coffee.coffee_name.truncate(8) %>
             </div>
@@ -44,7 +44,7 @@
 
       <!--投稿日時-->
       <td>
-        <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+        <!--パソコン、タブレットの時のみ表示-->
         <div class="d-none d-sm-block">
           <%= l post_coffee.created_at %>
         </div>
@@ -53,7 +53,7 @@
       <!--投稿の会員名-->
       <td>
         <%= link_to admin_user_path(post_coffee.user.id) do %>
-          <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
+          <!--パソコン、タブレットの表示-->
           <div class="d-none d-sm-block">
             <%= post_coffee.user.name %>
           </div>

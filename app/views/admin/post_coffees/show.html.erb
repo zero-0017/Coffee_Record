@@ -86,7 +86,7 @@
                     [ 会員名 ]<br>
 
                     <%= link_to user_path(coffee_comment.user.id) do %>
-              　       <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
+              　       <!--パソコン、タブレットの表示-->
                       <div class="d-none d-sm-block">
                         <%= coffee_comment.user.name %>
                       </div>
@@ -120,10 +120,10 @@
             <% end %>
           <% else %>
 
-            <!--テレビ、デスクトップPCの表示-->
+            <!--パソコンの表示-->
             <h3 class="text-center mt-5 d-none d-lg-block"><strong>まだコメントはありません</strong></h3>
 
-            <!--ノートパソコン、タブレット、スマホの表示-->
+            <!--タブレット、スマホの表示-->
             <h4 class="text-center mt-5 d-block d-lg-none"><strong>まだコメントはありません</strong></h4>
 
           <% end %>

@@ -1,9 +1,14 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark back-logo">
+  	<!--会員側にログイン状態の場合-->
 	  <% if user_signed_in? %>
 	    <a class="navbar-brand ml-5" href="/about"><%= image_tag 'Logo.png', :size => '100x50' %></a>
+
+	  <!--管理者側にログイン状態の場合-->
 	  <% elsif admin_signed_in? %>
 	    <a class="navbar-brand ml-5" href="/admin"><%= image_tag 'Logo.png', :size => '100x50' %></a>
+
+	  <!--未ログイン状態の場合-->
 	  <% else %>
       <a class="navbar-brand ml-5" href="/"><%= image_tag 'Logo.png', :size => '100x50' %></a>
     <% end %>
@@ -13,6 +18,7 @@
       </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
+          	<!--会員側にログイン状態の場合-->
             <% if user_signed_in? %>
               <li class="nav-item mr-5">
 	              <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
@@ -44,6 +50,7 @@
                 <% end %>
 	            </li>
 
+            <!--管理者側にログイン状態の場合-->
 	          <% elsif admin_signed_in? %>
               <li class="nav-item mr-5">
 	              <%= link_to admin_contacts_path, class: 'nav-link text-light' do %>
@@ -75,6 +82,7 @@
                 <% end %>
 	            </li>
 
+             <!--未ログイン状態の場合-->
 	           <% else %>
 	             <li class="nav-item mr-5">
 	               <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link text-light' do %>

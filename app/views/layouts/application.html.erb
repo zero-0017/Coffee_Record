@@ -13,19 +13,26 @@
   </head>
 
   <body>
+    <!--ヘッダー-->
     <%= render 'layouts/header' %>
-      <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %><!--検索機能をログイン済みのみに表示するため-->
+
+    　<!--検索機能を会員ログイン時、表示するため-->
+      <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
+
+      <!--会員側にログイン状態の場合-->
       <% if user_signed_in? %>
         <div class="search-back">
           <div class='py-2 container'>
             <div class="row">
 
-              <!--パソコン画面用の設定-->
+              <!--通知を未読の時(パソコンの表示)-->
               <div class="d-none d-md-block mr-auto">
                 <% if unchecked_notifications.any? %>
                   <%= link_to notifications_path, class: "nav-link text-danger" do %>
                     <i class="fas fa-bell fa-lg mr-2"></i>通知
                   <% end %>
+
+                <!--通知を既読の時(パソコンの表示)-->
                 <% else %>
                   <%= link_to notifications_path, class: "nav-link text-secondary" do %>
                     <i class="fas fa-bell fa-lg mr-2"></i>通知
@@ -33,12 +40,14 @@
                 <% end %>
               </div>
 
-              <!--スマホ画面用の設定-->
+              <!--通知を未読の時(タブレット、スマホの表示)-->
               <div class="d-block d-md-none mr-auto">
                 <% if unchecked_notifications.any? %>
                   <%= link_to notifications_path, class: "nav-link text-danger" do %>
                     <i class="fas fa-bell fa-lg mr-2"></i>
                   <% end %>
+
+                <!--通知を既読の時(タブレット、スマホの表示)-->
                 <% else %>
                   <%= link_to notifications_path, class: "nav-link text-secondary" do %>
                     <i class="fas fa-bell fa-lg mr-2"></i>
@@ -46,8 +55,12 @@
                 <% end %>
               </div>
 
-              <p class = 'd-none d-md-block mr-auto mt-2 text-light'>会員名：<%= current_user.name %></p>
+              <!--パソコンの時のみ表示-->
+              <p class = 'd-none d-md-block mr-auto mt-2 text-light'>
+                会員名：<%= current_user.name %>
+              </p>
 
+              <!--会員側のキーワード検索機能-->
               <%= render 'public/searches/search' %>
 
             </div>
@@ -55,7 +68,10 @@
         </div>
       <% end %>
 
+      <!--[管理者側にログイン状態の場合]　管理者側のキーワード検索機能-->
       <% if admin_signed_in? %>
+
+      　<!--検索機能を管理者ログイン時、表示するため-->
         <% unless  %w[root new_user_session new_user_registration].any? {|name| current_page?(send("#{name}_path"))} %>
           <div class="admin-search-back">
             <div class='py-2 container'>
@@ -68,9 +84,10 @@
           </div>
         <% end %>
 
-
-        <!--パソコン画面用の設定-->
+      <!--[会員側にログイン状態の場合(パソコンの表示)]　会員側のサイドバー-->
       <% elsif  user_signed_in? %>
+
+        <!--検索機能を会員ログイン時、表示するため-->
         <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
           <div class="sidebar">
             <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-none d-md-block pb-5" >
@@ -85,8 +102,10 @@
         <div class="main">
           <%= yield %>
 
-　　　    <!--スマホ画面用の設定-->
+          <!--[会員側にログイン状態の場合 (タブレット、スマホの表示)]　会員側のサイドバー-->
             <% if user_signed_in? %>
+
+            　<!--検索機能を会員ログイン時、表示するため-->
               <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
                 <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-block d-md-none pb-5" >
                   <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
@@ -103,6 +122,7 @@
         <%= yield %>
       <% end %>
 
+　　<!--フッター-->
     <%= render 'layouts/footer' %>
   </body>
 </html>

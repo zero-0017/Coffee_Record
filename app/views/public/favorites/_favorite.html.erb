@@ -1,8 +1,12 @@
-<!--いいね機能　[非同期通信化]-->
+<!--お気に入り機能　[非同期通信化]-->
+
+<!--お気に入り登録済みの時-->
 <% if post_coffee.favorited_by?(current_user) %>
   <%= link_to post_coffee_favorites_path(post_coffee), class: "text-danger", method: :delete, remote: true do %>
     <i class="fas fa-coffee unlike-btn"></i><%= post_coffee.favorites.count %>
   <% end %>
+
+<!--お気に入り登録の時-->
 <% else %>
   <%= link_to post_coffee_favorites_path(post_coffee), method: :post, remote: true do %>
     <i class="fas fa-coffee unlike-btn"></i><%= post_coffee.favorites.count %>

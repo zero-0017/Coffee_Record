@@ -2,43 +2,43 @@
   <thead class="back-admin">
     <tr>
       <th class="text-light" style="width: 10%;">
-        <!--テレビ、デスクトップPCの表示-->
+        <!--パソコンの表示-->
         <div class="d-none d-lg-block">
           会員ID
         </div>
 
-        <!--ノートパソコン、タブレット、スマホの表示-->
+        <!--タブレット、スマホの表示-->
         <div class="d-block d-lg-none">
           ID
         </div>
       </th>
 
       <th class="text-light" style="width: 30%;">
-        <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+        <!--パソコンの時のみ表示-->
         <div class="d-none d-lg-block">
           会員画像・名前
         </div>
 
-        <!--ノートパソコン、タブレット、スマホの表示-->
+        <!--タブレット、スマホの表示-->
         <div class="d-block d-lg-none">
           画像・名前
         </div>
       </th>
 
       <th class="text-light" style="width: 30%;">
-        <!--テレビ、デスクトップPC、ノートパソコン、タブレットの時のみ表示-->
+        <!--パソコン、タブレットの時のみ表示-->
         <div class="d-none d-sm-block">
           メールアドレス
         </div>
       </th>
 
       <th style="width: 30%;">
-        <!--テレビ、デスクトップPC、ノートパソコンの時のみ表示-->
+        <!--パソコンの表示-->
         <div class="d-none d-lg-block">
           会員状況
         </div>
 
-        <!--ノートパソコン、タブレット、スマホの表示-->
+        <!--タブレット、スマホの表示-->
         <div class="d-block d-lg-none">
           状況
         </div>
@@ -52,12 +52,12 @@
 
       <!--会員ID-->
       <td>
-        <!--テレビ、デスクトップPCの表示-->
+        <!--パソコンの表示-->
         <div class="d-none d-lg-block">
           <%= user.id %>
         </div>
 
-        <!--ノートパソコン、タブレット、スマホの表示-->
+        <!--タブレット、スマホの表示-->
         <div class="d-block d-lg-none">
           <%= user.id %>
         </div>
@@ -70,7 +70,7 @@
         <!--会員名-->
         <div class="mt-2">
           <%= link_to admin_user_path(user.id) do %>
-          <!--テレビ、デスクトップPC、ノートパソコンの表示-->
+          <!--パソコンの表示-->
           <div class="d-none d-md-block">
             <%= user.name %>
           </div>
@@ -85,7 +85,7 @@
 
       <!--会員メールアドレス-->
       <td>
-        <!--テレビ、デスクトップPC、ノートパソコン、タブレットの時のみ表示-->
+        <!--パソコン、タブレットの時のみ表示-->
         <div class="d-none d-sm-block">
           <%= user.email %>
         </div>
