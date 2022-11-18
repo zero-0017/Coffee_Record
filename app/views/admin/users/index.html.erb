@@ -1,10 +1,15 @@
 <div class="admin-main">
+
   <!--フラッシュメッセージ-->
   <%= render 'layouts/flash_message' %>
+
     <div class="container">
       <div class="row">
-
-        <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow"><strong>会員一覧</strong></h4>
+        <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow">
+          <strong>
+            会員一覧
+          </strong>
+        </h4>
 
         <div class="col-sm-5 col-lg-6 col-xl-5 list-top-all mt-3">
           <%= page_entries_info(@users) %>

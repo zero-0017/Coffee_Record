@@ -8,6 +8,7 @@
 
       <!--エラーメッセージ表示-->
       <%= render 'layouts/error_messages', model: @genre %>
+
         <div class="row no-gutters">
           <div class="col-sm-11 col-md-11 col-lg-8 col-xl-7 mx-sm-auto text-center shadow px-3 py-3 mt-2 back-admin">
             <%= form_with model: @genre, url: admin_genre_path do |f| %>

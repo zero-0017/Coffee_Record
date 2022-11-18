@@ -109,6 +109,7 @@
 　　　　　            <%= coffee_comment.comment %>
 　　　　　          </div>
 
+                    <!--削除ボタン-->
                     <div class="row justify-content-end mr-2 mt-5 pt-5">
                       <%= link_to "削除", admin_post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn" %>
                     </div>

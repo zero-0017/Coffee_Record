@@ -45,9 +45,12 @@
       </th>
     </tr>
   </thead>
+
 <% @users.each do |user| %>
   <tbody>
     <tr>
+
+      <!--会員ID-->
       <td>
         <!--テレビ、デスクトップPCの表示-->
         <div class="d-none d-lg-block">
@@ -80,6 +83,7 @@
         </div>
       </td>
 
+      <!--会員メールアドレス-->
       <td>
         <!--テレビ、デスクトップPC、ノートパソコン、タブレットの時のみ表示-->
         <div class="d-none d-sm-block">
@@ -87,6 +91,7 @@
         </div>
       </td>
 
+      <!--会員ステータス-->
       <% if user.is_deleted == true %>
         <td class="text-primary font-weight-bold">
           退会

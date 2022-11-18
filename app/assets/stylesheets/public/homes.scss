@@ -12,6 +12,7 @@
   background-size: 100% 100%;
 }
 
+
 // aboutの文字設定
 .about-text{
   font-size: 38px;
@@ -24,12 +25,14 @@
   background: rgba(0,0,0,0.5);
 }
 
+
 /*会員側トップ画面の設定*/
 .main-top {
   min-height: 93vh;
   max-height: 200vh;
   background-color: #556b2f;
 }
+
 
 // 会員側トップの文字の設定
 .top-text-top {
@@ -39,6 +42,7 @@
   text-align: center;
 	text-shadow: -2px 2px 9px #fff;
 }
+
 
 // 会員側トップの文字の設定
 .top-text {
@@ -50,6 +54,7 @@
 
 
 // レスポンシブの調整
+
 @media screen and (max-width:1500px){
 
 // aboutの文字設定
@@ -68,6 +73,7 @@
 }
 
 }
+
 
 @media screen and (max-width:1199px){
 
@@ -112,7 +118,6 @@
   margin-bottom: 170px;
 }
 
-
 // 会員側トップの文字の設定
 .top-text-top {
   font-size: 57px;
@@ -123,13 +128,13 @@
   font-size: 43px;
 }
 
-
 // aboutの文字設定
 .about-text{
   font-size: 20px;
 }
 
 }
+
 
 @media screen and (max-width:638px){
 
@@ -169,7 +174,6 @@
 
 @media screen and (max-width:414px){
 
-
 // aboutの文字設定
 .about-text{
   font-size: 16px;
@@ -180,7 +184,6 @@
 
 
 @media screen and (max-width:365px){
-
 
 // aboutの文字設定
 .about-text{

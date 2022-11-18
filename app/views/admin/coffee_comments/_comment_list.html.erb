@@ -18,10 +18,12 @@
       </th>
     </tr>
   </thead>
+
 <% @coffee_comments.each do |coffee_comment| %>
   <tbody>
     <tr>
       <td>
+        <!--コメントの会員名-->
         <%= link_to admin_user_path(coffee_comment.user.id) do %>
           <!--テレビ、デスクトップPC、ノートパソコンの表示-->
           <div class="d-none d-md-block">
@@ -35,17 +37,22 @@
         <% end %>
 
         <!--コメント日時-->
-        <div class="mt-5"><%= l coffee_comment.created_at %></div>
+        <div class="mt-5">
+          <%= l coffee_comment.created_at %>
+        </div>
       </td>
 
       <!--コメント内容-->
-　　　<td class="text-word-break"><%= coffee_comment.comment %></td>
+　　　<td class="text-word-break">
+　　　  <%= coffee_comment.comment %>
+　　　</td>
     </tr>
   </tbody>
 
-  <!--削除ボタン-->
   <tbody class="table-back">
     <tr>
+
+      <!--コメントの投稿名-->
       <td>
         <div class="mt-2">
         <%= link_to admin_post_coffee_path(coffee_comment.post_coffee.id) do %>
@@ -61,6 +68,7 @@
         </div>
       </td>
 
+      <!--削除ボタン-->
       <td>
         <div class="row justify-content-end mr-5">
           <%= link_to "削除", admin_post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn" %>
