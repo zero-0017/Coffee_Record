@@ -11,6 +11,7 @@
 
       <div class="col-sm-8 col-mb-4 col-lg-6 col-xl-5 list-top-all mt-3">
 
+        <!--全体の数とページの数を表示-->
         <%= page_entries_info(@post_coffees) %>
         <strong>
           <%= link_to '新着順', post_coffees_path(latest: "true"), class: "latest-btn" %><%= link_to '投稿順', post_coffees_path(old: "true"), class: "old-btn" %>
@@ -19,7 +20,7 @@
   </div>
 
     <div class="row">
-
+      <!--一覧一部テンプレート-->
       <% if @post_coffees.present? %>
         <%= render 'public/post_coffees/post_index' %>
       <% else %>

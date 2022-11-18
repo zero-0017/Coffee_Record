@@ -10,11 +10,13 @@
           </strong>
         </h4>
 
+        <!--全体の数とページの数を表示-->
         <div class="col-sm-5 col-lg-6 col-xl-5 list-top-all mt-3">
           <%= page_entries_info(@users) %>
         </div>
 
         <div class="col-12 mx-auto">
+          <!--一覧一部テンプレート-->
           <% if @users.present? %>
             <%= render 'admin/users/user_list' %>
           <% else %>
@@ -50,11 +52,13 @@
           </strong>
         </h4>
 
+        <!--全体の数とページの数を表示-->
         <div class="col-sm-5 col-lg-6 col-xl-5 list-top-all mt-3">
           <%= page_entries_info(@post_coffees) %>
         </div>
 
         <div class="col-12 mx-auto">
+          <!--一覧一部テンプレート-->
           <% if @post_coffees.present? %>
             <%= render 'admin/post_coffees/post_list' %>
           <% else %>
@@ -90,11 +94,13 @@
           </strong>
         </h4>
 
+        <!--全体の数とページの数を表示-->
         <div class="col-sm-5 col-lg-6 col-xl-5 list-top-all mt-3">
           <%= page_entries_info(@coffee_comments) %>
         </div>
 
         <div class="col-12 mx-auto">
+          <!--一覧一部テンプレート-->
           <% if @coffee_comments.present? %>
             <%= render 'admin/coffee_comments/comment_list' %>
           <% else %>

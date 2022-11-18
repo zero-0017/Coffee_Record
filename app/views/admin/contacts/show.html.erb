@@ -61,7 +61,7 @@
 
               <tbody class="table-back">
                 <tr>
-                   <!--対応状況-->
+                  <!--対応状況-->
                   <td class="text-light">
                     [ 対応状況 ]
                     <%= f.select :status, Contact.statuses.keys.map { |k| [t("enums.contact.status.#{k}"),k]}, {}, {class: "custom-select"} %>

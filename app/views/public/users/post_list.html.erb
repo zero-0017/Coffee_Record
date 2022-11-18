@@ -6,13 +6,14 @@
       </strong>
     </h4>
 
+      <!--全体の数とページの数を表示-->
       <div class="col-sm-5 col-lg-6 col-xl-5 list-top-all mt-3">
         <%= page_entries_info(@post_coffees) %>
       </div>
   </div>
 
     <div class="row">
-
+      <!--一覧一部テンプレート-->
       <% if @post_coffees.present? %>
         <%= render 'public/post_coffees/post_index' %>
       <% else %>

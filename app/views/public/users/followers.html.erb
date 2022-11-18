@@ -6,11 +6,13 @@
       </strong>
     </h4>
 
+      <!--全体の数とページの数を表示-->
       <div class="col-sm-6 col-lg-6 col-xl-5 list-top-all mt-3">
         <%= page_entries_info(@users) %>
       </div>
 
     <div class="col-12 mx-auto">
+      <!--一覧一部テンプレート-->
       <% if @users.present? %>
         <%= render 'public/users/user_index' %>
       <% else %>

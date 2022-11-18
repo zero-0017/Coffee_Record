@@ -7,31 +7,32 @@
         </strong>
       </h4>
 
+      <!--全体の数とページの数を表示-->
       <div class="col-sm-7 col-lg-6 col-xl-5 list-top-all mt-3">
         <%= page_entries_info(@users) %>
       </div>
 
-
     <div class="col-12 mx-auto">
-        <% if @users.present? %>
-          <%= render 'public/users/user_index' %>
-        <% else %>
+      <!--一覧一部テンプレート-->
+      <% if @users.present? %>
+        <%= render 'public/users/user_index' %>
+      <% else %>
 
-            <!--パソコンの表示-->
-            <h3 class="text-center mt-5 d-none d-lg-block">
-              <strong>
-                まだ会員はいません
-              </strong>
-            </h3>
+        <!--パソコンの表示-->
+        <h3 class="text-center mt-5 d-none d-lg-block">
+          <strong>
+            まだ会員はいません
+          </strong>
+        </h3>
 
-            <!--タブレット、スマホの表示-->
-            <h4 class="text-center mt-5 d-block d-lg-none">
-              <strong>
-                まだ会員はいません
-              </strong>
-            </h4>
+        <!--タブレット、スマホの表示-->
+        <h4 class="text-center mt-5 d-block d-lg-none">
+          <strong>
+            まだ会員はいません
+          </strong>
+        </h4>
 
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
