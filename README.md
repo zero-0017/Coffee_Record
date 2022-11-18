@@ -61,12 +61,14 @@ URL：https://coffee-record-17.com/
 * gem "rails-i18n"
 * gem "dotenv-rails"
 * gem "mysql2"
+* gem "whenever", require: false
 
 
 ## 機能一覧
 
 ### 会員側
 * ゲストログイン機能
+* バッチ処理機能（ゲストユーザーの投稿、コメント、お気に入りを1時間ごとに削除）
 * 会員機能
 * 投稿機能
 * 投稿の公開or下書き設定機能
@@ -90,6 +92,9 @@ URL：https://coffee-record-17.com/
 * カテゴリ管理機能（珈琲の種類）
 * ジャンル管理機能（珈琲豆の種類）
 * キーワード検索機能（会員名、投稿名、コメント内容）
+
+### その他
+* 静的コード解析ツール（Rubocop）
 
 
 ## 使用素材
