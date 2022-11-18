@@ -58,8 +58,8 @@
                 <tbody>
                   <tr>
 
-                    <!--お問い合わせ件名-->
                     <td>
+                      <!--お問い合わせ件名-->
                       <%= link_to admin_contact_path(contact.id) do %>
                         <%= contact.contact_type %>
                       <% end %>
@@ -68,9 +68,8 @@
                       <div class="mt-5"><%= l contact.created_at %></div>
                     </td>
 
-                    <!--お問い合わせ会員名-->
                     <td>
-                      <!--パソコンの時のみ表示-->
+                      <!--お問い合わせ会員名(パソコンの時のみ表示)-->
                       <div class="d-none d-lg-block">
                         <%= link_to admin_user_path(contact.user.id) do %>
                           <%= contact.user.name %>
@@ -78,8 +77,8 @@
                       </div>
                     </td>
 
-                    <!--対応状況-->
                     <td>
+                      <!--対応状況-->
                       <%= contact.status %>
                     </td>
 

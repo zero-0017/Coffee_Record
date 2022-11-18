@@ -50,14 +50,13 @@
   <tbody>
     <tr>
 
-      <!--会員ID-->
       <td>
-        <!--パソコンの表示-->
+        <!--会員ID(パソコンの表示)-->
         <div class="d-none d-lg-block">
           <%= user.id %>
         </div>
 
-        <!--タブレット、スマホの表示-->
+        <!--会員ID(タブレット、スマホの表示)-->
         <div class="d-block d-lg-none">
           <%= user.id %>
         </div>
@@ -67,15 +66,14 @@
         <!--会員画像-->
         <%= image_tag user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %>
 
-        <!--会員名-->
         <div class="mt-2">
           <%= link_to admin_user_path(user.id) do %>
-          <!--パソコンの表示-->
+          <!--会員名(パソコンの表示)-->
           <div class="d-none d-md-block">
             <%= user.name %>
           </div>
 
-          <!--タブレット、スマホの表示-->
+          <!--会員名(タブレット、スマホの表示)-->
           <div class="d-block d-md-none">
             <%= user.name.truncate(6) %>
           </div>
@@ -83,9 +81,8 @@
         </div>
       </td>
 
-      <!--会員メールアドレス-->
       <td>
-        <!--パソコン、タブレットの時のみ表示-->
+        <!--会員メールアドレス(パソコン、タブレットの時のみ表示)-->
         <div class="d-none d-sm-block">
           <%= user.email %>
         </div>

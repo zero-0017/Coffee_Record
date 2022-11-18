@@ -36,7 +36,7 @@
             <%= @post_coffee.coffee_comments.count %>
           </div>
 
-          <!--お気に入り機能-->
+          <!--お気に入りボタン-->
           <div class="pl-4 mr-4">
             <div id="favorite_buttons_<%= @post_coffee.id %>">
               <%= render "public/favorites/favorite", post_coffee: @post_coffee %>

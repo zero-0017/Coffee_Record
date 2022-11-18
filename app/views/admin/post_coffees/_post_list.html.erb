@@ -25,16 +25,15 @@
         <!--投稿画像-->
         <%= image_tag post_coffee.get_image, class: "rounded", :size => '100' %>
 
-        <!--投稿名-->
         <div class="mt-2 ml-3">
           <%= link_to admin_post_coffee_path(post_coffee.id) do %>
 
-            <!--パソコンの表示-->
+            <!--投稿名(パソコンの表示)-->
             <div class="d-none d-lg-block table-text-indent">
               <%= post_coffee.coffee_name.truncate(10) %>
             </div>
 
-            <!--タブレット、スマホの表示-->
+            <!--投稿名(タブレット、スマホの表示)-->
             <div class="d-block d-lg-none table-text-indent">
               <%= post_coffee.coffee_name.truncate(8) %>
             </div>
@@ -42,23 +41,21 @@
         </div>
       </td>
 
-      <!--投稿日時-->
       <td>
-        <!--パソコン、タブレットの時のみ表示-->
+        <!--投稿日時(パソコン、タブレットの時のみ表示)-->
         <div class="d-none d-sm-block">
           <%= l post_coffee.created_at %>
         </div>
       </td>
 
-      <!--投稿の会員名-->
       <td>
         <%= link_to admin_user_path(post_coffee.user.id) do %>
-          <!--パソコン、タブレットの表示-->
+          <!--投稿の会員名(パソコン、タブレットの表示)-->
           <div class="d-none d-sm-block">
             <%= post_coffee.user.name %>
           </div>
 
-          <!--スマホの表示-->
+          <!--投稿の会員名(スマホの表示)-->
           <div class="d-block d-sm-none">
             <%= post_coffee.user.name.truncate(6) %>
           </div>

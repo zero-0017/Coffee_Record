@@ -23,14 +23,13 @@
   <tbody>
     <tr>
       <td>
-        <!--コメントの会員名-->
         <%= link_to admin_user_path(coffee_comment.user.id) do %>
-          <!--パソコンの表示-->
+          <!--コメントの会員名(パソコンの表示)-->
           <div class="d-none d-md-block">
             <%= coffee_comment.user.name %>
           </div>
 
-          <!--タブレット、スマホの表示-->
+          <!--コメントの会員名(タブレット、スマホの表示)-->
           <div class="d-block d-md-none">
             <%= coffee_comment.user.name.truncate(6) %>
           </div>
@@ -52,17 +51,16 @@
   <tbody class="table-back">
     <tr>
 
-      <!--コメントの投稿名-->
       <td>
         <div class="mt-2">
         <%= link_to admin_post_coffee_path(coffee_comment.post_coffee.id) do %>
           [ 投稿名 ]<br>
-          <!--パソコンの表示-->
+          <!--コメントの投稿名(パソコンの表示)-->
           <strong class="d-none d-lg-block">
             <%= coffee_comment.post_coffee.coffee_name.truncate(17) %>
           </strong>
 
-          <!--タブレット、スマホの表示-->
+          <!--(タブレット、スマホの表示)-->
           <strong class="d-block d-lg-none">
             <%= coffee_comment.post_coffee.coffee_name.truncate(6) %>
           </strong>

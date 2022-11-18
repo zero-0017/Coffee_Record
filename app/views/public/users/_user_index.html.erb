@@ -32,15 +32,14 @@
         <!--会員画像-->
         <%= image_tag user.get_profile_image(300, 300), class: "rounded-circle", :size => '100' %>
 
-        <!--会員名-->
         <div class="mt-2 ml-3">
           <%= link_to user_path(user.id) do %>
-            <!--パソコンの表示-->
+            <!--会員名(パソコンの表示)-->
             <div class="table-text-indent d-none d-lg-block">
               <%= user.name %>
             </div>
 
-            <!--タブレット、スマホの表示-->
+            <!--会員名(タブレット、スマホの表示)-->
             <div class="table-text-indent d-block d-lg-none">
               <%= user.name.truncate(6) %>
             </div>
@@ -48,15 +47,14 @@
         </div>
       </td>
 
-      <!--自己紹介文-->
-      <!--パソコンの時のみ表示-->
+      <!--自己紹介文(パソコンの時のみ表示)-->
       <td>
         <div class="d-none d-lg-block text-word-break">
           <%= user.introduction %>
         </div>
       </td>
 
-      <!--フォロー・フォロワーボタン-->
+      <!--フォローボタン-->
       <td id="follow_buttons_<%= user.id %>">
         <%= render 'public/relationships/follow', user: user %>
       </td>

@@ -15,12 +15,12 @@
               <%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100' %><br>
               [ 会員名 ]
               <%= link_to user_path(coffee_comment.user.id) do %>
-              　<!--パソコン、タブレットの表示-->
+              　<!--コメントをした会員名(パソコン、タブレットの表示)-->
                 <div class="d-none d-sm-block">
                   <%= coffee_comment.user.name %>
                 </div>
 
-                <!--スマホの表示-->
+                <!--コメントをした会員名(スマホの表示)-->
                 <div class="d-block d-sm-none">
                   <%= coffee_comment.user.name.truncate(6) %>
                 </div>

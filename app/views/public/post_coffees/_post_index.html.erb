@@ -2,16 +2,14 @@
   <div class="col-md-6 col-lg-4 col-xl-3 card shadow">
     <div class="shadow">
 
-      <!--投稿画像-->
-
-      <!--パソコンの表示-->
+      <!--投稿画像(パソコンの表示)-->
       <div class="d-none d-md-block">
         <%= link_to post_coffee_path(post_coffee.id) do %>
           <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
         <% end %>
       </div>
 
-      <!--タブレット、スマホの表示-->
+      <!--投稿画像(タブレット、スマホの表示)-->
       <div class="d-block d-md-none">
         <%= link_to post_coffee_path(post_coffee.id) do %>
           <%= image_tag post_coffee.get_image, class: "card-img", :size => '400' %>
@@ -30,7 +28,7 @@
           <%= post_coffee.coffee_comments.count %>
         </div>
 
-        <!--お気に入り機能-->
+        <!--お気に入りボタン-->
         <div class="pl-4 mr-4">
           <div id="favorite_buttons_<%= post_coffee.id %>">
             <%= render "public/favorites/favorite", post_coffee: post_coffee %>

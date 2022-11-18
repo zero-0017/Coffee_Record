@@ -1,5 +1,5 @@
-$('#comment_area').html("<%= j(render 'public/coffee_comments/comment_index', post_coffee: @post_coffee) %>");
-$('#comment_count').html("<%= @post_coffee.coffee_comments.count %>");
-$('textarea').val('');
+$("#comment_area").html("<%= j(render 'public/coffee_comments/comment_index', post_coffee: @post_coffee) %>");
+$("#comment_count").html("<%= @post_coffee.coffee_comments.count %>");
+$("textarea").val('');
 
-$('#flash_message').html("<%= j(render 'layouts/flash_message') %>");
+$("#flash_message").html("<%= j(render 'layouts/flash_message') %>");
