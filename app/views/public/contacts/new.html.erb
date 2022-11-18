@@ -17,7 +17,7 @@
             <%= f.select :contact_type, Contact.contact_types.keys.map { |k| [t("enums.contact.icontact_type.#{k}"),k]}, {}, {class: "custom-select"} %>
 
           <h5 class="mt-4">お問い合わせ内容 ※200文字以内</h5>
-            <%= f.text_area :content, class: "form-all", style: "width: 100%; padding-bottom: 13%;", placeholder: "お問い合わせ内容を記入して下さい" %>
+            <%= f.text_area :content, class: "form-all form-width pb-5", placeholder: "お問い合わせ内容を記入して下さい" %>
 
           <div class="row justify-content-center">
             <%= f.submit "送信", class: "btn post-btn mt-2 shadow" %>

@@ -256,3 +256,9 @@ footer {
 .error_message-top {
   font-size: 1.10rem;
 }
+
+
+/*入力フォームの幅の設定*/
+.form-width {
+  width: 100%;
+}
