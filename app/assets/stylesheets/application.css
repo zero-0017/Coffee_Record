@@ -111,7 +111,7 @@ footer {
 
 /*会員ログイン・新規登録画面の設定*/
 .main-log{
-  min-height: 90vh;
+  min-height: 93vh;
   max-height: 300vh;
   background-color: #556b2f;
 }
@@ -142,7 +142,7 @@ footer {
 
 /*管理者側の画面の設定*/
 .admin-main {
-  height: 84vh;
+  height: 86vh;
 }
 
 
