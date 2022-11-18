@@ -1,4 +1,6 @@
+<!--フラッシュメッセージ-->
 <%= render 'layouts/flash_message' %>
+
 <div class="container">
   <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow">
     <strong>
@@ -13,24 +15,24 @@
         <thead class="back-admin">
           <tr>
             <th class="text-light" style="width: 40%;">
-              <!--テレビ、デスクトップPCの表示-->
+              <!--パソコンの表示-->
               <div class="d-none d-lg-block">
                 お問い合わせ件名・日時
               </div>
 
-              <!--ノートパソコン、タブレット、スマホの表示-->
+              <!--タブレット、スマホの表示-->
               <div class="d-block d-lg-none">
                 件名・日時
               </div>
             </th>
 
             <th class="text-light" style="width: 60%;">
-              <!--テレビ、デスクトップPCの表示-->
+              <!--パソコンの表示-->
               <div class="d-none d-lg-block">
                 お問い合わせ内容
               </div>
 
-              <!--ノートパソコン、タブレット、スマホの表示-->
+              <!--タブレット、スマホの表示-->
               <div class="d-block d-lg-none">
                 内容
               </div>
@@ -40,29 +42,40 @@
 
         <tbody>
           <tr>
-            <td><%= @contact.contact_type %>
-              <div class="mt-5"><%= l @contact.created_at %></div>
+            <td>
+              <!--お問い合わせ件名-->
+              <%= @contact.contact_type %>
+
+              <!--お問い合わせ日時-->
+              <div class="mt-5">
+                <%= l @contact.created_at %>
+              </div>
             </td>
 
-            <td class="text-word-break"><%= @contact.content %></td>
+            <!--お問い合わせ内容-->
+            <td class="text-word-break">
+              <%= @contact.content %>
+            </td>
           </tr>
         </tbody>
 
         <tbody class="table-back">
           <tr>
+            <!--対応状況-->
             <td class="text-light">
-              <!--テレビ、デスクトップPCの表示-->
+              <!--パソコンの表示-->
               <div class="mt-2 d-none d-lg-block">
                 対応状況：<strong><%= @contact.status %></strong>
               </div>
 
-              <!--ノートパソコン、タブレット、スマホの表示-->
+              <!--タブレット、スマホの表示-->
               <div class="mt-2 d-block d-lg-none">
                 [ 対応状況 ]<br>
                 <strong class="ml-3"><%= @contact.status %></strong>
               </div>
             </td>
 
+            <!--削除ボタン-->
         　　  <td>
               <div class="row justify-content-end mr-5">
                 <%= link_to "削除", contact_path(@contact.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn shadow" %>

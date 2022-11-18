@@ -1,4 +1,5 @@
 <!--コメント表示　[非同期通信化]-->
+
 <h4 class="col-md-5 col-lg-4 col-xl-3 py-1 mt-5 back-text shadow">
   <strong>
     コメント一覧
@@ -14,7 +15,7 @@
               <%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100' %><br>
               [ 会員名 ]
               <%= link_to user_path(coffee_comment.user.id) do %>
-              　<!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
+              　<!--パソコン、タブレットの表示-->
                 <div class="d-none d-sm-block">
                   <%= coffee_comment.user.name %>
                 </div>
@@ -37,6 +38,7 @@
 　　　　　      <%= coffee_comment.comment %>
 　　　　　    </div>
 
+　　　　　    <!--削除ボタン-->
               <% if coffee_comment.user == current_user %>
                 <div class="row justify-content-end mr-2 mt-5 pt-5">
                   <%= link_to "削除", post_coffee_coffee_comment_path(coffee_comment.post_coffee, coffee_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, remote: true, class: "btn destroy-btn" %>
@@ -49,14 +51,14 @@
       <% end %>
     <% else %>
 
-      <!--テレビ、デスクトップPCの表示-->
+      <!--パソコンの表示-->
       <h3 class="text-center mt-5 d-none d-lg-block">
         <strong>
           まだコメントはありません
         </strong>
       </h3>
 
-      <!--ノートパソコン、タブレット、スマホの表示-->
+      <!--タブレット、スマホの表示-->
       <h4 class="text-center mt-5 d-block d-lg-none">
         <strong>
           まだコメントはありません

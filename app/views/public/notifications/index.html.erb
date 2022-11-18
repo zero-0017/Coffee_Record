@@ -1,5 +1,6 @@
 <!--フラッシュメッセージ-->
 <%= render 'layouts/flash_message' %>
+
 <div class="container">
   <h4 class="col-sm-4 col-md-4 col-lg-3 col-xl-2 py-1 mt-2 mx-auto back-text shadow">
     <strong>
@@ -20,7 +21,7 @@
           <h5><%= render @notifications %></h5>
         <% else %>
 
-          <!--テレビ、デスクトップPCの表示-->
+          <!--パソコンの表示-->
           <div class="mt-5 d-none d-lg-block">
             <h3>
               <strong>
@@ -29,7 +30,7 @@
             </h3>
           </div>
 
-          <!--ノートパソコン、タブレット、スマホの表示-->
+          <!--タブレット、スマホの表示-->
           <div class="mt-5 d-block d-lg-none">
             <h4>
               <strong>

@@ -1,21 +1,28 @@
+<!--ログインしている会員のフォローボタン非表示(フォロー・フォロワー一覧)-->
 <% if user != current_user %>
+  <!--ゲストユーザーはフォローボタン非表示-->
   <% if current_user.name != "ゲストユーザー" %>
-    <% unless user.name == "ゲストユーザー" %>
-      <% if current_user.following?(user) %>
-        <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete, class: "btn follower-btn btn-sm shadow d-none d-lg-block", remote: true %>
 
-        <%= link_to user_relationships_path(user.id), method: :delete, class: "btn follower-btn btn-sm shadow d-lg-none d-block", remote: true do %>
-          <i class="fa fa-user-times" aria-hidden="true"></i>
-        <% end %>
+    <% if current_user.following?(user) %>
 
-      <% else %>
-        <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn followed-btn btn-sm shadow d-none d-lg-block", remote: true %>
+      <!--フォロー外すボタン(パソコンの表示)-->
+      <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete, class: "btn follower-btn btn-sm shadow d-none d-lg-block", remote: true %>
 
-        <%= link_to user_relationships_path(user.id), method: :post, class: "btn followed-btn btn-sm shadow d-lg-none d-block", remote: true do %>
-          <i class="fa fa-user-plus" aria-hidden="true"></i>
-        <% end %>
-
+      <!--フォロー外すボタン(タブレット、スマホの表示)-->
+      <%= link_to user_relationships_path(user.id), method: :delete, class: "btn follower-btn btn-sm shadow d-lg-none d-block", remote: true do %>
+        <i class="fa fa-user-times" aria-hidden="true"></i>
       <% end %>
+
+    <% else %>
+
+      <!--フォローするボタン(パソコンの表示)-->
+      <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn followed-btn btn-sm shadow d-none d-lg-block", remote: true %>
+
+      <!--フォローするボタン(タブレット、スマホの表示)-->
+      <%= link_to user_relationships_path(user.id), method: :post, class: "btn followed-btn btn-sm shadow d-lg-none d-block", remote: true do %>
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+      <% end %>
+
     <% end %>
   <% end %>
 <% end %>

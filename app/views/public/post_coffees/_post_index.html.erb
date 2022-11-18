@@ -4,14 +4,14 @@
 
       <!--投稿画像-->
 
-      <!--テレビ、デスクトップPC、ノートパソコン、タブレットの表示-->
+      <!--パソコンの表示-->
       <div class="d-none d-md-block">
         <%= link_to post_coffee_path(post_coffee.id) do %>
           <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
         <% end %>
       </div>
 
-      <!--スマホの表示-->
+      <!--タブレット、スマホの表示-->
       <div class="d-block d-md-none">
         <%= link_to post_coffee_path(post_coffee.id) do %>
           <%= image_tag post_coffee.get_image, class: "card-img", :size => '400' %>
@@ -30,9 +30,11 @@
           <%= post_coffee.coffee_comments.count %>
         </div>
 
-        <!--いいね数・いいね機能-->
-        <div class="pl-4 mr-4 favorite_buttons_<%= post_coffee.id %>">
-          <%= render "public/favorites/favorite", post_coffee: post_coffee %>
+        <!--お気に入り機能-->
+        <div class="pl-4 mr-4">
+          <div id="favorite_buttons_<%= post_coffee.id %>">
+            <%= render "public/favorites/favorite", post_coffee: post_coffee %>
+          </div>
         </div>
       </div>
 

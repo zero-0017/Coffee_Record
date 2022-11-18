@@ -1,5 +1,6 @@
 <!--フラッシュメッセージ-->
 <%= render 'layouts/flash_message' %>
+
 <div class="container">
   <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text shadow">
     <strong>
@@ -12,7 +13,7 @@
 
           <!--会員画像-->
 
-          <!--テレビ、デスクトップPC、ノートパソコンの表示-->
+          <!--パソコンの表示-->
           <div class="d-none d-lg-block">
             <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '250' %>
           </div>
@@ -37,8 +38,12 @@
 
           <div class="row justify-content-center my-2">
             <!--編集ボタン-->
-            <% if @user.name != "ゲストユーザー" %><!--ゲストユーザーは非表示-->
-              <% if @user == current_user %><!--ログインしている会員のみ表示、以外ならフォローボタン表示-->
+
+            <!--ゲストユーザーは非表示-->
+            <% if @user.name != "ゲストユーザー" %>
+
+              <!--ログインしている会員のみ表示、以外ならフォローボタン表示-->
+              <% if @user == current_user %>
 
                 <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn shadow" %>
               <% else %>
@@ -80,6 +85,7 @@
       <div class="col-xl-3 col-lg-4 col-md-5">
         <%= link_to "会員の投稿一覧", post_list_user_path, class: "btn user-show-btn btn-block shadow" %>
 
+      <!--ゲストユーザーは非表示-->
       <% if @user.name != "ゲストユーザー" %>
         <% if @user == current_user %>
           <%= link_to "お問い合わせ", contacts_path, class: "btn user-show-btn btn-block shadow" %>
@@ -108,14 +114,14 @@
 
             <!--投稿画像-->
 
-            <!--テレビ、デスクトップPCの表示-->
+            <!--パソコンの表示-->
             <div class="d-none d-xl-block">
               <%= link_to post_coffee_path(post_coffee.id) do %>
                 <%= image_tag post_coffee.get_image, class: "card-img", :size => '148' %>
               <% end %>
             </div>
 
-            <!--ノートパソコンの表示-->
+            <!--パソコンの表示-->
             <div class="d-none d-lg-block d-xl-none">
               <%= link_to post_coffee_path(post_coffee.id) do %>
                 <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
@@ -147,9 +153,11 @@
                 <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
               </div>
 
-              <!--いいね数・いいね機能-->
-              <div class="mr-4 favorite_buttons_<%= post_coffee.id %>">
-                <%= render "public/favorites/favorite", post_coffee: post_coffee %>
+              <!--お気に入り機能-->
+              <div class="mr-4">
+                <div id="favorite_buttons_<%= post_coffee.id %>">
+                  <%= render "public/favorites/favorite", post_coffee: post_coffee %>
+                </div>
               </div>
         　   </div>
 
@@ -158,7 +166,7 @@
 
       <% else %>
 
-        <!--テレビ、デスクトップPCの表示-->
+        <!--パソコンの表示-->
         <div class="mx-auto mt-3 d-none d-lg-block">
           <h3>
             <strong>
@@ -167,7 +175,7 @@
           </h3>
         </div>
 
-        <!--ノートパソコン、タブレット、スマホの表示-->
+        <!--タブレット、スマホの表示-->
         <div class="mx-auto mt-3 d-block d-lg-none">
           <h4>
             <strong>
