@@ -101,6 +101,8 @@
 
       <!--ゲストユーザーは非表示-->
       <% if @user.name != "ゲストユーザー" %>
+
+        <!--ログインしている会員のみ表示-->
         <% if @user == current_user %>
           <%= link_to "お問い合わせ", contacts_path, class: "btn user-show-btn btn-block shadow" %>
         <% end %>
