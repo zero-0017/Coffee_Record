@@ -22,13 +22,13 @@
       </div>
 
       <div class="row justify-content-end">
-        <!--コメント数-->
+        <!--コメント数　[非同期通信化]-->
         <i class="fa fa-comment m-1"></i>
         <div id="comment_count">
           <%= post_coffee.coffee_comments.count %>
         </div>
 
-        <!--お気に入りボタン-->
+        <!--お気に入りボタン　[非同期通信化]-->
         <div class="pl-4 mr-4">
           <div id="favorite_buttons_<%= post_coffee.id %>">
             <%= render "public/favorites/favorite", post_coffee: post_coffee %>

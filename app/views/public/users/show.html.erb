@@ -43,6 +43,7 @@
           <div class="row justify-content-center my-2">
             <!--ゲストユーザーは非表示-->
             <% if @user.name != "ゲストユーザー" %>
+              <!--フォロワー数　[非同期通信化]-->
               <%= link_to "フォロー数：#{@user.followings.count}", followings_user_path(@user) %> | <div id="followers_<%= @user.id %>"><%= link_to "フォロワー数：#{@user.followers.count}", followers_user_path(@user) %></div>
             <% end %>
 
@@ -60,7 +61,7 @@
                 <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn edit-btn shadow" %>
               <% else %>
 
-                <!--フォローボタン-->
+                <!--フォローボタン　[非同期通信化]-->
                 <div id="follow_buttons_<%= @user.id %>">
                  <%= render 'public/relationships/follow', user: @user %>
                 </div>
@@ -125,6 +126,7 @@
     <div class="row pb-5">
 
       <% if @post_coffees.present? %>
+        <!--新着の投稿を6個表示-->
         <% @post_coffees.last(6).each do |post_coffee| %>
           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2 card shadow mb-5">
 
@@ -155,12 +157,12 @@
             </div>
 
             <div class="row justify-content-end">
-              <!--コメント数-->
+              <!--コメント数　[非同期通信化]-->
               <div class="mr-4">
                 <i class="fa fa-comment"></i><%= post_coffee.coffee_comments.count %>
               </div>
 
-              <!--お気に入りボタン-->
+              <!--お気に入りボタン　[非同期通信化]-->
               <div class="mr-4">
                 <div id="favorite_buttons_<%= post_coffee.id %>">
                   <%= render "public/favorites/favorite", post_coffee: post_coffee %>
