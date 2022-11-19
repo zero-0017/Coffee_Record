@@ -109,7 +109,7 @@
 // aboutの画像設定
 .about-image{
   background-image: image-url('about-sm.jpg');
-  height: 490px;
+  height: 737px;
   margin-bottom: -28px;
 }
 
@@ -173,6 +173,11 @@
 
 
 @media screen and (max-width:414px){
+
+// aboutの画像設定
+.about-image{
+  height: 550px;
+}
 
 // aboutの文字設定
 .about-text{
