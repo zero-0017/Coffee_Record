@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Batch::DataReset
   def self.data_reset
     user = User.find_by(email: "guestuse07r@example.com")

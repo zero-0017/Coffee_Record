@@ -14,7 +14,7 @@ module CoffeeRecord
     config.load_defaults 6.1
     config.i18n.default_locale = :ja
     config.time_zone = "Asia/Tokyo"
-    config.paths.add 'lib', eager_load: true
+    config.paths.add "lib", eager_load: true
 
     # Configuration for the application, engines, and railties goes here.
     #
