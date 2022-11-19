@@ -2,11 +2,25 @@
 <%= render 'layouts/flash_message' %>
 
 <div class="container">
-  <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text shadow">
-    <strong>
-      マイページ
-    </strong>
-  </h4>
+  <% if @user == current_user %>
+    <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-2 mx-auto back-text shadow">
+      <strong>
+        マイページ
+      </strong>
+    </h4>
+  <% else %>
+    <h4 class="col-md-11 col-lg-8 col-xl-6 py-1 mt-2 mx-auto back-text shadow">
+      <!--パソコンの表示-->
+      <strong class="d-none d-md-block">
+        <%= @user.name %>のマイページ
+      </strong>
+
+      <!--タブレット、スマホの表示-->
+      <strong class="d-block d-md-none">
+        <%= @user.name.truncate(7) %>のマイページ
+      </strong>
+    </h4>
+  <% end %>
 
     <div class="row justify-content-center">
       <div class="col-sm-10 col-md-9 col-lg-4 col-xl-3 back-background shadow">
@@ -76,6 +90,7 @@
       <div class="col-xl-3 col-lg-4 col-md-5">
         <%= link_to "お気に入り投稿一覧", favorites_user_path(@user), class: "btn user-show-btn btn-block shadow" %>
 
+        <!--ログインしている会員のみ表示-->
         <% if @user == current_user %>
           <%= link_to "下書き一覧", confirm_post_coffees_path, class: "btn user-show-btn btn-block mb-2 shadow" %>
         <% end %>

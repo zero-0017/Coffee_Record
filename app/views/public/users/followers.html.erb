@@ -1,10 +1,24 @@
 <div class="container">
   <div class="row">
-    <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow">
-      <strong>
-        フォロワー一覧
-      </strong>
-    </h4>
+    <% if @user == current_user %>
+      <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow">
+        <strong>
+          フォロワー一覧
+        </strong>
+      </h4>
+    <% else %>
+      <h4 class="col-md-12 col-lg-8 col-xl-6 py-1 mt-2 mx-auto back-text shadow">
+        <!--パソコンの表示-->
+        <strong class="d-none d-md-block">
+          <%= @user.name %>のフォロワー一覧
+        </strong>
+
+        <!--タブレット、スマホの表示-->
+        <strong class="d-block d-md-none">
+          <%= @user.name.truncate(6) %>のフォロワー一覧
+        </strong>
+      </h4>
+    <% end %>
 
       <!--全体の数とページの数を表示-->
       <div class="col-sm-6 col-lg-6 col-xl-5 list-top-all mt-3">

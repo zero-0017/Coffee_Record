@@ -1,8 +1,14 @@
 <div class="admin-main">
-  <div class="container">
-    <h4 class="col-md-9 col-lg-7 col-xl-6 py-1 mt-2 back-text shadow">
-      <strong>
-        <%= @user.name %>さんの会員情報詳細
+  <div class="container pb-5">
+    <h4 class="col-md-11 col-lg-8 col-xl-6 py-1 mt-2 mx-auto back-text shadow">
+      <!--パソコンの表示-->
+      <strong class="d-none d-md-block">
+        <%= @user.name %>のマイページ
+      </strong>
+
+      <!--タブレット、スマホの表示-->
+      <strong class="d-block d-md-none">
+        <%= @user.name.truncate(7) %>のマイページ
       </strong>
     </h4>
 
