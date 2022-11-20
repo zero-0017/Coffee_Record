@@ -13,8 +13,30 @@
       <div class="row shadow back-show mx-2">
         <div class="col-xl-5 col-lg-6 col-md-6 pb-2 back-background">
 
-          <!--投稿画像-->
-          <%= image_tag @post_coffee.get_image, class: "card-img shadow", :size => '425.83' %>
+          <!--投稿画像(パソコン[大]の表示)-->
+          <div class="d-none d-xl-block">
+            <%= image_tag @post_coffee.get_image, class: "card-img shadow", :size => '426' %>
+          </div>
+
+          <!--投稿画像(パソコン[小]の表示)-->
+          <div class="d-none d-lg-block d-xl-none">
+            <%= image_tag @post_coffee.get_image, class: "card-img shadow", :size => '427' %>
+          </div>
+
+          <!--投稿画像(タブレット[大]の表示)-->
+          <div class="d-none d-md-block d-lg-none">
+            <%= image_tag @post_coffee.get_image, class: "card-img shadow", :size => '307' %>
+          </div>
+
+          <!--投稿画像(タブレット[小]の表示)-->
+          <div class="d-none d-sm-block d-md-none">
+            <%= image_tag @post_coffee.get_image, class: "card-img shadow", :size => '464' %>
+          </div>
+
+          <!--投稿画像(スマホの表示)-->
+          <div class="d-block d-sm-none">
+            <%= image_tag @post_coffee.get_image, class: "card-img shadow", :size => '320' %>
+          </div>
 
 　        <!--会員画像-->
           <%= image_tag @post_coffee.user.get_profile_image(300,300), class: "mt-3 rounded-circle", :size => '100' %><br>

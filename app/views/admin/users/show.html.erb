@@ -17,8 +17,30 @@
 
 　        <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
 
-            <!--会員画像-->
-            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '255.00' %>
+            <!--会員画像(パソコン[大]の表示)-->
+            <div class="d-none d-xl-block">
+              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '255' %>
+            </div>
+
+            <!--会員画像(パソコン[小]の表示)-->
+            <div class="d-none d-lg-block d-xl-none">
+              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '290' %>
+            </div>
+
+            <!--会員画像(タブレット[大]の表示)-->
+            <div class="d-none d-md-block d-lg-none">
+              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '510' %>
+            </div>
+
+            <!--会員画像(タブレット[小]の表示)-->
+            <div class="d-none d-sm-block d-md-none">
+              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '420' %>
+            </div>
+
+            <!--会員画像(スマホの表示)-->
+            <div class="d-block d-sm-none">
+              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '350' %>
+            </div>
 
             <!--会員ステータス-->
             <div class="row justify-content-center my-2">

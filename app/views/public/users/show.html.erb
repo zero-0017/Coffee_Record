@@ -25,8 +25,25 @@
     <div class="row justify-content-center">
       <div class="col-sm-10 col-md-9 col-lg-4 col-xl-3 back-background shadow">
 
-          <!--会員画像-->
-          <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '255.00' %>
+          <!--会員画像(パソコンの表示)-->
+          <div class="d-none d-lg-block">
+            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '250' %>
+          </div>
+
+          <!--会員画像(タブレット[大]の表示)-->
+          <div class="d-none d-md-block d-lg-none">
+            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '400' %>
+          </div>
+
+          <!--会員画像(タブレット[小]の表示)-->
+          <div class="d-none d-sm-block d-md-none">
+            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '420' %>
+          </div>
+
+          <!--会員画像(スマホの表示)-->
+          <div class="d-block d-sm-none">
+            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '350' %>
+          </div>
 
           <div class="row justify-content-center my-2">
             <!--ゲストユーザーは非表示-->
@@ -118,10 +135,40 @@
         <% @post_coffees.last(6).each do |post_coffee| %>
           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2 card shadow mb-5">
 
-            <!--投稿画像-->
-            <%= link_to post_coffee_path(post_coffee.id) do %>
-              <%= image_tag post_coffee.get_image, class: "card-img", :size => '152.00' %>
-            <% end %>
+            <!--投稿画像(パソコン[大]の表示)-->
+            <div class="d-none d-xl-block">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '148' %>
+              <% end %>
+            </div>
+
+            <!--投稿画像(パソコン[小]の表示)-->
+            <div class="d-none d-lg-block d-xl-none">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '230' %>
+              <% end %>
+            </div>
+
+            <!--投稿画像(タブレット[大]の表示)-->
+            <div class="d-none d-md-block d-lg-none">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '235' %>
+              <% end %>
+            </div>
+
+            <!--投稿画像(タブレット[小]の表示)-->
+            <div class="d-none d-sm-block d-md-none">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '500' %>
+              <% end %>
+            </div>
+
+            <!--投稿画像(スマホの表示)-->
+            <div class="d-block d-sm-none">
+              <%= link_to post_coffee_path(post_coffee.id) do %>
+                <%= image_tag post_coffee.get_image, class: "card-img", :size => '350' %>
+              <% end %>
+            </div>
 
             <!--投稿名-->
             <div class="text-center">
