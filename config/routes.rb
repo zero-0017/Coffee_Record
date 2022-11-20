@@ -48,8 +48,8 @@ Rails.application.routes.draw do
 
     resources :contacts, only: [:index, :new, :create, :show, :destroy] do
       collection do
-      get "thank"
-    end
+        get "thank"
+      end
     end
 
     resources :tags, only: [:show]
