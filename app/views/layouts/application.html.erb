@@ -17,7 +17,7 @@
     <%= render 'layouts/header' %>
 
       <!--検索機能を会員ログイン時、表示するため-->
-      <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
+      <% unless %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
 
       <!--会員側にログイン状態の場合-->
       <% if user_signed_in? %>
@@ -72,7 +72,7 @@
       <% if admin_signed_in? %>
 
         <!--検索機能を管理者ログイン時、表示するため-->
-        <% unless  %w[root new_user_session new_user_registration].any? {|name| current_page?(send("#{name}_path"))} %>
+        <% unless %w[root new_user_session new_user_registration].any? {|name| current_page?(send("#{name}_path"))} %>
           <div class="admin-search-back">
             <div class='py-2 container'>
               <div class="row">
@@ -85,10 +85,10 @@
         <% end %>
 
       <!--[会員側にログイン状態の場合(パソコンの表示)]　会員側のサイドバー-->
-      <% elsif  user_signed_in? %>
+      <% elsif user_signed_in? %>
 
         <!--検索機能を会員ログイン時、表示するため-->
-        <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
+        <% unless %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
           <div class="sidebar">
             <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-none d-md-block pb-5" >
               <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
@@ -106,7 +106,7 @@
             <% if user_signed_in? %>
 
               <!--検索機能を会員ログイン時、表示するため-->
-              <% unless  %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
+              <% unless %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
                 <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-block d-md-none pb-5" >
                   <%= render "public/post_coffees/sidebar_tag", tags: @tags %>
                   <%= render "public/post_coffees/sidebar_category", categorys: @categorys %>
