@@ -17,20 +17,8 @@
 
 　        <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
 
-            <!--会員画像(パソコンの表示)-->
-            <div class="d-none d-lg-block">
-              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '250' %>
-            </div>
-
-            <!--会員画像(タブレットの表示)-->
-            <div class="d-none d-md-block d-lg-none">
-              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '420' %>
-            </div>
-
-            <!--会員画像(スマホの表示)-->
-            <div class="d-sm-block d-md-none">
-              <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '360' %>
-            </div>
+            <!--会員画像-->
+            <%= image_tag @user.get_profile_image(500,500), class: "card-img mt-3 user-image", :size => '255.00' %>
 
             <!--会員ステータス-->
             <div class="row justify-content-center my-2">

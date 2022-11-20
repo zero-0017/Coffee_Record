@@ -66,7 +66,7 @@
 
 
 <!--スマホの表示-->
-<ul class="d-sm-block d-md-none notification-sm">
+<ul class="d-block d-md-none notification-sm">
 <!--フォローの通知-->
   <% if action == "follow" %>
     <li><%= link_to user_path(visiter) do %><strong><%= visiter.name.truncate(7) %><% end %></strong>さんがあなたを<strong>フォロー</strong>しました。<br>

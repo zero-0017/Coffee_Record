@@ -1,20 +1,11 @@
 <% @post_coffees.each do |post_coffee| %>
-  <div class="col-md-6 col-lg-4 col-xl-3 card shadow">
+  <div class="col-md-6 col-lg-6 col-xl-3 card shadow">
     <div class="shadow">
 
-      <!--投稿画像(パソコンの表示)-->
-      <div class="d-none d-md-block">
-        <%= link_to post_coffee_path(post_coffee.id) do %>
-          <%= image_tag post_coffee.get_image, class: "card-img", :size => '250' %>
-        <% end %>
-      </div>
-
-      <!--投稿画像(タブレット、スマホの表示)-->
-      <div class="d-block d-md-none">
-        <%= link_to post_coffee_path(post_coffee.id) do %>
-          <%= image_tag post_coffee.get_image, class: "card-img", :size => '400' %>
-        <% end %>
-      </div>
+      <!--投稿画像-->
+      <%= link_to post_coffee_path(post_coffee.id) do %>
+        <%= image_tag post_coffee.get_image, class: "card-img", :size => '247.00' %>
+      <% end %>
 
       <!--投稿名-->
       <div class="text-center">
