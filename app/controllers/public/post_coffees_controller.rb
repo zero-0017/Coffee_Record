@@ -2,6 +2,7 @@
 
 class Public::PostCoffeesController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_post_coffee, only: [:edit, :update, :destroy]
   before_action :sidebar_list, except: [:destroy]
   before_action :set_post_coffee, except: [:new, :create, :index, :confirm]
 
@@ -49,8 +50,12 @@ class Public::PostCoffeesController < ApplicationController
   end
 
   def destroy
-    @post_coffee.destroy
-    redirect_to post_coffees_path, alert: "投稿を削除しました"
+    if @post_coffee.user_id == current_user.id
+      @post_coffee.destroy
+      redirect_to post_coffees_path, alert: "投稿を削除しました"
+    else
+      redirect_to post_coffees_path, alert: "他人の投稿は削除できません"
+    end
   end
 
   private
@@ -66,5 +71,11 @@ class Public::PostCoffeesController < ApplicationController
 
     def set_post_coffee
       @post_coffee = PostCoffee.find(params[:id])
+    end
+
+    def correct_post_coffee
+      unless PostCoffee.find(params[:id]).user_id == current_user.id
+        redirect_to post_coffees_path, notice: "権限がありません"
+      end
     end
 end
