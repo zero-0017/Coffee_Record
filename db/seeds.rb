@@ -8,212 +8,230 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(
-    email: "Admin.Record.15@coffee.com",
+    email: "Admin.Record.0017@coffee.com",
     password: "Azzx567.1004y.V"
   )
 
-User.create!(
-    name: "サンプル",
-    introduction: "サンプルです",
-    email: "test.00741@com",
-    password: "test5567"
-  )
-
 
 User.create!(
-    name: "サンプルタロウ",
-    introduction: "サンプルタロウです",
-    email: "test.01373@com",
-    password: "test5067"
-  )
+  [
+    {
+      profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_1.png"),
+      filename: "coffee_user_1.jpg"),
+      name: "珈琲一郎",
+      introduction: "珈琲一郎です",
+      email: "coffee.2071@com",
+      password: "test5567"},
+    {
+      profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_2.png"),
+      filename: "coffee_user_2.jpg"),
+      name: "珈琲二郎",
+      introduction: "珈琲二郎です",
+      email: "coffee.1573@com",
+      password: "test5067"},
+    {
+      profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_3.png"),
+      filename: "coffee_user_3.jpg"),
+      name: "珈琲三郎",
+      introduction: "珈琲三郎です",
+      email: "coffee.4147@com",
+      password: "test5167"},
+    {
+      profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_4.png"),
+      filename: "coffee_user_4.jpg"),
+      name: "珈琲太郎",
+      introduction: "珈琲太郎です",
+      email: "coffee.7022@com",
+      password: "test1082"},
+    {
+      profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_5.png"),
+      filename: "coffee_user_5.jpg"),
+      name: "珈琲ヤロウ",
+      introduction: "珈琲ヤロウです",
+      email: "coffee.5638@com",
+      password: "test8610"}
+  ]
+)
 
 
-User.create!(
-    name: "サンプルヤロウ",
-    introduction: "サンプルヤロウです",
-    email: "test.4047@com",
-    password: "test5167"
-  )
-
-
-Tag.create!(
+CoffeeBrew.create!(
     [
       {
-        tag_name: "ペーパードリップ"
+        coffee_brew_name: "ペーパードリップ"
       },
       {
-        tag_name: "インスタントコーヒー"
+        coffee_brew_name: "インスタントコーヒー"
       },
       {
-        tag_name: "ネルドリップ"
+        coffee_brew_name: "ネルドリップ"
       },
       {
-        tag_name: "エアロプレス"
+        coffee_brew_name: "エアロプレス"
       },
       {
-        tag_name: "サイフォン"
+        coffee_brew_name: "サイフォン"
       },
       {
-        tag_name: "コーヒーメーカー"
+        coffee_brew_name: "コーヒーメーカー"
       },
       {
-        tag_name: "ウォータードリップ"
+        coffee_brew_name: "ウォータードリップ"
       },
       {
-        tag_name: "フレンチプレス"
+        coffee_brew_name: "フレンチプレス"
       },
       {
-        tag_name: "パーコレーター"
+        coffee_brew_name: "パーコレーター"
       },
       {
-        tag_name: "エスプレッソ"
+        coffee_brew_name: "エスプレッソ"
       },
       {
-        tag_name: "その他"
+        coffee_brew_name: "その他"
       }
     ]
   )
 
 
-Category.create!(
+Coffee.create!(
     [
       {
-        category_name: "ブラックコーヒー"
+        coffee_name: "ブラックコーヒー"
       },
       {
-        category_name: "微糖コーヒー"
+        coffee_name: "微糖コーヒー"
       },
       {
-        category_name: "ストレートコーヒー"
+        coffee_name: "ストレートコーヒー"
       },
       {
-        category_name: "ブレンドコーヒー"
+        coffee_name: "ブレンドコーヒー"
       },
       {
-        category_name: "アメリカンコーヒー"
+        coffee_name: "アメリカンコーヒー"
       },
       {
-        category_name: "ウィンナーコーヒー"
+        coffee_name: "ウィンナーコーヒー"
       },
       {
-        category_name: "カフェオレ"
+        coffee_name: "カフェオレ"
       },
       {
-        category_name: "ダッチコーヒー"
+        coffee_name: "ダッチコーヒー"
       },
       {
-        category_name: "エスプレッソ"
+        coffee_name: "エスプレッソ"
       },
       {
-        category_name: "カフェラテ"
+        coffee_name: "カフェラテ"
       },
       {
-        category_name: "カプチーノ"
+        coffee_name: "カプチーノ"
       },
       {
-        category_name: "カフェマキアート"
+        coffee_name: "カフェマキアート"
       },
       {
-        category_name: "カフェモカ"
+        coffee_name: "カフェモカ"
       },
       {
-        category_name: "その他"
+        coffee_name: "その他"
       }
     ]
   )
 
 
-Genre.create!(
+CoffeeBean.create!(
     [
       {
-        genre_name: "ディピカ"
+        coffee_bean_name: "ディピカ"
       },
       {
-        genre_name: "ブルボン"
+        coffee_bean_name: "ブルボン"
       },
       {
-        genre_name: "アマレロ"
+        coffee_bean_name: "アマレロ"
       },
       {
-        genre_name: "ムンドノーボ"
+        coffee_bean_name: "ムンドノーボ"
       },
       {
-        genre_name: "カトゥーラ"
+        coffee_bean_name: "カトゥーラ"
       },
       {
-        genre_name: "カトゥアイ"
+        coffee_bean_name: "カトゥアイ"
       },
       {
-        genre_name: "マラゴジッペ"
+        coffee_bean_name: "マラゴジッペ"
       },
       {
-        genre_name: "スマトラ"
+        coffee_bean_name: "スマトラ"
       },
       {
-        genre_name: "アルーシャ"
+        coffee_bean_name: "アルーシャ"
       },
       {
-        genre_name: "ケント"
+        coffee_bean_name: "ケント"
       },
       {
-        genre_name: "ブルーマウンテン"
+        coffee_bean_name: "ブルーマウンテン"
       },
       {
-        genre_name: "ゲイシャ"
+        coffee_bean_name: "ゲイシャ"
       },
       {
-        genre_name: "サン・ラモン"
+        coffee_bean_name: "サン・ラモン"
       },
       {
-        genre_name: "パーカス"
+        coffee_bean_name: "パーカス"
       },
       {
-        genre_name: "パカマラ"
+        coffee_bean_name: "パカマラ"
       },
       {
-        genre_name: "ジャバニカ"
+        coffee_bean_name: "ジャバニカ"
       },
       {
-        genre_name: "パーピュラセンス"
+        coffee_bean_name: "パーピュラセンス"
       },
       {
-        genre_name: "ビジャサルチ"
+        coffee_bean_name: "ビジャサルチ"
       },
       {
-        genre_name: "コナ"
+        coffee_bean_name: "コナ"
       },
       {
-        genre_name: "ブルボンポワントゥ"
+        coffee_bean_name: "ブルボンポワントゥ"
       },
       {
-        genre_name: "SL28"
+        coffee_bean_name: "SL28"
       },
       {
-        genre_name: "SL34"
+        coffee_bean_name: "SL34"
       },
       {
-        genre_name: "ルイルイレブン"
+        coffee_bean_name: "ルイルイレブン"
       },
       {
-        genre_name: "ハイブリッドティモール"
+        coffee_bean_name: "ハイブリッドティモール"
       },
       {
-        genre_name: "カティモール"
+        coffee_bean_name: "カティモール"
       },
       {
-        genre_name: "コロンビア"
+        coffee_bean_name: "コロンビア"
       },
       {
-        genre_name: "カスティージョ"
+        coffee_bean_name: "カスティージョ"
       },
       {
-        genre_name: "イカトゥ"
+        coffee_bean_name: "イカトゥ"
       },
       {
-        genre_name: "その他"
+        coffee_bean_name: "その他"
       },
       {
-        genre_name: "不明"
+        coffee_bean_name: "不明"
       }
     ]
   )

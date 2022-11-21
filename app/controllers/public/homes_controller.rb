@@ -7,8 +7,8 @@ class Public::HomesController < ApplicationController
   end
 
   def about
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
+    @coffee_brews = CoffeeBrew.all
+    @coffees = Coffee.all
+    @coffee_beans = CoffeeBean.all
   end
 end

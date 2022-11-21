@@ -1,0 +1,17 @@
+<table class="table table-bordered table-hover table-secondary shadow">
+  <thead class="table-sidebar_th">
+    <tr>
+      <th class="text-center">珈琲豆の種類</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% coffee_beans.each do |coffee_bean| %>
+      <tr>
+        <td>
+          ・️️<%= link_to coffee_bean.coffee_bean_name, coffee_bean_path(coffee_bean.id), class:"text-dark"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,24 @@
+<div class="admin-main">
+  <div class="container">
+    <h4 class="col-md-6 col-lg-4 col-xl-3 py-1 mt-2 back-text shadow">
+      <strong>
+        珈琲の種類編集
+      </strong>
+    </h4>
+
+      <!--エラーメッセージ表示-->
+      <%= render 'layouts/error_messages', model: @coffee %>
+
+        <div class="row no-gutters">
+          <div class="col-sm-11 col-md-11 col-lg-8 col-xl-7 mx-sm-auto text-center shadow px-3 py-3 mt-2 back-admin">
+            <%= form_with model: @coffee, url: admin_coffee_path do |f| %>
+
+              珈琲の種類<br>
+              <%= f.text_field :coffee_name, class: "mx-2 admin-form-all", placeholder: "(例)珈琲" %><br>
+              <%= f.submit '変更を保存', class: "btn update-btn mx-2 mt-2 shadow" %>
+              <%= link_to "削除する", admin_coffee_path(@coffee.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn mt-2 shadow" %>
+            <% end %>
+          </div>
+        </div>
+  </div>
+</div>

@@ -2,17 +2,17 @@
 
 class PostCoffee < ApplicationRecord
   belongs_to :user
-  belongs_to :tag
-  belongs_to :category
+  belongs_to :coffee_brew
+  belongs_to :coffee
   has_many :coffee_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :coffee_genres, dependent: :destroy
-  has_many :genres, through: :coffee_genres
+  has_many :set_coffee_beans, dependent: :destroy
+  has_many :coffee_beans, through: :set_coffee_beans
   has_many :notifications, dependent: :destroy
 
-  validates :coffee_name, presence: true, length: { maximum: 25 }
-  validates :coffee_explanation, presence: true, length: { maximum: 200 }
-  validates :genre_ids, presence: true
+  validates :post_name, presence: true, length: { maximum: 25 }
+  validates :post_explanation, presence: true, length: { maximum: 200 }
+  validates :coffee_bean_ids, presence: true
 
   has_one_attached :image
 

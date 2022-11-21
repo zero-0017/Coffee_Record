@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_23_143735) do
+ActiveRecord::Schema.define(version: 2022_11_21_121159) do
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,8 +52,14 @@ ActiveRecord::Schema.define(version: 2022_10_23_143735) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "category_name", null: false
+  create_table "coffee_beans", force: :cascade do |t|
+    t.string "coffee_bean_name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "coffee_brews", force: :cascade do |t|
+    t.string "coffee_brew_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -67,9 +72,8 @@ ActiveRecord::Schema.define(version: 2022_10_23_143735) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "coffee_genres", force: :cascade do |t|
-    t.integer "post_coffee_id", null: false
-    t.integer "genre_id", null: false
+  create_table "coffees", force: :cascade do |t|
+    t.string "coffee_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -90,12 +94,6 @@ ActiveRecord::Schema.define(version: 2022_10_23_143735) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.string "genre_name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.integer "visiter_id", null: false
     t.integer "visited_id", null: false
@@ -108,10 +106,10 @@ ActiveRecord::Schema.define(version: 2022_10_23_143735) do
 
   create_table "post_coffees", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "tag_id", null: false
-    t.integer "category_id", null: false
-    t.string "coffee_name", null: false
-    t.text "coffee_explanation", null: false
+    t.integer "coffee_brew_id", null: false
+    t.integer "coffee_id", null: false
+    t.string "post_name", null: false
+    t.text "post_explanation", null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -124,8 +122,9 @@ ActiveRecord::Schema.define(version: 2022_10_23_143735) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "tag_name", null: false
+  create_table "set_coffee_beans", force: :cascade do |t|
+    t.integer "post_coffee_id", null: false
+    t.integer "coffee_bean_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -52,9 +52,9 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :tags, only: [:show]
-    resources :categorys, only: [:show]
-    resources :genres, only: [:show]
+    resources :coffee_brews, only: [:show]
+    resources :coffees, only: [:show]
+    resources :coffee_beans, only: [:show]
     get "search" => "searches#search"
   end
 
@@ -65,9 +65,9 @@ Rails.application.routes.draw do
       resources :coffee_comments, only: [:index, :destroy]
     end
 
-    resources :tags, only: [:index, :create, :edit, :destroy, :update]
-    resources :categorys, only: [:index, :create, :edit, :destroy, :update]
-    resources :genres, only: [:index, :create, :edit, :destroy, :update]
+    resources :coffee_brews, only: [:index, :create, :edit, :destroy, :update]
+    resources :coffees, only: [:index, :create, :edit, :destroy, :update]
+    resources :coffee_beans, only: [:index, :create, :edit, :destroy, :update]
     resources :coffee_comments, only: [:index, :destroy]
     resources :contacts, only: [:index, :show, :update]
     get "search" => "searches#search"

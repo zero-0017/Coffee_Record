@@ -4,9 +4,9 @@ class Public::NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tags = Tag.all
-    @categorys = Category.all
-    @genres = Genre.all
+    @coffee_brews = CoffeeBrew.all
+    @coffees = Coffee.all
+    @coffee_beans = CoffeeBean.all
     @notifications = current_user.passive_notifications.page(params[:page]).per(13)
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)

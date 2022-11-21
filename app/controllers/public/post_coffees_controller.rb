@@ -63,13 +63,13 @@ class Public::PostCoffeesController < ApplicationController
 
   private
     def post_coffee_params
-      params.require(:post_coffee).permit(:coffee_name, :coffee_explanation, :image, :status, :tag_id, :category_id, { genre_ids: [] })
+      params.require(:post_coffee).permit(:post_name, :post_explanation, :image, :status, :coffee_id, :coffee_brew_id, { coffee_bean_ids: [] })
     end
 
     def sidebar_list
-      @tags = Tag.all
-      @categorys = Category.all
-      @genres = Genre.all
+      @coffee_brews = CoffeeBrew.all
+      @coffees = Coffee.all
+      @coffee_beans = CoffeeBean.all
     end
 
     def set_post_coffee

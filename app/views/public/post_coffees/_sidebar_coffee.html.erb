@@ -1,0 +1,17 @@
+<table class="table table-bordered table-hover table-secondary shadow">
+  <thead class="table-sidebar_th">
+    <tr>
+      <th class="text-center">珈琲の種類</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% coffees.each do |coffee| %>
+      <tr>
+        <td>
+          ・<%= link_to coffee.coffee_name, coffee_path(coffee.id), class:"text-dark"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

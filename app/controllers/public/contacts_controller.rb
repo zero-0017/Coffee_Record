@@ -48,8 +48,8 @@ class Public::ContactsController < ApplicationController
     end
 
     def sidebar_list
-      @tags = Tag.all
-      @categorys = Category.all
-      @genres = Genre.all
+      @coffee_brews = CoffeeBrew.all
+      @coffees = Coffee.all
+      @coffee_beans = CoffeeBean.all
     end
 end
