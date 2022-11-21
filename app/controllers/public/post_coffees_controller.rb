@@ -32,6 +32,9 @@ class Public::PostCoffeesController < ApplicationController
 
   def show
     @coffee_comment = CoffeeComment.new
+    if @post_coffee.draft? && @post_coffee.user != current_user
+      redirect_to post_coffees_path, alert: "この投稿にはアクセスできません"
+    end
   end
 
   def edit
@@ -52,7 +55,7 @@ class Public::PostCoffeesController < ApplicationController
   def destroy
     if @post_coffee.user_id == current_user.id
       @post_coffee.destroy
-      redirect_to post_coffees_path, alert: "投稿を削除しました"
+      redirect_to post_coffees_path, notice: "投稿を削除しました"
     else
       redirect_to post_coffees_path, alert: "他人の投稿は削除できません"
     end
@@ -75,7 +78,7 @@ class Public::PostCoffeesController < ApplicationController
 
     def correct_post_coffee
       unless PostCoffee.find(params[:id]).user_id == current_user.id
-        redirect_to post_coffees_path, notice: "権限がありません"
+        redirect_to post_coffees_path, alert: "アクセス権限がありません"
       end
     end
 end
