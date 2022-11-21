@@ -2,7 +2,7 @@
 
 class Public::PostCoffeesController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_post_coffee, only: [:edit, :update, :destroy]
+  before_action :correct_post_coffee, only: [:edit, :update]
   before_action :sidebar_list, except: [:destroy]
   before_action :set_post_coffee, except: [:new, :create, :index, :confirm]
 
