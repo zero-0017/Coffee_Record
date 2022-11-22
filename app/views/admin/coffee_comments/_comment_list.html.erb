@@ -53,16 +53,16 @@
 
       <td>
         <div class="mt-2">
+        [ 投稿名 ]<br>
         <%= link_to admin_post_coffee_path(coffee_comment.post_coffee.id) do %>
-          [ 投稿名 ]<br>
           <!--コメントの投稿名(パソコンの表示)-->
           <strong class="d-none d-lg-block">
-            <%= coffee_comment.post_coffee.coffee_name.truncate(17) %>
+            <%= coffee_comment.post_coffee.post_name.truncate(17) %>
           </strong>
 
           <!--(タブレット、スマホの表示)-->
           <strong class="d-block d-lg-none">
-            <%= coffee_comment.post_coffee.coffee_name.truncate(6) %>
+            <%= coffee_comment.post_coffee.post_name.truncate(6) %>
           </strong>
         <% end %>
         </div>

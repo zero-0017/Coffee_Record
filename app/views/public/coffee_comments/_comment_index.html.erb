@@ -15,7 +15,7 @@
               <%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100' %><br>
               [ 会員名 ]
               <%= link_to user_path(coffee_comment.user.id) do %>
-              　<!--コメントをした会員名(パソコン、タブレットの表示)-->
+                <!--コメントをした会員名(パソコン、タブレットの表示)-->
                 <div class="d-none d-sm-block">
                   <%= coffee_comment.user.name %>
                 </div>

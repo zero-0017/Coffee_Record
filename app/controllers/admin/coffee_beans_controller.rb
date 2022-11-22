@@ -12,7 +12,7 @@ class Admin::CoffeeBeansController < ApplicationController
   def create
     @coffee_bean = CoffeeBean.new(coffee_bean_params)
     if @coffee_bean.save
-      redirect_to admin_coffee_beans_path, notice: "珈琲豆の種類を作成しました"
+      redirect_to admin_coffee_beans_path, notice: "珈琲豆の種類名を作成しました"
     else
       @coffee_beans = CoffeeBean.page(params[:page]).per(6)
       render :index
@@ -24,12 +24,12 @@ class Admin::CoffeeBeansController < ApplicationController
 
   def destroy
     @coffee_bean.destroy
-    redirect_to admin_coffee_beans_path, alert: "珈琲豆の種類を削除しました"
+    redirect_to admin_coffee_beans_path, notice: "珈琲豆の種類名を削除しました"
   end
 
   def update
     if @coffee_bean.update(coffee_bean_params)
-      redirect_to admin_coffee_beans_path, notice: "珈琲豆の種類の変更内容を保存しました"
+      redirect_to admin_coffee_beans_path, notice: "珈琲豆の種類名の変更内容を保存しました"
     else
       render :edit
     end

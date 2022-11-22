@@ -14,6 +14,6 @@ class Admin::PostCoffeesController < ApplicationController
   def destroy
     @post_coffee = PostCoffee.find(params[:id])
     @post_coffee.destroy
-    redirect_to admin_post_coffees_path, alert: "投稿を削除しました"
+    redirect_to admin_post_coffees_path, notice: "投稿を削除しました"
   end
 end

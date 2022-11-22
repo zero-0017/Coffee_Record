@@ -12,7 +12,7 @@ class Admin::CoffeeBrewsController < ApplicationController
   def create
     @coffee_brew = CoffeeBrew.new(coffee_brew_params)
     if @coffee_brew.save
-      redirect_to admin_coffee_brews_path, notice: "珈琲の淹れ方を作成しました"
+      redirect_to admin_coffee_brews_path, notice: "珈琲の淹れ方名を作成しました"
     else
       @coffee_brews = CoffeeBrew.page(params[:page]).per(6)
       render :index
@@ -24,12 +24,12 @@ class Admin::CoffeeBrewsController < ApplicationController
 
   def destroy
     @coffee_brew.destroy
-    redirect_to admin_coffee_brews_path, alert: "珈琲の淹れ方を削除しました"
+    redirect_to admin_coffee_brews_path, notice: "珈琲の淹れ方名を削除しました"
   end
 
   def update
     if @coffee_brew.update(coffee_brew_params)
-      redirect_to admin_coffee_brews_path, notice: "珈琲の淹れ方の変更内容を保存しました"
+      redirect_to admin_coffee_brews_path, notice: "珈琲の淹れ方名の変更内容を保存しました"
     else
       render :edit
     end

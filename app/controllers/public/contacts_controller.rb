@@ -30,7 +30,7 @@ class Public::ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    redirect_to contacts_path, alert: "お問合せを削除しました"
+    redirect_to contacts_path, notice: "お問合せを削除しました"
   end
 
   def thank
