@@ -31,11 +31,11 @@ URL：https://coffee-record-17.com/
 
 ## 設計書
 
-* ### [ER図](https://user-images.githubusercontent.com/108636180/199973176-82c4d3d4-b161-4f32-994f-44c0f60c838c.png)
+* ### [ER図](https://user-images.githubusercontent.com/108636180/203212459-cfb3ce59-fc4a-454d-b17b-90df9956620d.png)
 
-* ### [テーブル定義書](https://docs.google.com/spreadsheets/d/1HgHYSwYrOHEXSg3zsc3QAhnfIDWnsQ1O2WPpUd8uE3Y/edit?usp=sharing)
+* ### [テーブル定義書](https://github.com/zero-0017/Coffee_Record/files/10063532/DWCCOMMIT_._.pdf)
 
-* ### [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1d5J1AhK0zb-jNA6F9Lsxc0k5jqCvYsQO-6RSciXMhPE/edit?usp=sharing)
+* ### [アプリケーション詳細設計書](https://github.com/zero-0017/Coffee_Record/files/10063270/_._.-.routes.pdf)
 
 
 ## 開発環境
@@ -78,9 +78,9 @@ URL：https://coffee-record-17.com/
 * お問い合わせ機能
 * 通知機能（お気に入り、コメント、フォロー）
 * キーワード検索機能（投稿名）
-* タグ検索機能（珈琲の淹れ方）
-* カテゴリ検索機能（珈琲の種類）
-* ジャンル検索機能（珈琲豆の種類）
+* 珈琲の淹れ方名検索機能
+* 珈琲の種類名検索機能
+* 珈琲豆の種類名検索機能
 
 ### 管理者側
 * 管理者ログイン機能
@@ -88,9 +88,9 @@ URL：https://coffee-record-17.com/
 * 投稿管理機能
 * コメント管理機能
 * お問い合わせ管理機能
-* タグ管理機能（珈琲の淹れ方）
-* カテゴリ管理機能（珈琲の種類）
-* ジャンル管理機能（珈琲豆の種類）
+* 珈琲の淹れ方名管理機能
+* 珈琲の種類名管理機能
+* 珈琲豆の種類名管理機能
 * キーワード検索機能（会員名、投稿名、コメント内容）
 
 ### その他
