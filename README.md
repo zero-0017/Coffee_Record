@@ -33,7 +33,7 @@ URL：https://coffee-record-17.com/
 
 * ### [ER図](https://user-images.githubusercontent.com/108636180/203212459-cfb3ce59-fc4a-454d-b17b-90df9956620d.png)
 
-* ### [テーブル定義書](https://github.com/zero-0017/Coffee_Record/files/10063532/DWCCOMMIT_._.pdf)
+* ### [テーブル定義書](https://github.com/zero-0017/Coffee_Record/files/10063546/DWCCOMMIT_._.pdf)
 
 * ### [アプリケーション詳細設計書](https://github.com/zero-0017/Coffee_Record/files/10063270/_._.-.routes.pdf)
 
