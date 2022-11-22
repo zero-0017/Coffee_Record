@@ -2,8 +2,8 @@
   enums:
     post_coffee:
       status:
-        published: '投稿する'
-        draft: '下書きする'
+        published: "投稿する"
+        draft: "下書きする"
 
   views:
     pagination:

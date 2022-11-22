@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::CoffeeBeansController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_coffee_bean, except: [:index, :create]

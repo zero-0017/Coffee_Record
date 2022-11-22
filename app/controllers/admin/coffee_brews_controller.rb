@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::CoffeeBrewsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_coffee_brew, except: [:index, :create]

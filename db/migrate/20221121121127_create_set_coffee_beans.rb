@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSetCoffeeBeans < ActiveRecord::Migration[6.1]
   def change
     create_table :set_coffee_beans do |t|

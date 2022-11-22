@@ -21,35 +21,35 @@ User.create!(
       name: "珈琲一郎",
       introduction: "珈琲一郎です",
       email: "coffee.2071@com",
-      password: "test5567"},
+      password: "test5567" },
     {
       profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_2.png"),
       filename: "coffee_user_2.jpg"),
       name: "珈琲二郎",
       introduction: "珈琲二郎です",
       email: "coffee.1573@com",
-      password: "test5067"},
+      password: "test5067" },
     {
       profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_3.png"),
       filename: "coffee_user_3.jpg"),
       name: "珈琲三郎",
       introduction: "珈琲三郎です",
       email: "coffee.4147@com",
-      password: "test5167"},
+      password: "test5167" },
     {
       profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_4.png"),
       filename: "coffee_user_4.jpg"),
       name: "珈琲太郎",
       introduction: "珈琲太郎です",
       email: "coffee.7022@com",
-      password: "test1082"},
+      password: "test1082" },
     {
       profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/coffee_user_5.png"),
       filename: "coffee_user_5.jpg"),
       name: "珈琲ヤロウ",
       introduction: "珈琲ヤロウです",
       email: "coffee.5638@com",
-      password: "test8610"}
+      password: "test8610" }
   ]
 )
 

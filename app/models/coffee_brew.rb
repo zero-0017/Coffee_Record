@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CoffeeBrew < ApplicationRecord
   has_many :post_coffees, dependent: :destroy
 
