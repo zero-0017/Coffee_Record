@@ -2,9 +2,9 @@
 
 class Admin::ContactsController < ApplicationController
   before_action :authenticate_admin!
+  before_action :set_contact, except: [:index]
 
   def show
-    @contact = Contact.find(params[:id])
   end
 
   def index
@@ -23,7 +23,6 @@ class Admin::ContactsController < ApplicationController
   end
 
   def update
-    @contact = Contact.find(params[:id])
     if @contact.update(contact_params)
       redirect_to admin_contacts_path, notice: "対応状況の変更内容を保存しました"
     else
@@ -34,5 +33,9 @@ class Admin::ContactsController < ApplicationController
   private
     def contact_params
       params.require(:contact).permit(:status)
+    end
+
+    def set_contact
+      @contact = Contact.find(params[:id])
     end
 end

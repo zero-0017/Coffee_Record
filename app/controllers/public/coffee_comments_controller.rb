@@ -2,10 +2,10 @@
 
 class Public::CoffeeCommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_coffee_comment
   before_action :correct_coffee_comment, only: [:destroy]
 
   def create
-    @post_coffee = PostCoffee.find(params[:post_coffee_id])
     @coffee_comment = current_user.coffee_comments.new(coffee_comment_params)
     @coffee_comment.post_coffee_id = @post_coffee.id
     if @coffee_comment.save
@@ -18,7 +18,6 @@ class Public::CoffeeCommentsController < ApplicationController
   end
 
   def destroy
-    @post_coffee = PostCoffee.find(params[:post_coffee_id])
     CoffeeComment.find(params[:id]).destroy
     flash.now[:notice] = "コメントを削除しました"
     render :destroy
@@ -27,6 +26,10 @@ class Public::CoffeeCommentsController < ApplicationController
   private
     def coffee_comment_params
       params.require(:coffee_comment).permit(:comment)
+    end
+
+    def set_coffee_comment
+      @post_coffee = PostCoffee.find(params[:post_coffee_id])
     end
 
     def correct_coffee_comment
