@@ -17,6 +17,10 @@ RSpec.describe 'PostCoffeeモデルのテスト', type: :model do
         post_coffee.post_name = ''
         is_expected.to eq false
       end
+      it '25文字以下であること: 25文字は○' do
+        post_coffee.post_name = Faker::Lorem.characters(number: 25)
+        is_expected.to eq true
+      end
       it '25文字以下であること: 26文字は×' do
         post_coffee.post_name = Faker::Lorem.characters(number: 26)
         is_expected.to eq false
@@ -27,6 +31,10 @@ RSpec.describe 'PostCoffeeモデルのテスト', type: :model do
       it '空欄でないこと' do
         post_coffee.post_explanation = ''
         is_expected.to eq false
+      end
+      it '200文字以下であること: 200文字は○' do
+        post_coffee.post_explanation = Faker::Lorem.characters(number: 200)
+        is_expected.to eq true
       end
       it '200文字以下であること: 201文字は×' do
         post_coffee.post_explanation = Faker::Lorem.characters(number: 201)
