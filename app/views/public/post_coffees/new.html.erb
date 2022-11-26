@@ -35,7 +35,7 @@
             <%= f.select :status, PostCoffee.statuses.keys.map { |k| [t("enums.post_coffee.status.#{k}"),k]}, {}, {class: "custom-select"} %><br>
 
             <div class="row justify-content-center">
-              <%= f.submit "投稿", class: "btn post-btn mt-2 shadow" %>
+              <%= f.submit "新規投稿", class: "btn post-btn mt-2 shadow" %>
             </div>
         <% end %>
 
