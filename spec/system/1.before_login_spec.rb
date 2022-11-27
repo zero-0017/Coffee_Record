@@ -20,7 +20,7 @@ describe '会員ログイン前のテスト' do
         sign_up_link = find_all('a')[2].native.inner_text
         expect(sign_up_link).to match(/新規登録/)
       end
-      it 'ログインリンクが表示される: 黒色のボタンの表示が「ログイン」である' do
+      it 'ログインリンクが表示される: スミクロ色のボタンの表示が「ログイン」である' do
         log_in_link = find_all('a')[3].native.inner_text
         expect(log_in_link).to match(/ログイン/)
       end
@@ -72,18 +72,6 @@ describe '会員ログイン前のテスト' do
         home_link.gsub!(/\n/, '')
         click_link home_link
         is_expected.to eq '/'
-      end
-      it 'ゲストログイン（閲覧）を押すと、アバウト画面に遷移する' do
-        guest_link = find_all('a')[1].native.inner_text
-        guest_link = guest_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        click_link guest_link, match: :first
-        is_expected.to eq '/about'
-      end
-      it '新規登録を押すと、新規登録画面に遷移する' do
-        signup_link = find_all('a')[2].native.inner_text
-        signup_link = signup_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        click_link signup_link, match: :first
-        is_expected.to eq '/users/sign_up'
       end
     end
   end

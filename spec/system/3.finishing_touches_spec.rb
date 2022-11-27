@@ -14,7 +14,7 @@ describe '仕上げのテスト' do
     it '会員新規登録成功時' do
       visit new_user_registration_path
       fill_in 'user[name]', with: Faker::Lorem.characters(number: 9)
-      fill_in 'user[email]', with: 'a' + user.email # 確実にuser, other_userと違う文字列にするため
+      fill_in 'user[email]', with: 'a' + user.email
       fill_in 'user[password]', with: 'password'
       fill_in 'user[password_confirmation]', with: 'password'
       click_button '新規登録'
@@ -46,20 +46,6 @@ describe '仕上げのテスト' do
       click_button '変更内容保存'
       is_expected.to have_content '会員情報の変更内容を保存しました'
     end
-    # it '投稿データの新規投稿成功時: 投稿一覧画面から行います。' do
-    #   visit new_user_session_path
-    #   fill_in 'user[email]', with: user.email
-    #   fill_in 'user[password]', with: user.password
-    #   click_button 'ログイン'
-    #   visit new_post_coffee_path
-    #   fill_in 'post_coffee[post_name]', with: Faker::Lorem.characters(number: 25)
-    #   fill_in 'post_coffee[post_explanation]', with: Faker::Lorem.characters(number: 20)
-    #   fill_in 'post_coffee[coffee_brew_id]', with: FactoryBot.create(:coffee_brew).id
-    #   fill_in 'coffee[coffee_name]', with: FactoryBot.create(:coffee).id
-    #   fill_in 'coffee_bean_ids[coffee_bean_name]', with: FactoryBot.create(:coffee_bean).id
-    #   click_button '新規投稿'
-    #   is_expected.to have_content '投稿しました'
-    # end
     it '投稿データの更新成功時' do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
@@ -76,7 +62,7 @@ describe '仕上げのテスト' do
       before do
         visit new_user_registration_path
         @name = Faker::Lorem.characters(number: 0)
-        @email = 'a' + user.email # 確実にuser, other_userと違う文字列にするため
+        @email = 'a' + user.email
         fill_in 'user[name]', with: @name
         fill_in 'user[email]', with: @email
         fill_in 'user[password]', with: 'password'
@@ -98,7 +84,7 @@ describe '仕上げのテスト' do
       end
     end
 
-    context 'ユーザのプロフィール情報編集失敗: nameを0文字にする' do
+    context 'ユーザのプロフィール情報編集失敗: 会員名を0文字にする' do
       before do
         @user_old_name = user.name
         @name = Faker::Lorem.characters(number: 0)
@@ -172,9 +158,13 @@ describe '仕上げのテスト' do
     end
   end
 
-  describe 'ログインしていない場合のアクセス制限のテスト: アクセスできず、ログイン画面に遷移する' do
+  describe 'ログインしていない場合のアクセス制限のテスト: アクセスできず、会員ログイン画面に遷移する' do
     subject { current_path }
 
+    it 'アバウト画面' do
+      visit about_path
+      is_expected.to eq '/users/sign_in'
+    end
     it '会員一覧画面' do
       visit users_path
       is_expected.to eq '/users/sign_in'
@@ -195,8 +185,12 @@ describe '仕上げのテスト' do
       visit withdrawal_users_path
       is_expected.to eq '/users/sign_in'
     end
+    it 'お気に入り投稿一覧画面' do
+      visit favorites_user_path(user)
+      is_expected.to eq '/users/sign_in'
+    end
     it '会員の投稿一覧画面' do
-      visit post_coffees_path
+      visit post_list_user_path(user)
       is_expected.to eq '/users/sign_in'
     end
     it '下書き投稿一覧画面' do
@@ -204,11 +198,11 @@ describe '仕上げのテスト' do
       is_expected.to eq '/users/sign_in'
     end
     it 'フォロー一覧画面' do
-      visit followings_user_path(followings_user)
+      visit followings_user_path(user)
       is_expected.to eq '/users/sign_in'
     end
     it 'フォロワー一覧画面' do
-      visit followers_user_path(followers_user)
+      visit followers_user_path(user)
       is_expected.to eq '/users/sign_in'
     end
     it '投稿一覧画面' do
@@ -227,6 +221,10 @@ describe '仕上げのテスト' do
       visit edit_post_coffee_path(post_coffee)
       is_expected.to eq '/users/sign_in'
     end
+    it '通知一覧画面' do
+      visit notifications_path
+      is_expected.to eq '/users/sign_in'
+    end
     it 'お問い合わせ一覧画面' do
       visit contacts_path
       is_expected.to eq '/users/sign_in'
@@ -236,12 +234,105 @@ describe '仕上げのテスト' do
       is_expected.to eq '/users/sign_in'
     end
     it 'お問い合わせ詳細画面' do
-      visit contact_path(contact)
+      visit contact_path(user)
       is_expected.to eq '/users/sign_in'
     end
     it 'お問い合わせ完了画面' do
       visit thank_contacts_path
       is_expected.to eq '/users/sign_in'
+    end
+    it '投稿名検索詳細画面' do
+      visit search_path
+      is_expected.to eq '/users/sign_in'
+    end
+    it '珈琲の淹れ方名詳細画面' do
+      visit coffee_brew_path(post_coffee)
+      is_expected.to eq '/users/sign_in'
+    end
+    it '珈琲の種類名詳細画面' do
+      visit coffee_path(post_coffee)
+      is_expected.to eq '/users/sign_in'
+    end
+    it '珈琲豆の種類名詳細画面' do
+      visit coffee_bean_path(post_coffee)
+      is_expected.to eq '/users/sign_in'
+    end
+  end
+
+  describe '他人の画面のテスト' do
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
+    end
+
+    describe '他人の投稿詳細画面のテスト' do
+      before do
+        visit post_coffee_path(other_post_coffee)
+      end
+
+      context '表示内容の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/post_coffees/' + other_post_coffee.id.to_s
+        end
+        it '「投稿詳細」と表示される' do
+          expect(page).to have_content '投稿詳細'
+        end
+        it '会員画像・名前のリンク先が正しい' do
+          expect(page).to have_link other_post_coffee.user.name, href: user_path(other_post_coffee.user)
+        end
+        it '投稿の投稿名が表示される' do
+          expect(page).to have_content other_post_coffee.post_name
+        end
+        it '投稿の珈琲の淹れ方が表示される' do
+          expect(page).to have_content other_post_coffee.coffee_brew.coffee_brew_name
+        end
+        it '投稿の珈琲の種類が表示される' do
+          expect(page).to have_content other_post_coffee.coffee.coffee_name
+        end
+        it '投稿の投稿説明が表示される' do
+          expect(page).to have_content other_post_coffee.post_explanation
+        end
+        it '投稿の編集リンクが表示されない' do
+          expect(page).not_to have_link '編集'
+        end
+        it '投稿の削除リンクが表示されない' do
+          expect(page).not_to have_link '削除'
+        end
+      end
+    end
+
+    context '他人の投稿編集画面' do
+      it '遷移できず、投稿一覧画面にリダイレクトされる' do
+        visit edit_post_coffee_path(other_post_coffee)
+        expect(current_path).to eq '/post_coffees'
+      end
+    end
+
+    describe '他人の投稿一覧画面のテスト' do
+      before do
+        visit post_list_user_path(other_user)
+      end
+
+      context '表示の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/users/' + other_user.id.to_s + '/post_list'
+        end
+        it '投稿一覧の投稿画像のリンク先が正しい' do
+          expect(page).to have_link '', href: post_coffee_path(other_post_coffee)
+        end
+        it '自分の投稿は表示されない' do
+          expect(page).not_to have_content post_coffee.post_name
+        end
+      end
+    end
+
+    context '他人の会員情報編集画面' do
+      it '遷移できず、自分のマイページ画面にリダイレクトされる' do
+        visit edit_user_path(other_user)
+        expect(current_path).to eq '/users/' + user.id.to_s
+      end
     end
   end
 end

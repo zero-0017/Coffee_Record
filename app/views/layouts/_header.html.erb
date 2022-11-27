@@ -1,109 +1,110 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark back-logo">
-  	<!--会員側にログイン状態の場合-->
-	  <% if user_signed_in? %>
-	    <a class="navbar-brand ml-5" href="/about"><%= image_tag 'Logo.png', :size => '100x50' %></a>
+    <!--会員側にログイン状態の場合-->
+    <% if user_signed_in? %>
+      <a class="navbar-brand ml-5" href="/about"><%= image_tag 'Logo.png', :size => '100x50' %></a>
 
-	  <!--管理者側にログイン状態の場合-->
-	  <% elsif admin_signed_in? %>
-	    <a class="navbar-brand ml-5" href="/admin"><%= image_tag 'Logo.png', :size => '100x50' %></a>
+    <!--管理者側にログイン状態の場合-->
+    <% elsif admin_signed_in? %>
+      <a class="navbar-brand ml-5" href="/admin"><%= image_tag 'Logo.png', :size => '100x50' %></a>
 
-	  <!--未ログイン状態の場合-->
-	  <% else %>
+    <!--未ログイン状態の場合-->
+    <% else %>
       <a class="navbar-brand ml-5" href="/"><%= image_tag 'Logo.png', :size => '100x50' %></a>
     <% end %>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
           	<!--会員側にログイン状態の場合-->
             <% if user_signed_in? %>
               <li class="nav-item mr-5">
-	              <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
-	                <i class="fa fa-user-circle fa-lg mr-2"></i>マイページ
-	              <% end %>
+                <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
+                  <i class="fa fa-user-circle fa-lg mr-2"></i>マイページ
+                <% end %>
               </li>
 
               <li class="nav-item mr-5">
-	              <%= link_to users_path, class: 'nav-link text-light' do %>
-	                <i class="fa fa-address-book fa-lg mr-2"></i>会員一覧
-	              <% end %>
+                <%= link_to users_path, class: 'nav-link text-light' do %>
+                  <i class="fa fa-address-book fa-lg mr-2"></i>会員一覧
+                <% end %>
               </li>
 
               <li class="nav-item mr-5">
-	              <%= link_to new_post_coffee_path, class: 'nav-link text-light' do %>
-	                <i class="fa fa-plus-square fa-lg mr-2"></i>新規投稿
-	              <% end %>
+                <%= link_to new_post_coffee_path, class: 'nav-link text-light' do %>
+                  <i class="fa fa-plus-square fa-lg mr-2"></i>新規投稿
+                <% end %>
               </li>
 
               <li class="nav-item mr-5">
-	              <%= link_to post_coffees_path, class: 'nav-link text-light' do %>
-	                <i class="fa fa-list fa-lg mr-2"></i>投稿一覧
-	              <% end %>
+                <%= link_to post_coffees_path, class: 'nav-link text-light' do %>
+                  <i class="fa fa-list fa-lg mr-2"></i>投稿一覧
+                <% end %>
               </li>
 
-	            <li class="nav-item mr-3">
+              <li class="nav-item mr-3">
                 <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
                   <i class="fa fa-sign-out-alt fa-lg mr-2"></i>ログアウト
                 <% end %>
-	            </li>
-
-            <!--管理者側にログイン状態の場合-->
-	          <% elsif admin_signed_in? %>
-              <li class="nav-item mr-5">
-	              <%= link_to admin_contacts_path, class: 'nav-link text-light' do %>
-	                <i class="fa fa-envelope-square fa-lg mr-2"></i>お問い合せ一覧
-	              <% end %>
               </li>
 
-	            <li class="nav-item mr-5">
-     	          <%= link_to admin_users_path, class: 'nav-link text-light' do %>
-     	            <i class="fa fa-address-book fa-lg mr-2"></i>会員一覧
-     	          <% end %>
-	            </li>
+            <!--管理者側にログイン状態の場合-->
+            <% elsif admin_signed_in? %>
+              <li class="nav-item mr-5">
+                <%= link_to admin_contacts_path, class: 'nav-link text-light' do %>
+                  <i class="fa fa-envelope-square fa-lg mr-2"></i>お問い合せ一覧
+                <% end %>
+              </li>
 
               <li class="nav-item mr-5">
-	              <%= link_to admin_post_coffees_path, class: 'nav-link text-light' do %>
-	                <i class="fas fa-coffee unlike-btn fa-lg mr-2"></i>投稿一覧
-	              <% end %>
-        	    </li>
+                <%= link_to admin_users_path, class: 'nav-link text-light' do %>
+                  <i class="fa fa-address-book fa-lg mr-2"></i>会員一覧
+                <% end %>
+              </li>
 
-	            <li class="nav-item mr-5">
-	              <%= link_to admin_coffee_comments_path, class: 'nav-link text-light' do %>
-	                <i class="fa fa-comment fa-lg mr-2"></i>コメント一覧
-	              <% end %>
-        	    </li>
+              <li class="nav-item mr-5">
+                <%= link_to admin_post_coffees_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-coffee unlike-btn fa-lg mr-2"></i>投稿一覧
+                <% end %>
+              </li>
 
-	            <li class="nav-item mr-3">
+              <li class="nav-item mr-5">
+                <%= link_to admin_coffee_comments_path, class: 'nav-link text-light' do %>
+                  <i class="fa fa-comment fa-lg mr-2"></i>コメント一覧
+                <% end %>
+              </li>
+
+              <li class="nav-item mr-3">
                 <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
                   <i class="fa fa-sign-out-alt fa-lg mr-2"></i>ログアウト
                 <% end %>
-	            </li>
+              </li>
 
-             <!--未ログイン状態の場合-->
-	           <% else %>
-	             <li class="nav-item mr-5">
-	               <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link text-light' do %>
-	                 <i class="fa fa-user-secret fa-lg mr-2"></i>ゲストログイン（閲覧用）
-	               <% end %>
-        	     </li>
+            <!--未ログイン状態の場合-->
+            <% else %>
+              <li class="nav-item mr-5">
+                <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link text-light' do %>
+                  <i class="fa fa-user-secret fa-lg mr-2"></i>ゲストログイン（閲覧用）
+                <% end %>
+              </li>
 
-	             <li class="nav-item mr-5">
-	               <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
-	                 <i class="fas fa-user-plus fa-lg mr-2"></i>新規登録
-	               <% end %>
-        	     </li>
+              <li class="nav-item mr-5">
+                <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-user-plus fa-lg mr-2"></i>新規登録
+                <% end %>
+              </li>
 
-	             <li class="nav-item mr-3">
-	               <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
-	                 <i class="fas fa-sign-in-alt fa-lg mr-2"></i>ログイン
-	               <% end %>
-	             </li>
-	           <% end %>
-	         </ul>
-	       </div>
+              <li class="nav-item mr-3">
+                <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-sign-in-alt fa-lg mr-2"></i>ログイン
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
 
   </nav>
 </header>
