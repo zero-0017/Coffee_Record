@@ -7,8 +7,9 @@ describe '仕上げのテスト' do
   let!(:other_user) { create(:user) }
   let!(:post_coffee) { create(:post_coffee, user: user) }
   let!(:other_post_coffee) { create(:post_coffee, user: other_user) }
+  let!(:contact) { create(:contact, user: user) }
 
-  describe 'サクセスメッセージのテスト' do
+  describe 'フラッシュメッセージのテスト' do
     subject { page }
 
     it '会員新規登録成功時' do
@@ -55,6 +56,16 @@ describe '仕上げのテスト' do
       click_button '変更内容保存'
       is_expected.to have_content '投稿の変更内容を保存しました'
     end
+    it 'お問い合わせデータの新規お問い合わせ成功時' do
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
+      visit new_contact_path(contact)
+      fill_in 'contact[content]', with: Faker::Lorem.characters(number: 5)
+      click_button '送信'
+      is_expected.to have_content 'お問い合わせが完了しました'
+    end
   end
 
   describe '処理失敗時のテスト' do
@@ -84,7 +95,7 @@ describe '仕上げのテスト' do
       end
     end
 
-    context 'ユーザのプロフィール情報編集失敗: 会員名を0文字にする' do
+    context '会員のプロフィール情報編集失敗: 会員名を0文字にする' do
       before do
         @user_old_name = user.name
         @name = Faker::Lorem.characters(number: 0)
@@ -328,10 +339,53 @@ describe '仕上げのテスト' do
       end
     end
 
+    describe '他人のお気に入り投稿一覧画面のテスト' do
+      before do
+        visit favorites_user_path(other_user)
+      end
+
+      context '表示の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/users/' + other_user.id.to_s + '/favorites'
+        end
+      end
+    end
+
+    describe '他人のフォロー一覧画面のテスト' do
+      before do
+        visit followings_user_path(other_user)
+      end
+
+      context '表示の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/users/' + other_user.id.to_s + '/followings'
+        end
+      end
+    end
+
+    describe '他人のフォロワー一覧画面のテスト' do
+      before do
+        visit followers_user_path(other_user)
+      end
+
+      context '表示の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/users/' + other_user.id.to_s + '/followers'
+        end
+      end
+    end
+
     context '他人の会員情報編集画面' do
       it '遷移できず、自分のマイページ画面にリダイレクトされる' do
         visit edit_user_path(other_user)
         expect(current_path).to eq '/users/' + user.id.to_s
+      end
+    end
+
+    context '他人の投稿編集画面' do
+      it '遷移できず、投稿一覧画面にリダイレクトされる' do
+        visit edit_post_coffee_path(other_post_coffee)
+        expect(current_path).to eq '/post_coffees'
       end
     end
   end

@@ -21,7 +21,7 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.user_id = current_user.id
     if @contact.save
-      redirect_to thank_contacts_path, notice: "お問合せが完了しました"
+      redirect_to thank_contacts_path, notice: "お問い合わせが完了しました"
     else
       render :new
     end
@@ -30,7 +30,7 @@ class Public::ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    redirect_to contacts_path, notice: "お問合せを削除しました"
+    redirect_to contacts_path, notice: "お問い合わせを削除しました"
   end
 
   def thank
