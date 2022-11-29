@@ -98,7 +98,12 @@
       </div>
 
       <!--コメント一覧-->
-      <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-5 back-text shadow"><strong>コメント一覧</strong></h4>
+      <h4 class="col-md-4 col-lg-4 col-xl-3 py-1 mt-5 back-text shadow">
+        <strong>
+          コメント一覧
+        </strong>
+      </h4>
+
         <table class="table shadow mb-5 mx-auto back-background col-xl-12 col-lg-13 col-md-12 comment-table">
           <% if @post_coffee.coffee_comments.present? %>
             <% @post_coffee.coffee_comments.each do |coffee_comment| %>
@@ -106,10 +111,9 @@
                 <tr>
                   <td style="width: 40%;">
                     <%= image_tag coffee_comment.user.get_profile_image(300,300), class: "rounded-circle", :size => '100' %><br>
-                    [ 会員名 ]<br>
-
+                    [ 会員名 ]
                     <%= link_to user_path(coffee_comment.user.id) do %>
-              　       <!--パソコン、タブレットの表示-->
+                      <!--パソコン、タブレットの表示-->
                       <div class="d-none d-sm-block">
                         <%= coffee_comment.user.name %>
                       </div>
