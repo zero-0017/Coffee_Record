@@ -5,7 +5,7 @@ class Public::SearchesController < ApplicationController
 
   def search
     @keyword = params[:keyword]
-    @post_coffees = PostCoffee.where("coffee_name LIKE ?", "%#{@keyword}%").published.page(params[:page])
+    @post_coffees = PostCoffee.where("post_name LIKE ?", "%#{@keyword}%").published.page(params[:page])
     @coffee_brews = CoffeeBrew.all
     @coffees = Coffee.all
     @coffee_beans = CoffeeBean.all
