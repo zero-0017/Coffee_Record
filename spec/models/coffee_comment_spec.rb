@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "CoffeeCommentモデルのテスト", type: :model do
   describe "バリデーションのテスト" do
-    subject {coffee_comment.valid? }
+    subject { coffee_comment.valid? }
 
     let(:user) { create(:user) }
     let(:post_coffee) { create(:post_coffee, user_id: user.id) }
     let(:coffee_comment) { build(:coffee_comment, post_coffee_id: post_coffee.id, user_id: user.id) }
 
     context "commentカラム" do
-      it '空白でないこと' do
+      it "空白でないこと" do
         coffee_comment.comment = ""
         is_expected.to eq false
       end

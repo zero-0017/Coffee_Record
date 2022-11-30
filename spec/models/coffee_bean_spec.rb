@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "CoffeeBeanモデルのテスト", type: :model do
   describe "バリデーションのテスト" do
-    subject {coffee_bean.valid? }
+    subject { coffee_bean.valid? }
 
-    let(:user) {create(:user) }
-    let(:post_coffee) {create(:post_coffee) }
+    let(:user) { create(:user) }
+    let(:post_coffee) { create(:post_coffee) }
     let!(:coffee_bean) { build(:coffee_bean) }
 
     context "coffee_bean_nameカラム" do

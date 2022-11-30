@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :post_coffee, class: PostCoffee do
     post_name { Faker::Lorem.characters(number: 25) }

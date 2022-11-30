@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Contactモデルのテスト", type: :model do
   describe "バリデーションのテスト" do
-    subject {contact.valid? }
+    subject { contact.valid? }
 
-    let(:user) {create(:user) }
+    let(:user) { create(:user) }
     let!(:contact) { build(:contact, user_id: user.id) }
 
     context "contentカラム" do
