@@ -24,18 +24,6 @@ describe "会員ログイン前のテスト" do
         log_in_link = find_all("a")[3].native.inner_text
         expect(log_in_link).to match(/ログイン/)
       end
-      it "ゲストログインリンクの内容が正しい" do
-        guest_link = find_all("a")[0].native.inner_text
-        expect(page).to have_link guest_link, href: users_guest_sign_in_path
-      end
-      it "新規登録リンクの内容が正しい" do
-        sign_up_link = find_all("a")[0].native.inner_text
-        expect(page).to have_link sign_up_link, href: new_user_registration_path
-      end
-      it "ログインリンクの内容が正しい" do
-        log_in_link = find_all("a")[0].native.inner_text
-        expect(page).to have_link log_in_link, href: new_user_session_path
-      end
     end
   end
 

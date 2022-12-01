@@ -17,7 +17,7 @@ describe "会員ログイン後のテスト" do
   end
 
   describe "ヘッダーのテスト: ログインしている場合" do
-    context "リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。" do
+    context "リンクの内容を確認" do
       subject { current_path }
 
       it "マイページを押すと、自分の会員詳細画面に遷移する" do
@@ -88,6 +88,9 @@ describe "会員ログイン後のテスト" do
       end
       it "投稿説明フォームに値が入っていない" do
         expect(find_field("post_coffee[post_explanation]").text).to be_blank
+      end
+      it "投稿の表示状態が表示される" do
+        expect(page).to have_field "post_coffee[status]"
       end
       it "新規投稿ボタンが表示される" do
         expect(page).to have_button "新規投稿"
@@ -225,6 +228,9 @@ describe "会員ログイン後のテスト" do
       it "投稿説明編集フォームが表示される" do
         expect(page).to have_field "post_coffee[post_explanation]", with: post_coffee.post_explanation
       end
+      it "投稿の表示状態が表示される" do
+        expect(page).to have_field "post_coffee[status]", with: post_coffee.status
+      end
       it "変更内容保存ボタンが表示される" do
         expect(page).to have_button "変更内容保存"
       end
@@ -252,7 +258,7 @@ describe "会員ログイン後のテスト" do
     end
   end
 
-  describe "会員覧画面のテスト" do
+  describe "会員一覧画面のテスト" do
     before do
       visit users_path
     end
@@ -264,7 +270,7 @@ describe "会員ログイン後のテスト" do
       it "自分と他人の画像が表示される" do
         expect(all("img").size).to eq(2)
       end
-      it "他人の名前がそれぞれ表示される" do
+      it "他人の名前が表示される" do
         expect(page).to have_content other_user.name
       end
       it "他人の自己紹介文がそれぞれ表示される" do
