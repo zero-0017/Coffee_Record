@@ -15,31 +15,28 @@ a:hover {
 
 
 //各コンテンツ別でのスクロールの設定
+
+//画面全体の設定
 .sidebar {
   display: flex;
   height: 86vh;
+  overflow: hidden;//はみ出た部分が隠れる
 }
 
 
-//画面全体の設定
+//サイドバーの画面設定
 .sidebar-main {
-  overflow: auto;
+  overflow: auto;//スクロールできる状態にする
   flex: 1;
   background: #556b2f;
 }
 
 
-//サイドバーの画面設定
-.sidebar {
-  overflow: hidden;
-}
-
-
 // メインの画面設定
 .main {
-  margin: 0px;
-  overflow: auto;
+  overflow: auto;//スクロールできる状態にする
   flex: 2;
+  margin: 0px;
 }
 
 

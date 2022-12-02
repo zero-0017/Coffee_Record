@@ -90,7 +90,7 @@
         <!--検索機能を会員ログイン時、表示するため-->
         <% unless %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
           <div class="sidebar">
-            <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-none d-md-block pb-5" >
+            <div class="col-md-4 col-lg-3 col-xl-2 sidebar-main d-none d-md-block pb-5" >
               <%= render "public/post_coffees/sidebar_coffee_brew", coffee_brews: @coffee_brews %>
               <%= render "public/post_coffees/sidebar_coffee", coffees: @coffees %>
               <%= render "public/post_coffees/sidebar_coffee_bean", coffee_beans: @coffee_beans %>
@@ -107,7 +107,7 @@
 
               <!--検索機能を会員ログイン時、表示するため-->
               <% unless %w[root new_admin_session].any? {|name| current_page?(send("#{name}_path"))} %>
-                <div class="col-xl-2 col-lg-3 col-md-4 sidebar-main d-block d-md-none pb-5" >
+                <div class="col-md-4 col-lg-3 col-xl-2 sidebar-main d-block d-md-none pb-5" >
                   <%= render "public/post_coffees/sidebar_coffee_brew", coffee_brews: @coffee_brews %>
                   <%= render "public/post_coffees/sidebar_coffee", coffees: @coffees %>
                   <%= render "public/post_coffees/sidebar_coffee_bean", coffee_beans: @coffee_beans %>
