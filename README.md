@@ -101,6 +101,6 @@ URL：https://coffee-record-17.com/
 
 * [ロゴ画像](https://www.canva.com/ja_jp/create/logos/)
 
-* [投稿画像,会員画像](https://www.shopify.com/jp/tools/logo-maker)
+* [初期の投稿画像＆会員画像](https://www.shopify.com/jp/tools/logo-maker)
 
 * [アバウト画像](https://pixabay.com/ja/)
