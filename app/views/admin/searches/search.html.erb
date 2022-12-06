@@ -133,18 +133,12 @@
 
   <!--会員検索一覧ページネーション-->
   <% if @range == "User" %>
-    <div class="mx-auto mt-3 pb-5">
-      <%= paginate @users %>
-    </div>
+    <%= render 'layouts/user_paginate' %>
   <!--投稿検索一覧ページネーション-->
   <% elsif @range == "PostCoffee" %>
-    <div class="mx-auto mt-3 pb-5">
-      <%= paginate @post_coffees %>
-    </div>
+    <%= render 'layouts/post_paginate' %>
   <!--コメント検索一覧ページネーション-->
   <% else %>
-    <div class="mx-auto mt-2 pb-5">
-      <%= paginate @coffee_comments %>
-    </div>
+    <%= render 'layouts/comment_paginate' %>
   <% end %>
 </div>
