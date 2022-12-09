@@ -31,10 +31,12 @@
   background-color: rgba(0,0,0,0);
 }
 
+
 /*ページネーション全体*/
 .pagination {
   justify-content: center;
 }
+
 
 /*ページネーションの設定*/
 .pagination>.active>a,
@@ -49,12 +51,12 @@
 }
 
 
-
 /*全体の背景色を設定*/
 body {
   background-color: #ddd;
   position: relative;/*相対位置の基準：本来その要素が表示される位置を基準にする*/
 }
+
 
 /*フッターの位置固定*/
 footer {
@@ -69,6 +71,7 @@ footer {
   bottom: 0;
 }
 
+
 /*見出しの設定*/
 .back-text {
   background-color: #000;
@@ -78,10 +81,12 @@ footer {
   border: 5px outset #555;
 }
 
+
 /*部分的な背景の設定*/
 .back-background {
   background-color: #fff;
 }
+
 
 /*管理者側の部分的な背景の設定*/
 .back-admin {
@@ -89,25 +94,30 @@ footer {
   color: #fff;
 }
 
+
 /*検索の背景の設定*/
 .search-back {
   background-color: #333;
 }
+
 
 /*ヘッダーの背景色*/
 .back-logo {
   background-color: #000;
 }
 
+
 /*投稿詳細の編集・削除ボタンの背景色の設定*/
 .back-show {
   background-color: #444;
 }
 
+
 /*投稿詳細の背景色の設定*/
 .back-show-list {
   background-color:#C0C0C0;
 }
+
 
 /*会員ログイン・新規登録画面の設定*/
 .main-log{
@@ -125,10 +135,6 @@ footer {
 }
 
 
-/*エラーメッセージ時に文字がフッターと重なるため*/
-.main {
-  height: auto;
-}
 
 /*新規登録・ログイン画面の設定*/
 .text-user-top {
@@ -136,9 +142,11 @@ footer {
   color: #fff;
 }
 
+
 .text-user-top:hover {
   color: #000;
 }
+
 
 /*管理者側の画面の設定*/
 .admin-main {
@@ -163,6 +171,7 @@ footer {
 .form-all {
   border: 8px ridge #eee;
 }
+
 
 /*枠の設定*/
 .border-all {
@@ -199,10 +208,12 @@ footer {
   border-radius: 30px;
 }
 
+
 /*通知の文字の設定(タブレット)*/
 .notification-md {
   font-size: 16px;
 }
+
 
 /*通知の文字の設定(スマホ)*/
 .notification-sm {
