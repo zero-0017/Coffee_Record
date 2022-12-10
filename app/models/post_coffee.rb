@@ -33,10 +33,9 @@ class PostCoffee < ApplicationRecord
   # 下書き機能
   enum status: { published: 0, draft: 1 }
 
-
-  # 新しい順・古い順
-  scope :latest, -> { order(created_at: :desc) } # 　投稿新しい
-  scope :old, -> { order(created_at: :asc) } # 　投稿古い
+  # 新着順・投稿順
+  scope :latest, -> { order(created_at: :desc) } # 投稿新しい
+  scope :old, -> { order(created_at: :asc) } # 投稿古い
 
   # コメント通知
   def create_notification_coffee_comment(current_user)

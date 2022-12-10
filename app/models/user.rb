@@ -37,7 +37,6 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
-
   # ゲストログインのアカウント
   def self.guest
     find_or_create_by!(name: "ゲストユーザー", email: "guestuse07r@example.com") do |user|
@@ -45,7 +44,6 @@ class User < ApplicationRecord
       user.name = "ゲストユーザー"
     end
   end
-
 
   # フォローした時
   def follow(user_id)
@@ -59,7 +57,6 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-
 
   # フォローの通知機能
   def create_notification_follow(current_user)
