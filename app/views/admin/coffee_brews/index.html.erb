@@ -24,7 +24,7 @@
             <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 mx-sm-auto text-center shadow pt-3 back-admin">
               <%= form_with model: @coffee_brew, url: admin_coffee_brews_path do |f| %>
 
-                珈琲の淹れ方名<br>
+                <p>珈琲の淹れ方名</p>
                 <%= f.text_field :coffee_brew_name, class: "admin-form-all", placeholder: "(例)サイフォン" %><br>
                 <%= f.submit "新規登録", class: "btn post-btn shadow" %>
               <% end %>
