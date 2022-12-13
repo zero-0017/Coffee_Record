@@ -4,6 +4,9 @@ require "rails_helper"
 
 describe "仕上げのテスト" do
   let(:user) { create(:user) }
+  let(:coffee_brew) { create(:coffee_brew) }
+  let(:coffee) { create(:coffee) }
+  let(:coffee_bean) { create(:coffee_bean) }
   let!(:other_user) { create(:user) }
   let!(:post_coffee) { create(:post_coffee, user: user) }
   let!(:other_post_coffee) { create(:post_coffee, user: other_user) }
@@ -196,7 +199,7 @@ describe "仕上げのテスト" do
     end
   end
 
-  describe "ログインしていない場合のアクセス制限のテスト: アクセスできず、会員ログイン画面に遷移する" do
+  describe "ログインしていない場合のアクセス制限のテスト: アクセスできず、会員ログイン画面に遷移する（会員側）" do
     subject { current_path }
 
     it "アバウト画面" do
@@ -290,6 +293,71 @@ describe "仕上げのテスト" do
     it "珈琲豆の種類名詳細画面" do
       visit coffee_bean_path(post_coffee)
       is_expected.to eq "/users/sign_in"
+    end
+  end
+
+  describe "ログインしていない場合のアクセス制限のテスト: アクセスできず、管理者ログイン画面に遷移する（管理者側）" do
+    subject { current_path }
+
+    it "トップ画面" do
+      visit admin_path
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "珈琲の淹れ方一覧画面" do
+      visit admin_coffee_brews_path
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "珈琲の淹れ方編集画面" do
+      visit edit_admin_coffee_brew_path(coffee_brew)
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "珈琲の種類一覧画面" do
+      visit admin_coffees_path
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "珈琲の種類編集画面" do
+      visit edit_admin_coffee_path(coffee)
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "珈琲豆の種類一覧画面" do
+      visit admin_coffee_beans_path
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "珈琲豆の種類編集画面" do
+      visit edit_admin_coffee_bean_path(coffee_bean)
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "会員一覧画面" do
+      visit admin_users_path
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "会員詳細画面" do
+      visit admin_user_path(user)
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "投稿一覧画面" do
+      visit admin_post_coffees_path
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "投稿詳細画面" do
+      visit admin_post_coffee_path(post_coffee)
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "お問い合わせ一覧画面" do
+      visit admin_contacts_path
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "お問い合わせ詳細画面" do
+      visit admin_contact_path(user)
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "コメント一覧画面" do
+      visit admin_coffee_comments_path
+      is_expected.to eq "/admin/sign_in"
+    end
+    it "検索詳細画面" do
+      visit admin_search_path
+      is_expected.to eq "/admin/sign_in"
     end
   end
 
