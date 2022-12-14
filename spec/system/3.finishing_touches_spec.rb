@@ -299,7 +299,7 @@ describe "仕上げのテスト" do
   describe "ログインしていない場合のアクセス制限のテスト: アクセスできず、管理者ログイン画面に遷移する（管理者側）" do
     subject { current_path }
 
-    it "トップ画面" do
+    it "管理者トップ画面" do
       visit admin_path
       is_expected.to eq "/admin/sign_in"
     end
