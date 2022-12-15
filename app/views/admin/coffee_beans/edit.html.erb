@@ -15,8 +15,8 @@
 
               <p>珈琲豆の種類名</p>
               <%= f.text_field :coffee_bean_name, class: "mx-2 admin-form-all", placeholder: "(例)珈琲豆" %><br>
-              <%= f.submit "変更を保存", class: "btn update-btn mx-2 mt-2 shadow" %>
-              <%= link_to "削除する", admin_coffee_bean_path(@coffee_bean.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn mt-2 shadow" %>
+              <%= f.submit "変更内容保存", class: "btn update-btn mx-2 mt-2 shadow" %>
+              <%= link_to "削除", admin_coffee_bean_path(@coffee_bean.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn destroy-btn mt-2 shadow" %>
             <% end %>
           </div>
         </div>

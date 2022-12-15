@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "仕上げのテスト" do
+describe "仕上げのテスト（会員側）" do
   let(:user) { create(:user) }
   let(:coffee_brew) { create(:coffee_brew) }
   let(:coffee) { create(:coffee) }
