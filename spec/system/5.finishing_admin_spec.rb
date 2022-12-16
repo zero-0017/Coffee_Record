@@ -156,4 +156,153 @@ describe "仕上げのテスト（管理者側）" do
       is_expected.to have_content "コメントを削除しました"
     end
   end
+
+  describe "処理失敗時のテスト" do
+    context "珈琲の淹れ方データの新規登録失敗: 珈琲の淹れ方名を空にする" do
+      before do
+        visit new_admin_session_path
+        fill_in "admin[email]", with: admin.email
+        fill_in "admin[password]", with: admin.password
+        click_button "ログイン"
+        visit admin_coffee_brews_path(coffee_brew)
+        @coffee_brew = Faker::Lorem.characters(number: 0)
+        fill_in "coffee_brew[coffee_brew_name]", with: @coffee_brew
+      end
+
+      it "珈琲の淹れ方名が保存されない" do
+        expect { click_button "新規登録" }.not_to change(CoffeeBrew.all, :count)
+      end
+      it "珈琲の淹れ方名フォームの内容が正しい" do
+        expect(find_field("coffee_brew[coffee_brew_name]").text).to be_blank
+        expect(page).to have_field "coffee_brew[coffee_brew_name]", with: @coffee_brew
+      end
+      it "バリデーションエラーが表示される" do
+        click_button "新規登録"
+        expect(page).to have_content "珈琲の淹れ方を入力してください"
+      end
+    end
+
+    context "珈琲の淹れ方名の更新失敗: 珈琲の淹れ方名を空にする" do
+      before do
+        visit new_admin_session_path
+        fill_in "admin[email]", with: admin.email
+        fill_in "admin[password]", with: admin.password
+        click_button "ログイン"
+        visit edit_admin_coffee_brew_path(coffee_brew)
+        @coffee_brew_old_coffee_brew_name = coffee_brew.coffee_brew_name
+        fill_in "coffee_brew[coffee_brew_name]", with: ""
+        click_button "変更内容保存"
+      end
+
+      it "珈琲の淹れ方名が更新されない" do
+        expect(coffee_brew.reload.coffee_brew_name).to eq @coffee_brew_old_coffee_brew_name
+      end
+      it "珈琲の淹れ方名編集画面を表示しており、フォームの内容が正しい" do
+        expect(current_path).to eq "/admin/coffee_brews/" + coffee_brew.id.to_s
+        expect(find_field("coffee_brew[coffee_brew_name]").text).to be_blank
+        expect(page).to have_field "coffee_brew[coffee_brew_name]", with: ""
+      end
+      it "エラーメッセージが表示される" do
+        expect(page).to have_content "珈琲の淹れ方を入力してください"
+      end
+    end
+
+    context "珈琲の種類データの新規登録失敗: 珈琲の種類名を空にする" do
+      before do
+        visit new_admin_session_path
+        fill_in "admin[email]", with: admin.email
+        fill_in "admin[password]", with: admin.password
+        click_button "ログイン"
+        visit admin_coffees_path(coffee)
+        @coffee = Faker::Lorem.characters(number: 0)
+        fill_in "coffee[coffee_name]", with: @coffee
+      end
+
+      it "珈琲の種類名が保存されない" do
+        expect { click_button "新規登録" }.not_to change(Coffee.all, :count)
+      end
+      it "珈琲の種類名フォームの内容が正しい" do
+        expect(find_field("coffee[coffee_name]").text).to be_blank
+        expect(page).to have_field "coffee[coffee_name]", with: @coffee
+      end
+      it "バリデーションエラーが表示される" do
+        click_button "新規登録"
+        expect(page).to have_content "珈琲の種類を入力してください"
+      end
+    end
+
+    context "珈琲の種類の更新失敗: 珈琲の種類名を空にする" do
+      before do
+        visit new_admin_session_path
+        fill_in "admin[email]", with: admin.email
+        fill_in "admin[password]", with: admin.password
+        click_button "ログイン"
+        visit edit_admin_coffee_path(coffee)
+        @coffee_old_coffee_name = coffee.coffee_name
+        fill_in "coffee[coffee_name]", with: ""
+        click_button "変更内容保存"
+      end
+
+      it "珈琲の種類名が更新されない" do
+        expect(coffee.reload.coffee_name).to eq @coffee_old_coffee_name
+      end
+      it "珈琲の種類名編集画面を表示しており、フォームの内容が正しい" do
+        expect(current_path).to eq "/admin/coffees/" + coffee.id.to_s
+        expect(find_field("coffee[coffee_name]").text).to be_blank
+        expect(page).to have_field "coffee[coffee_name]", with: ""
+      end
+      it "エラーメッセージが表示される" do
+        expect(page).to have_content "珈琲の種類を入力してください"
+      end
+    end
+
+    context "珈琲豆の種類データの新規登録失敗: 珈琲豆の種類名を空にする" do
+      before do
+        visit new_admin_session_path
+        fill_in "admin[email]", with: admin.email
+        fill_in "admin[password]", with: admin.password
+        click_button "ログイン"
+        visit admin_coffee_beans_path(coffee_bean)
+        @coffee_brew = Faker::Lorem.characters(number: 0)
+        fill_in "coffee_bean[coffee_bean_name]", with: @coffee_bean
+      end
+
+      it "珈琲豆の種類名が保存されない" do
+        expect { click_button "新規登録" }.not_to change(CoffeeBean.all, :count)
+      end
+      it "珈琲豆の種類名フォームの内容が正しい" do
+        expect(find_field("coffee_bean[coffee_bean_name]").text).to be_blank
+        expect(page).to have_field "coffee_bean[coffee_bean_name]", with: @coffee_bean
+      end
+      it "バリデーションエラーが表示される" do
+        click_button "新規登録"
+        expect(page).to have_content "珈琲豆の種類を入力してください"
+      end
+    end
+
+    context "珈琲豆の種類名の更新失敗: 珈琲豆の種類名を空にする" do
+      before do
+        visit new_admin_session_path
+        fill_in "admin[email]", with: admin.email
+        fill_in "admin[password]", with: admin.password
+        click_button "ログイン"
+        visit edit_admin_coffee_bean_path(coffee_bean)
+        @coffee_bean_old_coffee_bean_name = coffee_bean.coffee_bean_name
+        fill_in "coffee_bean[coffee_bean_name]", with: ""
+        click_button "変更内容保存"
+      end
+
+      it "珈琲豆の種類名が更新されない" do
+        expect(coffee_bean.reload.coffee_bean_name).to eq @coffee_bean_old_coffee_bean_name
+      end
+      it "珈琲豆の種類名編集画面を表示しており、フォームの内容が正しい" do
+        expect(current_path).to eq "/admin/coffee_beans/" + coffee_bean.id.to_s
+        expect(find_field("coffee_bean[coffee_bean_name]").text).to be_blank
+        expect(page).to have_field "coffee_bean[coffee_bean_name]", with: ""
+      end
+      it "エラーメッセージが表示される" do
+        expect(page).to have_content "珈琲豆の種類を入力してください"
+      end
+    end
+  end
 end
