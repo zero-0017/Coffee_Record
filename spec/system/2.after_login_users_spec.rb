@@ -267,9 +267,6 @@ describe "会員ログイン後のテスト" do
       it "URLが正しい" do
         expect(current_path).to eq "/users"
       end
-      it "自分と他人の画像が表示される" do
-        expect(all("img").size).to eq(2)
-      end
       it "他人の名前が表示される" do
         expect(page).to have_content other_user.name
       end

@@ -455,9 +455,6 @@ describe "管理者ログイン後のテスト" do
       it "「会員一覧」と表示される" do
         expect(page).to have_content "会員一覧"
       end
-      it "自分と他人の画像が表示される" do
-        expect(all("img").size).to eq(2)
-      end
       it "会員IDが表示される" do
         expect(page).to have_content user.id
       end
